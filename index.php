@@ -8,44 +8,44 @@
     
 </head>
 <body>
-<nav class="navbar sticky-top row navbar-light bg-light " id="navStyle">
-                            <div class="col-12 col-md-3">
-                                <div class="navbar-brand">
-                                    <Link to="/">
-                                        <img src="images/logo.png" alt="Pivot" width="30px" height="100%" id="createMarginLeft"/>
-                                        <span id="createMargin">PIVOT</span>
-                                    </Link>
+    <nav class="navbar sticky-top row navbar-light bg-light " id="navStyle">
+                                <div class="col-12 col-md-3">
+                                    <div class="navbar-brand">
+                                        <Link to="/">
+                                            <img src="images/logo.png" alt="Pivot" width="30px" height="100%" id="createMarginLeft"/>
+                                            <span id="createMargin">PIVOT</span>
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-12 col-md-5">
-                                <ul class="nav justify-content-center">
+                                <div class="col-12 col-md-5">
+                                    <ul class="nav justify-content-center">
 
-                                    <li class="nav-item">
-                                        <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true"><i id="createMargin" class="fa fa-clock"></i>Timer</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list-alt"></i>To-Do</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list"></i>Routines</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-calendar"></i>Calendar</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-question"></i>FAQ</a>
-                                    </li>
-                                    
-                                    <div class="dropdown" id="createMarginLeft">
-                                        <button id="dropdown" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"  aria-expanded="false"><i id="createMargin" class="fa fa-user-circle"></i>
-                                      </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">HTML</a></li>
-                                            <li><a href="#">CSS</a></li>
-                                            <li><a href="#">JavaScript</a></li>
-                                        </ul>
-                                        </div>
-</nav>
+                                        <li class="nav-item">
+                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true"><i id="createMargin" class="fa fa-clock"></i>Timer</a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list-alt"></i>To-Do</a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list"></i>Routines</a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-calendar"></i>Calendar</a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-question"></i>FAQ</a>
+                                        </li>
+                                        
+                                        <div class="dropdown" id="createMarginLeft">
+                                            <button id="dropdown" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"  aria-expanded="false"><i id="createMargin" class="fa fa-user-circle"></i>
+                                        </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">HTML</a></li>
+                                                <li><a href="#">CSS</a></li>
+                                                <li><a href="#">JavaScript</a></li>
+                                            </ul>
+                                            </div>
+    </nav>
 
 
 <?php
