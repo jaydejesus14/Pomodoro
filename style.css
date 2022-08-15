@@ -163,6 +163,119 @@ input:focus, textarea:focus {
   font-size: 15px;
 }
 
+
+
+.currentSession {
+  
+  background-color: #F0DFD1;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 100px;
+  cursor: pointer;
+  width: 150px;
+  border-radius: 12px;
+}
+
+.nextSession {
+  background-color: #F0DFD1;
+  opacity: 0.5;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 100px;
+  cursor: pointer;
+  width: 150px;
+  border-radius: 12px;
+}
+
+.card {
+  border-radius: 0;
+  border: none;
+  background-color: #F0DFD1;
+  padding: 5px;
+}
+
+.timers {
+  width: 60%;
+  margin: 30px 0px;
+  padding: 40px 30px;
+  border-radius: 50px;
+  box-sizing: content-box;
+}
+
+.time {
+  background-color: #000000;
+  position: relative;
+  margin: auto;
+  margin-top: 25%;
+  box-sizing: inherit;
+  opacity: 0.5;
+  border: none;
+  padding: 25px 150px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.timeNumber{
+  font-size: 80px;
+}
+
+#timerStart_btn {
+  border-radius: 25px;
+  color: #fff;
+  background-color: #783937;
+  padding: 20px 50px;
+  cursor: pointer;
+  margin-top: 30px;
+  font-size: 30px;
+  border:none;
+  box-shadow: 5px 10px #888888;
+}
+
+#timerStart_btn:hover {
+  border-radius: 25px;
+  color: black;
+  background-color: #783937;
+  padding: 20px 50px;
+  cursor: pointer;
+  border: none;
+  margin-top: 30px;
+  font-size: 30px;
+  box-shadow: 5px 10px #888888;
+}
+
+#skip_btn {
+  border-radius: 50px;
+  color: black;
+  background-color: transparent;
+  padding: 20px 10px;
+  cursor: pointer;
+  border: none;
+  margin-top: 30px;
+  font-size: 30px;
+}
+#timerIcons:hover {
+  color: #783937;
+  cursor: pointer;
+}
+
+
+
+
 @media screen and (max-width: 992px) {
   .card1 {
       width: 100%;
@@ -178,6 +291,9 @@ input:focus, textarea:focus {
       margin-top: 100px !important;
       margin-bottom: 100px !important;
   }
+  .time {
+    padding: 40px 30px !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -192,5 +308,8 @@ input:focus, textarea:focus {
   .right {
       margin-top: 50px !important;
       margin-bottom: 50px !important;
+  }
+  .time {
+    padding: 40px 30px !important;
   }
 }
