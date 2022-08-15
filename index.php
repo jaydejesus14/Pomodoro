@@ -18,21 +18,25 @@
                                 </div>
                             </div>
                             <div class="col-12 col-md-5">
-                                <ul class="nav justify-content-end">
+                                <ul class="nav justify-content-center">
 
                                     <li class="nav-item">
-                                        <a href='/products' class="btn" role="button" id="nav_btn" aria-disabled="true"><i id="createMargin" class="fa fa-clock"></i>Timer</a>
+                                        <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true"><i id="createMargin" class="fa fa-clock"></i>Timer</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a href='/me/cart' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list-alt"></i>To-Do</a>
+                                        <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list-alt"></i>To-Do</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a href='/me/cart' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list"></i>Routines</a>
+                                        <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list"></i>Routines</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a href='/me/cart' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-calendar"></i>Calendar</a>
+                                        <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-calendar"></i>Calendar</a>
                                     </li>
-                                    <div class="dropdown">
+                                    <li className="nav-item">
+                                        <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-question"></i>FAQ</a>
+                                    </li>
+                                    
+                                    <div class="dropdown" id="createMarginLeft">
                                         <button id="dropdown" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"  aria-expanded="false"><i id="createMargin" class="fa fa-user-circle"></i>
                                       </button>
                                         <ul class="dropdown-menu">

@@ -5,13 +5,15 @@ body {
 
 #navStyle {
   background-color: white;
-  padding: 1rem 1rem;
+  padding: 1rem 0.5rem;
+  text-align: center;
 }
 
 #nav_btn{
     font-size: 1rem;
     color: rgb(0, 0, 0);
     border-bottom: 1px solid transparent;
+    text-align: center;
 }
 
 #createMargin {
