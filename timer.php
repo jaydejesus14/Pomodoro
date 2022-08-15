@@ -55,11 +55,9 @@
         
             <div class = "row justify-content-md-center text-center mx-auto">
                 <div class = "col">
-
                     <div class = "currentSession text-center">
                     POMODORO
                     </div>
-
                 </div>
                 <div class = "col-6 mx-auto">
                     <div class = "nextSession text-center">
@@ -68,49 +66,57 @@
                 </div>
                 </div>
             </div>
+
             <div class="card timers mx-auto">
-            <div class = "row justify-content-md-center text-center ml-auto mr-3 mb-1">
-                    <div class = "col ">
-                        <div class = "settingsIcon">
-                        <i class="fa fa-cog" id="timerIcons" style="font-size:24px"></i>
+                <div class = "row justify-content-md-center text-center ml-auto mr-3 mb-1">
+                        <div class = "col ">
+                            <div class = "settingsIcon">
+                            <i class="fa fa-cog" id="timerIcons" style="font-size:24px"></i>
+                        </div>
+                        </div>
                     </div>
+                <div class = "row justify-content-md-center text-center mx-auto">
+                    <div class = "col">
+                        <div class = "time text-center">
+                            <span class = "timeNumber">
+                                25:00
+                        </span>
+                        </div>
+
+                 <!-- Start Pause and Skip Buttons !-->
+                <div class = "row justify-content-md-center text-center mx-auto">
+                    <div class="col">
+                    </div>
+                    <div class="col">
+                        <button class="btn-block" id = "timerStart_btn">
+                            START
+                        </button>
+                    </div>
+                    <div class="col">
+                    <!-- During Pause Skip Icon:
+
+                        <button class="btn-block" id = "skip_btn">
+                    <i class="fa fa-fast-forward" id = "timerIcons" style="font-size:30px"></i>
+                        </button>
+                        !-->
+                    
                     </div>
                 </div>
-            <div class = "row justify-content-md-center text-center mx-auto">
-                <div class = "col">
-
-                    <div class = "time text-center">
-                        <span class = "timeNumber">
-                            25:00
-                    </span>
-                    </div>
-            <div class = "row justify-content-md-center text-center mx-auto">
-
-            <div class="col">
-                
-                </div>
-                <div class="col">
-                    <button class="btn-block" id = "timerStart_btn">
-                        START
-                    </button>
-                </div>
-                <div class="col">
-                <!-- During Pause Skip Icon:
-
-                    <button class="btn-block" id = "skip_btn">
-                <i class="fa fa-fast-forward" id = "timerIcons" style="font-size:30px"></i>
-                    </button>
-                    !-->
-                
-                </div>
-
-            </div>
-            </div>
+            </div>          
                   
+</div>
+</div>
+        <div class = "row justify-content-md-center text-center mx-auto">
+                    <div class = "col mt-3">
+                        <div class = "currentSessionName">
+                        SESSION NAME
+                        </div>
+                        <hr class="solid" id="hrWhite">
 
-</div>
-</div>
-</div>
+                    </div>
+
+        </div>
+
 </section>
 
 
