@@ -55,8 +55,7 @@
         
             <div class = "row justify-content-md-center text-center mx-auto">
                 <div class = "col">
-                    <div class = "currentSession text-center">
-                    POMODORO
+                    <div class = "currentSession text-center">POMODORO
                     </div>
                 </div>
                 <div class = "col-6 mx-auto">
@@ -106,15 +105,101 @@
                   
 </div>
 </div>
-        <div class = "row justify-content-md-center text-center mx-auto">
-                    <div class = "col mt-3">
+        <!-- Session Name, Rewrite Session Name and Sticky Note !-->
+        <div class = "row justify-content-md-center text-center mt-3 mx-auto">
+                    <div class = "col-md-8 text-right">
                         <div class = "currentSessionName">
                         SESSION NAME
-                        </div>
-                        <hr class="solid" id="hrWhite">
-
+                        </div>   
                     </div>
+                    <div class = "col-md-4 text-right mx-auto">
+                        <button class="btn-block" id = "sessions_btns">
+                            <i class="fa fa-pencil-alt" style="font-size:30px" id="indivIcon"></i>
+                            <i class="fa fa-sticky-note" style="font-size:30px" id="indivIcon"></i>
+                        </button>
+                    </div>
+                   
+                    <hr class="solid" id="hrWhite">
+                    
 
+        </div>
+        <div class = "row justify-content-md-center text-center mx-auto">
+        <div class = "col-8 text-left">
+                    <div class = "pomSesions" style = "color:white; font-size:20px;">
+                        POMODORO SESSIONS:
+                    </div>
+                      </div>
+                    <div class ="col-2 text-right mt-1 mr-3">
+                <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i>
+                </div>
+                </div>
+
+        <!-- POMODORO SESSIONS LIST !-->
+        <div class = "row justify-content-md-center text-center mx-auto">
+            <div class="card sessionsList">
+                <div class = "row  justify-content-md-center text-center">
+                <div class = "col-8 text-left">
+                    <div class = "sessionListName">
+                        Session#
+                    </div>
+                </div>
+                <div class ="col-2 text-right mt-1">
+                <i class="fa fa-angle-down" style="font-size:25px" id="expandIcon"></i>
+                </div>
+                
+            </div>
+            
+</div>
+        </div>
+        <!-- ADDING A SESSION !-->
+        <div class = "row justify-content-md-center text-center mx-auto">
+            <div class = "col">
+                <button class="btn-block text-center" id = "addSession_btn">
+                         <i class="fa fa-plus-circle" style="font-size:24px; margin-right:10px;" id="indivIcon"></i> ADD A SESSION
+                </button>
+            </div>
+        </div>
+        <hr class="solid" style="margin-bottom: 10px" id="hrWhite">
+
+        <!-- COMPLETED SESSIONS LIST !-->
+        <div class = "row justify-content-md-center text-center mx-auto mt-6 ">
+        <div class = "col-8 text-left">
+                    <div class = "pomSesions" style = "color:white; font-size:20px;">
+                        COMPLETED POMODORO SESSIONS:
+                    </div>
+                      </div>
+                    <div class ="col-2 text-right mt-1 mr-3">
+                <i class="fa fa-chevron-circle-up" style="font-size:25px" id="expandIcon2"></i>
+                </div>
+                </div>
+
+        <!-- POMODORO SESSIONS LIST !-->
+        <div class = "row justify-content-md-center text-center mx-auto">
+            <div class="card sessionsList">
+                <div class = "row  justify-content-md-center text-center">
+                <div class = "col-8 text-left">
+                    <div class = "sessionListName">
+                        Session#
+                    </div>
+                </div>
+                <div class ="col-2 text-right mt-1">
+                <i class="fa fa-angle-down" style="font-size:25px" id="expandIcon"></i>
+                </div>
+                
+            </div>
+            
+</div>
+        </div>
+        
+        <hr class="solid" id="hrWhite">
+
+        <!-- SAVING ALL AS ROUTINE !-->
+        <div class = "row justify-content-md-center text-center mx-auto">
+            <div class = "col">
+                <button class="btn-block text-center" id = "addSession_btn">
+                         <i class="fa fa-save" style="font-size:24px; margin-right:10px;" id="indivIcon"></i> SAVE ALL AS ROUTINE
+                </button>
+            </div>
         </div>
 
 </section>
