@@ -12,7 +12,7 @@
                                 <div class="col-12 col-md-3">
                                     <div class="navbar-brand">
                                         <Link to="/">
-                                            <img src="images/logo.png" alt="Pivot" width="30px" height="100%" id="createMarginLeft"/>
+                                            <img src="../images/logo.png" alt="Pivot" width="30px" height="100%" id="createMarginLeft"/>
                                             <span id="createMargin">PIVOT</span>
                                         </Link>
                                     </div>
@@ -50,7 +50,6 @@
 
 <?php
 
-ECHO "Hello World!<br>";
 
 ?> 
 
