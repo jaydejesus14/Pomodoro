@@ -317,6 +317,10 @@ input:focus, textarea:focus {
   border-top: 2px solid white;
   width: 80%
 }
+#hrBlack{
+  border-top: 2px solid black;
+  width: 100%
+}
 .sessionsList {
   width: 60%;
   margin: 30px 0px;
@@ -376,6 +380,27 @@ input:focus, textarea:focus {
   padding: 10px;
   width:100%;
 }
+
+
+
+.emailCard{
+  width: 60%;
+  margin: 30px 0px;
+  padding: 40px 30px;
+  border-radius: 50px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+}
+
+.emailVerificationHeader {
+  color: black;
+  font-size: 40px;
+}
+
+
+
+
 
 
 #signUpContainer{
@@ -446,6 +471,8 @@ font-size: 80%!important;
 transform: translate3d(0,-100%,0)!important;
 opacity: 1!important;
 }
+
+
 
 
 @media screen and (max-width: 992px) {
