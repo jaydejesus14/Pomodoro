@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel='stylesheet' href="style.css">
+    <link rel='stylesheet' href="landing.css">
     
 </head>
+
 <body>
     <nav class="navbar sticky-top row navbar-light bg-light " id="navStyle">
                                 <div class="col-12 col-md-3">
@@ -48,11 +49,50 @@
                                             
     </nav>
 
-    <div class="getstartedbtn">
-        <a class="first-link" href="user/login.html">
-          Get Started
-      </div>
-      
+          
+          <header class = "header">
+            <div class="container">
+            <div class="row">
+            
+                <div class="col-sm-6 banner-info">
+                    
+                    <h1 class="fontstyleH1">POMODORO TECHNIQUE</h1>
+                    <p class="caption">Pomodoro Technique is a tool in helping 
+                        them improve their focus which would lead to increase in their productivity. 
+                        With their tasks divided into chunks of time, they would be able to focus on finishing 
+                        their goal within the 25 minute timeframe for productivity (Scroggs, 2020).</p>
+                    
+                </div>
+                
+                <div class="col-sm-6 banner-image">
+                <img src="images/logo.png" class="responsive">
+                <div class="row justify-content-center my-3 px-3">
+                    <button class="btn-block btn-color" id = "started_btn">GET STARTED</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        </header>
 
+        <script src ="smooth-scroll.js"></script>
+        <script>
+        var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
+    <div class="section">
+            <div class="container">
+                <div class="content-section">
+                    <div class="title">
+                        <h1 id="about">HOW TO USE POMODORO</h1>
+                    </div>
+                    <div class="content">
+                        <p>There would be a 25 minute session that would be followed with a 5 minute break. 
+                            A productive morning can be represented by four Pomodoro sessions. 
+                            It's amazing how much you can accomplish in brief periods of concentrated effort.
+                            To determine the effectiveness of the Pomodoro Technique the user must have 4 successful pomodoros (Collins B, 2020). (Temporary)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
