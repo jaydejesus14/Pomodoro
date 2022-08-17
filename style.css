@@ -398,6 +398,46 @@ input:focus, textarea:focus {
   font-size: 40px;
 }
 
+.emailConfirmBtn {
+  border-radius: 20px;
+  color: #fff;
+  background-color: #783937;
+  padding: 15px;
+  cursor: pointer;
+  width: 250px;
+  border: none;
+  margin: 15px 10px;
+  border: 2px solid transparent;
+}
+
+.emailCancelBtn {
+  border-radius: 20px;
+  color: black;
+  background-color: white;
+  padding: 15px;
+  cursor: pointer;
+  width: 250px;
+  border: none;
+  margin: 15px 10px;
+  border: 2px solid white;
+}
+.emailCancelBtn:hover, .emailConfirmBtn:hover {
+  border-radius: 20px;
+  color: black;
+  background-color: white;
+  padding: 15px;
+  cursor: pointer;
+  width: 250px;
+  border: none;
+  margin: 15px 10px;
+  border: 2px solid #783937;
+}
+
+.emailInput{
+  padding: 0.2em; 
+  box-sizing: border-box;
+  width: 100% 
+}
 
 
 
@@ -437,40 +477,8 @@ input:focus, textarea:focus {
   text-decoration: underline;
   color: #ff39c2!important;
 }
-.form-control{
-  border: none;
-  box-shadow: 0px 0.1px 0px 0px #dae0e5;
-  border-radius: 0;
-}
-.jk,
-.lm{
-  box-shadow: 0px 0.5px 0px 0px #dae0e5!important;
-}
-.form-contro input [type="text"],
-.form-control input [type="email"],
-.form-control input [type="password"]
-{
-  color: black;
-}
 
-.form-control:focus{
-outline: 0;
-box-shadow: 0px 0.5px 0px 0px #dae0e5!important;
-}
 
-.form-control-placeholder{
-position: absolute;
-top: 0;
-padding: 7px 0 0 0;
-transition: all 300ms;
-opacity: 0.5;
-}
-.form-control:focus+.form-control-placeholder,
-.form-control:valid+.form-control-placeholder {
-font-size: 80%!important;
-transform: translate3d(0,-100%,0)!important;
-opacity: 1!important;
-}
 
 
 
