@@ -84,12 +84,12 @@
                         <input type="password" id = "password" class="form-control" placeholder="Password">
                     </div>
                     <div class="form-group col-md-6 fsix py-3">
-                        <input type="password" id = "c_password" class="form-control" placeholder="Confirm Password">
+                        <input type="password" id = "confirm_password" class="form-control" placeholder="Confirm Password">
                     </div>
                 </div>
                 <div class="row rfour">
                     <div class="form-group col-md-6 fseven py-3">
-                        <button type="submit" class="btn btn-primary" id = "btnOnSignUp"><span class = "spanSignUp">Create account</span></button>
+                        <button type="submit" class="btn btn-primary" onclick="register()" id = "btnOnSignUp"><span class = "spanSignUp">Create account</span></button>
                     </div>
                     <div class="form-group col-md-6 feight py-3">
                         <p class="text-muted">Already have an account?<br><a class = "backToLogin" href="#">Sign in</a></p>
@@ -102,7 +102,43 @@
 </div>
     </section>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
 
+        function register(){
+            var first_name = $('#first_name').val();
+            var last_name = $('#last_name').val();
+            var user_name = $('#user_name').val();
+            var password = $('#password').val();
+            var confirm_password = $('#confirm_password').val();
+            var email = $('#email_add').val();
+            
+            if(confirm_password == password){
+            $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/user_register.php",
+                dataType: "json",
+                data:{
+                    first_name: first_name,
+                    last_name:  last_name,
+                    user_name:  user_name,
+                    password: password,
+                    confirm_password: confirm_password,
+                    email: email_add,
+                },
+                cache:false,
+                success: function(dataResult){
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.status){
+                        alert("Register Success!");
+                    }
+                    else{
+                        alert("Error!");
+                    }
+                }
+            })
+        }
+    }
+    </script>
 
 </body>
 </html>
