@@ -4,9 +4,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans+Narrow&family=Shippori+Mincho:wght@400;500&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 body {
     background-color: #783937;
-    font-family: 'Lato', sans-serif
+    font-family: 'Lato', sans-serif;
     
   }
 
@@ -51,12 +54,18 @@ body {
 }
 
 hr.solid {
-  border-top: 2px solid black;
+  border-top: 5px solid black;
 }
 
 .fontstyleH1{
     color: white;
-    font-size: 40px;
+    font-size: 3.9vw;
+    font-family: 'Lora', serif;
+}
+H1{
+  color: black;
+  font-size: 3.9vw;
+  font-family: 'Lora', serif;
 }
 
 input, textarea {
@@ -107,6 +116,8 @@ input:focus, textarea:focus {
 }
 
 .responsive {
+    position: relative;
+    display: block;
     width: 100%;
     border: 5px solid black;
     background:#F0DFD1;
@@ -114,21 +125,31 @@ input:focus, textarea:focus {
     30px 35px 0px 3px black;
     max-width: 1000px;
     margin-left: 70px;
+    margin-top: -720px;
     margin-right: 10px;
     height: auto;
   }
 
 .header{
-	height: 60vh;
-	
-}
-.header {
-  padding: 60px;
+	height: auto;
+  margin-top: 50px;
+  padding-bottom: 220px;
   text-align: center;
   background: #783937;
   color: black;
   font-size: 30px;
 }
+
+.header1{
+	height: auto;
+	margin-bottom: -200px;
+  text-align: center;
+  background: #783937;
+  color: black;
+  font-size: 30px;
+  font-size: 1.7vw;
+}
+
 
 .heading {
   margin-bottom: 60px !important;
@@ -174,8 +195,8 @@ input:focus, textarea:focus {
 
 #started_btn:hover {
   border-radius: 50px;
-  color: #fff;
-  background-color: #783937;
+  color: black;
+  background-color: #fff;
   padding: 15px;
   cursor: pointer;
   border: 10px #783937;
@@ -183,7 +204,7 @@ input:focus, textarea:focus {
 }
 
 .caption{
-	font-size: 20px;
+	font-size: 21px;
 	text-align: center;
     width: 100%;
 }
@@ -209,30 +230,79 @@ input:focus, textarea:focus {
 	margin-top: -50px;
     margin-left: -50px;
     margin-right: 50px;
+    font-family: 'Lora', serif;
+    color:#fff;
+}
+footer{
+  font-weight: 100;
+	position: relative;
+	bottom:0;
+	left:0;
+	right:0;
+	background:#fff;
+	height:auto;
+	width:100vw;
+	font-family: 'Josefin Sans', sans-serif;
+	padding-top:50px;
+  padding-bottom: 20px;
+	color: #212121;
+}
+
+.footer-content{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	flex-direction:column;
+	text-align:center;
+}
+
+.footer-content h3{
+	font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+	font-style:normal;
+	font-weight:400;
+	font-size:25px;
+	line-height:20px;
+	text-transform:capitalize;
+}
+
+.footer-content p{
+	font-family: 'Josefin Sans', sans-serif;
+	font-style:normal;
+	font-size:20px;
+	max-width:500px;
+	margin:10px auto;
+	line-height:28px;
+	
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
 .section{
 	width: 100.75%;
-	min-height: 60vh;
+	min-height: 80vh;
 	background-color: #F0DFD1;
+  left: 0;
+  right: 0;
+  top: 1000px;
+  bottom: 0;
+
+  /*this to solve "the content will not be cut when the window is smaller than the content": */
 }
 .container{
 	width: 80%;
-	display: block;
 	padding-top: 100px;
 }
 .content-section{
+  position: relative;
 	float: left;
-	width: 55%;
-}
-.image-section{
-	float: right;
-	width: 10%;
+  margin-left: -50px;
+	width: 50%;
 }
 .content-section .title{
 	text-transform: uppercase;
 	font-size: 28px;
+  text-align: center;
+  margin-top: -10px;
 }
 .content-section .content h3{
 	margin-top: 20px;
@@ -241,8 +311,15 @@ input:focus, textarea:focus {
 }
 .content-section .content p{
 	margin-top: 10px;
-	font-family: quicksand;
-	font-size: 18px;
+	font-family: 'Lora', serif;
+	font-size: 21px;
+	line-height: 1.5;
+}
+.content-section .content li{
+	margin-top: 10px;
+  font-weight: bold;
+	font-family: 'Lora', serif;
+	font-size: 21px;
 	line-height: 1.5;
 }
 .content-section .content .button{
