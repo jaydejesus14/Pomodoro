@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans+Narrow&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans+Narrow&family=Shippori+Mincho:wght@400;500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+body {
+    background-color: #783937;
+    font-family: 'Lato', sans-serif;
+    
+  }
+
+.pageContents {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+ }
+ 
+
+#navStyle {
+  padding: 1rem 0.5rem;
+  text-align: center;
+  
+}
+
+#nav_btn{
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid transparent;
+    text-align: center;
+}
+
+#createMargin {
+    margin-right: 0.5rem;
+  }
+  #createMarginLeft {
+    margin-left: 1rem;
+    margin-right:0.5rem;
+  }
+  
+#nav_btn:hover{
+    font-size: 1rem;
+    color: black;
+    border-bottom: 1px solid #783937;
+    
+}
+
+#dropdown{
+    background-color: #783937;
+}
+
+hr.solid {
+  border-top: 5px solid black;
+}
+
+.fontstyleH1{
+    color: white;
+    font-size: 3.9vw;
+    font-family: 'Lora', serif;
+}
+H1{
+  color: black;
+  font-size: 3.9vw;
+  font-family: 'Lora', serif;
+}
+
+input, textarea {
+  background-color: black;
+  border-radius: 50px !important;
+  padding: 12px 15px 12px 15px !important;
+  width: 100%;
+  box-sizing: border-box;
+  border: none !important;
+  border: 1px solid #F3E5F5 !important;
+  font-size: 16px !important;
+  color: #000 !important;
+  font-weight: 400;
+}
+
+input:focus, textarea:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #783937 !important;
+  outline-width: 0;
+  font-weight: 400;
+}
+
+
+
+#started_btn:hover {
+	border: none;
+	color: #F0DFD1;
+	box-shadow: 5px 5px 10px #999;
+	transition: 0.3s;
+}
+
+.card {
+  border-radius: 0;
+  border: none;
+  background-color: #F0DFD1;
+}
+
+.card1 {
+  width: 50%;
+  padding: 40px 30px 10px 30px;
+}
+
+.card2 {
+  width: 50%;
+  background-color: gray;
+}
+
+.responsive {
+    position: relative;
+    display: block;
+    width: 100%;
+    border: 5px solid black;
+    background:#F0DFD1;
+    box-shadow: 30px 35px #783937, 
+    30px 35px 0px 3px black;
+    max-width: 1000px;
+    margin-left: 70px;
+    margin-top: -720px;
+    margin-right: 10px;
+    height: auto;
+  }
+
+.header{
+	height: auto;
+  margin-top: 50px;
+  padding-bottom: 220px;
+  text-align: center;
+  background: #783937;
+  color: black;
+  font-size: 30px;
+}
+
+.header1{
+	height: auto;
+	margin-bottom: -200px;
+  text-align: center;
+  background: #783937;
+  color: black;
+  font-size: 30px;
+  font-size: 1.7vw;
+}
+
+
+.heading {
+  margin-bottom: 60px !important;
+}
+
+::placeholder {
+  color: #000 !important;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #000 !important;
+}
+
+::-ms-input-placeholder {
+  color: #000 !important;
+}
+
+.form-control-label {
+  font-size: 12px;
+  margin-left: 15px;
+}
+
+
+#logo {
+  width: 80px;
+
+}
+
+#started_btn {
+  border-radius: 50px;
+  color: black;
+  margin-left: 170px;
+  margin-top: 50px;
+  background-color: #fff;
+  padding: 15px;
+  width: 300px;
+  min-width: 200px;
+  cursor: pointer;
+  border: none;
+  margin-top: 40px;
+}
+
+#started_btn:hover {
+  border-radius: 50px;
+  color: black;
+  background-color: #fff;
+  padding: 15px;
+  cursor: pointer;
+  border: 10px #783937;
+  margin-top: 40px;
+}
+
+.caption{
+	font-size: 21px;
+	text-align: center;
+    width: 100%;
+}
+
+#started_a{
+  color: #000;
+}
+
+#started_a:hover {
+  color: #000;
+}
+
+.bottom {
+  width: 100%;
+  margin-top: 50px !important;
+}
+
+.sm-text {
+  font-size: 15px;
+}
+
+.banner-info{
+	margin-top: -50px;
+    margin-left: -50px;
+    margin-right: 50px;
+    font-family: 'Lora', serif;
+    color:#fff;
+}
+footer{
+  font-weight: 100;
+	position: relative;
+	bottom:0;
+	left:0;
+	right:0;
+	background:#fff;
+	height:auto;
+	width:100vw;
+	font-family: 'Josefin Sans', sans-serif;
+	padding-top:50px;
+  padding-bottom: 20px;
+	color: #212121;
+}
+
+.footer-content{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	flex-direction:column;
+	text-align:center;
+}
+
+.footer-content h3{
+	font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+	font-style:normal;
+	font-weight:400;
+	font-size:25px;
+	line-height:20px;
+	text-transform:capitalize;
+}
+
+.footer-content p{
+	font-family: 'Josefin Sans', sans-serif;
+	font-style:normal;
+	font-size:20px;
+	max-width:500px;
+	margin:10px auto;
+	line-height:28px;
+	
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+.section{
+	width: 100.75%;
+	min-height: 80vh;
+	background-color: #F0DFD1;
+  left: 0;
+  right: 0;
+  top: 1000px;
+  bottom: 0;
+
+  /*this to solve "the content will not be cut when the window is smaller than the content": */
+}
+.container{
+	width: 80%;
+	padding-top: 100px;
+}
+.content-section{
+  position: relative;
+	float: left;
+  margin-left: -50px;
+	width: 50%;
+}
+.content-section .title{
+	text-transform: uppercase;
+	font-size: 28px;
+  text-align: center;
+  margin-top: -10px;
+}
+.content-section .content h3{
+	margin-top: 20px;
+	color:#5d5d5d;
+	font-size: 21px;
+}
+.content-section .content p{
+	margin-top: 10px;
+	font-family: 'Lora', serif;
+	font-size: 21px;
+	line-height: 1.5;
+}
+.content-section .content li{
+	margin-top: 10px;
+  font-weight: bold;
+	font-family: 'Lora', serif;
+	font-size: 21px;
+	line-height: 1.5;
+}
+.content-section .content .button{
+	margin-top: 30px;
+}
+.content-section .content .button a{
+	background-color: #3d3d3d;
+	padding:12px 40px;
+	text-decoration: none;
+	color:#fff;
+	font-size: 25px;
+	letter-spacing: 1.5px;
+}
+.content-section .content .button a:hover{
+	background-color: #a52a2a;
+	color:#fff;
+}
+.content-section .social{
+	margin: 40px 40px;
+}
+.content-section .social i{
+	color:#a52a2a;
+	font-size: 30px;
+	padding:0px 10px;
+}
+.content-section .social i:hover{
+	color:#3d3d3d;
+}
+@media screen and (max-width: 768px){
+	.container{
+	width: 80%;
+	display: block;
+	margin:auto;
+	padding-top:50px;
+}
+.content-section{
+	float:none;
+	width:100%;
+	display: block;
+	margin:auto;
+}
+.image-section{
+	float:none;
+	width:10%;
+}
+.image-section img{
+	width: 10%;
+	height: auto;
+	display: block;
+	margin:auto;
+}
+.content-section .title{
+	text-align: center;
+	font-size: 19px;
+}
+.content-section .content .button{
+	text-align: center;
+}
+.content-section .content .button a{
+	padding:9px 30px;
+}
+.content-section .social{
+	text-align: center;
+}
+}
