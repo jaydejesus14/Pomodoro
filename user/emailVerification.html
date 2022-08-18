@@ -52,7 +52,7 @@
         <div class="container px-5 py-5 mx-auto">
             <div class="container d-flex justify-content-around ">
                 <div class="card timers mx-auto">
-                    <div class = "row justify-content-md-center text-center mx-auto mt-4 mr-3 mb-1">
+                    <div class = "row justify-content-md-center text-center mx-auto mt-4 mr-3 ">
                         <div class = "col ">
                             <i class="fa fa-envelope" id="timerIcons" style="font-size:80px"></i>
                         </div>
@@ -67,8 +67,28 @@
                             You're almost there!
                             We've sent an instructions on your email for verification in order to complete your sign-up. Please check your email and close this tab.
                         </p>
+                        <div class="form-group">
+                        <div class="form-group mt-2">
+                            <label class="form-control-label text-muted">OTP</label>
+                            <input type="text" class ="emailInput"id="psw" name="otp" placeholder="code" class="form-control form-control-lg">
+                        </div>
+                        </div>
+                        
+
                     </div>
-                    <div class = "row justify-content-md-center text-center mx-auto mt-4 mr-3 mb-1">
+                    <div class = "row justify-content-md-center text-center mx-auto  mr-3 mb-1">
+                        <div class = "col-mb-6">
+                                
+                            <button class="btn-block btn-color emailConfirmBtn" id = "emailConfirmBtn">Verify</button>
+                        </div>
+
+                        <div class = "col-mb-6">
+                            <button class="btn-block btn-color emailCancelBtn" id = "">Cancel</button>
+                        </div>
+                       
+                           
+                               
+                            </div>
 
                     </div>
                     
