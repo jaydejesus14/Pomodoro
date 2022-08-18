@@ -7,7 +7,7 @@
     <link rel='stylesheet' href="style.css">
     
 </head>
-<body>
+<body onload="template()">
     <nav class="navbar sticky-top row navbar-light bg-light " id="navStyle">
                                 <div class="col-12 col-md-3">
                                     <div class="navbar-brand">
@@ -77,8 +77,10 @@
                 <div class = "row justify-content-md-center text-center mx-auto">
                     <div class = "col">
                         <div class = "time text-center">
-                            <span class = "timeNumber">
-                                25:00
+                            <span class = "row">
+                            <h4 id="minutes"></h4>
+                            <h4>:</h4>
+                            <h4 id="seconds"></h4>
                         </span>
                         </div>
 
@@ -87,7 +89,7 @@
                     <div class="col">
                     </div>
                     <div class="col">
-                        <button class="btn-block" id = "timerStart_btn">
+                        <button class="btn-block" onclick="start()" id = "timerStart_btn">
                             START
                         </button>
                     </div>
@@ -204,7 +206,7 @@
 
 </section>
 
-
+<script src="timer.js"></script>
 
 </body>
 </html>
