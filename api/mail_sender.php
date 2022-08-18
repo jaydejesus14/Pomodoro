@@ -18,7 +18,7 @@ if($request_type == 'verification')
   }
   else
   {
-    $subject = "Patajo Dental Clinic Verification Code";
+    $subject = "Pivot Verification Code";
 
     $message = '<html> <body align="center" style="background-color:#DFDFDF; margin:0 auto; padding:0; width:100%; ">';
     $message .= '<div style="background-color:#dfdfdf;padding:0;margin:0 auto;width:100%;">';
@@ -42,7 +42,7 @@ if($request_type == 'verification')
     $message .= '<table id="outertable" border="0" cellspacing="0" cellpadding="0" align="center" style="font-family:Tahoma,Verdana,sans-serif; min-width:290px;"width="550">';
     $message .= '<tr class="legalfooter">';
     $message .= '<td class="legal" style="color: #777777; font-family: Helvetica,Arial,sans-serif; font-size: 9pt; text-align: center;"> <br>';
-    $message .= '© 2022 Patajo Dental Clinic. All rights reserved.';
+    $message .= '© 2022 Pivot. All rights reserved.';
     $message .= '<br><br></td></tr></table><br><br></div></body>';
 
 
@@ -62,7 +62,7 @@ elseif($request_type == 'forgot_password')
   $sql = "SELECT * FROM tbl_user WHERE user_email = '$to'";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
-    $subject = "Patajo Dental Clinic Verification Code";
+    $subject = "Pivot Verification Code";
 
     $message = '<html> <body align="center" style="background-color:#DFDFDF; margin:0 auto; padding:0; width:100%; ">';
     $message .= '<div style="background-color:#dfdfdf;padding:0;margin:0 auto;width:100%;">';
@@ -86,7 +86,7 @@ elseif($request_type == 'forgot_password')
     $message .= '<table id="outertable" border="0" cellspacing="0" cellpadding="0" align="center" style="font-family:Tahoma,Verdana,sans-serif; min-width:290px;"width="550">';
     $message .= '<tr class="legalfooter">';
     $message .= '<td class="legal" style="color: #777777; font-family: Helvetica,Arial,sans-serif; font-size: 9pt; text-align: center;"> <br>';
-    $message .= '© 2022 Patajo Dental Clinic. All rights reserved.';
+    $message .= '© 2022 Pivot. All rights reserved.';
     $message .= '<br><br></td></tr></table><br><br></div></body>';
 
     $header = "From:abc@somedomain.com \r\n";

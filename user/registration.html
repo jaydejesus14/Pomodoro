@@ -84,9 +84,7 @@
                     </div>
                     <div class="form-group col-md-6 ffour py-3">
 
-                        <input type="email" id = "email" class="form-control lm" placeholder="Email Address">
-
-                        <input type="email" class = "regForm" id = "email_add" class="form-control lm" placeholder="Email Address">
+                        <input type="email" class = "regForm" id = "email" class="form-control lm" placeholder="Email Address">
                     </div>
                 </div>
                 <div class="row rthree">
@@ -116,7 +114,7 @@
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-            
+
         function register(){
             var first_name = $('#first_name').val();
             var last_name = $('#last_name').val();
@@ -143,7 +141,7 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.status){
                         alert("Register Success!");
-                        window.location = "login.html";
+                        window.location = "emailVerification.html";
                     }
                     else{
                         alert("Error!");
@@ -152,6 +150,7 @@
             })
         }
     }
+    
     </script>
 
 </body>
