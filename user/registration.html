@@ -62,7 +62,7 @@
         <!--right-column-->
         <div class="col-xl-10 col-12 xcolSignUp">
             <h2 class="title pt-5 pb-3" id="titleSignUp">Sign up</h2>
-            <form class="myform" type="post" >
+            <form action="javascript:register();" method="POST" id="signup">
                 <div class="row rone">
                     <div class="form-group col-md-6 fone py-3">
                         <input type="text" id = "first_name" class="form-control" placeholder="First Name"> 
@@ -76,7 +76,7 @@
                         <input type="text" id = "user_name" class="form-control jk" placeholder="Username">
                     </div>
                     <div class="form-group col-md-6 ffour py-3">
-                        <input type="email" id = "email_add" class="form-control lm" placeholder="Email Address">
+                        <input type="email" id = "email" class="form-control lm" placeholder="Email Address">
                     </div>
                 </div>
                 <div class="row rthree">
@@ -89,7 +89,7 @@
                 </div>
                 <div class="row rfour">
                     <div class="form-group col-md-6 fseven py-3">
-                        <button type="submit" class="btn btn-primary" onclick="register()" id = "btnOnSignUp"><span class = "spanSignUp">Create account</span></button>
+                        <button type="submit" class="btn btn-primary" id = "btnOnSignUp"><span class = "spanSignUp">Create account</span></button>
                     </div>
                     <div class="form-group col-md-6 feight py-3">
                         <p class="text-muted">Already have an account?<br><a class = "backToLogin" href="#">Sign in</a></p>
@@ -101,19 +101,19 @@
     </div>
 </div>
     </section>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+            
         function register(){
             var first_name = $('#first_name').val();
             var last_name = $('#last_name').val();
             var user_name = $('#user_name').val();
             var password = $('#password').val();
             var confirm_password = $('#confirm_password').val();
-            var email = $('#email_add').val();
+            var email = $('#email').val();
             
             if(confirm_password == password){
-            $.ajax({
+                $.ajax({
                 type:"POST",
                 url: "http://localhost/pomodoro/api/user_register.php",
                 dataType: "json",
@@ -123,13 +123,14 @@
                     user_name:  user_name,
                     password: password,
                     confirm_password: confirm_password,
-                    email: email_add,
+                    email: email,
                 },
                 cache:false,
                 success: function(dataResult){
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.status){
                         alert("Register Success!");
+                        window.location = "login.html";
                     }
                     else{
                         alert("Error!");

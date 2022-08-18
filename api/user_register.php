@@ -4,7 +4,7 @@
 	$last_name  = $_POST['last_name'];
     $user_name  = $_POST['user_name'];
     $password   = hash('ripemd160', $_POST['password']);
-    $email      = $_POST['email_add'];
+    $email      = $_POST['email'];
 // need to change id (eto ung nasa post)
 
 	
@@ -16,9 +16,9 @@
 	else
 	{
         //change column names 
-    	$sql = "INSERT INTO user_info (user_uname,user_fname,user_lname,user_email,user_password) 
+    	$sql = "INSERT INTO user_info (user_fname,user_lname,user_uname,user_email,user_password) 
 		VALUES 
-    	('$first_name','$last_name','$user_name','$password','$email',')";
+    	('$first_name','$last_name','$user_name','$email','$password')";
 		if (mysqli_query($conn, $sql)) {
 			echo json_encode(array("status"=>true));
 		} 
