@@ -512,7 +512,49 @@ input:focus, textarea:focus {
   font-weight: 400;
 }
 
+/* TO-DO LIST */
 
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 70;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+#toDO {
+  margin: 10px;
+  color: black;
+}
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  position: relative;
+  margin: 10px 20px;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+
+#dropDown{
+  background-color: #F0DFD1;
+  padding: 25px;
+}
+
+#dropdownbtns{
+  text-decoration: none;
+  color: black;
+  margin: 10px;
+}
 
 
 
@@ -535,6 +577,8 @@ input:focus, textarea:focus {
   .time {
     padding: 40px 30px !important;
   }
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
 @media screen and (max-width: 768px) {
@@ -553,4 +597,6 @@ input:focus, textarea:focus {
   .time {
     padding: 40px 30px !important;
   }
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
