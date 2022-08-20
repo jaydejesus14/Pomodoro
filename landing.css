@@ -57,6 +57,10 @@ hr.solid {
   border-top: 5px solid black;
 }
 
+hr.light {
+  border-top: 2px solid rgb(51, 50, 50);
+}
+
 .fontstyleH1{
     color: white;
     font-size: 3.9vw;
@@ -384,4 +388,50 @@ footer{
 .content-section .social{
 	text-align: center;
 }
+}
+.title2{
+  width: 100%;
+  text-align: center !important;
+  padding-top: 80px;
+  background-color: #783937;
+}
+.fontsz{
+  font-size: 50px;
+  color: #fff;
+}
+.solid2{
+  border-top: 5px solid #fff;
+  width: 75vh;
+  margin:0 auto;
+}
+.fix-div{
+  position:fixed; 
+  height:100%; 
+  width:100%; 
+  left:0; 
+  top:50px; 
+  z-index:1;
+}
+
+.max-width {
+  position:static; 
+  z-index:1; 
+  margin-top: 150px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid #F0DFD1;
+  background-color: #F0DFD1;
+  border-radius: 10px;
+  padding: 40px 50px 35px 50px;
+}
+
+.question p{
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  font-size: 3vmin;
+}
+.answer{
+  font-family: 'Lato', sans-serif;
+  font-size: 2.5vmin;
 }
