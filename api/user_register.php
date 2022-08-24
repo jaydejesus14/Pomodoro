@@ -27,6 +27,6 @@
 			echo json_encode(array("status"=>false));
 		}
 	}
-	mysqli_close($conn);
+	mysqli_close($conn);	
 ?>
 
