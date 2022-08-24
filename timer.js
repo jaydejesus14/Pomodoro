@@ -3,6 +3,7 @@ const timer = {
     shortBreak: 5,
     longBreak: 15,
     longBreakInterval: 4,
+    sessions: 0,
   };
   
   let interval;
@@ -39,6 +40,8 @@ const timer = {
     let { total } = timer.remainingTime;
     const endTime = Date.parse(new Date()) + total * 1000;
   
+    if (timer.mode === 'pomodoro') timer.sessions++;
+  
     mainButton.dataset.action = 'STOP';
     mainButton.textContent = 'STOP';
     mainButton.classList.add('active');
@@ -46,10 +49,23 @@ const timer = {
     interval = setInterval(function() {
       timer.remainingTime = getRemainingTime(endTime);
       updateClock();
-  
       total = timer.remainingTime.total;
       if (total <= 0) {
         clearInterval(interval);
+  
+        switch (timer.mode) {
+          case 'pomodoro':
+            if (timer.sessions % timer.longBreakInterval === 0) {
+              switchMode('longBreak');
+            } else {
+              switchMode('shortBreak');
+            }
+            break;
+          default:
+            switchMode('pomodoro');
+        }
+  
+        startTimer();
       }
     }, 1000);
   }
@@ -69,8 +85,12 @@ const timer = {
   
     const min = document.getElementById('js-minutes');
     const sec = document.getElementById('js-seconds');
+    
     min.textContent = minutes;
     sec.textContent = seconds;
+    const text = timer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
+    document.title = `${minutes}:${seconds} — ${text}`;
+  
   }
   
   function switchMode(mode) {
