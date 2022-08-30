@@ -588,7 +588,8 @@ input:focus, textarea:focus {
 
 
 .subTask{
-  height: 80px;
+  min-height: 80px;
+  max-height: 100%;
   width: 100%;
   background-color: white;
   padding: 25px;
@@ -597,6 +598,36 @@ input:focus, textarea:focus {
   margin-bottom: 10px;
 
 }
+.collapse{
+  height: 100%;
+  background-color: white;
+  position: overlay;
+}
+.wrapper{
+  height: 100%;
+  background-color: white;
+  position: overlay;
+  
+}
+.subTask:hover{
+  min-height: 80px;
+  max-height: 100%;
+  width: 100%;
+  background-color: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  margin-bottom: 10px;
+  border: 1px solid #783937;
+
+}
+.moreBtn{
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+.noteSubTask {
+  height: 80px;
+}
 
 .addSubTask{
   height: 80px;
@@ -604,6 +635,7 @@ input:focus, textarea:focus {
   background-color: #F0DFD1;
   padding: 25px;
   border-radius: 20px;
+  position: relative;
   
   margin-bottom: 10px;
 
@@ -638,8 +670,11 @@ input:focus, textarea:focus {
   .time {
     padding: 40px 30px !important;
   }
-  .sidenav {padding-top: 15px;}
+  .sidenav {padding-top: 15px;padding-right: 15px;}
   .sidenav a {font-size: 18px;}
+  .todoCard {
+    padding: 40px 30px;
+  }
 }
 
 @media screen and (max-width: 768px) {
