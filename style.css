@@ -562,7 +562,7 @@ input:focus, textarea:focus {
 }
 
 .todoCard {
-  width: 300px;
+  width: 350px;
   margin: 30px 20px;
   padding: 40px 30px;
   border-radius: 20px;
@@ -585,6 +585,21 @@ input:focus, textarea:focus {
   max-height: 100px;
   overflow-y: auto;
 }
+
+
+.subTask{
+  height: 80px;
+  width: 100%;
+  background-color: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  margin-bottom: 10px;
+
+ 
+}
+
+
 
 
 
