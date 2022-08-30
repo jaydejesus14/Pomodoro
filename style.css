@@ -575,8 +575,8 @@ input:focus, textarea:focus {
 }
 
 #todoBody{
-  min-height: 450px;
-  max-height: 450px;
+  min-height: 500px;
+  max-height: 500px;
   overflow-y: auto;
 
 }
@@ -596,6 +596,22 @@ input:focus, textarea:focus {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   margin-bottom: 10px;
 
+}
+
+.addSubTask{
+  height: 80px;
+  width: 100%;
+  background-color: #F0DFD1;
+  padding: 25px;
+  border-radius: 20px;
+  
+  margin-bottom: 10px;
+
+}
+
+#subTaskName:hover {
+  color: #783937;
+  cursor: pointer;
  
 }
 
