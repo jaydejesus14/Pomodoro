@@ -3,15 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans+Narrow&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans+Narrow&family=Shippori+Mincho:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Lato&family=PT+Sans+Narrow&family=Shippori+Mincho:wght@400;500&display=swap');
+
 
 body {
     background-color: #783937;
     font-family: 'Lato', sans-serif;
      width: 100%;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
-  overflow-x: hidden;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
     
   }
  
@@ -648,6 +650,32 @@ input:focus, textarea:focus {
 }
 
 
+
+/* ROUTINES */
+.titleRoutine{
+  font-size: 38px;
+  color: white;
+  font-family: 'EB Garamond', serif;
+  margin-bottom: 4px;
+}
+.routinesCard {
+  width: 700px;
+  height: 35px;
+  margin: 30px 20px;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+#routineName {
+  font-size: 22px;
+}
+#routineTime {
+  font-size: 22px;
+}
+#routineIcons {
+  font-size: 16px;
+}
 
 
 
