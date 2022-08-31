@@ -149,11 +149,18 @@
         }
     }; -->
     <script>
-       $(document).ready(function () { 
-            $('[class^="toggler"]').on('click', function () { 
-                $(this).closest('.row').children('[class^="wrapper"]').toggle();
-            });
+       var $template = $(".template");
+
+        var hash = 2;
+        $(".btn-add-panel").on("click", function () {
+            var $newPanel = $template.clone();
+            $newPanel.find(".collapse").removeClass("in");
+            $newPanel.find(".accordion-toggle").attr("href",  "#" + (++hash))
+                    .text("Dynamic panel #" + hash);
+            $newPanel.find(".panel-collapse").attr("id", hash).addClass("collapse").removeClass("in");
+            $("#accordion").append($newPanel.fadeIn());
         });
+
        
      </script>
     <script src="//code.jquery.com/jquery.min.js"></script>
