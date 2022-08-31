@@ -29,7 +29,7 @@
                 <!-- INDIV ROUTINE -->
               <div class="col">
                 <div class="card routinesCard">
-                    <div class = "row">
+                    <div class = "row"  id="accordionRoutine">
                         <div class ="col-8">
                             <span class = "text-left" id = "routineName">
                                 ROUTINE NAME
@@ -44,7 +44,40 @@
                             <i class="fa fa-cog" id="routineIcons"></i>
                         </div>
                         <div class ="col-1 text-left mt-1">
-                            <i class="fa fa-angle-down" id="routineIcons"></i>
+                            <button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#subRoutines1" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="fa fa-angle-down" id="routineIcons"></i>
+                             </button>
+                            
+                        </div>
+                        <div id="subRoutines1" class="subRoutines" aria-labelledby="headingOne" data-parent="#accordionRoutine">
+                            <div class = "row">
+                                <div class = "subRoutinesInfo">
+                                    <div class = "row">
+                                        <div class = "col-10 text-left">
+                                            <span class = "subRoutinesInfoText">TIME PER SESSION: </span>
+                                        </div>
+
+                                        <div class = "col-2 text-center">
+                                            <span class = "subRoutinesInfoText">25:00 </span>
+                                        </div>
+                                </div>
+
+                                </div>
+                            </div>
+                            <div class = "row">
+                                <div class = "indivSubRoutines">
+                                    <div class = "row">
+                                        <div class = "col-10 text-left">
+                                            <span class = "subRoutinesInfoText">SESSION#1: </span>
+                                        </div>
+                                </div>
+
+                                </div>
+                            </div>
+
+                           
+                        </div>
+                       
                         </div>
                     </div>
 
