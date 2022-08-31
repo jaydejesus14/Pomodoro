@@ -528,7 +528,7 @@ input:focus, textarea:focus {
   z-index: 1;
   top: 70;
   left: 0;
-  background-color: #111;
+  background-color: #403234;
   overflow-x: hidden;
   padding-top: 20px;
 }
