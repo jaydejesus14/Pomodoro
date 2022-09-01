@@ -759,10 +759,23 @@ input:focus, textarea:focus {
 
 /* VIEW ROUTINES */
 .routineSummaryCard{ 
-  width: 500px;
+  width: 350px;
   margin: 30px;
+  background-color: #403234;
+  height: 350px;
+  color: white;
+  padding: 25px;
 }
 
+.viewSubRoutineCard {
+  width: 800px;
+  margin: 30px 40px;
+  height: 500px;
+}
+
+.titlesRoutine1 {
+  font-size: 30px;
+}
 
 
 
