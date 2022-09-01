@@ -760,7 +760,7 @@ input:focus, textarea:focus {
 /* VIEW ROUTINES */
 .routineSummaryCard{ 
   width: 350px;
-  margin: 30px;
+  margin: 30px 0px;
   background-color: #403234;
   min-height: 350px;
   max-height: 500px;
@@ -779,6 +779,34 @@ input:focus, textarea:focus {
 
 .titleRoutine1 {
   font-size: 24px;
+}
+#routine_btn {
+  border-radius: 25px;
+  color: White;
+  background-color: #783937;
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  border: 2px solid #F0DFD1;
+}
+#routine_btn2 {
+  border-radius: 25px;
+  color: #fff;
+  background-color: #783937;
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  border: 2px solid #888888;
+}
+
+#routine_btn2:hover, #routine_btn:hover {
+  border-radius: 25px;
+  color: #fff;
+  background-color: #403234;
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  border: 2px solid white;
 }
 
 
