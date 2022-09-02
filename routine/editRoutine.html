@@ -37,7 +37,7 @@
                                 
                                     <div class = "form-group col-6 mt-4">
                                         <span class = "text-center">POMODORO</span>
-                                        <input type = "number" class = "text-center" id = "timeRoutine" value ="25" data-id='inputnumber' step="5" min="20" max ="40"></input>
+                                        <input type = "number" class = "text-center" id = "timeRoutine" value ="25" data-id='inputnumber' step="5" min="20" max ="60"></input>
                                     </div>
                           
                             
@@ -49,11 +49,11 @@
                             </div>
                             
                             <span class = "text-center mt-4">LONG BREAK</span>
-                            <span class = "text-center"> <input type = "number" class = "text-center" id = "timeRoutine" value ="15" step="5" min="20" max ="40"></input>
+                            <span class = "text-center"> <input type = "number" class = "text-center" id = "timeRoutine" value ="15" step="5" min="10" max ="30" data-id='inputnumber'></input>
                         </div></span>
                     </div>
                     <div class = "row text-center">
-                        <button class="btn-block btn-color" id = "routine_btn">EDIT</button>
+                        <button class="btn-block btn-color" id = "routine_btn">SAVE</button>
                         <button class="btn-block btn-color" id = "routine_btn2">CANCEL</button>
                     </div>
                 </div>
@@ -93,10 +93,16 @@
             if (input.value % 5 !== 0) {
             alert('not valid');
             input.value = 5;
+            
+                
             }
         });
         });
     </script>
+    <script>
+        
+    </script>
+
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script>
     $.get("../navigationBar.html", function(data){
