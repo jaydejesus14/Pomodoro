@@ -37,7 +37,7 @@
                                 
                                     <div class = "form-group col-6 mt-4">
                                         <span class = "text-center">POMODORO</span>
-                                        <input type = "number" class = "text-center" id = "timeRoutine" value ="25" step="5" min="20" max ="40"></input>
+                                        <input type = "number" class = "text-center" id = "timeRoutine" value ="25" data-id='inputnumber' step="5" min="20" max ="40"></input>
                                     </div>
                           
                             
@@ -86,7 +86,17 @@
             </div>
 
 
-
+    <script>
+        const inputs = document.querySelectorAll('input[data-name="inputNumber"]');
+        inputs.forEach(input => {
+        input.addEventListener('change', () => {
+            if (input.value % 5 !== 0) {
+            alert('not valid');
+            input.value = 5;
+            }
+        });
+        });
+    </script>
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script>
     $.get("../navigationBar.html", function(data){

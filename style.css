@@ -849,7 +849,9 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
-
+:invalid {
+  background: red;
+}
 @media screen and (max-width: 992px) {
   .card1 {
       width: 100%;
