@@ -831,7 +831,20 @@ input:focus, textarea:focus {
   max-height: 250px;
   width: 100%;
 }
-
+#timeRoutine {
+  width: 80px;
+  margin-top: 10px;
+  border-radius: 5px;
+  height: 40px;
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background: none;
+  display:none;
+  margin-top: 2px;
+}
+/* input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}*/
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
