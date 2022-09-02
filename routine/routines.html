@@ -41,8 +41,16 @@
                                 25:00
                             </span>
                         </div>
-                        <div class ="col-1 text-center mt-1">
-                            <i class="fa fa-cog" id="routineIcons"></i>
+                        <div class ="col-1 text-center ">
+                            <div class = "dropdown" >
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color: transprent; border-color: transparent;"><i class="fa fa-cog" id="routineDrop" ></i></button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Convert to Session</a>
+                                    <a class="dropdown-item" href="#">View Routine</a>
+                                    <a class="dropdown-item" href="#">Edit Routine</a>
+                                    <a class="dropdown-item" href="#">Delete Routine</a>
+                                  </div>
+                            </div>
                         </div>
                         <div class ="col-1 text-left mt-1">
                             <button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#subRoutines1" aria-expanded="true" aria-controls="collapseOne">
