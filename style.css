@@ -45,6 +45,12 @@ body {
     margin-left: 1rem;
     margin-right:0.5rem;
   }
+#userDropDown {
+  font-size: 20px;
+  color: white;
+  margin: 0.1rem;
+  
+}
   
 #nav_btn:hover{
     font-size: 1rem;
