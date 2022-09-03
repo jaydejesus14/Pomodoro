@@ -35,15 +35,52 @@
                 <li className="nav-item">
                     <a href='faq.html' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-question"></i>FAQ</a>
                 </li>
+
+                <!-- NOT LOGGED IN DROPDOWN  !-->
                 
                 <div class="dropdown" id="createMarginLeft">
                     <button id="dropdown" class="btn btn-primary" type="button" data-toggle="dropdown"  aria-expanded="false" style = "text-align: center; border-radius: 100px; border: 1px solid transparent"><i id="userDropDown" class="fa fa-user-circle"></i>
                 </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="user/registration.html">Create an Account</a></li>
-                        <li><a href="user/login.html">Log-In</a></li>
+                    <ul class="dropdown-menu dropdown-menu-right" id = "notLoggedIn">
+                        <a class="dropdown-item" id = "notLoggedInBtns" href="user/login.html">LOG-IN</a>
+                        <a class="dropdown-item" id = "notLoggedInBtns" href="user/registration.html">SIGN-UP</a>
+                        
                     </ul>
                     </div>
+               
+
+                <!-- LOGGED IN 
+
+                <div class="dropdown" id="createMarginLeft">
+                    <button id="dropdown" class="btn btn-primary" type="button" data-toggle="dropdown"  aria-expanded="false" style = "text-align: center; border-radius: 100px; border: 1px solid transparent"><i id="userDropDown" class="fa fa-user-circle"></i>
+                </button>
+                    <ul class="dropdown-menu dropdown-menu-right" id = "loggedIn">
+                        <div class = "row">
+                            <div class = "col text-center">
+                            <i class="fa fa-user-circle" id="loggedInIcons"></i>
+                            <h4 class = "text-center mt-3">USERNAME</h4>
+                                <div class = "row">
+                                    <div class = "col-md-6 text-right ">
+                                        <span class = "">FirstName</span>
+                                    </div>
+                                    <div class = "col-md-6 text-left">
+                                        <span class = "">LastName</span>
+                                    </div>
+                                </div>
+                            <span>emailaddress@email.com</span>
+                            <hr class = "hrWhite">
+                            </div>
+                        </div>
+                        <div class = "btnLogged">
+                            <a class="dropdown-item" id = "loggedInBtns" href="">EDIT PROFILE</a>
+                            <a class="dropdown-item" id = "loggedInBtns" href="user/registration.html">CHANGE PASSWORD</a>
+                            <a class="dropdown-item" id = "loggedInBtns" href="user/registration.html">REPORTS</a>
+                            <hr class = "hrBlack">
+                            <a class="dropdown-item" id = "loggedInBtns" href="timer.html">LOG-OUT</a>
+                        </div>    
+                    </ul>
+                </div>
+                END OF LOGGED-IN -->
 </div>
 </nav>
 
