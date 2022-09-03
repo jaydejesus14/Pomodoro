@@ -32,7 +32,15 @@
                 <div class = "container todoContainer">
               <div class="col-4">
                 <div class="card todoCard">
-                    <div class = "text-right"><i class="fa fa-ellipsis-h" style="font-size:20px" id="indivIcon"></i></div>
+                    <div class = "text-right"> 
+                        <div class = "dropdown">
+                        <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color: transprent; border-color: transparent;"><i class="fa fa-caret-square-down" id="todoDrop" ></i></button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Convert to Session</a>
+                            <a class="dropdown-item" href="#">Edit Task Name</a>
+                            <a class="dropdown-item" href="#">Delete Task</a>
+                        </div>
+                          </div></div>
                     <span class = "todoTitle text-center">TODO LIST</span>
                     <hr class="solid" id="hrBlack">
                     <div class="card-body overflow-auto scroll" id="todoBody">

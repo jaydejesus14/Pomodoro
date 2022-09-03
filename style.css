@@ -523,7 +523,7 @@ input:focus, textarea:focus {
 
 .sidenav {
   height: 100%;
-  width: 250px;
+  width: 15%;
   position: fixed;
   z-index: 1;
   top: 70;
@@ -533,9 +533,10 @@ input:focus, textarea:focus {
   padding-top: 20px;
 }
 .todoContainer {
-  margin-left: 200px;
+  margin-left: 10%;
   display: flex;
   flex-direction: row;
+  overflow-y: scroll;
 }
 
 #toDO {
@@ -551,7 +552,10 @@ input:focus, textarea:focus {
   margin: 10px 20px;
   display: block;
 }
-
+#todoDrop {
+  font-size: 16px;
+  color: black;
+}
 .sidenav a:hover {
   color: #f1f1f1;
 }
@@ -570,8 +574,8 @@ input:focus, textarea:focus {
 
 .todoCard {
   width: 350px;
-  margin: 30px 20px;
-  padding: 40px 30px;
+  margin: 30px 5px;
+  padding: 25px 30px 40px 30px;
   border-radius: 20px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
@@ -584,13 +588,13 @@ input:focus, textarea:focus {
 #todoBody{
   min-height: 500px;
   max-height: 500px;
-  overflow-y: auto;
+  overflow-x: auto;
 
 }
 
 .scroll {
   max-height: 100px;
-  overflow-y: auto;
+  overflow-x: auto;
 }
 
 
@@ -878,10 +882,13 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 /* input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }*/
+
 ::-webkit-scrollbar {
   width: 0px;
-  background: transparent; /* make scrollbar transparent */
-}
+  background: transparent;
+} 
+
+
 :invalid {
   background: #783937;
 }
