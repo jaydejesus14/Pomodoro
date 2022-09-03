@@ -658,6 +658,10 @@ input:focus, textarea:focus {
  
 }
 
+.todoTime {
+  font-size: 14px;
+}
+
 
 
 /* ROUTINES */
