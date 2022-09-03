@@ -540,7 +540,7 @@ input:focus, textarea:focus {
 }
 
 #toDO {
-  margin: 10px;
+  margin: 5px;
   color: black;
 }
 .sidenav a {
@@ -586,8 +586,14 @@ input:focus, textarea:focus {
 }
 
 #todoBody{
-  min-height: 500px;
-  max-height: 500px;
+  min-height: 580px;
+  max-height: 580px;
+  overflow-x: auto;
+
+}
+#todoMajorBody{
+  min-height: 300px;
+  max-height: 300px;
   overflow-x: auto;
 
 }
@@ -660,6 +666,16 @@ input:focus, textarea:focus {
 
 .todoTime {
   font-size: 14px;
+}
+
+
+.todoAddCard1 {
+  width: 350px;
+  margin: 30px 5px;
+  padding: 25px 30px 40px 30px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 
