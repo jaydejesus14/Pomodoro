@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Create Grouped Task</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel='stylesheet' href="../style.css">
@@ -12,11 +13,100 @@
         <div id="nav-placeholder">
         </div>
 
+        <div class="container px-2 py-5 mx-auto">
+            <div class="container d-flex justify-content-around ">
+                <div class = "card groupedTask">
+                    <div class = "row">
+                        <span class = "text-center mb-3 mt-3" id = "routineName">
+                            CREATE GROUPED TASK </span>
+                        <hr class = "hrWhite">
+                        <div class = "form-group mt-3">
+                            <label>TASK NAME: </label>
+                            <input type = "text" class="form-control" id = "groupedInput">
+                        </div>
+                       
+                            <label>TIMER SETTINGS (minutes): </label>
+                            <div class = "row text-center">
+                                <div class = "col-4 ">
+                                    <div class ="form-group mt-3 text-center">
+                                        <label>POMODORO: </label>
+                                        <input type = "number" class = "text-center" id = "timeRoutine" value ="25" data-id='inputnumber' step="5" min="20" max ="60"></input>
+                                    </div>
+                                </div>
+                                <div class = "col-4 ">
+                                    <div class ="form-group mt-3 text-center">
+                                        <label>SHORT BREAK: </label>
+                                        <input type = "number" class = "text-center" id = "timeRoutine" value ="05" step="5" max ="15" min="5"></input>
+                                    </div>
+                                </div>
+                                <div class = "col-4 ">
+                                    <div class ="form-group mt-3 text-center">
+                                        <label>LONG BREAK: </label>
+                                        <input type = "number" class = "text-center" id = "timeRoutine" value ="15" step="5" min="10" max ="30" data-id='inputnumber'></input>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <label>SESSIONS: </label>
+                            <div class = "groupedSess">
+                                <!-- START OF SESSIONS-->
+                                <div class = "row">
+                                    <div class = "col-10 text-left">
+                                        <span>SUB-SESSION-1</span>
+                                    </div>
+                                    <div class = "col-2 text-center mb-4">
+                                        <i class="fa fa-trash" id = "trashIcon"></i>
+                                    </div>
+                                    <hr class = "hrWhite2">
+                                </div>
+                                <!--END-->
+
+                                <!-- START OF ADD SESSIONS -->
+                                <div class = "row">
+                                    <div class = "col text-center" id = "addSubGroup">
+                                    <i class="fa fa-plus-circle"  ></i>
+                                    <span class = "ml-2"  >Add Sub-Task</span>
+                                </div>
+                                    
+                                </div>
+                                <!-- END -->            
+                            </div>
+
+                            <div class = "row text-center mt-2 mb-2">
+                                <hr class = "hrWhite">
+                          
+                                    <div class = "col-6 text-center mt-2">
+                                        <button onClick = "window.location.href='todoList.html'"  class="btn-block btn-color" id = "grouped_btns2">CANCEL</button>
+                                    </div>
+                                    <div class = "col-6 text-center mt-2">
+                                        <button type = "submit" value="" class="btn-block btn-color" id = "grouped_btns">SAVE</button>
+                                    </div>
+                                    
+                             
+                        </div>
+   
+                </div>
+            </div>
+        </div>
+
 
 
 
         
     <!-- SCRIPTS -->
+    <script>
+        const inputs = document.querySelectorAll('input[data-name="inputNumber"]');
+        inputs.forEach(input => {
+        input.addEventListener('change', () => {
+            if (input.value % 5 !== 0) {
+            alert('not valid');
+            input.value = 5;
+            
+                
+            }
+        });
+        });
+    </script>
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script>
     $.get("../navigationBar.html", function(data){

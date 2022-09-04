@@ -22,30 +22,53 @@
                                     <ul class="nav justify-content-center">
 
                                         <li class="nav-item">
-                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true"><i id="createMargin" class="fa fa-clock"></i>Timer</a>
+                                            <a href='../timer.html' class="btn" role="button" id="nav_btn" aria-disabled="true"><i id="createMargin" class="fa fa-clock"></i>Timer</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list-alt"></i>To-Do</a>
+                                            <a href='../todo/todoList.html' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list-alt"></i>To-Do</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list"></i>Routines</a>
+                                            <a href='../routine/routines.html' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list"></i>Routines</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-calendar"></i>Calendar</a>
+                                            <a href='../user/googleCalendar.html' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-calendar"></i>Calendar</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-question"></i>FAQ</a>
+                                            <a href='../faq.html' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-question"></i>FAQ</a>
                                         </li>
                                         
-                                        <div class="dropdown" id="createMarginLeft">
-                                            <button id="dropdown" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"  aria-expanded="false"><i id="createMargin" class="fa fa-user-circle"></i>
-                                        </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">HTML</a></li>
-                                                <li><a href="#">CSS</a></li>
-                                                <li><a href="#">JavaScript</a></li>
-                                            </ul>
-                                            </div>
+                                        <!-- LOGGED IN -->
+
+                <div class="dropdown" id="createMarginLeft">
+                    <button id="dropdown" class="btn btn-primary" type="button" data-toggle="dropdown"  aria-expanded="false" style = "text-align: center; border-radius: 100px; border: 1px solid transparent"><i id="userDropDown" class="fa fa-user-circle"></i>
+                </button>
+                    <ul class="dropdown-menu dropdown-menu-right" id = "loggedIn">
+                        <div class = "row">
+                            <div class = "col text-center">
+                            <i class="fa fa-user-circle" id="loggedInIcons"></i>
+                            <h4 class = "text-center mt-3">USERNAME</h4>
+                                <div class = "row">
+                                    <div class = "col-md-6 text-right ">
+                                        <span class = "">FirstName</span>
+                                    </div>
+                                    <div class = "col-md-6 text-left">
+                                        <span class = "">LastName</span>
+                                    </div>
+                                </div>
+                            <span>emailaddress@email.com</span>
+                            <hr class = "hrWhite">
+                            </div>
+                        </div>
+                        <div class = "btnLogged">
+                            <a class="dropdown-item" id = "loggedInBtns" href="">EDIT PROFILE</a>
+                            <a class="dropdown-item" id = "loggedInBtns" href="user/registration.html">CHANGE PASSWORD</a>
+                            <a class="dropdown-item" id = "loggedInBtns" href="user/registration.html">REPORTS</a>
+                            <hr class = "hrBlack">
+                            <a class="dropdown-item" id = "loggedInBtns" href="timer.html">LOG-OUT</a>
+                        </div>    
+                    </ul>
+                </div>
+                <!-- END OF LOGGED-IN -->
 </div>
 </nav>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

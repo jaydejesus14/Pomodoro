@@ -3,15 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans+Narrow&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans+Narrow&family=Shippori+Mincho:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Lato&family=PT+Sans+Narrow&family=Shippori+Mincho:wght@400;500&display=swap');
+
 
 body {
     background-color: #783937;
     font-family: 'Lato', sans-serif;
      width: 100%;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
-  overflow-x: hidden;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
     
   }
  
@@ -43,6 +45,12 @@ body {
     margin-left: 1rem;
     margin-right:0.5rem;
   }
+#userDropDown {
+  font-size: 20px;
+  color: white;
+  margin: 0.1rem;
+  
+}
   
 #nav_btn:hover{
     font-size: 1rem;
@@ -59,7 +67,85 @@ hr.solid {
   border-top: 2px solid black;
 }
 
+#notLoggedIn {
+  width: 300px;
+  padding: 25px;
+  border-radius: 25px;
+  text-align: center;
+  background-color: #F0DFD1;
+}
+#loggedIn {
+  width: 400px;
+  padding: 25px;
+  border-radius: 25px;
+  background-color: #F0DFD1;
+}
 
+#notLoggedInBtns{
+  text-decoration: none;
+  color : black;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  text-align: center;
+  padding: 15px;
+  margin: 4px;
+  border-radius: 25px;
+  border: 2px solid #783937;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+a.dropdown-toggle {
+  border: none;
+  outline: none;
+}
+#notLoggedInBtns:hover{
+  text-decoration: none;
+  color : white;
+  width: 100%;
+  height: 60px;
+  background-color: #783937;
+  text-align: center;
+  padding: 15px;
+  margin: 4px;
+  border-radius: 25px;
+  border: 2px solid white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+#loggedInIcons {
+  font-size: 80px;
+  margin-top: 4px;
+}
+
+.btnLogged {
+  padding: 0px 40px;
+}
+#loggedInBtns{
+  text-decoration: none;
+  color : black;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  text-align: center;
+  padding: 15px;
+  margin: 6px;
+  border-radius: 20px;
+  border: 2px solid white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#loggedInBtns:hover{
+  text-decoration: none;
+  color : white;
+  width: 100%;
+  height: 60px;
+  background-color: #783937;
+  text-align: center;
+  padding: 15px;
+  margin: 6px;
+  border-radius: 20px;
+  border: 2px solid white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
 
 .loginText {
   background-color: white;
@@ -93,12 +179,13 @@ input:focus, textarea:focus {
 .card {
   border-radius: 0;
   border: none;
-  background-color: #F0DFD1;
+  
 }
 
 .card1 {
   width: 50%;
   padding: 40px 30px 10px 30px;
+  background-color: #F0DFD1;
 }
 
 .card2 {
@@ -521,18 +608,24 @@ input:focus, textarea:focus {
 
 .sidenav {
   height: 100%;
-  width: 250px;
+  width: 15%;
   position: fixed;
   z-index: 1;
   top: 70;
   left: 0;
-  background-color: #111;
+  background-color: #403234;
   overflow-x: hidden;
   padding-top: 20px;
 }
+.todoContainer {
+  margin-left: 8%;
+  display: flex;
+  flex-direction: row;
+  overflow-y: scroll;
+}
 
 #toDO {
-  margin: 10px;
+  margin: 5px;
   color: black;
 }
 .sidenav a {
@@ -544,7 +637,10 @@ input:focus, textarea:focus {
   margin: 10px 20px;
   display: block;
 }
-
+#todoDrop {
+  font-size: 16px;
+  color: black;
+}
 .sidenav a:hover {
   color: #f1f1f1;
 }
@@ -562,12 +658,13 @@ input:focus, textarea:focus {
 }
 
 .todoCard {
-  width: 300px;
-  margin: 30px 20px;
-  padding: 40px 30px;
+  width: 350px;
+  margin: 30px 5px;
+  padding: 25px 30px 40px 30px;
   border-radius: 20px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  
 }
 
 .todoTitle{
@@ -575,20 +672,410 @@ input:focus, textarea:focus {
 }
 
 #todoBody{
-  min-height: 450px;
-  max-height: 450px;
-  overflow-y: auto;
+  min-height: 580px;
+  max-height: 580px;
+  overflow-x: auto;
+
+}
+#todoMajorBody{
+  min-height: 500px;
+  max-height: 500px;
+  overflow-x: auto;
 
 }
 
 .scroll {
   max-height: 100px;
-  overflow-y: auto;
+  overflow-x: auto;
+}
+
+
+.subTask{
+  min-height: 80px;
+  max-height: 100%;
+  width: 100%;
+  background-color: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  margin-bottom: 10px;
+
+}
+.collapse{
+  height: 100%;
+  background-color: white;
+  position: overlay;
+}
+.wrapper{
+  height: 100%;
+  background-color: white;
+  position: overlay;
+  
+}
+.subTask:hover{
+  min-height: 80px;
+  max-height: 100%;
+  width: 100%;
+  background-color: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  margin-bottom: 10px;
+  border: 1px solid #783937;
+
+}
+.moreBtn{
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+.noteSubTask {
+  height: 80px;
+}
+
+.addSubTask{
+  height: 80px;
+  width: 100%;
+  background-color: #F0DFD1;
+  padding: 25px;
+  border-radius: 20px;
+  position: relative;
+  
+  margin-bottom: 10px;
+
+}
+
+#subTaskName:hover {
+  color: #783937;
+  cursor: pointer;
+ 
+}
+
+.todoTime {
+  font-size: 14px;
+}
+
+
+.todoAddCard1 {
+  width: 350px;
+  margin: 30px 5px;
+  padding: 25px 30px 40px 30px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background-color:rgba(240,223,209, 0.5)
+  
+}
+
+/* CREATE GROUPED TASK */
+.groupedTask{
+  width: 450px;
+  margin: 5px 5px;
+  padding: 25px 30px 40px 30px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+#groupedInput {
+  width: 80%;
+  margin: auto;
+}
+
+#timeGroup {
+  margin-top: 10px;
+  border-radius: 5px;
+  height: 40px;
+  text-align: center;
+  margin: auto;
+}
+
+.groupedSess {
+  min-height: 280px;
+  max-height: 280px;
+  width: 80%;
+  margin: auto;
+  overflow-y: scroll;
+  background-color: white;
+  border-radius: 20px;
+  box-sizing: content-box;
+  padding: 30px;
+  overflow-x: hidden;
+  
+
+}
+
+#addSubGroup:hover, #trashIcon:hover {
+  color: #783937;
+  cursor: pointer;
+}
+
+#grouped_btns {
+  border-radius: 15px;
+  width: 70%;
+  color: white;
+  background-color: rgb( 120, 57, 55, 0.6 );
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: auto;
+  
+}
+#grouped_btns2 {
+  border-radius: 15px;
+  width: 70%;
+  color: white;
+  background-color: rgb( 120, 57, 55, 0.4);
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: auto;
+}
+#grouped_btns:hover, #grouped_btns2:hover {
+  border-radius: 15px;
+  width: 70%;
+  color: white;
+  background-color: rgb( 120, 57, 55);
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 
 
+/* ROUTINES */
+.titleRoutine{
+  font-size: 38px;
+  color: white;
+  font-family: 'EB Garamond', serif;
+  margin-bottom: 4px;
+}
+.routinesCard {
+  width: 700px;
+  height: 35px;
+  max-height: 100%;
+  margin: 30px;
+  padding: 40px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.routinesCard:hover{
+  width: 700px;
+  height: 35px;
+  max-height: 100%;
+  margin: 30px;
+  background: #403234;
+  color: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+#routineName {
+  font-size: 22px;
+}
+#routineTime {
+  font-size: 22px;
+}
+#routineIcons {
+  font-size: 16px;
+}
+#routineDrop {
+  font-size: 16px;
+  color: black;
+}
+#routineIcons:hover, #routineDrop:hover {
+  font-size: 16px;
+  color: white;
+}
 
+.subRoutines{
+  max-height: 100%;
+  background: transparent;
+  margin: 45px 0px 0px 0px;
+  border-radius: 20px;
+  text-align: center;
+ 
+}
+
+.subRoutinesInfo{
+  width: 680px;
+  height: 12px;
+  background: #F0DFD1;
+  padding: 30px 20px 40px 20px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border: 4px solid transparent;
+  color: black;
+}
+
+.subRoutinesInfoText{
+  font-size: 18px;
+  margin: 4px
+}
+.subRoutinesInfo:hover{
+  width: 680px;
+  height: 12px;
+  background: #F0DFD1;
+  padding: 30px 20px 40px 20px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border: 4px solid #403234;
+  color: black;
+}
+
+.indivSubRoutines{
+  width: 680px;
+  height: 24px;
+  background: #F0DFD1;
+  padding: 40px 20px;
+  margin: 2px 0px 0px 0px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border: 4px solid transparent;
+  color: black;
+}
+
+.indivSubRoutines:hover{
+  width: 680px;
+  height: 24px;
+  background: #F0DFD1;
+  padding: 40px 20px;
+  margin: 2px 0px 0px 0px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border: 4px solid #403234;
+  color: black;
+}
+#dropdownMenuButton{
+  background: transparent;
+}
+
+/* VIEW ROUTINES */
+.routineSummaryCard{ 
+  width: 325px;
+  margin: 30px 0px;
+  background-color: #403234;
+  min-height: 350px;
+  max-height: 500px;
+  color: white;
+  padding: 35px 15px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border: 4px solid #403234;
+}
+
+.viewSubRoutineCard {
+  width: 850px;
+  margin: 30px 40px;
+  padding: 35px 45px;
+  min-height: 500px;
+  max-height: 800px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  overflow: hidden;
+}
+
+.titleRoutine1 {
+  font-size: 24px;
+}
+#routine_btn {
+  border-radius: 25px;
+  color: White;
+  background-color: #783937;
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  border: 2px solid #F0DFD1;
+}
+#routine_btn2 {
+  border-radius: 25px;
+  color: #fff;
+  background-color: #783937;
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  border: 2px solid #888888;
+}
+
+#routine_btn2:hover, #routine_btn:hover {
+  border-radius: 25px;
+  color: #fff;
+  background-color: #403234;
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  border: 2px solid white;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.routineSess{
+  font-size: 20px;
+}
+
+.routineNote {
+  height: 100px;
+  width: 500px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.sessionsRoutine {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  min-height: 350px;
+  max-height: 250px;
+  width: 100%;
+}
+#timeRoutine {
+  width: 80px;
+  margin-top: 10px;
+  border-radius: 5px;
+  height: 40px;
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background: none;
+  display:none;
+  margin-top: 2px;
+}
+#routineSessInput{
+  width: 180px;
+  height: 80px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border: 2px solid transparent;
+  overflow: auto;
+}
+#routineNoteInput {
+  min-height: 100px;
+  max-height: 120px;
+  width: 500px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border: 2px solid transparent;
+  overflow-y: scroll;
+  padding: 20px;
+}
+/* input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}*/
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+} 
+
+
+:invalid {
+  background-color: rgb( 120, 57, 55, 0.4);
+}
 @media screen and (max-width: 992px) {
   .card1 {
       width: 100%;
@@ -607,8 +1094,14 @@ input:focus, textarea:focus {
   .time {
     padding: 40px 30px !important;
   }
-  .sidenav {padding-top: 15px;}
+  .sidenav {padding-top: 15px;padding-right: 15px;}
   .sidenav a {font-size: 18px;}
+  .todoCard {
+    padding: 40px 30px;
+  }
+  .todoContainer {
+    margin-left: 15% !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -629,4 +1122,14 @@ input:focus, textarea:focus {
   }
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+  .todoContainer {
+    margin-left: 15% !important;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .todoContainer {
+    margin-left: 10% !important;
+  }
+
 }
