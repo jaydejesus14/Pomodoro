@@ -148,16 +148,24 @@ a.dropdown-toggle {
 }
 
 .loginText {
-  background-color: white;
-  border-radius: 25px !important;
+  background-color: white !important;
+  border-radius: 0px 15px 15px 0 !important;
   padding: 12px 15px 12px 15px !important;
-  width: 100%;
+  width: 85%;
   box-sizing: border-box;
   border: none !important;
   border: 1px solid #F3E5F5 !important;
   font-size: 16px !important;
   color: #000 !important;
   font-weight: 400;
+}
+#iconLogin{
+  background-color: #403234;
+  text-align: center;
+  color: white;
+  padding: 14px;
+  border-radius: 15px 0px 0px 15px;
+ 
 }
 
 input:focus, textarea:focus {
@@ -202,12 +210,12 @@ input:focus, textarea:focus {
 
 
 .heading {
-  margin-bottom: 60px !important;
+  margin-bottom: 40px !important;
 }
 
 ::placeholder {
   color: #000 !important;
-  opacity: 1;
+  opacity: 0.5;
 }
 
 :-ms-input-placeholder {
@@ -219,8 +227,9 @@ input:focus, textarea:focus {
 }
 
 .form-control-label {
-  font-size: 12px;
+  font-size: 16px;
   margin-left: 15px;
+  margin: 3px;
 }
 
 
@@ -230,23 +239,27 @@ input:focus, textarea:focus {
 }
 
 #login_btn {
-  border-radius: 50px;
+  border-radius: 15px;
+  color: #fff;
+  background-color: rgb( 120, 57, 55 , 0.5);
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin-top: 40px;
+  width: 60%;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+#login_btn:hover {
+  border-radius: 15px;
   color: #fff;
   background-color: #783937;
   padding: 15px;
   cursor: pointer;
   border: none;
   margin-top: 40px;
-}
-
-#login_btn:hover {
-  border-radius: 50px;
-  color: black;
-  background-color: #F0DFD1;
-  padding: 15px;
-  cursor: pointer;
-  border: 10px #783937;
-  margin-top: 40px;
+  width: 60%;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 
@@ -261,7 +274,7 @@ input:focus, textarea:focus {
 
 .bottom {
   width: 100%;
-  margin-top: 50px !important;
+  margin-top: 20px !important;
 }
 
 .sm-text {
