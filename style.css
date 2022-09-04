@@ -1076,6 +1076,57 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 :invalid {
   background-color: rgb( 120, 57, 55, 0.4);
 }
+
+
+/* EDIT PROFILE */
+.editProfile {
+  width: 450px;
+  margin: 50px 5px;
+  padding: 25px 30px 40px 30px;
+  border-radius: 15px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.fullInput {
+  width: 100%;
+  margin: auto;
+}
+
+#form_btns {
+  border-radius: 15px;
+  width: 55%;
+  color: white;
+  background-color: rgb( 120, 57, 55, 0.5 );
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: 3px auto;
+  
+}
+#form_btns2 {
+  border-radius: 15px;
+  width: 55%;
+  color: white;
+  background-color: rgb( 120, 57, 55, 0.2);
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: 3px auto;
+}
+#form_btns:hover, #form_btns2:hover {
+  border-radius: 15px;
+  width: 55%;
+  color: white;
+  background-color: rgb( 120, 57, 55);
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: 3px auto;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+
 @media screen and (max-width: 992px) {
   .card1 {
       width: 100%;
