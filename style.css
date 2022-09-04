@@ -1126,6 +1126,24 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
+/* CHANGE PASSWORD */
+.fullInput2 {
+  width: 90%;
+  margin: auto;
+  height: 40px;
+  background-color: white;
+  border-radius: 0px 15px 15px 0px;
+  padding: 20px 35px 20px 15px;
+
+}
+#iconForm{
+  background-color: #403234;
+  text-align: center;
+  color: white;
+  padding: 12px;
+  border-radius: 15px 0px 0px 15px;
+ 
+}
 
 @media screen and (max-width: 992px) {
   .card1 {
