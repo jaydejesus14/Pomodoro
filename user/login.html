@@ -22,35 +22,50 @@
             <div class="card card1">
                 <div class="row justify-content-center my-auto">
                     <div class="col-md-10 col-10 my-5">
-                        <div class="row justify-content-center px-3 mb-3">
+                        <div class="row justify-content-center px-3 mb-1">
                             <img id = "logo" src="../images/logo.png">
                         </div>
-                        <h3 class="mb-5 text-center heading">WELCOME BACK!</h3>
-                        <hr class="solid">
+                        <h3 class="mb-2 text-center heading">WELCOME BACK!</h3>
+                        <hr class="hrWhite">
+                        <div class = "row">
+                            <span class="form-control-label text-muted">Email Address</span>
+                            <div class = "col text-center">
+                                <span class = "text-center" id = "iconLogin">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <input type="text" class ="loginText" id="email" name="email" placeholder="email address" class="form-control">
+                            </div>
+                        </div>
+                        <div class = "row ">
+                            <span class="form-control-label text-muted">Password</span>
+                            <div class = "col text-center">
+                                <span class = "text-center" id = "iconLogin">
+                                    <i class="fa fa-key"></i>
+                                </span>
+                                 <input type="password" name="password" class = "loginText" required="" id="id_password">
+                            <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+                            </div>
+                        </div>
+                        
+                     
 
-                        <div class="form-group" id = "loginText">
-                            <label class="form-control-label text-muted">Email Address</label>
-                            <input type="text" class ="loginText" id="email" name="email" placeholder="email address" class="form-control">
+
+                        <div class="row">
+                            <div class = "col text-center">
+                                <button class="btn-block btn-color" id = "login_btn">LOG-IN</button>
+                            </div>
+                        </div>
+                        <div class = "row mt-3">
+                            <div class = "col text-center">
+                                <a href="#"><small class="text-muted">Forgot Password?</small></a>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-control-label text-muted">Password</label>
-                            <input type="password" class ="loginText" id="psw" name="psw" placeholder="Password" class="form-control">
-                        </div>
-
-                        <div class="row justify-content-center my-3 px-3">
-                            <button class="btn-block btn-color" id = "login_btn">Login</button>
-                        </div>
-
-                       
-
-                        <div class="row justify-content-center my-2">
-                            <a href="#"><small class="text-muted">Forgot Password?</small></a>
-                        </div>
+                        
                     </div>
                 </div>
-                <div class="bottom text-center mb-5">
-                    <p href="#" class="sm-text mx-auto mb-3">Don't have an account?<button class="btn btn-white ml-2">Create new</button></p>
+                <div class="bottom text-center mb-3">
+                    <p href="registration.html" class="sm-text mx-auto mb-3">Don't have an account?<button class="btn btn-white ml-2">Create new</button></p>
                 </div>
             </div>
             <div class="card card2">
@@ -69,6 +84,17 @@
         $.get("../navigationBar.html", function(data){
             $("#nav-placeholder").replaceWith(data);
             });
+        </script>
+        <script>
+            const togglePassword = document.querySelector('#togglePassword');
+            const password = document.querySelector('#id_password');
+            togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+             });
         </script>
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
