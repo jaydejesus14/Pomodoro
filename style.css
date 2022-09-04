@@ -762,15 +762,14 @@ input:focus, textarea:focus {
   border-radius: 20px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  opacity: 0.5;
-  background-color: #783937
+  background-color:rgba(240,223,209, 0.5)
   
 }
 
 /* CREATE GROUPED TASK */
-.groupedTask {
-  width: 500px;
-  margin: 30px 5px;
+.groupedTask{
+  width: 450px;
+  margin: 5px 5px;
   padding: 25px 30px 40px 30px;
   border-radius: 20px;
   box-sizing: content-box;
@@ -778,14 +777,70 @@ input:focus, textarea:focus {
 }
 #groupedInput {
   width: 80%;
+  margin: auto;
 }
 
 #timeGroup {
-  width: 80px;
   margin-top: 10px;
   border-radius: 5px;
   height: 40px;
+  text-align: center;
+  margin: auto;
 }
+
+.groupedSess {
+  min-height: 280px;
+  max-height: 280px;
+  width: 80%;
+  margin: auto;
+  overflow-y: scroll;
+  background-color: white;
+  border-radius: 20px;
+  box-sizing: content-box;
+  padding: 30px;
+  overflow-x: hidden;
+  
+
+}
+
+#addSubGroup:hover, #trashIcon:hover {
+  color: #783937;
+  cursor: pointer;
+}
+
+#grouped_btns {
+  border-radius: 15px;
+  width: 70%;
+  color: white;
+  background-color: rgb( 120, 57, 55, 0.6 );
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: auto;
+  
+}
+#grouped_btns2 {
+  border-radius: 15px;
+  width: 70%;
+  color: white;
+  background-color: rgb( 120, 57, 55, 0.4);
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: auto;
+}
+#grouped_btns:hover, #grouped_btns2:hover {
+  border-radius: 15px;
+  width: 70%;
+  color: white;
+  background-color: rgb( 120, 57, 55);
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
 
 
 /* ROUTINES */
@@ -1018,7 +1073,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 
 :invalid {
-  background: #783937;
+  background-color: rgb( 120, 57, 55, 0.4);
 }
 @media screen and (max-width: 992px) {
   .card1 {
