@@ -210,8 +210,10 @@ input:focus, textarea:focus {
   padding: 15px;
   cursor: pointer;
   border: none;
-  margin-top: 40px;
+  margin: 20px auto 0px auto;
+
   width: 60%;
+  text-align: center;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
@@ -222,7 +224,7 @@ input:focus, textarea:focus {
   padding: 15px;
   cursor: pointer;
   border: none;
-  margin-top: 40px;
+  margin: 20px auto 0px auto;
   width: 60%;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
@@ -532,13 +534,22 @@ input:focus, textarea:focus {
   margin: auto;
 }
 .card1 {
-  width: 50%;
+  width: 60%;
   padding: 40px 30px 10px 30px;
   background-color: #F0DFD1;
+  border-radius: 15px;
+  
+}
+
+.card0 {
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  width: 80%;
+  margin: auto;
 }
 
 .card2 {
-  width: 50%;
+  width: 40%;
   background-color: #F0DFD1;
 }
 .regCard {
