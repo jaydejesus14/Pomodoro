@@ -5,6 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans+Narrow&family=Shippori+Mincho:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Lato&family=PT+Sans+Narrow&family=Shippori+Mincho:wght@400;500&display=swap');
 
+* { -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  }
 
 body {
     background-color: #783937;
@@ -184,28 +191,7 @@ input:focus, textarea:focus {
   outline-width: 0;
 }
 
-.card {
-  border-radius: 0;
-  border: none;
-  
-}
 
-.card1 {
-  width: 50%;
-  padding: 40px 30px 10px 30px;
-  background-color: #F0DFD1;
-}
-
-.card2 {
-  width: 50%;
-  background-color: gray;
-}
-.regCard {
-  width: 100%;
-  background-color: gray;
-  margin-top: 80px;
-  border-radius: 20px;
-}
 
 
 
@@ -216,20 +202,6 @@ input:focus, textarea:focus {
 ::placeholder {
   color: #000 !important;
   opacity: 0.5;
-}
-
-:-ms-input-placeholder {
-  color: #000 !important;
-}
-
-::-ms-input-placeholder {
-  color: #000 !important;
-}
-
-.form-control-label {
-  font-size: 16px;
-  margin-left: 15px;
-  margin: 3px;
 }
 
 
@@ -245,8 +217,10 @@ input:focus, textarea:focus {
   padding: 15px;
   cursor: pointer;
   border: none;
-  margin-top: 40px;
+  margin: 20px auto 0px auto;
+
   width: 60%;
+  text-align: center;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
@@ -257,7 +231,7 @@ input:focus, textarea:focus {
   padding: 15px;
   cursor: pointer;
   border: none;
-  margin-top: 40px;
+  margin: 20px auto 0px auto;
   width: 60%;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
@@ -563,37 +537,78 @@ input:focus, textarea:focus {
 }
 
 
-
-
-
 #signUpContainer{
   margin: auto;
 }
+.card1 {
+  width: 60%;
+  padding: 40px 30px 10px 30px;
+  background-color: #F0DFD1;
+  border-radius: 15px;
+  
+}
+
+.card0 {
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  width: 80%;
+  margin: auto;
+}
+
+.card2 {
+  width: 40%;
+  background-color: #F0DFD1;
+}
+.regCard {
+  background-color: #F0DFD1;
+  margin-top: 40px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.regScroll {
+  height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 10px;
+
+}
+
 
 .mainRegistration{
-
   padding: 10px;
 }
 .mycolSignUp{
   padding-left: 0;
   padding-right: 0;
+  max-width: 100px;
+  max-height: 100%;
 }
 .xcolSignUp{
   padding-left: 50px;
   padding-right: 50px;
-  width:500px;
+  width: 600px;
 }
 #titleSignUp{
   font-weight: bold;
   color: #783937;
 }
 #btnOnSignUp{
-  border-radius: 50px;
+  border-radius: 20px;
   color: #fff;
-  background-color: #783937;
+  background-color: rgb( 120, 57, 55 , 0.5);
   padding: 15px;
   cursor: pointer;
-  border: none;
+  border: 2px solid #783937;
+  width: 100%;
+}
+#btnOnSignUp:hover{
+  border-radius: 20px;
+  color: #fff;
+  background-color: rgb( 120, 57, 55);
+  padding: 15px;
+  cursor: pointer;
+  border: 2px solid #783937;
   width: 100%;
 }
 .spanSignUp{
@@ -1087,7 +1102,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 
 :invalid {
-  background-color: rgb( 120, 57, 55, 0.4);
+  
 }
 
 

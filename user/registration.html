@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create an Account - Pivot</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -18,66 +19,76 @@
 
     <section class = "signUp">
 
-    <div class="container d-flex justify-content-center my-auto h-auto" id="signUpContainer">
-        <div class="card regCard">
-    <div class="row my-2 mx-2 mainRegistration">
-        <!--left-column-->
-        <div class="col-xl-2 col-12 mycolSignUp">
-            <!--image-->
-            <img src=""width="100%" height="100%">
-        </div>
-        <!--right-column-->
-        <div class="col-xl-10 col-12 xcolSignUp">
-
-            <h2 class="title pt-5 pb-3" id="titleSignUp">Sign up</h2>
-            <form action="javascript:register();" method="POST" id="signup">
-
-            <h2 class="title pt-5 pb-3 text-center" id="titleSignUp">JOIN US!</h2>
-            <hr class = "hrWhite">
-            <form class="myform" type="post" method="post">
-
-                <div class="row rone">
-                    <div class="form-group col-md-6 fone py-3">
-                        <input type="text" class = "regForm" id = "first_name" class="form-control" placeholder="First Name"> 
-                    </div>
-                    <div class="form-group col-md-6 ftwo py-3">
-                        <input type="text" class = "regForm" id = "last_name" class="form-control" placeholder="Last Name">
-                    </div>
-                </div>
-                <div class="row rtwo">
-                    <div class="form-group col-md-6 fthree py-3">
-                        <input type="text" class = "regForm" id = "user_name" class="form-control jk" placeholder="Username">
-                    </div>
-                    <div class="form-group col-md-6 ffour py-3">
-
-                        <input type="email" class = "regForm" id = "email" class="form-control lm" placeholder="Email Address">
-                    </div>
-                </div>
-                <div class="row rthree">
-                    <div class="form-group col-md-6 ffive py-3">
-                        <input type="password" class = "regForm" id = "password" class="form-control" placeholder="Password">
-                    </div>
-                    <div class="form-group col-md-6 fsix py-3">
-                        <input type="password" class = "regForm" id = "confirm_password" class="form-control" placeholder="Confirm Password">
-                    </div>
-                </div>
+        <div class="container d-flex justify-content-center my-auto h-auto" id="signUpContainer">
+            <div class="card regCard">
+        <div class="row my-2 mx-2 mainRegistration">
+            <!--left-column-->
+            <div class="col-xl-4 col-12 mycolSignUp">
+                <!--image
+                <img src=""width="100%" height="100%">-->
+                
+            </div>
+            <!--right-column-->
+            <div class="col-xl-8 col-12 xcolSignUp">
+    
+                <h2 class="title pt-5 pb-3 text-center" id="titleSignUp">JOIN US!</h2>
+                <form action="javascript:register();" method="POST" id="signup">
+ 
                 <hr class = "hrWhite">
-                <div class="row justify-content-center my-auto text-center">
-                    <div class="form-group col-md-6 fseven py-3">
-                        <button type="submit" class="btn btn-primary" id = "btnOnSignUp"><span class = "spanSignUp">Create account</span></button>
+                <form class="myform" type="post" method="post">
+                    <div class = "regScroll">
+                    <div class="row rone">
+                        <div class="form-group col-md-6 ">
+                            <label>First Name</label>
+                            <input type="text" class = "regForm" id = "first_name" class="form-control" placeholder="First Name"> 
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Last Name</label>
+                            <input type="text" class = "regForm" id = "last_name" class="form-control" placeholder="Last Name">
+                        </div>
                     </div>
+                    <div class="row rtwo">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class = "regForm" id = "user_name" class="form-control" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label>Email-Address</label>
+                            <input type="email" class = "regForm" id = "email" class="form-control" placeholder="Email Address">
+                        </div>
+                    
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class = "regForm" id = "password" class="form-control" placeholder="Password"><i class="far fa-eye" id="togglePassword" style="margin-left: -35px; cursor: pointer;"></i>
+                        </div>
+                        <div class="form-group ">
+                            <label>Confirm Password</label>
+                            <input type="password" class = "regForm" id = "confirm_password" class="form-control" placeholder="Confirm Password"><i class="far fa-eye" id="toggleConfirmPassword" style="margin-left: -35px; cursor: pointer;"></i>
+                        </div>
+                        </div>
+                 
+                </div>
+                    <hr class = "hrWhite">
+                    <div class = "row">
+                        <div class = "col text-center">
+                            <input type="checkbox" id="termsAndConditions" name="termsAndConditions" value="termsAndConditions"><span class = "button ml-4" required>I agree to the terms and conditions</span>
+                        </div>
                     </div>
                     <div class="row justify-content-center my-auto text-center">
-                    <div class="form-group col-md-6 feight py-3">
-                        <p class="text-muted">Already have an account?<br><a class = "backToLogin" href="login.html">Sign in</a></p>
-                        
+                        <div class="form-group col-md-6 mt-3">
+                            <button type="submit" class="btn btn-primary" id = "btnOnSignUp"><span class = "spanSignUp">Create account</span></button>
+                        </div>
+                        </div>
+                        <div class="row justify-content-center my-auto text-center">
+                        <div class="form-group col-md-6">
+                            <p class="text-muted">Already have an account?<br><a class = "backToLogin" href="login.html">Sign in</a></p>   
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-    </section>
+        </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
 
@@ -130,6 +141,28 @@
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+      <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+        togglePassword.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.classList.toggle('fa-eye-slash');
+});
+    </script>
+    <script>
+        const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
+        const confirmPassword = document.querySelector('#confirm_password');
+        toggleConfirmPassword.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+        confirmPassword.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.classList.toggle('fa-eye-slash');
+});
+    </script>
 
 </body>
 </html>
