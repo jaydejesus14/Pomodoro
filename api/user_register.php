@@ -28,5 +28,26 @@
 		}
 	}
 	mysqli_close($conn);	
+
+	/*$response = array{
+		'status' => 0,
+		'message'=>'Registration Failed'
+	};
+	$errorEmail = false;
+	$errorEmpty = false;
+
+	if(isset($_POST['first_name'])||isset($_POST['last_name'])||isset($_POST['user_name'])
+	||isset($_POST['password'])||isset($_POST['email'])){
+		 
+		if(!empty($first_name) && !empty($last_name) && !empty($user_name) &&
+		 !empty($password) && !empty($email)){
+			
+		}
+	}
+	else{
+		$response['message'] = "Form is incomplete!"
+		$errorEmpty = true;
+	}*/
+
 ?>
 

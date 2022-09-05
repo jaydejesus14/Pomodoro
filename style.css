@@ -5,6 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans+Narrow&family=Shippori+Mincho:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Lato&family=PT+Sans+Narrow&family=Shippori+Mincho:wght@400;500&display=swap');
 
+* { -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  }
 
 body {
     background-color: #783937;
@@ -45,6 +52,12 @@ body {
     margin-left: 1rem;
     margin-right:0.5rem;
   }
+#userDropDown {
+  font-size: 20px;
+  color: white;
+  margin: 0.1rem;
+  
+}
   
 #nav_btn:hover{
     font-size: 1rem;
@@ -61,19 +74,105 @@ hr.solid {
   border-top: 2px solid black;
 }
 
+#notLoggedIn {
+  width: 300px;
+  padding: 25px;
+  border-radius: 25px;
+  text-align: center;
+  background-color: #F0DFD1;
+}
+#loggedIn {
+  width: 400px;
+  padding: 25px;
+  border-radius: 25px;
+  background-color: #F0DFD1;
+}
 
+#notLoggedInBtns{
+  text-decoration: none;
+  color : black;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  text-align: center;
+  padding: 15px;
+  margin: 4px;
+  border-radius: 25px;
+  border: 2px solid #783937;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+a.dropdown-toggle {
+  border: none;
+  outline: none;
+}
+#notLoggedInBtns:hover{
+  text-decoration: none;
+  color : white;
+  width: 100%;
+  height: 60px;
+  background-color: #783937;
+  text-align: center;
+  padding: 15px;
+  margin: 4px;
+  border-radius: 25px;
+  border: 2px solid white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+#loggedInIcons {
+  font-size: 80px;
+  margin-top: 4px;
+}
+
+.btnLogged {
+  padding: 0px 40px;
+}
+#loggedInBtns{
+  text-decoration: none;
+  color : black;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  text-align: center;
+  padding: 15px;
+  margin: 6px;
+  border-radius: 20px;
+  border: 2px solid white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#loggedInBtns:hover{
+  text-decoration: none;
+  color : white;
+  width: 100%;
+  height: 60px;
+  background-color: #783937;
+  text-align: center;
+  padding: 15px;
+  margin: 6px;
+  border-radius: 20px;
+  border: 2px solid white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
 
 .loginText {
-  background-color: white;
-  border-radius: 25px !important;
+  background-color: white !important;
+  border-radius: 0px 15px 15px 0 !important;
   padding: 12px 15px 12px 15px !important;
-  width: 100%;
+  width: 85%;
   box-sizing: border-box;
   border: none !important;
   border: 1px solid #F3E5F5 !important;
   font-size: 16px !important;
   color: #000 !important;
   font-weight: 400;
+}
+#iconLogin{
+  background-color: #403234;
+  text-align: center;
+  color: white;
+  padding: 14px;
+  border-radius: 15px 0px 0px 15px;
+ 
 }
 
 input:focus, textarea:focus {
@@ -92,50 +191,17 @@ input:focus, textarea:focus {
   outline-width: 0;
 }
 
-.card {
-  border-radius: 0;
-  border: none;
-  background-color: #F0DFD1;
-}
 
-.card1 {
-  width: 50%;
-  padding: 40px 30px 10px 30px;
-}
-
-.card2 {
-  width: 50%;
-  background-color: gray;
-}
-.regCard {
-  width: 100%;
-  background-color: gray;
-  margin-top: 80px;
-  border-radius: 20px;
-}
 
 
 
 .heading {
-  margin-bottom: 60px !important;
+  margin-bottom: 40px !important;
 }
 
 ::placeholder {
   color: #000 !important;
-  opacity: 1;
-}
-
-:-ms-input-placeholder {
-  color: #000 !important;
-}
-
-::-ms-input-placeholder {
-  color: #000 !important;
-}
-
-.form-control-label {
-  font-size: 12px;
-  margin-left: 15px;
+  opacity: 0.5;
 }
 
 
@@ -145,23 +211,29 @@ input:focus, textarea:focus {
 }
 
 #login_btn {
-  border-radius: 50px;
+  border-radius: 15px;
+  color: #fff;
+  background-color: rgb( 120, 57, 55 , 0.5);
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: 20px auto 0px auto;
+
+  width: 60%;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+#login_btn:hover {
+  border-radius: 15px;
   color: #fff;
   background-color: #783937;
   padding: 15px;
   cursor: pointer;
   border: none;
-  margin-top: 40px;
-}
-
-#login_btn:hover {
-  border-radius: 50px;
-  color: black;
-  background-color: #F0DFD1;
-  padding: 15px;
-  cursor: pointer;
-  border: 10px #783937;
-  margin-top: 40px;
+  margin: 20px auto 0px auto;
+  width: 60%;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 
@@ -176,7 +248,7 @@ input:focus, textarea:focus {
 
 .bottom {
   width: 100%;
-  margin-top: 50px !important;
+  margin-top: 20px !important;
 }
 
 .sm-text {
@@ -465,37 +537,90 @@ input:focus, textarea:focus {
 }
 
 
-
-
-
 #signUpContainer{
   margin: auto;
 }
+.card1 {
+  width: 60%;
+  padding: 40px 30px 10px 30px;
+  background-color: #F0DFD1;
+  border-radius: 15px;
+  
+}
+
+.card0 {
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  width: 80%;
+  margin: auto;
+}
+
+.card2 {
+  width: 40%;
+  background-color: #F0DFD1;
+}
+.regCard {
+  background-color: #F0DFD1;
+  margin-top: 40px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.form-message{
+  text-align: center;
+  color: #fff;
+  padding: 10px 0;
+  text-transform: capitalize;
+  background:#783937;
+  font-size: 12px;
+  display: none;
+}
+.form-message p {
+  margin: 0;
+}
+
+.regScroll {
+  height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 10px;
+
+}
+
 
 .mainRegistration{
-
   padding: 10px;
 }
 .mycolSignUp{
   padding-left: 0;
   padding-right: 0;
+  max-width: 100px;
+  max-height: 100%;
 }
 .xcolSignUp{
   padding-left: 50px;
   padding-right: 50px;
-  width:500px;
+  width: 600px;
 }
 #titleSignUp{
   font-weight: bold;
   color: #783937;
 }
 #btnOnSignUp{
-  border-radius: 50px;
+  border-radius: 20px;
   color: #fff;
-  background-color: #783937;
+  background-color: rgb( 120, 57, 55 , 0.5);
   padding: 15px;
   cursor: pointer;
-  border: none;
+  border: 2px solid #783937;
+  width: 100%;
+}
+#btnOnSignUp:hover{
+  border-radius: 20px;
+  color: #fff;
+  background-color: rgb( 120, 57, 55);
+  padding: 15px;
+  cursor: pointer;
+  border: 2px solid #783937;
   width: 100%;
 }
 .spanSignUp{
@@ -533,14 +658,14 @@ input:focus, textarea:focus {
   padding-top: 20px;
 }
 .todoContainer {
-  margin-left: 10%;
+  margin-left: 8%;
   display: flex;
   flex-direction: row;
   overflow-y: scroll;
 }
 
 #toDO {
-  margin: 10px;
+  margin: 5px;
   color: black;
 }
 .sidenav a {
@@ -579,6 +704,7 @@ input:focus, textarea:focus {
   border-radius: 20px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  
 }
 
 .todoTitle{
@@ -586,6 +712,12 @@ input:focus, textarea:focus {
 }
 
 #todoBody{
+  min-height: 580px;
+  max-height: 580px;
+  overflow-x: auto;
+
+}
+#todoMajorBody{
   min-height: 500px;
   max-height: 500px;
   overflow-x: auto;
@@ -656,6 +788,97 @@ input:focus, textarea:focus {
   color: #783937;
   cursor: pointer;
  
+}
+
+.todoTime {
+  font-size: 14px;
+}
+
+
+.todoAddCard1 {
+  width: 350px;
+  margin: 30px 5px;
+  padding: 25px 30px 40px 30px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background-color:rgba(240,223,209, 0.5)
+  
+}
+
+/* CREATE GROUPED TASK */
+.groupedTask{
+  width: 450px;
+  margin: 5px 5px;
+  padding: 25px 30px 40px 30px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+#groupedInput {
+  width: 80%;
+  margin: auto;
+}
+
+#timeGroup {
+  margin-top: 10px;
+  border-radius: 5px;
+  height: 40px;
+  text-align: center;
+  margin: auto;
+}
+
+.groupedSess {
+  min-height: 280px;
+  max-height: 280px;
+  width: 80%;
+  margin: auto;
+  overflow-y: scroll;
+  background-color: white;
+  border-radius: 20px;
+  box-sizing: content-box;
+  padding: 30px;
+  overflow-x: hidden;
+  
+
+}
+
+#addSubGroup:hover, #trashIcon:hover {
+  color: #783937;
+  cursor: pointer;
+}
+
+#grouped_btns {
+  border-radius: 15px;
+  width: 70%;
+  color: white;
+  background-color: rgb( 120, 57, 55, 0.6 );
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: auto;
+  
+}
+#grouped_btns2 {
+  border-radius: 15px;
+  width: 70%;
+  color: white;
+  background-color: rgb( 120, 57, 55, 0.4);
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: auto;
+}
+#grouped_btns:hover, #grouped_btns2:hover {
+  border-radius: 15px;
+  width: 70%;
+  color: white;
+  background-color: rgb( 120, 57, 55);
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 
@@ -842,6 +1065,7 @@ input:focus, textarea:focus {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .sessionsRoutine {
+  overflow-x: hidden;
   overflow-y: scroll;
   min-height: 350px;
   max-height: 250px;
@@ -888,10 +1112,95 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   background: transparent;
 } 
 
-
+/*
 :invalid {
-  background: #783937;
+  
+} /*
+
+
+/* EDIT PROFILE */
+.editProfile {
+  width: 450px;
+  margin: 50px 5px;
+  padding: 25px 30px 40px 30px;
+  border-radius: 15px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
+
+.fullInput {
+  width: 100%;
+  margin: auto;
+}
+
+#form_btns {
+  border-radius: 15px;
+  width: 55%;
+  color: white;
+  background-color: rgb( 120, 57, 55, 0.5 );
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: 3px auto;
+  
+}
+#form_btns2 {
+  border-radius: 15px;
+  width: 55%;
+  color: white;
+  background-color: rgb( 120, 57, 55, 0.2);
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: 3px auto;
+}
+#form_btns:hover, #form_btns2:hover {
+  border-radius: 15px;
+  width: 55%;
+  color: white;
+  background-color: rgb( 120, 57, 55);
+  padding: 15px;
+  cursor: pointer;
+  border: none;
+  margin: 3px auto;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+/* CHANGE PASSWORD */
+.fullInput2 {
+  width: 90%;
+  margin: auto;
+  height: 40px;
+  background-color: white;
+  border-radius: 0px 15px 15px 0px;
+  padding: 20px 35px 20px 15px;
+
+}
+#iconForm{
+  background-color: #403234;
+  text-align: center;
+  color: white;
+  padding: 12px;
+  border-radius: 15px 0px 0px 15px;
+ 
+}
+
+/* EDIT PROFILE */
+.forgotPass {
+  width: 450px;
+  margin: 100px 5px;
+  padding: 25px 30px 40px 30px;
+  border-radius: 15px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+#emailInput {
+  width: 40%;
+  margin: auto;
+  height: 50px;
+}
+
 @media screen and (max-width: 992px) {
   .card1 {
       width: 100%;
@@ -915,6 +1224,9 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   .todoCard {
     padding: 40px 30px;
   }
+  .todoContainer {
+    margin-left: 15% !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -935,4 +1247,14 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   }
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+  .todoContainer {
+    margin-left: 15% !important;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .todoContainer {
+    margin-left: 10% !important;
+  }
+
 }

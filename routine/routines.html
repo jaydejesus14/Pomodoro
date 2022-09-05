@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Routines - Pivot</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -28,7 +29,7 @@
 
             <div class="row">
                 <!-- INDIV ROUTINE -->
-              <div class="col">
+              <div class="col-12">
                 <div class="card routinesCard">
                     <div class = "row"  id="accordionRoutine">
                         <div class ="col-8">
@@ -46,8 +47,8 @@
                                 <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color: transprent; border-color: transparent;"><i class="fa fa-cog" id="routineDrop" ></i></button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#">Convert to Session</a>
-                                    <a class="dropdown-item" href="#">View Routine</a>
-                                    <a class="dropdown-item" href="#">Edit Routine</a>
+                                    <a class="dropdown-item" href="viewRoutine.html">View Routine</a>
+                                    <a class="dropdown-item" href="editRoutine.html">Edit Routine</a>
                                     <a class="dropdown-item" href="#">Delete Routine</a>
                                   </div>
                             </div>
@@ -58,7 +59,7 @@
                              </button>
                             
                         </div>
-                        <div id="subRoutines1" class="subRoutines" aria-labelledby="headingOne" data-parent="#accordionRoutine">
+                        <div id="subRoutines1" class="collapse subRoutines" aria-labelledby="headingOne" data-parent="#accordionRoutine">
                             <div class = "row">
                                 <div class = "subRoutinesInfo">
                                     <div class = "row">
@@ -93,7 +94,12 @@
                     
            
         </div>
+
+        <!-- END -->
+        
+        
     </div>
+    
     </div>
 
 
