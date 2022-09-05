@@ -7,7 +7,6 @@ const timer = {
   };
   
   let interval;
-  
   const mainButton = document.getElementById('timerStart_btn');
   mainButton.addEventListener('click', () => {
     const { action } = mainButton.dataset;
@@ -69,15 +68,9 @@ const timer = {
       }
     }, 1000);
   }
-  
-  function stopTimer() {
-    clearInterval(interval);
-  
-    mainButton.dataset.action = 'START';
-    mainButton.textContent = 'START';
-    mainButton.classList.remove('active');
-  }
-  
+
+
+
   function updateClock() {
     const { remainingTime } = timer;
     const minutes = `${remainingTime.minutes}`.padStart(2, '0');
@@ -110,13 +103,14 @@ const timer = {
     updateClock();
   }
   
+
   function handleMode(event) {
     const { mode } = event.target.dataset;
   
     if (!mode) return;
   
     switchMode(mode);
-    stopTimer();
+    stopTimer();  
   }
   
   document.addEventListener('DOMContentLoaded', () => {
