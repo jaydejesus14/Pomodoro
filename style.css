@@ -1112,10 +1112,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   background: transparent;
 } 
 
-
+/*
 :invalid {
   
-}
+} /*
 
 
 /* EDIT PROFILE */
@@ -1183,6 +1183,22 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   padding: 12px;
   border-radius: 15px 0px 0px 15px;
  
+}
+
+/* EDIT PROFILE */
+.forgotPass {
+  width: 450px;
+  margin: 100px 5px;
+  padding: 25px 30px 40px 30px;
+  border-radius: 15px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+#emailInput {
+  width: 40%;
+  margin: auto;
+  height: 50px;
 }
 
 @media screen and (max-width: 992px) {
