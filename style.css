@@ -417,7 +417,7 @@ input:focus, textarea:focus {
   padding: 20px 10px;
   border-radius: 50px;
   box-sizing: content-box;
-  background-color:#783937;
+  background-color: rgb(240, 223, 209, 0.5);
   border: 2px solid #F0DFD1;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   color: white;
@@ -508,6 +508,11 @@ input:focus, textarea:focus {
   background-color: rgb( 120, 57, 55, 0.5);
 
 }
+#sessSaveBtn {
+  padding: 10px 20px;
+  background-color: rgb( 120, 57, 55, 0.5);
+
+}
 
 #sessionIcons {
   font-size: 24px;
@@ -516,6 +521,24 @@ input:focus, textarea:focus {
  #sessionIcons:hover {
   font-size: 24px;
   color: rgb( 120, 57, 55);
+}
+
+.sessionHeader {
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.card-header:hover {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0,0,0,.03);
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.card-header {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
 }
 
 .emailCard{
