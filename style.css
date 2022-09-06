@@ -267,9 +267,9 @@ input:focus, textarea:focus {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 100px;
+  margin: 4px 5px;
   cursor: pointer;
-  width: 150px;
+  width: 180px;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
@@ -284,9 +284,9 @@ input:focus, textarea:focus {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 100px;
+  margin: 4px 5px;
   cursor: pointer;
-  width: 150px;
+  width: 180px;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }

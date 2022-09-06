@@ -92,28 +92,34 @@
         <div class="container d-flex justify-content-around ">
         
             <div class = "button-group mode-buttons" id ="js-mode-buttons">
-                <div class = "col">
-                    <button
-                     data-mode="pomodoro"
-                     class = "currentSession text-center"
-                     id = "js-pomodoro"
-                     > POMODORO
-                     
-                     </button>
-                    
-                
-                    <button 
+                <div class = "row">
+                    <div class = "col-4">
+                        <button
+                        data-mode="pomodoro"
+                        class = "currentSession text-center"
+                        id = "js-pomodoro"
+                        >POMODORO
+                        
+                        </button>
+                     </div>
+                     <div class = "col-4">
+                     <button 
                     data-mode="shortBreak"
                     class = "nextSession text-center"
                     id = "js-short-break">
                         BREAK
                         </button>
+                        </div>
+
+                        <div class = "col-4">
                         <button 
                         data-mode="longBreak"
                         class = "nextSession text-center"
                         id = "js-short-break">
                             LONG BREAK
                             </button>
+                        </div>
+                        
                     
                 </div>
                 </div>
