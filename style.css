@@ -549,6 +549,18 @@ input:focus, textarea:focus {
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 
+
+  
+}
+
+.emailCard2{
+  width: 40%;
+  margin: 30px 0px;
+  padding: 40px 30px;
+  border-radius: 50px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
 }
 
 .emailVerificationHeader {
@@ -724,12 +736,16 @@ input:focus, textarea:focus {
   background-color: #403234;
   overflow-x: hidden;
   padding-top: 20px;
+  float:left;
+  margin-right: 15px;
 }
 .todoContainer {
-  margin-left: 8%;
+  margin-left: 5%;
   display: flex;
   flex-direction: row;
   overflow-y: scroll;
+  position: relative;
+  float: left;
 }
 
 #toDO {
