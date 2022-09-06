@@ -796,8 +796,8 @@ input:focus, textarea:focus {
 }
 
 #todoBody{
-  min-height: 580px;
-  max-height: 580px;
+  min-height: 600px;
+  max-height: 600px;
   overflow-x: auto;
 
 }
