@@ -296,34 +296,55 @@
         <hr class="solid" style="margin-bottom: 10px" id="hrWhite2">
 
         <!-- COMPLETED SESSIONS LIST !-->
-        <div class = "row justify-content-md-center text-center mx-auto mt-6 ">
-        <div class = "col-8 text-left">
-                    <div class = "pomSesions" style = "color:white; font-size:20px;">
-                        COMPLETED POMODORO SESSIONS:
-                    </div>
-                      </div>
-                    <div class ="col-2 text-right mt-1 mr-3">
-                <i class="fa fa-chevron-circle-up" style="font-size:25px" id="expandIcon2"></i>
-                </div>
-                </div>
-
-        <!-- POMODORO SESSIONS LIST !-->
+        <div class = "row justify-content-md-center text-center mx-auto">
+            <div class = "col-8 text-left">
+                        <div class = "pomSesions" style = "color:white; font-size:20px;">
+                            POMODORO SESSIONS:
+                        </div>
+                        </div>
+                        <div class ="col-2 text-right mt-1 mr-3">
+                    <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i>
+            </div>
+        </div>
         <div class = "row justify-content-md-center text-center mx-auto">
             <div class="card sessionsList">
-                <div class = "row  justify-content-md-center text-center">
-                <div class = "col-8 text-left">
-                    <div class = "sessionListName">
-                        Session#
+                <div class = "card-header">
+                        <div class = "row  justify-content-md-center text-center" id ="accordionSessionC">
+                        <div class = "col-8 text-left">
+                            <div class = "sessionListName">
+                                Session#
+                            </div>
+                        </div>
+                        <div class ="col-2 text-right mt-1">
+                            <button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapse2" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="fa fa-angle-down" id="sessionIcons"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div class ="col-2 text-right mt-1">
-                <i class="fa fa-angle-down" style="font-size:25px" id="expandIcon"></i>
+      
+                <div id="sessionCollapse2" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSessionC">
+                    <div class = "card-body sessionsTimer">
+                      <div class = "row text-center">
+                        <div class = "notesTimer">
+                            aaa
+                        </div> 
+                      </div>
+                      <hr>
+                      <div class = "row">
+                        <div class = "col-6 text-left">
+                            <button type="button" class="btn btn-primary lext-right" id = "sessSaveBtn">CANCEL</button>
+                       </div>
+                       <div class = "col-6 text-right">
+                            <button type="button" class="btn btn-primary" id = "sessSaveBtn">SAVE</button>
+                        </div>
+                        </div>
+                    </div>
                 </div>
-                
             </div>
-            
-</div>
         </div>
+
+       
         
         <hr class="solid" id="hrWhite2">
 
