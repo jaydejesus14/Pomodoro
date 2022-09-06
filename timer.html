@@ -129,10 +129,59 @@
                 <div class = "row justify-content-md-center text-center ml-auto mr-3 mb-1">
                         <div class = "col ">
                             <div class = "settingsIcon">
-                            <i class="fa fa-cog" id="timerIcons" style="font-size:24px"></i>
+                            <i class="fa fa-cog" data-toggle = "modal" data-target = "#settings" id="timerIcons" style="font-size:24px"></i>
                         </div>
                         </div>
                     </div>
+                    <div class = "modal fade" id="settings" role="dialog">
+                        <div class = "modal-dialog modal-dialog-centered  modal-lg">
+                           <div class = "modal-content">
+                              <div class = "modal-header text-center d-block  ">
+                                 <h4 class="modal-title  d-inline-block">SESSION SETTINGS</h4>
+                              </div>
+                              <div class = "modal-body">
+                                <span class = "text-left">Time per session (minutes): </span>
+                                <div class = "row text-center">
+                                
+                                    <div class = "col-4 mt-4">
+                                        <span class = "text-center">POMODORO</span>
+                                    </div>
+                          
+                            
+                                <div class = "col-4 mt-4">
+                                    <span class = "text-center">SHORT BREAK</span>
+                                </div>
+                                <div class = "col-4 mt-4">
+                                    <span class = "text-center">LONG BREAK</span>
+                                </div>
+                               
+                            </div>
+                            <div class = "row text-center">
+                                
+                                <div class = "col-4 mt-2 mb-4">
+                                    <input type = "number" class = "text-center" id = "timeRoutine" value ="25" data-id='inputnumber' step="5" min="20" max ="60"></input>
+                                </div>
+                      
+                        
+                            <div class = " col-4 mt-2 mb-4">
+                                <input type = "number" class = "text-center" id = "timeRoutine" value ="05" step="5" max ="15" min="5"></input>
+                            </div>
+                            <div class = " col-4 mt-2 mb-4">
+                                <input type = "number" class = "text-center" id = "timeRoutine" value ="05" step="5" max ="15" min="5"></input>
+                            </div>
+                           
+                        </div>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                       </div>
+                       
+                              </div>
+                        </div>
+                     </div>
                 <div class = "row justify-content-md-center text-center mx-auto">
                     <div class = "col">
                         <div class = "time text-center" id ="js-clock">
