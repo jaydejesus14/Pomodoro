@@ -474,13 +474,30 @@ input:focus, textarea:focus {
 
 .modal-content {
   background-color: #F0DFD1;
+  border: 2px solid transparent
 }
 .modal-header {
   text-align: center;
 }
 .modal-footer {
   justify-content: center;
-  }
+}
+#modal-save {
+  background-color:rgb( 120, 57, 55, 0.8)
+}
+#modal-save:hover {
+  background-color:rgb( 120, 57, 55)
+}
+
+
+#sessionIcons {
+  font-size: 24px;
+  color: white;
+}
+ #sessionIcons:hover {
+  font-size: 24px;
+  color: rgb( 120, 57, 55);
+}
 
 .emailCard{
   width: 60%;
