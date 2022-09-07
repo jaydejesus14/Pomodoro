@@ -1,4 +1,4 @@
-const timer = {
+var timer = {
     pomodoro: 25,
     shortBreak: 5,
     longBreak: 15,
@@ -7,7 +7,9 @@ const timer = {
   };
   
   let interval;
-  
+
+  document.getElementById('modal-save').onclick = changeTimer();
+  var btns = document.getElementsByClassName("currentSession");
   const mainButton = document.getElementById('timerStart_btn');
   mainButton.addEventListener('click', () => {
     const { action } = mainButton.dataset;
@@ -19,6 +21,7 @@ const timer = {
   });
   
   const modeButtons = document.querySelector('#js-mode-buttons');
+  
   modeButtons.addEventListener('click', handleMode);
   
   function getRemainingTime(endTime) {
@@ -83,8 +86,8 @@ const timer = {
     const minutes = `${remainingTime.minutes}`.padStart(2, '0');
     const seconds = `${remainingTime.seconds}`.padStart(2, '0');
   
-    const min = document.getElementById('js-minutes');
-    const sec = document.getElementById('js-seconds');
+    var min = document.getElementById('js-minutes');
+    var sec = document.getElementById('js-seconds');
     
     min.textContent = minutes;
     sec.textContent = seconds;
@@ -105,7 +108,6 @@ const timer = {
       .querySelectorAll('button[data-mode]')
       .forEach(e => e.classList.remove('active'));
     document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
-    
   
     updateClock();
   }
@@ -122,3 +124,5 @@ const timer = {
   document.addEventListener('DOMContentLoaded', () => {
     switchMode('pomodoro');
   });
+
+  

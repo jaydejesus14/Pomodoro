@@ -96,7 +96,7 @@
                     <div class = "col-4">
                         <button
                         data-mode="pomodoro"
-                        class = "currentSession focus"
+                        class = "currentSession active"
                         id = "js-pomodoro"
                         >POMODORO
                         
@@ -164,10 +164,10 @@
                       
                         
                             <div class = " col-4 mt-2 mb-4">
-                                <input type = "number" class = "text-center" id = "timeRoutine" value ="05" step="5" max ="15" min="5"></input>
+                                <input type = "number" class = "text-center" id = "timeRoutine1" value ="05" step="5" max ="15" min="5"></input>
                             </div>
                             <div class = " col-4 mt-2 mb-4">
-                                <input type = "number" class = "text-center" id = "timeRoutine" value ="05" step="5" max ="15" min="5"></input>
+                                <input type = "number" class = "text-center" id = "timeRoutine2" value ="05" step="5" max ="15" min="5"></input>
                             </div>
                            
                         </div>
@@ -357,22 +357,12 @@
             </div>
         </div>
 </section>
-
+    
     <script src="timer.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-    <script>
-    var btnContainer = document.getElementById("js-mode-buttons");    
-    var btns = document.getElementsByClassName("currentSession");
-    for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-  var current = document.getElementsByClassName("focus");
-  current[0].className = current[0].className.replace(" focus", "");
-  this.className += " focus";
-  });
-} 
-    </script>
+    
 
 
 </body>
