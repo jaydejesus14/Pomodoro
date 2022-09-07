@@ -257,11 +257,12 @@ input:focus, textarea:focus {
 
 
 
-.currentSession:active {
+.currentSession:focus {
   
   background-color: #F0DFD1;
   border: none;
   color: black;
+  opacity: 1;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
