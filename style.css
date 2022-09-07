@@ -666,6 +666,25 @@ input:focus, textarea:focus {
   padding: 10px;
 
 }
+.modal-content {
+  min-height: 400px;
+  max-height: 400px;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+#termsAndConditions{
+  background-color: none;
+  text-decoration: underline;
+}
+#termsAndConditions:hover{
+  background-color: none;
+  text-decoration: underline;
+  border-bottom: 2px solid black;
+}
+.terms {
+  text-decoration: underline;
+}
 
 
 .mainRegistration{

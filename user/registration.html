@@ -71,7 +71,31 @@
                     <hr class = "hrWhite">
                     <div class = "row">
                         <div class = "col text-center">
-                            <input type="checkbox" id="termsAndConditions" name="termsAndConditions" value="termsAndConditions"><span class = "button ml-4" required>I agree to the terms and conditions</span>
+                            <input type="checkbox" id="termsAndConditions" name="termsAndConditions" value="termsAndConditions" required><button type="button" class="btn " data-toggle="modal" data-target="#termsModal" id = "termsAndConditions"><span class = "terms">
+                                I agree to the terms and conditions</span>
+                              </button>
+                              
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+                        <div class="modal-dialog  modal-xl modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header text-center d-block">
+                            <h5 class="modal-title d-inline-block" id="exampleModalLabel">Terms And Conditions</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class = "termsAndConditionsContent">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                           
+                            </div>
+                        </div>
                         </div>
                     </div>
                     <div class="row justify-content-center my-auto text-center">
@@ -145,6 +169,11 @@
           $("#nav-placeholder").replaceWith(data);
           });
       </script>
+      <script>
+        $.get("../termsAndConditions.html", function(data){
+            $(".termsAndConditionsContent").replaceWith(data);
+            });
+        </script>
      
       <script>
         const togglePassword = document.querySelector('#togglePassword');
