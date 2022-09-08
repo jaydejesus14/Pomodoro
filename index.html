@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel='stylesheet' href="landing.css">
     
@@ -13,7 +13,7 @@
     <nav class="navbar sticky-top row navbar-light bg-light " id="navStyle">
                                 <div class="col-12 col-md-3">
                                     <div class="navbar-brand">
-                                        <Link to="/">
+                                        <Link to="../timer.html">
                                             <img src="images/logo.png" alt="Pivot" width="30px" height="100%" id="createMarginLeft"/>
                                             <span id="createMargin">PIVOT</span>
                                         </Link>
@@ -23,30 +23,30 @@
                                     <ul class="nav justify-content-center">
 
                                         <li class="nav-item">
-                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true"><i id="createMargin" class="fa fa-clock"></i>Timer</a>
+                                            <a href='timer.html' class="btn" role="button" id="nav_btn" aria-disabled="true"><i id="createMargin" class="fa fa-clock"></i>Timer</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list-alt"></i>To-Do</a>
+                                            <a href='todo/todoList.html' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list-alt"></i>To-Do</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list"></i>Routines</a>
+                                            <a href='routine/routines.html' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list"></i>Routines</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-calendar"></i>Calendar</a>
+                                            <a href='user/googleCalendar.html' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-calendar"></i>Calendar</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a href='' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-question"></i>FAQ</a>
+                                            <a href='user/faq.html' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-question"></i>FAQ</a>
                                         </li>
                                         
                                         <div class="dropdown" id="createMarginLeft">
-                                            <button id="dropdown" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"  aria-expanded="false"><i id="createMargin" class="fa fa-user-circle"></i>
+                                            <button id="dropdown" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"  aria-expanded="false"style = "text-align: center; border-radius: 100px; border: 1px solid transparent"><i id="userDropDown" class="fa fa-user-circle"></i>
                                         </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">HTML</a></li>
-                                                <li><a href="#">CSS</a></li>
-                                                <li><a href="#">JavaScript</a></li>
-                                            </ul>
-                                            </div>
+                                        <ul class="dropdown-menu dropdown-menu-right" id = "notLoggedIn">
+                                            <a class="dropdown-item" id = "notLoggedInBtns" href="user/login.html">LOG-IN</a>
+                                            <a class="dropdown-item" id = "notLoggedInBtns" href="user/registration.html">SIGN-UP</a>
+                                            
+                                        </ul>
+                                        </div>
                                             
     </nav>
 
@@ -76,7 +76,7 @@
                 <div class="col-sm-6 banner-image">
                     <img src="images/logo.png" class="responsive">
                     <div class="row justify-content-center my-3 px-3">
-                        <a style= "text-decoration: none;"; href="user/login.html"><button class="btn-block btn-color" id = "started_btn">GET STARTED</button></a></div>
+                        <a style= "text-decoration: none;"; href="timer.html"><button class="btn-block btn-color" id = "started_btn">GET STARTED</button></a></div>
                     </div>
                     </div>
                 </div>
@@ -115,6 +115,11 @@
                 </div>
             </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        
+    
 </body>
 <footer>
     <div class="footer-content">

@@ -53,6 +53,12 @@ body {
     background-color: #783937;
 }
 
+#userDropDown {
+  font-size: 20px;
+  color: white;
+  margin: 0.1rem;
+}
+
 hr.solid {
   border-top: 5px solid black;
 }
@@ -239,7 +245,7 @@ input:focus, textarea:focus {
 }
 footer2{
   font-weight: 100;
-	position:absolute;
+	position:relative;
 	bottom:0;
 	left:0;
 	right:0;
@@ -447,4 +453,137 @@ footer{
 .answer{
   font-family: 'Lato', sans-serif;
   font-size: 2.5vmin;
+}
+
+#notLoggedInBtns:hover{
+  text-decoration: none;
+  color : white;
+  width: 100%;
+  height: 60px;
+  background-color: #783937;
+  text-align: center;
+  padding: 15px;
+  margin: 4px;
+  border-radius: 25px;
+  border: 2px solid white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+#loggedInIcons {
+  font-size: 80px;
+  margin-top: 4px;
+}
+
+.btnLogged {
+  padding: 0px 40px;
+}
+#loggedInBtns{
+  text-decoration: none;
+  color : black;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  text-align: center;
+  padding: 15px;
+  margin: 6px;
+  border-radius: 20px;
+  border: 2px solid white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#loggedInBtns:hover{
+  text-decoration: none;
+  color : white;
+  width: 100%;
+  height: 60px;
+  background-color: #783937;
+  text-align: center;
+  padding: 15px;
+  margin: 6px;
+  border-radius: 20px;
+  border: 2px solid white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.loginText {
+  background-color: white !important;
+  border-radius: 0px 15px 15px 0 !important;
+  padding: 12px 15px 12px 15px !important;
+  width: 85%;
+  box-sizing: border-box;
+  border: none !important;
+  border: 1px solid #F3E5F5 !important;
+  font-size: 16px !important;
+  color: #000 !important;
+  font-weight: 400;
+}
+#iconLogin{
+  background-color: #403234;
+  text-align: center;
+  color: white;
+  padding: 14px;
+  border-radius: 15px 0px 0px 15px;
+ 
+}
+
+input:focus, textarea:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #783937 !important;
+  outline-width: 0;
+  font-weight: 400;
+}
+
+#login_btn:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  outline-width: 0;
+}
+
+#notLoggedIn {
+  width: 300px;
+  padding: 25px;
+  border-radius: 25px;
+  text-align: center;
+  background-color: #F0DFD1;
+}
+#loggedIn {
+  width: 400px;
+  padding: 25px;
+  border-radius: 25px;
+  background-color: #F0DFD1;
+}
+
+#notLoggedInBtns{
+  text-decoration: none;
+  color : black;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  text-align: center;
+  padding: 15px;
+  margin: 4px;
+  border-radius: 25px;
+  border: 2px solid #783937;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+a.dropdown-toggle {
+  border: none;
+  outline: none;
+}
+
+#dropDown{
+  background-color: #F0DFD1;
+  padding: 25px;
+}
+
+#dropdownbtns{
+  text-decoration: none;
+  color: black;
+  margin: 10px;
+}
+
+#dropdownMenuButton{
+  background: transparent;
 }
