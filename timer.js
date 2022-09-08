@@ -8,7 +8,7 @@ var timer = {
   
   let interval;
 
-  document.getElementById('modal-save').onclick = changeTimer();
+
   var btns = document.getElementsByClassName("currentSession");
   const mainButton = document.getElementById('timerStart_btn');
   mainButton.addEventListener('click', () => {
