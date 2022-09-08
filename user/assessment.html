@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pivot</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel='stylesheet' href="../style.css">
+    
+</head>
+<body>
+    <div id="nav-placeholder">
+    </div>
+
+    <div class="container px-2 py-4 mx-auto">
+        <div class="container d-flex justify-content-around ">
+            <div class = "row">
+            <span class = "titleRoutine text-center">
+                ASSESSMENT
+                <hr class="solid" id="hrWhite2">
+            </span>
+        </div>
+        </div>
+        <div class="container d-flex justify-content-around ">
+
+
+            <div class="row">
+            <div class = "card assessmentCard">
+                <div class = "row text-center mt-3">
+                    This can serve as an instrument to track the progress of your time management skills. The following questionnair will give you an idea of your current time management proficiency. Score the following questions using the following scale: 2 for "Always", 1 for "Sometimes", 0 for "Never".</p>
+                    <hr class = "hrWhite2">
+                    <div class = "assessmentContent">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col-2">#</th>
+                            <td colspan="2">Questions</td>
+                            <th scope="col-6">Always</th>
+                            <th scope="col-2">Sometimes</th>
+                            <th scope="col-2">Never</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!-- QUESION -->
+                          <tr>
+                            <th scope="row">1</th>
+                            <td colspan="2" class = "text-left">I do things in order of priority</td>
+                            <td><input type="radio" id="always" name="q1" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q1" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q1" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESTION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">2</th>
+                            <td colspan="2" class = "text-left">I accomplish what needs to be done during the day</td>
+                            <td><input type="radio" id="always" name="q2" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q2" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q2" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2" class = "text-left">I always get assignments done on time</td>
+                            <td><input type="radio" id="always" name="q3" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q3" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q3" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                           <!-- QUESION -->
+                           <tr>
+                            <th scope="row">4</th>
+                            <td colspan="2" class = "text-left">I feel I use my time effectively</td>
+                            <td><input type="radio" id="always" name="q4" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q4" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q4" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">5</th>
+                            <td colspan="2" class = "text-left">I tackle difficult or unpleasant tasks without procrastinating</td>
+                            <td><input type="radio" id="always" name="q5" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q5" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q5" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">6</th>
+                            <td colspan="2" class = "text-left">I force myself to make time for planning</td>
+                            <td><input type="radio" id="always" name="q6" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q6" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q6" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">7</th>
+                            <td colspan="2" class = "text-left">I spend enough time planning</td>
+                            <td><input type="radio" id="always" name="q7" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q7" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q7" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">8</th>
+                            <td colspan="2" class = "text-left">I prepare a daily or weekly "to do" list</td>
+                            <td><input type="radio" id="always" name="q8" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q8" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q8" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">9</th>
+                            <td colspan="2" class = "text-left">I prioritize my list in order of importance, not urgency</td>
+                            <td><input type="radio" id="always" name="q9" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q9" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q9" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">10</th>
+                            <td colspan="2" class = "text-left">I am able to meet the deadlines without rushing at the last minute. </td>
+                            <td><input type="radio" id="always" name="q10" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q10" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q10" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">11</th>
+                            <td colspan="2" class = "text-left">I keep up-to-date on my reading and homework assignments.</td>
+                            <td><input type="radio" id="always" name="q11" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q11" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q11" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">12</th>
+                            <td colspan="2" class = "text-left">I prevent interruptions from distracting me from high priority tasks. </td>
+                            <td><input type="radio" id="always" name="q12" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q12" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q12" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">13</th>
+                            <td colspan="2" class = "text-left">I avoid spending too much time on trivial matters. </td>
+                            <td><input type="radio" id="always" name="q13" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q13" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q13" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">14</th>
+                            <td colspan="2" class = "text-left">I spend enough time on academic matters. </td>
+                            <td><input type="radio" id="always" name="q14" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q14" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q14" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">15</th>
+                            <td colspan="2" class = "text-left">I plan time to relax and be with friends in my weekly schedule </td>
+                            <td><input type="radio" id="always" name="q15" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q15" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q15" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">16</th>
+                            <td colspan="2" class = "text-left">I have a weekly schedule on which I record fixed commitments such as classes and work hours. </td>
+                            <td><input type="radio" id="always" name="q16" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q16" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q16" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">17</th>
+                            <td colspan="2" class = "text-left">I try to do the most important tasks during my most energetic periods of the day. </td>
+                            <td><input type="radio" id="always" name="q17" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q17" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q17" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">18</th>
+                            <td colspan="2" class = "text-left">I make constructive use of my commuting time. </td>
+                            <td><input type="radio" id="always" name="q18" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q18" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q18" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">19</th>
+                            <td colspan="2" class = "text-left">I periodically re-assess my activities in relation to my goals. </td>
+                            <td><input type="radio" id="always" name="q19" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q19" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q19" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">20</th>
+                            <td colspan="2" class = "text-left">I have discounted any wasteful or unprofitable activies or routines. </td>
+                            <td><input type="radio" id="always" name="q20" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q20" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q20" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">21</th>
+                            <td colspan="2" class = "text-left">I screen and group my telephone calls to allow for control over telephone interruptions. </td>
+                            <td><input type="radio" id="always" name="q21" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q21" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q21" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">22</th>
+                            <td colspan="2" class = "text-left">I judge myself by accomplishments of tasks rather than by amount of activity or "busy-ness"</td>
+                            <td><input type="radio" id="always" name="q22" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q22" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q22" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">23</th>
+                            <td colspan="2" class = "text-left">My actions are determined primarily by me, not by circumstances or by other people's priorities. </td>
+                            <td><input type="radio" id="always" name="q23" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q23" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q23" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">24</th>
+                            <td colspan="2" class = "text-left">I have a clear idea of what I want to accomplish during the coming semester. </td>
+                            <td><input type="radio" id="always" name="q24" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q24" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q24" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          <!-- QUESION -->
+                          <tr>
+                            <th scope="row">25</th>
+                            <td colspan="2" class = "text-left">I am satisfied with the way I use my time. </td>
+                            <td><input type="radio" id="always" name="q25" value="always"></td>
+                            <td><input type="radio" id="sometimes" name="q25" value="sometimes"></td>
+                            <td><input type="radio" id="never" name="q25" value="never"></td>
+                          </tr>
+                          <!-- END OF QUESION -->
+                          
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+                <div class = "row text-center mt-4">
+                    <div class = "col">
+                        <button type = "button" class = "btn" id = "assessmentSubmit">SUBMIT
+                    </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script>
+    $.get("../navigationBar.html", function(data){
+        $("#nav-placeholder").replaceWith(data);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+   
+
+
+</body>
+</html>
