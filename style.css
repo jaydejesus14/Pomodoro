@@ -931,6 +931,17 @@ input:focus, textarea:focus {
   margin: auto;
 }
 
+#subBtn {
+  background-color: rgb( 120, 57, 55, 0.3);
+}
+
+
+
+#subBtn:hover, #subBtn2:hover {
+  background-color: rgb( 120, 57, 55);
+  color: white;
+}
+
 .groupedSess {
   min-height: 280px;
   max-height: 280px;
