@@ -506,12 +506,13 @@ input:focus, textarea:focus {
 }
 #sessSaveBtn {
   padding: 10px 20px;
-  background-color: rgb( 120, 57, 55, 0.5);
+  background-color: rgb( 120, 57, 55, 0.3);
 
 }
-#sessSaveBtn {
+#sessSaveBtn:hover {
   padding: 10px 20px;
-  background-color: rgb( 120, 57, 55, 0.5);
+  background-color: rgb( 120, 57, 55);
+  color: white;
 
 }
 
