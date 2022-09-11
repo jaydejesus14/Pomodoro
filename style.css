@@ -257,7 +257,7 @@ input:focus, textarea:focus {
 
 
 
-.currentSession:active {
+.currentSession.active {
   
   background-color: #F0DFD1;
   border: none;
