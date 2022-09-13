@@ -830,7 +830,7 @@ input:focus, textarea:focus {
   left: 10px;
   border: none;
 }
-/* EDIT PROFILE */
+/* ASSESSMENT */
 .assessmentCard {
   width: 1000px;
   margin: 20px 5px;
@@ -1437,6 +1437,76 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   margin: auto;
   height: 50px;
 }
+
+/* USER REPORTS */
+
+.userInfoReportsCard{ 
+  width: 325px;
+  margin: 30px 0px;
+  background-color: #F0DFD1;
+  min-height: 350px;
+  max-height: 500px;
+  color: black;
+  padding: 35px 15px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border: 4px solid #F0DFD1;
+}
+
+.inputNameReports {
+  font-size: 20px;
+  margin-top: 3px;
+}
+
+.reportsCard {
+  width: 1000px;
+  margin: 30px 40px;
+  padding: 35px 45px;
+  min-height: 700px;
+  max-height: 700px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.reportsTableCard {
+  background-color: white;
+  border-radius: 20px;
+  padding: 0px;
+  min-height: 300px;
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+}
+
+input[type="date"] { 
+  background: white;
+  color: black;
+  padding: 10px
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+}
+
+.titleReports {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.summaryNo {
+  width: 100px;
+  background-color: white;
+  text-align: center;
+  padding: 15px;
+  margin: auto;
+  border-radius: 15px;
+  font-size: 18px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+
 
 /* ADMIN */
 .dashboardTitle {
