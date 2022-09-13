@@ -1438,6 +1438,38 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   height: 50px;
 }
 
+/* ADMIN */
+.dashboardTitle {
+  font-size: 28px;
+  color: black;
+}
+
+.dashboardCard {
+  background-color: #F0DFD1;
+  margin-top: 5px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  padding: 60px;
+  width: 450px;
+}
+
+#dashboardMenu {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  padding: 20px;
+  font-size: 20px;
+}
+#dashboardMenu2 {
+  background-color:rgb( 120, 57, 55, 0.5);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+
+
 @media screen and (max-width: 992px) {
   .card1 {
       width: 100%;
