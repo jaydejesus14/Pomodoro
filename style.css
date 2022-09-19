@@ -518,6 +518,22 @@ input:focus, textarea:focus {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
+#progressTracker {
+  width: 10%;
+  height: 30px;
+  background-color: #403234;
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 30px; /* To center it vertically */
+  color: white;
+  border-radius: 15px;
+}
+#progressBar {
+  width: 100%;
+  background-color: rgba(240,223,209, 0.5);
+  border-radius: 15px;
+}
+
 #sessSaveBtn {
   padding: 10px 20px;
   background-color: rgb( 120, 57, 55, 0.3);
