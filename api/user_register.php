@@ -6,13 +6,31 @@
     $password   = hash('ripemd160', $_POST['password']);
     $email      = $_POST['email'];
 // need to change id (eto ung nasa post)
+$json_return = array();
+$json_return['status'] = false;
+$to_insert = array(
+		"Fname" => $first_name,
+		"Lname" => $last_name,
+		"user_name" => $user_name,
+		"password" => $password,
+		"email" => $email 
+);
+$result = $db->users->findOne(array("email" => $email));
 
-	// if($db->users->insertOne(["Fname" => $first_name])){
-	// 	echo 'success';
-	// }else{
-	// 	echo 'mali';
-	// }
-		echo json_encode($_POST);
+if($result){
+	$json_return['message'] = 'Email already used by another user'; 
+}
+else{
+	if($db->users->insertOne($to_insert)){
+		$json_return['message'] = 'Register success';
+		$json_return['status'] = true;
+	}else{
+		$json_return['message'] = 'internal error';
+	}
+}
+
+echo json_encode($json_return);
+	
 	
 	// $sql = "SELECT * FROM user_info WHERE user_email = '$email' OR user_uname = '$user_name'";
 	// $result = $conn->query($sql);

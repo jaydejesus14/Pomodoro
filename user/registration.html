@@ -185,19 +185,20 @@
                 
                 cache:false,
                 success: function(dataResult){
-                    console.log(dataResult)
+                    // console.log(dataResult)
                     // var dataResult = JSON.parse(dataResult);
-                    // if (dataResult.status){
-                    //     alert("Register Success!");
-                    //     window.location = "emailVerification.html";
-                    // }
-                    // else{
-                    //     alert("Error!");
-                    // }
+                    alert(dataResult.message)
+                    if (dataResult.status){
+                        window.location.href = "emailVerification.html";
+                    }else{
+                        console.log('bad')
+                    }
                 },error:function(err){
               console.log('error')		 
             }
             })
+        }else{
+            alert('your password not matched')
         }
     }
    
