@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel='stylesheet' href="style.css">
+    
+</head>
+<body>
+    <nav class="navbar sticky-top row navbar-light bg-light " id="navStyle">
+        <div class="col-12 col-md-3">
+            <div class="navbar-brand">
+                <Link to="/">
+                    <img src="images/logo.png" alt="Pivot" width="30px" height="100%" id="createMarginLeft"/>
+                    <span id="createMargin">PIVOT</span>
+                </Link>
+            </div>
+        </div>
+        <div class="col-12 col-md-5">
+            <ul class="nav justify-content-center">
+
+                <li class="nav-item">
+                    <a href='timer.html' class="btn" role="button" id="nav_btn" aria-disabled="true"><i id="createMargin" class="fa fa-clock"></i>Timer</a>
+                </li>
+                <li className="nav-item">
+                    <a href='todo/todoList.html' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list-alt"></i>To-Do</a>
+                </li>
+                <li className="nav-item">
+                    <a href='routine/routines.html' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-list"></i>Routines</a>
+                </li>
+                <li className="nav-item">
+                    <a href='user/googleCalendar.html' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-calendar"></i>Calendar</a>
+                </li>
+                <li className="nav-item">
+                    <a href='user/faq.html' class="btn" role="button" id="nav_btn" aria-disabled="true" ><i id="createMargin" class="fa fa-question"></i>FAQ</a>
+                </li>
+
+                <!-- NOT LOGGED IN DROPDOWN  !-->
+                
+                <div class="dropdown" id="createMarginLeft">
+                    <button id="dropdown" class="btn btn-primary" type="button" data-toggle="dropdown"  aria-expanded="false" style = "text-align: center; border-radius: 100px; border: 1px solid transparent"><i id="userDropDown" class="fa fa-user-circle"></i>
+                </button>
+                    <ul class="dropdown-menu dropdown-menu-right" id = "notLoggedIn">
+                        <a class="dropdown-item" id = "notLoggedInBtns" href="user/login.html">LOG-IN</a>
+                        <a class="dropdown-item" id = "notLoggedInBtns" href="user/registration.html">SIGN-UP</a>
+                        
+                    </ul>
+                    </div>
+               
+
+                <!-- LOGGED IN 
+
+                <div class="dropdown" id="createMarginLeft">
+                    <button id="dropdown" class="btn btn-primary" type="button" data-toggle="dropdown"  aria-expanded="false" style = "text-align: center; border-radius: 100px; border: 1px solid transparent"><i id="userDropDown" class="fa fa-user-circle"></i>
+                </button>
+                    <ul class="dropdown-menu dropdown-menu-right" id = "loggedIn">
+                        <div class = "row">
+                            <div class = "col text-center">
+                            <i class="fa fa-user-circle" id="loggedInIcons"></i>
+                            <h4 class = "text-center mt-3">USERNAME</h4>
+                                <div class = "row">
+                                    <div class = "col-md-6 text-right ">
+                                        <span class = "">FirstName</span>
+                                    </div>
+                                    <div class = "col-md-6 text-left">
+                                        <span class = "">LastName</span>
+                                    </div>
+                                </div>
+                            <span>emailaddress@email.com</span>
+                            <hr class = "hrWhite">
+                            </div>
+                        </div>
+                        <div class = "btnLogged">
+                            <a class="dropdown-item" id = "loggedInBtns" href="">EDIT PROFILE</a>
+                            <a class="dropdown-item" id = "loggedInBtns" href="user/registration.html">CHANGE PASSWORD</a>
+                            <a class="dropdown-item" id = "loggedInBtns" href="user/registration.html">REPORTS</a>
+                            <hr class = "hrBlack">
+                            <a class="dropdown-item" id = "loggedInBtns" href="timer.html">LOG-OUT</a>
+                        </div>    
+                    </ul>
+                </div>
+                END OF LOGGED-IN -->
+</div>
+</nav>
+
+    <section class ="timer">
+    <div class="container px-5 py-5 mx-auto">
+   
+        
+        <div class="container d-flex justify-content-around ">
+        
+            <div class = "button-group mode-buttons" id ="js-mode-buttons">
+                <div class = "row">
+                    <div class = "col-4">
+                        <button
+                        data-mode="pomodoro"
+                        class = "button active currentSession"
+                        id = "js-pomodoro" disabled
+                        >POMODORO
+                        
+                        </button>
+                     </div>
+                     <div class = "col-4">
+                     <button 
+                    data-mode="shortBreak"
+                    class = "currentSession"
+                    id = "js-short-break" disabled>
+                        BREAK
+                        </button>
+                        </div>
+
+                        <div class = "col-4">
+                        <button 
+                        data-mode="longBreak"
+                        class = "currentSession"
+                        id = "js-long-break" disabled>
+                            LONG BREAK
+                            </button>
+                        </div>
+                        
+                    
+                </div>
+                </div>
+            </div>
+
+            <div class="card timers mx-auto">
+                <div class = "row justify-content-md-center text-center ml-auto mr-3 mb-1">
+                        <div class = "col ">
+                            <div class = "settingsIcon">
+                            <i class="fa fa-cog" data-toggle = "modal" data-target = "#settings" id="timerIcons" style="font-size:24px"></i>
+                        </div>
+                        </div>
+                    </div>
+                    <div class = "modal fade" id="settings" role="dialog">
+                        <div class = "modal-dialog modal-dialog-centered">
+                           <div class = "modal-content">
+                              <div class = "modal-header text-center d-block  ">
+                                 <h4 class="modal-title  d-inline-block">SESSION SETTINGS</h4>
+                              </div>
+                              <div class = "modal-body">
+                                <span class = "text-left">Time per session (minutes): </span>
+                                <div class = "row text-center">
+                                
+                                    <div class = "col-4 mt-4">
+                                        <span class = "text-center">POMODORO</span>
+                                    </div>
+                          
+                            
+                                <div class = "col-4 mt-4">
+                                    <span class = "text-center">SHORT BREAK</span>
+                                </div>
+                                <div class = "col-4 mt-4">
+                                    <span class = "text-center">LONG BREAK</span>
+                                </div>
+                               
+                            </div>
+                            <div class = "row text-center">
+                                
+                                <div class = "col-4 mt-2 mb-4">
+                                    <input type = "number" class = "timeRoutine text-center" id = "timeRoutine" value ="25" data-id='inputnumber' step="5" min="20" max ="60"></input>
+                                </div>
+                      
+                        
+                            <div class = " col-4 mt-2 mb-4">
+                                <input type = "number" class = "timeRoutine text-center" id = "timeRoutine1" value ="05" step="5" max ="15" min="5"></input>
+                            </div>
+                            <div class = " col-4 mt-2 mb-4">
+                                <input type = "number" class = "timeRoutine text-center" id = "timeRoutine2" value ="05" step="5" max ="15" min="5"></input>
+                            </div>
+                           
+                        </div>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id = "modal-save">Save changes</button>
+                       </div>
+                       
+                              </div>
+                        </div>
+                     </div>
+                <div class = "row justify-content-md-center text-center mx-auto">
+                    <div class = "col">
+                        <div class = "time text-center" id ="js-clock">
+                            <span id="js-minutes" style = "font-size: 40px">25</span>
+                            <span class="separator" style = "font-size: 40px">:</span>
+                            <span id="js-seconds" style = "font-size: 40px">00</span>
+                        </div>
+
+                 <!-- Start Pause and Skip Buttons !-->
+                <div class = "row justify-content-md-center text-center mx-auto">
+                    <div class="col">
+                    </div>
+                    <div class="col">
+                        <button class="btn-block"  id = "timerStart_btn">
+                            START
+                        </button>
+                    </div>
+                    <div class="col">
+                 
+
+                        <button class="btn-block skip_btn active" id = "skip_btn">
+                    <i class="fa fa-fast-forward" id = "timerIcons" style="font-size:30px"></i>
+                        </button>
+                     
+                    
+                    </div>
+                </div>
+            </div>          
+                  
+</div>
+</div>
+        <!-- Session Name, Rewrite Session Name and Sticky Note !-->
+        <div class = "row justify-content-md-center text-center mt-3 mx-auto">
+                    <div class = "col-md-8 text-right">
+                        <div class = "currentSessionName">
+                        SESSION NAME
+                        </div>   
+                    </div>
+                    <div class = "col-md-4 text-right mx-auto">
+                        <button class="btn-block" id = "sessions_btns">
+                            <i class="fa fa-pencil-alt" style="font-size:28px" id="indivIcon"></i>
+                            <i class="fa fa-sticky-note" style="font-size:28px" id="indivIcon"></i>
+                        </button>
+                    </div>
+                   
+                    <hr class="solid" id="hrWhite">
+                    
+
+        </div>
+        <div class = "row justify-content-md-center text-center mx-auto">
+        <div class = "col-8 text-left">
+                    <div class = "pomSesions" style = "color:white; font-size:20px;">
+                        POMODORO SESSIONS:
+                    </div>
+                      </div>
+                    <div class ="col-2 text-right mt-1 mr-3">
+                <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i>
+                </div>
+                </div>
+
+        <!-- POMODORO SESSIONS LIST !-->
+        <div class = "row justify-content-md-center text-center mx-auto">
+            <div class="card sessionsList">
+                <div class = "card-header sessionHeader">
+                        <div class = "row  justify-content-md-center text-center" id ="accordionSession">
+                        <div class = "col-8 text-left">
+                            <div class = "sessionListName">
+                                Session#
+                            </div>
+                        </div>
+                        <div class ="col-2 text-right mt-1">
+                            <button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapse" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="fa fa-angle-down" id="sessionIcons"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+      
+                <div id="sessionCollapse" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSession">
+                    <div class = "card-body sessionsTimer">
+                      <div class = "row text-center">
+                        <div class = "notesTimer">
+                            aaa
+                        </div> 
+                      </div>
+                      <hr>
+                      <div class = "row">
+                        <div class = "col-6 text-left">
+                            <button type="button" class="btn lext-right" id = "sessSaveBtn">REMOVE</button>
+                       </div>
+                       <div class = "col-6 text-right">
+                            <button type="button" class="btn " id = "sessSaveBtn">SAVE</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+             
+        
+      
+        
+          
+        <!-- ADDING A SESSION !-->
+        <div class = "row justify-content-md-center text-center mx-auto">
+            <div class = "col">
+                <button class="btn-block text-center" id = "addSession_btn">
+                         <i class="fa fa-plus-circle" style="font-size:24px; margin-right:10px;" id="indivIcon"></i> ADD A SESSION
+                </button>
+            </div>
+        </div>
+        <hr class="solid" style="margin-bottom: 10px" id="hrWhite2">
+
+        <!-- COMPLETED SESSIONS LIST !-->
+        <div class = "row justify-content-md-center text-center mx-auto">
+            <div class = "col-8 text-left">
+                        <div class = "pomSesions" style = "color:white; font-size:20px;">
+                            COMPLETED POMODORO SESSIONS:
+                        </div>
+                        </div>
+                        <div class ="col-2 text-right mt-1 mr-3">
+                    <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i>
+            </div>
+        </div>
+        <div class = "row justify-content-md-center text-center mx-auto">
+            <div class="card sessionsList">
+                <div class = "card-header">
+                        <div class = "row  justify-content-md-center text-center" id ="accordionSessionC">
+                        <div class = "col-8 text-left">
+                            <div class = "sessionListName">
+                                Session#
+                            </div>
+                        </div>
+                        <div class ="col-2 text-right mt-1">
+                            <button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapse2" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="fa fa-angle-down" id="sessionIcons"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+      
+                <div id="sessionCollapse2" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSessionC">
+                    <div class = "card-body sessionsTimer">
+                      <div class = "row text-center">
+                        <div class = "notesTimer">
+                            aaa
+                        </div> 
+                      </div>
+                      <hr>
+                      <div class = "row">
+                        <div class = "col-6 text-left">
+                            <button type="button" class="btn btn-primary lext-right" id = "sessSaveBtn">CANCEL</button>
+                       </div>
+                       <div class = "col-6 text-right">
+                            <button type="button" class="btn btn-primary" id = "sessSaveBtn">SAVE</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+        
+        <hr class="solid" id="hrWhite2">
+
+        <!-- SAVING ALL AS ROUTINE !-->
+        <div class = "row justify-content-md-center text-center mx-auto">
+            <div class = "col">
+                <button class="btn-block text-center" id = "addSession_btn" data-toggle = "modal" data-target = "#saveRoutine">
+                         <i class="fa fa-save"   style="font-size:24px; margin-right:10px;" id="indivIcon"></i> SAVE ALL AS ROUTINE
+                </button>
+            </div>
+        <!-- SAVE AS ROUTINE MODAL -->
+            <div class = "modal fade" id="saveRoutine" role="dialog">
+                <div class = "modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                   <div class = "modal-content">
+                      <div class = "modal-header text-center d-block  ">
+                         <h4 class="modal-title  d-inline-block">SAVE ROUTINE?</h4>
+                      </div>
+                      <div class = "modal-body">
+                        <span class = "text-left">Time per session (minutes): </span>
+                        <div class = "row text-center">
+                        
+                            <div class = "col-4 mt-4">
+                                <span class = "text-center">POMODORO</span>
+                            </div>
+                  
+                    
+                        <div class = "col-4 mt-4">
+                            <span class = "text-center">SHORT BREAK</span>
+                        </div>
+                        <div class = "col-4 mt-4">
+                            <span class = "text-center">LONG BREAK</span>
+                        </div>
+                       
+                    </div>
+                    <div class = "row text-center">
+                        
+                        <div class = "col-4 mt-2 mb-4">
+                            <input type = "number" class = "timeRoutine text-center" id = "timeRoutine" value ="25" data-id='inputnumber' step="5" min="20" max ="60"></input>
+                        </div>
+              
+                
+                    <div class = " col-4 mt-2 mb-4">
+                        <input type = "number" class = "timeRoutine text-center" id = "timeRoutine1" value ="05" step="5" max ="15" min="5"></input>
+                    </div>
+                    <div class = " col-4 mt-2 mb-4">
+                        <input type = "number" class = "timeRoutine text-center" id = "timeRoutine2" value ="05" step="5" max ="15" min="5"></input>
+                    </div>
+                   
+                </div>
+                <hr>
+                <span class = "text-left mb-3" style = "font-size: 20px;">SESSIONS: </span>
+                <div class = "groupedSess">
+                    <!-- START OF SESSIONS-->
+                    <div class = "row">
+                        <div class = "col-10 text-left">
+                            <span>SUB-SESSION-1</span>
+                        </div>
+                        <div class = "col-2 text-center mb-4">
+                            <i class="fa fa-trash" id = "trashIcon"></i>
+                        </div>
+                        <hr class = "hrWhite2">
+                    </div>
+                    <!--END-->
+
+                    <!-- START OF ADD SESSIONS -->
+                    <div class = "row">
+                        <div class = "col text-center" id = "addSubGroup">
+                        <i class="fa fa-plus-circle"  ></i>
+                        <span class = "ml-2"  >Add Sub-Task</span>
+                    </div>
+                        
+                    </div>
+                    <!-- END -->            
+                </div>
+                </div>
+                
+                
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+                    <button type="button" class="btn btn-primary" id = "modal-save">SAVE</button>
+               </div>
+               
+                      </div>
+                </div>
+             </div>
+        </div>
+</section>
+    
+    <script src="timer.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    
+
+
+</body>
+</html>
