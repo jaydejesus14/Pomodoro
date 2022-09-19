@@ -534,6 +534,10 @@ input:focus, textarea:focus {
   border-radius: 15px;
 }
 
+.percentNum {
+  font-size: 16px;
+  color: white;
+}
 #sessSaveBtn {
   padding: 10px 20px;
   background-color: rgb( 120, 57, 55, 0.3);
