@@ -161,8 +161,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
        
         <script>
-
+        
         function register(){
+            var verification_code = Math.floor(100000 + Math.random() * 900000)
+            
+            localStorage.setItem('verification_code',verification_code)
             var first_name = $('#first_name').val();
             var last_name = $('#last_name').val();
             var user_name = $('#user_name').val();
@@ -170,35 +173,38 @@
             var confirm_password = $('#confirm_password').val();
             var email = $('#email').val();
             
+
             if(confirm_password == password){
+                localStorage.setItem('first_name',first_name)
+                localStorage.setItem('last_name',last_name)
+                localStorage.setItem('user_name',user_name)
+                localStorage.setItem('password',password)
+                localStorage.setItem('email',email)
                 $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/user_register.php",
+                url: "http://localhost/pomodoro/api/mail_sender.php",
                 dataType: "json",
                  data:{
-                    first_name: first_name,
-                    last_name:  last_name,
-                    user_name:  user_name,
-                    password: password,
                     email: email,
+                    verification_code: verification_code
                 },
                 
                 cache:false,
                 success: function(dataResult){
-                    // console.log(dataResult)
-                    // var dataResult = JSON.parse(dataResult);
                     alert(dataResult.message)
-                    if (dataResult.status){
+                    if(dataResult.status){
                         window.location.href = "emailVerification.html";
-                    }else{
-                        console.log('bad')
                     }
+                    // var dataResult = JSON.parse(dataResult);
+                    
+                    
+                    
+                    
                 },error:function(err){
               console.log('error')		 
             }
             })
-        }else{
-            alert('your password not matched')
+            // window.location.href = "emailVerification.html";
         }
     }
    
