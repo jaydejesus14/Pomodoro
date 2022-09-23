@@ -12,12 +12,12 @@ require 'phpmailer/src/SMTP.php';
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'druxbogs@gmail.com';
-    $mail->Password = 'eriocldxmyztffps';
+    $mail->Username = 'pivotacc.pomodoro@gmail.com';
+    $mail->Password = 'ffekkpobxvvhfpif';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
 
-    $mail->setFrom('druxbogs@gmail.com');
+    $mail->setFrom('pivotacc.pomodoro@gmail.com');
 
     $mail->addAddress('eurekare.hendrix@gmail.com');
 
