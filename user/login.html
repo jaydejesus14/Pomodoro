@@ -112,8 +112,10 @@
                         // console.log(dataResult)
                         if(dataResult.status){
                             alert('login success')
+                            
                             //path ng landing page after mag success ng login
-                             window.location.href = "../timer.html";
+                            localStorage.setItem('user_id',dataResult.data['_id']['$oid'])
+                            window.location.href = "../timer.html";
                         }else{
                             alert('invalid credentials')
                         }
