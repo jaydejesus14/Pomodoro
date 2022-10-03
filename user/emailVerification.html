@@ -69,30 +69,40 @@
                 var code = document.getElementById('verification_code').value
                 var confirm_code = localStorage.getItem('verification_code')
                 if(code == confirm_code){
-                    $.ajax({
-                        type:"POST",
-                        url: "http://localhost/pomodoro/api/user_register.php",
-                        dataType: "json",
-                        data:{
-                            first_name: localStorage.getItem('first_name'),
-                            last_name:  localStorage.getItem('last_name'),
-                            user_name:  localStorage.getItem('user_name'),
-                            password: localStorage.getItem('password'),
-                            email: localStorage.getItem('email'),
-                        },
-                        
-                        cache:false,
-                        success: function(dataResult){
-                            alert(dataResult.message)
-                            if (dataResult.status){
-                               //path nung pag lalandingan niya
-                               window.location.href = "../timer.html";
-                            }
 
-                        },error:function(err){
-                    console.log('error')		 
-                    }
-                })
+                    if(localStorage.getItem('reset_password')){
+                        localStorage.removeItem('reset_password')
+                        window.location.href = "./resetPassword.html";
+
+                    }else{
+
+                    
+                        $.ajax({
+                            type:"POST",
+                            url: "http://localhost/pomodoro/api/user_register.php",
+                            dataType: "json",
+                            data:{
+                                first_name: localStorage.getItem('first_name'),
+                                last_name:  localStorage.getItem('last_name'),
+                                user_name:  localStorage.getItem('user_name'),
+                                password: localStorage.getItem('password'),
+                                email: localStorage.getItem('email'),
+                            },
+                            
+                            cache:false,
+                            success: function(dataResult){
+                                alert(dataResult.message)
+                                if (dataResult.status){
+                                //path nung pag lalandingan niya
+                                window.location.href = "../timer.html";
+                                }
+
+                            },error:function(err){
+                        console.log('error')		 
+                        }
+                    })
+                    
+                }
                 }else{
                     alert('wrong code')
                 }

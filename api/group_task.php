@@ -19,7 +19,7 @@
 // 		"long_break" => $long_break 
 // );
 $where = array(
-    'user_id' => '633453f388ff7a176d0ade15'
+    'user_id' => $_POST['user_id']
 );
 $select_fields = array(
     'pomodoro' => 1,
