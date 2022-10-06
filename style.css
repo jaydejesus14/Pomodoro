@@ -386,6 +386,7 @@ input:focus, textarea:focus {
   cursor: pointer;
   border: none;
   font-size: 25px;
+  
 }
 #indivIcon:hover {
   border-radius: 50px;
@@ -395,6 +396,7 @@ input:focus, textarea:focus {
   border: none;
   font-size: 26px;
 }
+
 #timerIcons:hover {
   color: #783937;
   cursor: pointer;
