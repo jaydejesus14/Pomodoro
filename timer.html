@@ -451,8 +451,15 @@
 </section>
 
 <script>
+    var clicks = 0;
     function openSpotify() {
       document.getElementById("spotifyContainer").style.display = "block";
+      
+        if(clicks == 0){
+            alert("Please make sure to lower the volume before playing!");
+            clicks += 1;
+        }
+     
     }
     
     function closeSpotify() {
