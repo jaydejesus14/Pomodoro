@@ -95,11 +95,11 @@
               <!-- END -->
 
               <!-- INDIV MAJOR TASK TODO LIST -->
-              <!-- <div class="col-4" id="tasks_view">
+              <div class="col-4" id="tasks_view">
                 
-              </div> -->
-                <div class="col-4">
-                  <div class="card todoCard">
+              </div>
+                <!-- <div class="col-4"> -->
+                  <!-- <div class="card todoCard">
                       <div class = "text-right"> 
                           <div class = "dropdown">
                           <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color: transprent; border-color: transparent;"><i class="fa fa-caret-square-down" id="todoDrop" ></i></button>
@@ -158,8 +158,8 @@
                          
                       <div class="card-footer bg-transparent">  
                       </div>
-                  </div>
-                  </div>
+                  </div> -->
+                  <!-- </div> -->
                
                 <!-- END -->
             <!-- ADD A GROUPED TODO LIST -->
@@ -215,57 +215,63 @@
 
 //testing
 //group task
-        // $.ajax({
-        //         type:"POST",
-        //         url: "http://localhost/pomodoro/api/group_task.php",
-        //         dataType: "json",
-        //         data:{
-        //             user_id: localStorage.getItem('user_id'),
-        //             // last_name:  localStorage.getItem('last_name'),
-        //             // user_name:  localStorage.getItem('user_name'),
-        //             // password: localStorage.getItem('password'),
-        //             // email: localStorage.getItem('email'),
-        //         },
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/group_task.php",
+                dataType: "json",
+                data:{
+                    user_id: localStorage.getItem('user_id'),
+                    // last_name:  localStorage.getItem('last_name'),
+                    // user_name:  localStorage.getItem('user_name'),
+                    // password: localStorage.getItem('password'),
+                    // email: localStorage.getItem('email'),
+                },
                 
-        //         cache:false,
-        //         success: function(dataResult){
-        //             // alert(dataResult.message)
-        //             // if (dataResult.status){
-        //             //     //path nung pag lalandingan niya
-        //             //     window.location.href = "../timer.html";
-        //             // }
-        //             var innerHtml = ''
-        //             for (let i = 0; i < dataResult.length; i++) {
-        //                 innerHtml+='<div class="card todoCard">'
-        //                 innerHtml+='<div class = "text-right">' 
-        //                 innerHtml+='<div class = "dropdown">'
-        //                 innerHtml+='<button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color: transprent; border-color: transparent;"><i class="fa fa-caret-square-down" id="todoDrop" ></i></button>'
-        //                 innerHtml+='<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">'
-        //                 innerHtml+='<a class="dropdown-item" href="../todoTimer.html">Convert to Session</a>'
-        //                 innerHtml+='<a class="dropdown-item" href="#" >Edit Task Name</a>'
-        //                 innerHtml+='<a class="dropdown-item" href="#">Delete Task</a>'
-        //                 innerHtml+='</div>'
-        //                 innerHtml+='</div></div>'
-        //                 innerHtml+='<span id = "content" class = "todoTitle text-center">'+dataResult[i].task_name+'</span>'
-        //                 innerHtml+='<hr class="solid" id="hrBlack">'
-        //                 innerHtml+='<span class = "todoTitle text-center">25:00</span>'
-        //                 innerHtml+='<span class = "todoTime text-center">Time per session</span>'
-        //                 innerHtml+='<hr class="solid" id="hrBlack">'
-        //                 innerHtml+='<div class="card-body overflow-auto scroll" id="todoMajorBody"><div class ="card subTask text-center mb-3"><div class = "row" id="accordionExample2"><div class = "col-10 text-left" id="subTaskName"><input type="text" placeholder="Task Name"></div>'
-        //                 innerHtml+='<div class = "col-2 mt-1" id="subTaskName"><button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"><i class="fa fa-ellipsis-h" style="font-size:20px" id="indivIcon"></i>'
-        //                 innerHtml+='</button></div><div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample2"><hr class="solid" id="hrBlack"><div class = "noteSubTask"></div><hr class="solid" id="hrBlack"><div class ="row">'
-        //                 innerHtml+='<div class = "col-6"><button class = "btn" id ="subBtn2">REMOVE</button></div><div class = "col-6"><button class = "btn" id = "subBtn" >SAVE</button></div></div></div>'
-        //                 innerHtml+='</div></div><div class ="card addSubTask text-center mb-3"><div class = "row"><div class = "col text-center" id="subTaskName">'
-        //                 innerHtml+='<i class="fa fa-plus-circle" style="font-size:16px"></i><span class = "ml-2">Add A Sub-Task</span></div></div></div></div><div class="card-footer bg-transparent">  </div></div>'
-        //                 }
+                cache:false,
+                success: function(dataResult){
+                    // alert(dataResult.message)
+                    // if (dataResult.status){
+                    //     //path nung pag lalandingan niya
+                    //     window.location.href = "../timer.html";
+                    // }
+                    var innerHtml = ''
+                    for (let i = 0; i < dataResult.length; i++) {
+                        innerHtml+='<div class="card todoCard">'
+                        innerHtml+='<div class = "text-right">'
+                        innerHtml+='<div class = "dropdown">'
+                        innerHtml+='<button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color: transprent; border-color: transparent;"><i class="fa fa-caret-square-down" id="todoDrop" ></i></button>'
+                        innerHtml+='<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">'
+                        innerHtml+='<a class="dropdown-item" href="../todoTimer.html">Convert to Session</a>'
+                        innerHtml+='<a class="dropdown-item" href="#" >Edit Task Name</a>'
+                        innerHtml+='<a class="dropdown-item" href="#" onclick="removeMajorTask('+"'"+dataResult[i]._id['$oid']+"'"+')">Delete Task</a>'
+                        innerHtml+='</div></div></div>'
+                        innerHtml+='<span id = "content" class = "todoTitle text-center">'+dataResult[i].task_name+'</span>'
+                        innerHtml+='<hr class="solid" id="hrBlack">'
+                        innerHtml+='<span class = "todoTitle text-center">25:00</span>'
+                        innerHtml+='<span class = "todoTime text-center">Time per session</span>'
+                        innerHtml+='<hr class="solid" id="hrBlack">'
+                        innerHtml+='<div class="card-body overflow-auto scroll" id="todoMajorBody">'
+                        innerHtml+='<div class ="card subTask text-center mb-3">'
+                        innerHtml+='<div class = "row" id="accordionExample2">'
+                        innerHtml+='<div class = "col-10 text-left" id="subTaskName">'
+                        innerHtml+='<input type="text"  class = "taskName" placeholder="Task Name">'
+                        innerHtml+='</div><div class = "col-2 mt-1" id="subTaskName"><button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">'
+                        innerHtml+='<i class="fa fa-ellipsis-h" style="font-size:20px" id="indivIcon"></i></button></div>'
+                        innerHtml+='<div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample2">'
+                        innerHtml+='<hr class="solid" id="hrBlack">'
+                        innerHtml+='<div class = "noteSubTask"></div><hr class="solid" id="hrBlack"><div class ="row"><div class = "col-6"><button class = "btn" id ="subBtn2">REMOVE</button></div><div class = "col-6">'
+                        innerHtml+='<button class = "btn" id = "subBtn" >SAVE</button></div></div></div></div></div>'
+                        innerHtml+='<div class ="card addSubTask text-center mb-3">'
+                        innerHtml+='<div class = "row"><div class = "col text-center" id="subTaskName"><i class="fa fa-plus-circle" style="font-size:16px"></i><span class = "ml-2">Add A Sub-Task</span></div></div></div></div><div class="card-footer bg-transparent"></div></div>'
+                        }
 
-        //                 $('#tasks_view').html(innerHtml)
+                        $('#tasks_view').html(innerHtml)
                     
 
-        //         },error:function(err){
-        //     console.log('error')		 
-        //     }
-        // })
+                },error:function(err){
+            console.log('error')		 
+            }
+        })
 
 
 
@@ -290,10 +296,10 @@
                         innerHtml+="<div class ='card subTask text-center mb-3'>"
                             innerHtml+="<div class = 'row' id='accordionExample'>"
                                 innerHtml+="<div class = 'col-10 text-left' id='subTaskName'>"
-                                    innerHtml+="<input type='text' id='todoName"+i+"' placeholder='Task Name' value='"+dataResult[i].todo_name+"'>"
+                                    innerHtml+="<input type='text' id='todoName"+i+"' placeholder='Task Name' value='"+dataResult[i].todo_name+"' disabled='true'>"
                                     innerHtml+="</div>"
                                     innerHtml+="<div class = 'col-2 mt-1' id='subTaskName'>"
-                                        innerHtml+="<button class = 'moreBtn' id = 'collapsible'  data-toggle='collapse' data-target='#collapseOne"+i+"' aria-expanded='true' aria-controls='collapseOne'>"
+                                        innerHtml+="<button class = 'moreBtn' id = 'collapsible'  data-toggle='collapse' data-target='#collapseOne"+i+"' aria-expanded='true' aria-controls='collapseOne' onclick='disableOwnInput("+i+")'>"
                                             innerHtml+="<i class='fa fa-ellipsis-h' style='font-size:20px' id='indivIcon'></i>"
                                             innerHtml+="</button>"
                                             innerHtml+="</div>"
@@ -304,10 +310,10 @@
                                                     innerHtml+="<hr class='solid' id='hrBlack'>"
                                                     innerHtml+="<div class ='row'>"
                                                         innerHtml+="<div class = 'col-6'>"
-                                                            innerHtml+='<button class = "btn" id ="subBtn2" onclick="remove('+"'"+dataResult[0]._id['$oid']+"'"+')">REMOVE</button>'
+                                                            innerHtml+='<button class = "btn" id ="subBtn2" onclick="remove('+"'"+dataResult[i]._id['$oid']+"'"+')">REMOVE</button>'
                                                             innerHtml+="</div>"
                                                             innerHtml+="<div class = 'col-6'>"
-                                                                innerHtml+='<button class = "btn" id = "subBtn" onclick="UpdateTodo('+"'"+dataResult[0]._id['$oid']+"'"+','+i+')" >SAVE</button>'
+                                                                innerHtml+='<button class = "btn" id = "subBtn" onclick="UpdateTodo('+"'"+dataResult[i]._id['$oid']+"'"+','+i+')" >SAVE</button>'
                                                                 innerHtml+="</div>"
                                                                 innerHtml+="</div>"
                                                                 innerHtml+="</div>"
@@ -325,6 +331,9 @@
             console.log('error')		 
             }
         })
+        function disableOwnInput(res){
+           document.getElementById('todoName'+res).disabled = !document.getElementById('todoName'+res).disabled
+        }
 
        function openTodoInput(){
         document.getElementById('todo_input').hidden = false
@@ -361,6 +370,24 @@
                 dataType: "json",
                  data:{
                     todo_id: res
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                    console.log(dataResult.status)
+                },error:function(err){
+              console.log('error')		 
+            }
+            })
+            location.reload();
+       }
+       function removeMajorTask(res){
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/delete_major_task.php",
+                dataType: "json",
+                 data:{
+                    task_id: res
                 },
                 
                 cache:false,
