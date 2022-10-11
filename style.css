@@ -911,6 +911,24 @@ input:focus, textarea:focus {
   float: left;
 }
 
+.taskName {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+}
+.taskName:focus, .taskName:hover {
+  border: none;
+}
+.taskName:active {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+}
+
+
+
 #toDO {
   margin: 5px;
   color: black;
