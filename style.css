@@ -1552,17 +1552,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   position: fixed;
   bottom: 0;
   right: 15px;
-  border: 3px solid #f1f1f1;
+  border: 3px solid transparent;
   z-index: 9;
   border-radius: 10px;
 }
 
 /* Add styles to the form container */
 .spotify-container {
-  max-width: 500px;
+  max-width: 200px;
   min-width: 100px;
   padding: 10px;
-  background-color: white;
 }
 
 /* Full-width textarea */
@@ -1571,7 +1570,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
-  background: #f1f1f1;
   resize: none;
   min-height: 200px;
 }

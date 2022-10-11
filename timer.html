@@ -88,15 +88,14 @@
     <button class="open-btn" onclick="openSpotify()" ><img src="images/spotifyLogo.png" alt="Spotify" width = "30px" height = "100%" ></button>
 
     <div class="spotify-popup" id="spotifyContainer">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5oCHOwJEJ7ztdVbTqIVGgx?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-    <div class="spotify-container"> <!-- CAN BE CHANGED TO FORM -->
         <div class = "row">
             <div class = "col text-right">
-                <button type="button" class="btn" onclick="closeSpotify()" style = "width: 50px; margin-top: -100px; background-color: rgb(0, 0, 0, 0.2);border-color: transparent"><i class="fa fa-window-close" id = "toDoDrop" ></i></button>
+                <button type="button" class="btn" onclick="closeSpotify()" style="width: 50px;  /*! background-color: rgb(0, 0, 0, 0.2); */border-color: transparent;"><i class="fa fa-window-close" id = "toDoDrop" ></i></button>
             </div>
         </div>
-    </div>
-</div>
+        <div class = "row">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5oCHOwJEJ7ztdVbTqIVGgx?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </div>
 </div>
 
     <section class ="timer">
