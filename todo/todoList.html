@@ -38,10 +38,13 @@
                     <hr class="solid" id="hrBlack">
                     <div class="card-body overflow-auto scroll" id="todoBody">
                        <!-- SUB TASK -->
-                            <div class ="card subTask text-center mb-3">
+                       <div id="todo_list">
+                       <!-- list of todo -->
+                       </div>
+                            <div id="todo_input" class ="card subTask text-center mb-3" hidden>
                                     <div class = "row" id="accordionExample">
                                         <div class = "col-10 text-left" id="subTaskName">
-                                            <input type="text" placeholder="Task Name">
+                                            <input type="text" id="todoName" placeholder="Task Name">
                                         </div>
                                         <div class = "col-2 mt-1" id="subTaskName">
                                             <button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -56,16 +59,16 @@
                                             <hr class="solid" id="hrBlack">
                                             <div class ="row">
                                                 <div class = "col-6">
-                                                    <button class = "btn" id ="subBtn2">REMOVE</button>
+                                                    <button class = "btn" id ="subBtn2" onclick="document.getElementById('todo_input').hidden = true;">CANCEL</button>
                                                 </div>
                                                 <div class = "col-6">
-                                                    <button class = "btn" id = "subBtn" >SAVE</button>
+                                                    <button class = "btn" id = "subBtn" onclick="insertTodo()" >SAVE</button>
                                                 </div>
                                             </div>
                                         </div>
                                 </div>
-                               
                             </div>
+                        
                             
                         <!-- END OF ONE SUBTASK-->
                         <!-- ADD A SUB TASK -->
@@ -74,7 +77,7 @@
                                 <div class = "col text-center" id="subTaskName">
                                     <i class="fa fa-plus-circle" style="font-size:16px"></i>
                                     
-                                    <span class = "ml-2">Add A Sub-Task</span>
+                                    <span class = "ml-2" onclick="openTodoInput()">Add A Sub-Task</span>
                                 </div>
                                
                         </div>
@@ -263,7 +266,130 @@
             }
         })
 
-       
+
+
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/display_todo.php",
+                dataType: "json",
+                data:{
+                    user_id: localStorage.getItem('user_id'),
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                    // alert(dataResult.message)
+                    // if (dataResult.status){
+                    //     //path nung pag lalandingan niya
+                    //     window.location.href = "../timer.html";
+                    // }
+                    var innerHtml = ''
+                    for (let i = 0; i < dataResult.length; i++) {
+                        // var id = "'"+dataResult[0]._id['$oid']+"'"
+                        innerHtml+="<div class ='card subTask text-center mb-3'>"
+                            innerHtml+="<div class = 'row' id='accordionExample'>"
+                                innerHtml+="<div class = 'col-10 text-left' id='subTaskName'>"
+                                    innerHtml+="<input type='text' id='todoName"+i+"' placeholder='Task Name' value='"+dataResult[i].todo_name+"'>"
+                                    innerHtml+="</div>"
+                                    innerHtml+="<div class = 'col-2 mt-1' id='subTaskName'>"
+                                        innerHtml+="<button class = 'moreBtn' id = 'collapsible'  data-toggle='collapse' data-target='#collapseOne"+i+"' aria-expanded='true' aria-controls='collapseOne'>"
+                                            innerHtml+="<i class='fa fa-ellipsis-h' style='font-size:20px' id='indivIcon'></i>"
+                                            innerHtml+="</button>"
+                                            innerHtml+="</div>"
+                                            innerHtml+="<div id='collapseOne"+i+"' class='collapse' aria-labelledby='headingOne' data-parent='#accordionExample'>"
+                                                innerHtml+="<hr class='solid' id='hrBlack'>"
+                                                innerHtml+="<div class = 'noteSubTask'>"
+                                                    innerHtml+="</div>"
+                                                    innerHtml+="<hr class='solid' id='hrBlack'>"
+                                                    innerHtml+="<div class ='row'>"
+                                                        innerHtml+="<div class = 'col-6'>"
+                                                            innerHtml+='<button class = "btn" id ="subBtn2" onclick="remove('+"'"+dataResult[0]._id['$oid']+"'"+')">REMOVE</button>'
+                                                            innerHtml+="</div>"
+                                                            innerHtml+="<div class = 'col-6'>"
+                                                                innerHtml+='<button class = "btn" id = "subBtn" onclick="UpdateTodo('+"'"+dataResult[0]._id['$oid']+"'"+','+i+')" >SAVE</button>'
+                                                                innerHtml+="</div>"
+                                                                innerHtml+="</div>"
+                                                                innerHtml+="</div>"
+                                                                innerHtml+="</div>"
+                                                                innerHtml+="</div>"
+                   
+                    }
+
+                    $('#todo_list').html(innerHtml)
+
+                    //     $('#tasks_view').html(innerHtml)
+                    
+
+                },error:function(err){
+            console.log('error')		 
+            }
+        })
+
+       function openTodoInput(){
+        document.getElementById('todo_input').hidden = false
+       }
+       function insertTodo(){
+        var user_id = localStorage.getItem('user_id');
+        var todo_name = document.getElementById('todoName').value
+
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/add_todo.php",
+                dataType: "json",
+                 data:{
+                    todo_name: todo_name,
+                    user_id: user_id
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                    console.log(dataResult.status)
+                },error:function(err){
+              console.log('error')		 
+            }
+            })
+
+            location.reload();
+       }
+       function remove(res){
+
+        // console.log(res)
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/delete_todo.php",
+                dataType: "json",
+                 data:{
+                    todo_id: res
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                    console.log(dataResult.status)
+                },error:function(err){
+              console.log('error')		 
+            }
+            })
+            location.reload();
+       }
+       function UpdateTodo(id,input){
+        var todoName = document.getElementById('todoName'+input).value
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/update_todo.php",
+                dataType: "json",
+                 data:{
+                    todo_id: id,
+                    input: todoName
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                    alert('Update Success')
+                },error:function(err){
+              console.log('error')		 
+            }
+            })
+       }
      </script>
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script>
