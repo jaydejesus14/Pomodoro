@@ -903,7 +903,7 @@ input:focus, textarea:focus {
   margin-right: 15px;
 }
 .todoContainer {
-  margin-left: 5%;
+  margin-left: 1%;
   display: flex;
   flex-direction: row;
   overflow-y: scroll;
@@ -911,6 +911,9 @@ input:focus, textarea:focus {
   float: left;
 }
 
+#tasks_view {
+  display: flex;
+}
 .taskName {
   border-top-style: hidden;
   border-right-style: hidden;
