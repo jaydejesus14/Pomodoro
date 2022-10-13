@@ -543,6 +543,9 @@ input:focus, textarea:focus {
   overflow-x: hidden;
 }
 
+textarea {
+  resize: none;
+}
 #progressTracker {
   width: 10%;
   height: 30px;
