@@ -453,6 +453,18 @@ input:focus, textarea:focus {
 
 .sessionListName {
   font-size: 22px;
+  border: none;
+  color: white;
+  
+}
+.sessionListInput {
+  font-size: 22px;
+  background-color: transparent;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  color: white;
 }
 #expandIcon:hover{
   cursor: pointer;
@@ -516,7 +528,17 @@ input:focus, textarea:focus {
   width: 100%;
   border: 20px;
   text-align: left;
-  padding: 20px;
+  padding: 15px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.notesTimerInput {
+  background-color: transparent;
+  height: 85px;
+  width: 100%;
+  border: 20px;
+  text-align: left;
+ 
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -571,6 +593,11 @@ input:focus, textarea:focus {
   margin-bottom: 0;
   background-color: rgba(0,0,0,.03);
   border-bottom: 1px solid rgba(0,0,0,.125);
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  color: white
 }
 .card-header {
   padding: .75rem 1.25rem;
