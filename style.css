@@ -454,7 +454,7 @@ input:focus, textarea:focus {
 .sessionListName {
   font-size: 22px;
   border: none;
-  color: white;
+  color: #783937;
   
 }
 .sessionListInput {
@@ -464,7 +464,7 @@ input:focus, textarea:focus {
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: hidden;
-  color: white;
+  color: #783937;
 }
 #expandIcon:hover{
   cursor: pointer;
