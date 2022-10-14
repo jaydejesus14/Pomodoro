@@ -33,6 +33,8 @@ if($result){
     $mail->isHTML(true);
   
     $mail->Subject = 'Verification Code';
+
+    //for forgot password
     $mail->Body = '<h1>'.$_POST['verification_code'].'</h1>';
   
     $mail->send();
@@ -60,6 +62,7 @@ if($result){
   $mail->isHTML(true);
 
   $mail->Subject = 'Verification Code';
+  //for login verification
   $mail->Body = '<h1>'.$_POST['verification_code'].'</h1>';
 
   $mail->send();
