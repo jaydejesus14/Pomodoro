@@ -1100,6 +1100,10 @@ textarea {
   font-size: 14px;
 }
 
+.todoTitle2 {
+  font-size: 20px;
+  text-align: center;
+}
 
 .todoAddCard1 {
   width: 350px;

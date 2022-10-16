@@ -51,8 +51,8 @@
                             <label>SESSIONS: </label>
                             <div class = "groupedSess">
                                 <!-- START OF SESSIONS-->
-                                <div class = "row">
-                                    <div class = "col-10 text-left">
+                                <div class = "row" id="newSubTask" hidden >
+                                    <div class = "col-10 text-left" >
                                         <span><input type="text" class = "taskName" id="todoName" placeholder="Sub-Task Name"></span>
                                     </div>
                                     <div class = "col-2 text-center mb-4">
@@ -63,10 +63,10 @@
                                 <!--END-->
 
                                 <!-- START OF ADD SESSIONS -->
-                                <div class = "row">
+                                <div class = "row" >
                                     <div class = "col text-center" id = "addSubGroup">
                                     <i class="fa fa-plus-circle"  ></i>
-                                    <span class = "ml-2"  >Add Sub-Task</span>
+                                    <span class = "ml-2"  onclick="addASubtask()" >Add Sub-Task</span>
                                 </div>
                                     
                                 </div>
@@ -140,6 +140,9 @@
 
             // console.log(data)
         }
+        function addASubtask(){
+        document.getElementById('newSubTask').hidden = false
+       }
     </script>
     
     <script>
