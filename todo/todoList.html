@@ -258,7 +258,7 @@
                         innerHtml+='<span class = "todoTime text-center">Time per session</span>'
                         innerHtml+='<hr class="solid" id="hrBlack">'
                         innerHtml+='<div class="card-body overflow-auto scroll" id="todoMajorBody">'
-                        innerHtml+='<div class ="card subTask text-center mb-3">'
+                        innerHtml+='<div id = "todoInputMajor'+i+'" class ="card subTask text-center mb-3 " hidden  >'
                         innerHtml+='<div class = "row" id="accordionExample2'+i+'">'
                         innerHtml+='<div class = "col-10 text-left" id="subTaskName">'
                         innerHtml+='<input type="text"  class = "taskName" placeholder="Task Name">'
@@ -269,7 +269,7 @@
                         innerHtml+='<div class = "noteSubTask"><textarea class ="notesTimerInput" type = "text" placeholder="add a note" style="color: black" cols="40" rows="6"></textarea></div><hr class="solid" id="hrBlack"><div class ="row"><div class = "col-6"><button class = "btn" id ="subBtn2">REMOVE</button></div><div class = "col-6">'
                         innerHtml+='<button class = "btn" id = "subBtn" >SAVE</button></div></div></div></div></div>'
                         innerHtml+='<div class ="card addSubTask text-center mb-3">'
-                        innerHtml+='<div class = "row"><div class = "col text-center" id="subTaskName"><i class="fa fa-plus-circle" style="font-size:16px"></i><span class = "ml-2">Add A Sub-Task</span></div></div></div></div><div class="card-footer bg-transparent"></div></div>'
+                        innerHtml+='<div class = "row"><div class = "col text-center" id="subTaskName"><i class="fa fa-plus-circle" style="font-size:16px"></i><span class = "ml-2" onclick="openTodoInputMajor('+i+')">Add A Sub-Task</span></div></div></div></div><div class="card-footer bg-transparent"></div></div>'
                     listInnerHtml+=' <a href="" class ="mt-3">'+dataResult[i].task_name+'</a>'    
                     }  
                     
@@ -346,6 +346,9 @@
 
        function openTodoInput(){
         document.getElementById('todo_input').hidden = false
+       }
+       function openTodoInputMajor(res){
+        document.getElementById('todoInputMajor'+res).hidden = false
        }
        function insertTodo(){
         var user_id = localStorage.getItem('user_id');
