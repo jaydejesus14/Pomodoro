@@ -921,7 +921,7 @@ textarea {
 
 .sidenav {
   height: 100%;
-  width: 15%;
+  width: 250px;
   position: fixed;
   z-index: 1;
   top: 70;
@@ -935,7 +935,7 @@ textarea {
 #biggerContainer {
   height: 800px;
   padding: 0px ;
-  padding-left: 230px;
+  padding-left: 200px;
   padding-right: 30px;
   position: relative;
 }
@@ -1134,7 +1134,7 @@ textarea {
 }
 
 .todoAddCard1 {
-  width: 350px;
+  width: 250px;
   margin: 30px 5px;
   padding: 25px 30px 40px 30px;
   border-radius: 20px;
