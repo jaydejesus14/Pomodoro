@@ -933,9 +933,10 @@ textarea {
   margin-right: 15px;
 }
 #biggerContainer {
-  margin-left: 12%;
-  
-  
+  height: 800px;
+  padding: 0px ;
+  padding-left: 230px;
+  padding-right: 30px;
   position: relative;
 }
 .todoContainer {
@@ -944,8 +945,12 @@ textarea {
   overflow-y: scroll;
   position: relative;
   float: left;
-  margin-right: 20%;
+  width: 100%
   
+}
+
+.maxWidth {
+  max-width:1800px;
 }
 
 #tasks_view {
@@ -1005,9 +1010,9 @@ textarea {
 }
 
 .todoCard {
-  width: 360px;
+  width: 330px;
   margin: 30px 5px;
-  padding: 25px 30px 40px 30px;
+  padding: 25px 20px 40px 20px;
   border-radius: 20px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
@@ -1094,7 +1099,6 @@ textarea {
   padding: 25px;
   border-radius: 20px;
   position: relative;
-  
   margin-bottom: 10px;
 
 }
@@ -1136,7 +1140,7 @@ textarea {
   border-radius: 20px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  background-color:rgba(240,223,209, 0.5)
+  background-color:rgba(240,223,209, 0.5);
   
 }
 
