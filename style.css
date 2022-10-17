@@ -997,6 +997,15 @@ textarea {
   color: #f1f1f1;
 }
 
+.sidebarList {
+  border: 2px solid #403234;
+  padding: 10px;
+}
+.sidebarList:hover {
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 10px;
+}
 
 #dropDown{
   background-color: #F0DFD1;
@@ -1010,7 +1019,7 @@ textarea {
 }
 
 .todoCard {
-  width: 330px;
+  width: 340px;
   margin: 30px 5px;
   padding: 25px 20px 40px 20px;
   border-radius: 20px;
