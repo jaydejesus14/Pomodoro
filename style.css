@@ -1030,6 +1030,15 @@ textarea {
 
 }
 
+.timeTodoInput {
+  width:30px;
+  text-align: right;
+  background-color: #F0DFD1;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+}
 .scroll {
   max-height: 100px;
   overflow-x: auto;
