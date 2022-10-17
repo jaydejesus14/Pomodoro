@@ -25,7 +25,10 @@
             border: none;
             color: black;
             }
-                    
+               
+            html {  
+      scroll-behavior: smooth;  
+}
     </style>
     <div id="nav-placeholder">
     </div>
@@ -260,7 +263,8 @@
                     var innerHtml = ''
                     var listInnerHtml = ''
                     for (let i = 0; i < dataResult.length; i++) {
-                        innerHtml+='<div class="card todoCard">'
+                        innerHtml+='<div class="card todoCard" id = "cardJump'+i+'">'
+                            
                         innerHtml+='<div class = "text-right">'
                         innerHtml+='<div class = "dropdown">'
                         innerHtml+='<button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color: transprent; border-color: transparent;"><i class="fa fa-caret-square-down" id="todoDrop" ></i></button>'
@@ -287,7 +291,7 @@
                         innerHtml+='<button class = "btn" id = "subBtn" >SAVE</button></div></div></div></div></div>'
                         innerHtml+='<div class ="card addSubTask text-center mb-3">'
                         innerHtml+='<div class = "row"><div class = "col text-center" id="subTaskName"><i class="fa fa-plus-circle" style="font-size:16px"></i><span class = "ml-2" onclick="openTodoInputMajor('+i+')">Add A Sub-Task</span></div></div></div></div><div class="card-footer bg-transparent"></div></div>'
-                    listInnerHtml+=' <a href="" class ="mt-3">'+dataResult[i].task_name+'</a>'    
+                    listInnerHtml+=' <a href="#cardJump'+i+'" class ="mt-3">'+dataResult[i].task_name+'</a>'    
                     }  
                     
                     $('#major_task_list').html(listInnerHtml)
