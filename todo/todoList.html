@@ -20,6 +20,12 @@
         input[type=number] {
         -moz-appearance: textfield;
         }
+        input[type=text]:disabled {
+            background: white;
+            border: none;
+            color: black;
+            }
+                    
     </style>
     <div id="nav-placeholder">
     </div>
@@ -265,7 +271,7 @@
                         innerHtml+='</div></div></div>'
                         innerHtml+='<span id = "content" class = "todoTitle2 text-center"><input class = "text-center"type="text" value="'+dataResult[i].task_name+'"/></span>'
                         innerHtml+='<hr class="solid" id="hrBlack">'
-                        innerHtml+='<span class = "todoTitle text-center"><input type = "number" class = "timeTodoInput" placeholder = "25" maxlength="2"> : 00</span>'
+                        innerHtml+='<span class = "todoTitle text-center"><input type = "number" class = "timeTodoInput" placeholder = "25" maxlength= "2"> : 00</span>'
                         innerHtml+='<span class = "todoTime text-center">Time per session</span>'
                         innerHtml+='<hr class="solid" id="hrBlack">'
                         innerHtml+='<div class="card-body overflow-auto scroll" id="todoMajorBody">'
@@ -273,7 +279,7 @@
                         innerHtml+='<div class = "row" id="accordionExample2'+i+'">'
                         innerHtml+='<div class = "col-10 text-left" id="subTaskName">'
                         innerHtml+='<input type="text"  class = "taskName" placeholder="Task Name">'
-                        innerHtml+='</div><div class = "col-2 mt-1" id="subTaskName"><button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#collapseTwo'+i+'" aria-expanded="true" aria-controls="collapseTwo">'
+                        innerHtml+='</div><div class = "col-2 mt-1" id="subTaskName"><button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#collapseTwo'+i+'" aria-expanded="true" aria-controls="collapseTwo'+i+'">'
                         innerHtml+='<i class="fa fa-ellipsis-h" style="font-size:20px" id="indivIcon"></i></button></div>'
                         innerHtml+='<div id="collapseTwo'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample2'+i+'">'
                         innerHtml+='<hr class="solid" id="hrBlack">'
@@ -462,15 +468,18 @@
     let editBtn = document.querySelector('#edit_content');
     let content = document.querySelector('.todoTitle');
 
+
+
     editBtn.addEventListener('click', () => {
         content.contentEditable = !content.isContentEditable;
     if(content.contentEditable === 'false') {
         localStorage.setItem('content', content.innerHTML);
     }
     });
+    
 
     </script>
-     
+    
 
 
 </body>
