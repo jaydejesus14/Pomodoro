@@ -52,12 +52,12 @@ if($result){
       <img src='https://res.cloudinary.com/dxq9c6tz5/image/upload/v1665985174/Pivot/logo_zduxs3.png' alt='Pivot Logo' width = '50px' style = 'margin: center'; 'text:align: center' />
     </div>
     <h3 style = 'text-align: center; margin-top: 0px'>PIVOT</h3>
-    <div class = 'header' style = 'background-color: #F0DFD1; color: white; padding: 30px 50px; position: absolute; margin-right: 50px; margin-left: 50px; border-radius: 20px' >
+    <div class = 'header' style = 'background-color: #F0DFD1; color: black; padding: 30px 50px; position: absolute; margin-right: 50px; margin-left: 50px; border-radius: 20px' >
         <h2 style = 'text-align: center'>PASSWORD RESET</h2>
         <hr/>
  
         <p style = 'text-align: center'>If you lost/forgot your password and has requested to change it, then use the code below and enter it on the redirected page. </p>
-        <h1 style = 'text-align:center;background-color: white; margin: auto; width:100px;padding:5px;border:2px solid transparent;border-radius:10px'>".$_POST['verification_code']."</h1>
+        <h1 style = 'text-align:center;background-color: white; color: black; margin: auto; width:100px;padding:5px;border:2px solid transparent;border-radius:10px'>".$_POST['verification_code']."</h1>
         <p style = 'text-align: center'>If you did not request a change of password, then you can safely ignore this email. </p>
     </div>
   </div>
@@ -107,7 +107,7 @@ if($result){
       <img src='https://res.cloudinary.com/dxq9c6tz5/image/upload/v1665985174/Pivot/logo_zduxs3.png' alt='Pivot Logo' width = '50px' style = 'margin: center'; 'text:align: center' />
     </div>
     <h3 style = 'text-align: center; margin-top: 0px'>PIVOT</h3>
-    <div class = 'header' style = 'background-color: #F0DFD1; color: white; padding: 30px 50px; position: absolute; margin-right: 50px; margin-left: 50px; border-radius: 20px' >
+    <div class = 'header' style = 'background-color: #F0DFD1; color: black; padding: 30px 50px; position: absolute; margin-right: 50px; margin-left: 50px; border-radius: 20px' >
         <h2 style = 'text-align: center'>Verify your email Address</h2>
         <hr />
         <h3 style = 'text-align: center'>Thank you for signing up to Pivot! </h3>
