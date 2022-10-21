@@ -32,7 +32,39 @@ $options = array(
 );
 $cursor = $db->groupTask->find($where, $options);
 $docs = $cursor->toArray();
+$json_return = array();
+$json_array = array();
+foreach ($docs as $key => $value){
+    $subtask = array();
+    //for subtask
+    $where = array(
+        'majorTaskId' => $value['_id']
+    );
+    $select_fields = array(
+        'subtaskName' => 1
+        
+    );
+    $options = array(
+        'projection' => $select_fields
+    );
 
-echo json_encode($docs);
+    $subtaskqry = $db->majorSubTask->find($where, $options);
+    $return = $subtaskqry->toArray();
+
+    foreach ($return as $subtaskData){
+        $subtask[] = $subtaskData;
+    }
+
+    //end subtask
+    $json_array['id'] = $value['_id'];
+    $json_array['pomodoro'] = $value['pomodoro'];
+    $json_array['task_name'] = $value['task_name'];
+    $json_array['short_break'] = $value['short_break'];
+    $json_array['long_break'] = $value['long_break'];
+    $json_array['subtask'] = $subtask;
+    $json_return[] = $json_array;
+    
+}
+echo json_encode($json_return);
 ?>
 

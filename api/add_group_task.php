@@ -5,7 +5,7 @@
   $pomodoro = $_POST['pomodoro'];
   $short_break = $_POST['short_break'];
   $long_break = $_POST['long_break'];
-
+  $subtaskName = $_POST['sub_task_name'];
 
 
 $json_return = array();
@@ -18,11 +18,32 @@ $to_insert = array(
 		"long_break" => $long_break 
 );
 
-$is_insert = $db->groupTask->insertOne($to_insert);
-if($is_insert){
-    $json_return['status'] = 'success';
+// $result = $db->users->findOne(array("email" => $email,"password"=>$password));
+$is_exist = $db->groupTask->findOne(array("task_name" => $task_name, "user_id" => $user_id));
+
+if(!$is_exist)
+{
+  $is_insert = $db->groupTask->insertOne($to_insert);
+  if($is_insert)
+  {
+      $json_return['status'] = true;
+      $forSubtask = $db->groupTask->findOne(array("task_name" => $task_name, "user_id" => $user_id));
+      
+      $to_insert_subtask = array(
+        "majorTaskId" => $forSubtask['_id'],
+        "subtaskName" => $subtaskName
+      );
+
+      $db->majorSubTask->insertOne($to_insert_subtask);
+  }
+  else
+  {
+      $json_return['status'] = false;
+      $json_return['message'] = 'something went wrong';
+  }
 }else{
-    $json_return['status'] = 'failed';
+  $json_return['status'] = false;
+  $json_return['message'] = 'Name is already exist';
 }
 
 echo json_encode($json_return);

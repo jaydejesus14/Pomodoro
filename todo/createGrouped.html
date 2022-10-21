@@ -53,7 +53,7 @@
                                 <!-- START OF SESSIONS-->
                                 <div class = "row" id="newSubTask" hidden >
                                     <div class = "col-10 text-left" >
-                                        <span><input type="text" class = "taskName" id="todoName" placeholder="Sub-Task Name"></span>
+                                        <span><input type="text" class = "taskName" id="sub_task_name" placeholder="Sub-Task Name"></span>
                                     </div>
                                     <div class = "col-2 text-center mb-4">
                                         <i class="fa fa-trash" id = "trashIcon"></i>
@@ -110,26 +110,36 @@
         });
 
         function add_task(){
+            var task_name = document.getElementById('task_name').value
+            if(task_name != ''){
             $.ajax({
                 type:"POST",
                 url: "http://localhost/pomodoro/api/add_group_task.php",
                 dataType: "json",
                  data:{
                    user_id: localStorage.getItem('user_id'),
-                    task_name: document.getElementById('task_name').value,
+                    task_name: task_name,
                     pomodoro: document.getElementById('pomodoro').value,
                     short_break: document.getElementById('short_break').value,
-                    long_break: document.getElementById('long_break').value
+                    long_break: document.getElementById('long_break').value,
+                    sub_task_name: document.getElementById('sub_task_name').value,
                 },
                 cache:false,
                 success: function(dataResult){
-
-                    window.location.href = "./todoList.html";
+                    if(dataResult.status){
+                        window.location.href = "./todoList.html";
+                    }else{
+                        alert(dataResult.message)
+                    }
+                    
 
                 },error:function(err){
               console.log('error')		 
             }
             })
+        }else{
+            alert('Task Name Required')
+        }
             // const data = {
             //         user_id: localStorage.getItem('user_id'),
             //         task_name: document.getElementById('task_name').value,
@@ -141,7 +151,7 @@
             // console.log(data)
         }
         function addASubtask(){
-        document.getElementById('newSubTask').hidden = false
+            document.getElementById('newSubTask').hidden = false
        }
     </script>
     

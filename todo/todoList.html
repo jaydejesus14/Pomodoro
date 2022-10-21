@@ -274,24 +274,71 @@
                         innerHtml+='<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">'
                         innerHtml+='<a class="dropdown-item" href="../todoTimer.html">Convert to Session</a>'
                         innerHtml+='<a class="dropdown-item" href="#" >Edit Task Name</a>'
-                        innerHtml+='<a class="dropdown-item" href="#" onclick="removeMajorTask('+"'"+dataResult[i]._id['$oid']+"'"+')">Delete Task</a>'
+                        innerHtml+='<a class="dropdown-item" href="#" onclick="removeMajorTask('+"'"+dataResult[i].id+"'"+')">Delete Task</a>'
                         innerHtml+='</div></div></div>'
                         innerHtml+='<span id = "content" class = "text-center"><input class = "todoTitle2 text-center"type="text" value="'+dataResult[i].task_name+'"/></span>'
                         innerHtml+='<hr class="solid" id="hrBlack">'
-                        innerHtml+='<span class = "todoTitle text-center"><input type = "number" class = "timeTodoInput" placeholder = "25" maxlength= "2"> : 00</span>'
+                        innerHtml+='<span class = "todoTitle text-center"><input type = "number" class = "timeTodoInput" placeholder = "25" value="'+dataResult[i].pomodoro+'" maxlength= "2"> : 00</span>'
                         innerHtml+='<span class = "todoTime text-center">Time per session</span>'
                         innerHtml+='<hr class="solid" id="hrBlack">'
-                        innerHtml+='<div class="card-body overflow-auto scroll" id="todoMajorBody">'
-                        innerHtml+='<div id = "todoInputMajor'+i+'" class ="card subTask text-center mb-3 " hidden  >'
-                        innerHtml+='<div class = "row" id="accordionExample2'+i+'">'
-                        innerHtml+='<div class = "col-10 text-left" id="subTaskName">'
-                        innerHtml+='<input type="text"  class = "taskName" placeholder="Task Name">'
-                        innerHtml+='</div><div class = "col-2 mt-1" id="subTaskName"><button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#collapseTwo'+i+'" aria-expanded="true" aria-controls="collapseTwo'+i+'">'
-                        innerHtml+='<i class="fa fa-ellipsis-h" style="font-size:20px" id="indivIcon"></i></button></div>'
-                        innerHtml+='<div id="collapseTwo'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample2'+i+'">'
-                        innerHtml+='<hr class="solid" id="hrBlack">'
-                        innerHtml+='<div class = "noteSubTask"><textarea class ="notesTimerInput" type = "text" placeholder="add a note" style="color: black" cols="40" rows="6"></textarea></div><hr class="solid" id="hrBlack"><div class ="row"><div class = "col-6"><button class = "btn" id ="subBtn2">REMOVE</button></div><div class = "col-6">'
-                        innerHtml+='<button class = "btn" id = "subBtn" >SAVE</button></div></div></div></div></div>'
+                        innerHtml+='<div class="card-body overflow-auto scroll" id="todoMajorBody">'  //basta ito siya
+
+
+                            for (let x = 0; x < dataResult[i].subtask.length; x++) {
+                                var subtask = dataResult[i].subtask
+                                innerHtml+='<div id = "'+subtask[x]._id['$oid']+'todoInputMajor'+x+'" class ="card subTask text-center mb-3 "  >'
+                                    innerHtml+='<div class = "row" id="'+subtask[x]._id['$oid']+'accordionExample2'+x+'">'
+                                        innerHtml+='<div class = "col-10 text-left" id="subTaskName">'
+                                            innerHtml+='<input type="text" value="'+subtask[x].subtaskName+'"  class = "taskName" placeholder="Task Name">'
+                                        innerHtml+='</div>'
+                                        innerHtml+='<div class = "col-2 mt-1" id="subTaskName">'
+                                            innerHtml+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#'+subtask[x]._id['$oid']+'collapseTwo'+x+'" aria-expanded="true" aria-controls="collapseTwo'+x+'">'
+                                            innerHtml+='<i class="fa fa-ellipsis-h" style="font-size:20px" id="indivIcon"></i></button>'
+                                        innerHtml+='</div>'
+                                        innerHtml+='<div id="'+subtask[x]._id['$oid']+'collapseTwo'+x+'" class="collapse" aria-labelledby="headingOne" data-parent="#'+subtask[x]._id['$oid']+'accordionExample2'+x+'">'
+                                            innerHtml+='<hr class="solid" id="hrBlack">'
+                                            innerHtml+='<div class = "noteSubTask"><textarea class ="notesTimerInput" type = "text" placeholder="add a note" style="color: black" cols="40" rows="6"></textarea>'
+                                            innerHtml+='</div>'
+                                            innerHtml+='<hr class="solid" id="hrBlack">'
+                                            innerHtml+='<div class ="row">'
+                                                innerHtml+='<div class = "col-6"><button class = "btn" id ="subBtn2">REMOVE</button>'
+                                                innerHtml+='</div>'
+                                                innerHtml+='<div class = "col-6">'
+                                                    innerHtml+='<button class = "btn" id = "subBtn" >SAVE</button>'
+                                                innerHtml+='</div>'
+                                            innerHtml+='</div>'
+                                        innerHtml+='</div>'
+                                    innerHtml+='</div>'   
+                                innerHtml+='</div>'
+                            }
+
+
+                            
+                            innerHtml+='<div id = "todoInputMajor'+i+'" class ="card subTask text-center mb-3 " hidden  >'
+                                innerHtml+='<div class = "row" id="accordionExample2'+i+'">'
+                                    innerHtml+='<div class = "col-10 text-left" id="subTaskName">'
+                                        innerHtml+='<input type="text"  class = "taskName" placeholder="Task Name">'
+                                    innerHtml+='</div>'
+                                    innerHtml+='<div class = "col-2 mt-1" id="subTaskName">'
+                                        innerHtml+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#collapseTwo'+i+'" aria-expanded="true" aria-controls="collapseTwo'+i+'">'
+                                        innerHtml+='<i class="fa fa-ellipsis-h" style="font-size:20px" id="indivIcon"></i></button>'
+                                    innerHtml+='</div>'
+                                    innerHtml+='<div id="collapseTwo'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample2'+i+'">'
+                                        innerHtml+='<hr class="solid" id="hrBlack">'
+                                        innerHtml+='<div class = "noteSubTask"><textarea class ="notesTimerInput" type = "text" placeholder="add a note" style="color: black" cols="40" rows="6"></textarea>'
+                                        innerHtml+='</div>'
+                                        innerHtml+='<hr class="solid" id="hrBlack">'
+                                        innerHtml+='<div class ="row">'
+                                            innerHtml+='<div class = "col-6"><button class = "btn" id ="subBtn2">REMOVE</button>'
+                                            innerHtml+='</div>'
+                                            innerHtml+='<div class = "col-6">'
+                                                innerHtml+='<button class = "btn" id = "subBtn" >SAVE</button>'
+                                            innerHtml+='</div>'
+                                        innerHtml+='</div>'
+                                    innerHtml+='</div>'
+                                innerHtml+='</div>'   
+                            innerHtml+='</div>'
+                            
                         innerHtml+='<div class ="card addSubTask text-center mb-3">'
                         innerHtml+='<div class = "row"><div class = "col text-center" id="subTaskName"><i class="fa fa-plus-circle" style="font-size:16px"></i><span class = "ml-2" onclick="openTodoInputMajor('+i+')">Add A Sub-Task</span></div></div></div></div><div class="card-footer bg-transparent"></div></div>'
                     listInnerHtml+=' <a href="#groupTask'+i+'" class ="btn text-left mt-3" >'+dataResult[i].task_name+'</a>'    
@@ -326,32 +373,32 @@
                     var innerHtml = ''
                     for (let i = 0; i < dataResult.length; i++) {
                         // var id = "'"+dataResult[0]._id['$oid']+"'"
-                        innerHtml+="<div class ='card subTask text-center mb-3'>"
+                            innerHtml+="<div class ='card subTask text-center mb-3'>"
                             innerHtml+="<div class = 'row' id='accordionExample'>"
-                                innerHtml+="<div class = 'col-10 text-left' id='subTaskName'>"
-                                    innerHtml+="<input type='text' id='todoName"+i+"' placeholder='Task Name' value='"+dataResult[i].todo_name+"' disabled='true'>"
-                                    innerHtml+="</div>"
-                                    innerHtml+="<div class = 'col-2 mt-1' id='subTaskName'>"
-                                        innerHtml+="<button class = 'moreBtn' id = 'collapsible'  data-toggle='collapse' data-target='#collapseOne"+i+"' aria-expanded='true' aria-controls='collapseOne' onclick='disableOwnInput("+i+")'>"
-                                            innerHtml+="<i class='fa fa-ellipsis-h' style='font-size:20px' id='indivIcon'></i>"
-                                            innerHtml+="</button>"
-                                            innerHtml+="</div>"
-                                            innerHtml+="<div id='collapseOne"+i+"' class='collapse' aria-labelledby='headingOne' data-parent='#accordionExample'>"
-                                                innerHtml+="<hr class='solid' id='hrBlack'>"
-                                                innerHtml+="<div class = 'noteSubTask'>"
-                                                    innerHtml+="</div>"
-                                                    innerHtml+="<hr class='solid' id='hrBlack'>"
-                                                    innerHtml+="<div class ='row'>"
-                                                        innerHtml+="<div class = 'col-6'>"
-                                                            innerHtml+='<button class = "btn" id ="subBtn2" onclick="remove('+"'"+dataResult[i]._id['$oid']+"'"+')">REMOVE</button>'
-                                                            innerHtml+="</div>"
-                                                            innerHtml+="<div class = 'col-6'>"
-                                                                innerHtml+='<button class = "btn" id = "subBtn" onclick="UpdateTodo('+"'"+dataResult[i]._id['$oid']+"'"+','+i+')" >SAVE</button>'
-                                                                innerHtml+="</div>"
-                                                                innerHtml+="</div>"
-                                                                innerHtml+="</div>"
-                                                                innerHtml+="</div>"
-                                                                innerHtml+="</div>"
+                            innerHtml+="<div class = 'col-10 text-left' id='subTaskName'>"
+                            innerHtml+="<input type='text' id='todoName"+i+"' placeholder='Task Name' value='"+dataResult[i].todo_name+"' disabled='true'>"
+                            innerHtml+="</div>"
+                            innerHtml+="<div class = 'col-2 mt-1' id='subTaskName'>"
+                            innerHtml+="<button class = 'moreBtn' id = 'collapsible'  data-toggle='collapse' data-target='#collapseOne"+i+"' aria-expanded='true' aria-controls='collapseOne' onclick='disableOwnInput("+i+")'>"
+                            innerHtml+="<i class='fa fa-ellipsis-h' style='font-size:20px' id='indivIcon'></i>"
+                            innerHtml+="</button>"
+                            innerHtml+="</div>"
+                            innerHtml+="<div id='collapseOne"+i+"' class='collapse' aria-labelledby='headingOne' data-parent='#accordionExample'>"
+                            innerHtml+="<hr class='solid' id='hrBlack'>"
+                            innerHtml+="<div class = 'noteSubTask'>"
+                            innerHtml+="</div>"
+                            innerHtml+="<hr class='solid' id='hrBlack'>"
+                            innerHtml+="<div class ='row'>"
+                            innerHtml+="<div class = 'col-6'>"
+                            innerHtml+='<button class = "btn" id ="subBtn2" onclick="remove('+"'"+dataResult[i]._id['$oid']+"'"+')">REMOVE</button>'
+                            innerHtml+="</div>"
+                            innerHtml+="<div class = 'col-6'>"
+                            innerHtml+='<button class = "btn" id = "subBtn" onclick="UpdateTodo('+"'"+dataResult[i]._id['$oid']+"'"+','+i+')" >SAVE</button>'
+                            innerHtml+="</div>"
+                            innerHtml+="</div>"
+                            innerHtml+="</div>"
+                            innerHtml+="</div>"
+                            innerHtml+="</div>"
                    
                     }
 
