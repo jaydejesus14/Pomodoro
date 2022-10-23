@@ -473,9 +473,31 @@
              </div>
         </div>
 </section>
-    
+<script src="//code.jquery.com/jquery.min.js"></script>
     <script src="timer.js"></script>
     <script>
+
+
+
+        var majorTaskId = localStorage.getItem('majorTaskId')
+
+        console.log(majorTaskId)
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/return_specific_group_task.php",
+                dataType: "json",
+                 data:{
+                    id: majorTaskId
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                   
+                    
+                },error:function(err){
+              console.log('error')		 
+            }
+        })
         var i = 0;
         function move() {
           if (i == 0) {

@@ -38,7 +38,7 @@ foreach ($docs as $key => $value){
     $subtask = array();
     //for subtask
     $where = array(
-        'majorTaskId' => $value['_id']
+        'majorTaskId' => $value['_id']->__toString()
     );
     $select_fields = array(
         'subtaskName' => 1

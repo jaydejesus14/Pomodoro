@@ -14,7 +14,7 @@
 
 
 
-$delRec = $db->groupTask->deleteOne( array( '_id' => new MongoDB\BSON\ObjectId ($id )) );
+$delRec = $db->groupTask->deleteOne( array( '_id' => new MongoDB\BSON\ObjectId ($id)) );
 
 // $is_insert = $db->todoList->insertOne($to_insert);
 if($delRec){

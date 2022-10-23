@@ -28,9 +28,9 @@ if(!$is_exist)
   {
       $json_return['status'] = true;
       $forSubtask = $db->groupTask->findOne(array("task_name" => $task_name, "user_id" => $user_id));
-      
+      $objId = $forSubtask['_id']->__toString();
       $to_insert_subtask = array(
-        "majorTaskId" => $forSubtask['_id'],
+        "majorTaskId" => $objId,
         "subtaskName" => $subtaskName
       );
 

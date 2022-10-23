@@ -261,8 +261,9 @@
                     // alert(dataResult.message)
                     // if (dataResult.status){
                     //     //path nung pag lalandingan niya
-                    //     window.location.href = "../timer.html";
+                    //    window .location.href = "../timer.html";
                     // }
+                    console.log(dataResult)
                     var innerHtml = ''
                     var listInnerHtml = ''
                     for (let i = 0; i < dataResult.length; i++) {
@@ -272,7 +273,7 @@
                         innerHtml+='<div class = "dropdown">'
                         innerHtml+='<button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color: transprent; border-color: transparent;"><i class="fa fa-caret-square-down" id="todoDrop" ></i></button>'
                         innerHtml+='<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">'
-                        innerHtml+='<a class="dropdown-item" href="../todoTimer.html">Convert to Session</a>'
+                        innerHtml+='<a class="dropdown-item" href="#" onclick="passIdToConvertSession('+"'"+dataResult[i].id['$oid']+"'"+')">Convert to Session</a>'
                         innerHtml+='<a class="dropdown-item" href="#" >Edit Task Name</a>'
                         innerHtml+='<a class="dropdown-item" href="#" onclick="removeMajorTask('+"'"+dataResult[i].id+"'"+')">Delete Task</a>'
                         innerHtml+='</div></div></div>'
@@ -317,7 +318,7 @@
                             innerHtml+='<div id = "todoInputMajor'+i+'" class ="card subTask text-center mb-3 " hidden  >'
                                 innerHtml+='<div class = "row" id="accordionExample2'+i+'">'
                                     innerHtml+='<div class = "col-10 text-left" id="subTaskName">'
-                                        innerHtml+='<input type="text"  class = "taskName" placeholder="Task Name">'
+                                        innerHtml+='<input type="text" id="subTaskInput'+i+'"  class = "taskName" placeholder="Task Name">'
                                     innerHtml+='</div>'
                                     innerHtml+='<div class = "col-2 mt-1" id="subTaskName">'
                                         innerHtml+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#collapseTwo'+i+'" aria-expanded="true" aria-controls="collapseTwo'+i+'">'
@@ -332,7 +333,7 @@
                                             innerHtml+='<div class = "col-6"><button class = "btn" id ="subBtn2">REMOVE</button>'
                                             innerHtml+='</div>'
                                             innerHtml+='<div class = "col-6">'
-                                                innerHtml+='<button class = "btn" id = "subBtn" >SAVE</button>'
+                                                innerHtml+='<button class = "btn" id = "subBtn" onclick="addSubTask('+i+','+"'"+dataResult[i].id['$oid']+"'"+')">SAVE</button>'
                                             innerHtml+='</div>'
                                         innerHtml+='</div>'
                                     innerHtml+='</div>'
@@ -411,6 +412,31 @@
             console.log('error')		 
             }
         })
+        function addSubTask(i,id){
+            var name = document.getElementById('subTaskInput'+i).value
+
+            $.ajax({
+                    type:"POST",
+                    url: "http://localhost/pomodoro/api/add_subtask.php",
+                    dataType: "json",
+                    data:{
+                        name: name,
+                        id: id
+                    },
+                    
+                    cache:false,
+                    success: function(dataResult){
+                        console.log(dataResult.status)
+                    },error:function(err){
+                console.log('error')		 
+                }
+            })
+            
+        }
+        function passIdToConvertSession(res){
+            localStorage.setItem('majorTaskId',res)
+            window.location.href = "../todoTimer.html";
+        }
         function disableOwnInput(res){
            document.getElementById('todoName'+res).disabled = !document.getElementById('todoName'+res).disabled
         }
@@ -480,7 +506,7 @@
               console.log('error')		 
             }
             })
-            location.reload();
+            // location.reload();
        }
        function UpdateTodo(id,input){
         var todoName = document.getElementById('todoName'+input).value
