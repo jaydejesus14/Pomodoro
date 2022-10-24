@@ -174,7 +174,7 @@
                             <div class = "row text-center">
                                 
                                 <div class = "col-4 mt-2 mb-4">
-                                    <input type = "number" class = "timeRoutine text-center" id = "timeRoutine" value ="25" data-id='inputnumber' step="5" min="20" max ="60"></input>
+                                    <input type = "number" class = "timeRoutine text-center" id = "timeRoutine" value ="" data-id='inputnumber' step="5" min="10" max ="60"></input>
                                 </div>
                       
                         
@@ -200,7 +200,7 @@
                 <div class = "row justify-content-md-center text-center mx-auto">
                     <div class = "col">
                         <div class = "time text-center" id ="js-clock">
-                            <span id="js-minutes" style = "font-size: 40px">25</span>
+                            <span id="js-minutes" style = "font-size: 40px"></span>
                             <span class="separator" style = "font-size: 40px">:</span>
                             <span id="js-seconds" style = "font-size: 40px">00</span>
                         </div>
@@ -231,7 +231,7 @@
        <!-- Session Name, Rewrite Session Name and Sticky Note !-->
        <div class = "row justify-content-md-center text-center mt-3 mx-auto">
         <div class = "col text-center">
-            <div class = "currentSessionName">
+            <div class = "currentSessionName" id="currentSession">
             SESSION NAME
             </div>   
         </div>
@@ -281,7 +281,7 @@
                 </div>
 
           <!-- POMODORO SESSIONS LIST !-->
-          <div class = "row justify-content-md-center text-center mx-auto">
+          <div class = "row justify-content-md-center text-center mx-auto" id="pomodoroList">
             <div class="card sessionsList">
                 <div class = "card-header sessionHeader">
                         <div class = "row  justify-content-md-center text-center" id ="accordionSession">
@@ -422,7 +422,7 @@
                     <div class = "row text-center">
                         
                         <div class = "col-4 mt-2 mb-4">
-                            <input type = "number" class = "timeRoutine text-center" id = "timeRoutine" value ="25" data-id='inputnumber' step="5" min="20" max ="60"></input>
+                            <input type = "number" class = "timeRoutine text-center" id = "timeRoutine" value ="20" data-id='inputnumber' step="5" min="20" max ="60"></input>
                         </div>
               
                 
@@ -476,28 +476,78 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
     <script src="timer.js"></script>
     <script>
+        orderSession(0)
 
-
-
-        var majorTaskId = localStorage.getItem('majorTaskId')
-
-        console.log(majorTaskId)
-        $.ajax({
-                type:"POST",
-                url: "http://localhost/pomodoro/api/return_specific_group_task.php",
-                dataType: "json",
-                 data:{
-                    id: majorTaskId
-                },
-                
-                cache:false,
-                success: function(dataResult){
-                   
+        function orderSession(res){
+            var majorTaskId = localStorage.getItem('majorTaskId')
+            $.ajax({
+                    type:"POST",
+                    url: "http://localhost/pomodoro/api/return_specific_group_task.php",
+                    dataType: "json",
+                    data:{
+                        id: majorTaskId
+                    },
                     
-                },error:function(err){
-              console.log('error')		 
-            }
-        })
+                    cache:false,
+                    success: function(dataResult){
+                    var currentSession = ''
+                    var innerHtml = ''
+                    for(let i = 0; i < dataResult.subtask.length; i++){
+                        if( i == res ){
+                            currentSession = dataResult.subtask[i].subtaskName
+                        }
+                        else{
+                            innerHtml+='<div class="card sessionsList">'
+                            innerHtml+='<div class = "card-header sessionHeader">'
+                            innerHtml+='<div class = "row  justify-content-md-center text-center" id ="accordionSession">'
+                            innerHtml+='<div class = "col-8 text-left">'
+                            innerHtml+='<div class = "sessionListName">'
+                            innerHtml+='<input class ="sessionListInput" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: white">'
+                            innerHtml+='</div>'
+                            innerHtml+='</div>'
+                            innerHtml+='<div class ="col-2 text-right mt-1">'
+                            innerHtml+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapse'+i+'" aria-expanded="true" aria-controls="collapseOne">'
+                            innerHtml+=' <i class="fa fa-angle-down" id="sessionIcons"></i>'
+                             innerHtml+='</button>'
+                             innerHtml+='</div>'
+                             innerHtml+='</div>'
+                             innerHtml+='</div>'
+                             innerHtml+='<div id="sessionCollapse'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSession">'
+                             innerHtml+='<div class = "card-body sessionsTimer">'
+                             innerHtml+='<div class = "row text-center">'
+                             innerHtml+='<div class = "notesTimer">'
+                             innerHtml+='<textarea class ="notesTimerInput" type = "text" placeholder="Session #" style="color: black" cols="40" rows="6"></textarea>'
+                             innerHtml+='</div>' 
+                             innerHtml+='</div>'
+                             innerHtml+='<hr>'
+                             innerHtml+='<div class = "row">'
+                             innerHtml+='<div class = "col-6 text-left">'
+                             innerHtml+='<button type="button" class="btn lext-right" id = "sessSaveBtn">REMOVE</button>'
+                             innerHtml+='</div>'
+                             innerHtml+='<div class = "col-6 text-right">'
+                             innerHtml+='<button type="button" class="btn " id = "sessSaveBtn">SAVE</button>'
+                             innerHtml+='</div>'
+                             innerHtml+='</div>'
+                             innerHtml+='</div>'
+                             innerHtml+='</div>'
+                             innerHtml+='</div>'
+
+
+                        }
+                    }
+                    
+                    // console.log(dataResult.major_task.pomodoro)
+                   
+                    $('#currentSession').html(currentSession)
+                    localStorage.setItem('pomodoro',dataResult.major_task.pomodoro)
+                    $('#js-minutes').html(dataResult.major_task.pomodoro)
+                    // console.log(dataResult)
+                    $('#pomodoroList').html(innerHtml);
+                    },error:function(err){
+                console.log('error')		 
+                }
+            })
+        }
         var i = 0;
         function move() {
           if (i == 0) {
