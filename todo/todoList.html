@@ -298,7 +298,7 @@
                                         innerHtml+='</div>'
                                         innerHtml+='<div id="collapseTwo'+x+''+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordion'+subtask[x]._id['$oid']+'accordionExample2'+x+'">'
                                             innerHtml+='<hr class="solid" id="hrBlack">'
-                                            innerHtml+='<div class = "noteSubTask"><textarea class ="notesTimerInput" type = "text" placeholder="add a note" style="color: black" cols="40" rows="6"></textarea>'
+                                            innerHtml+='<div class = "noteSubTask"><textarea class ="notesTimerInput" value="'+subtask[x].subtaskName+'" id="note'+i+''+x+'" type = "text" placeholder="add a note" style="color: black" cols="40" rows="6">'+subtask[x].note+'</textarea>'
                                             innerHtml+='</div>'
                                             innerHtml+='<hr class="solid" id="hrBlack">'
                                             innerHtml+='<div class ="row">'
@@ -326,7 +326,7 @@
                                     innerHtml+='</div>'
                                     innerHtml+='<div id="collapseTwo'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample2'+i+'">'
                                         innerHtml+='<hr class="solid" id="hrBlack">'
-                                        innerHtml+='<div class = "noteSubTask"><textarea class ="notesTimerInput" type = "text" placeholder="add a note" style="color: black" cols="40" rows="6"></textarea>'
+                                        innerHtml+='<div class = "noteSubTask"><textarea class ="notesTimerInput" id="note'+i+'" type = "text" placeholder="add a note" style="color: black" cols="40" rows="6"></textarea>'
                                         innerHtml+='</div>'
                                         innerHtml+='<hr class="solid" id="hrBlack">'
                                         innerHtml+='<div class ="row">'
@@ -414,14 +414,15 @@
         })
         function addSubTask(i,id){
             var name = document.getElementById('subTaskInput'+i).value
-
+            var note = document.getElementById('note'+i).value
             $.ajax({
                     type:"POST",
                     url: "http://localhost/pomodoro/api/add_subtask.php",
                     dataType: "json",
                     data:{
                         name: name,
-                        id: id
+                        id: id,
+                        note: note
                     },
                     
                     cache:false,
@@ -435,6 +436,7 @@
         }
         function updateSubtask(i,x,id){
             var name = document.getElementById('inputtext'+i+''+x).value
+            var note = document.getElementById('note'+i+''+x).value
             // console.log(id)
         $.ajax({
                 type:"POST",
@@ -442,7 +444,8 @@
                 dataType: "json",
                  data:{
                     id: id,
-                    name: name
+                    name: name,
+                    note: note
                 },
                 
                 cache:false,

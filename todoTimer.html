@@ -544,6 +544,8 @@ var timer = {
             break;
           default:
             switchMode('pomodoro');
+            completed++
+            move(completed)
         }
   
         startTimer();
@@ -607,6 +609,7 @@ var timer = {
 
     </script>
     <script>
+        var completed = 0
         orderSession(0)
 
         function saveSessionTime(){
@@ -652,7 +655,9 @@ var timer = {
                     success: function(dataResult){
                     var currentSession = ''
                     var innerHtml = ''
+                    var countSession = 0
                     for(let i = 0; i < dataResult.subtask.length; i++){
+                        countSession++
                         if( i == res ){
                             currentSession = dataResult.subtask[i].subtaskName
                         }
@@ -691,11 +696,9 @@ var timer = {
                              innerHtml+='</div>'
                              innerHtml+='</div>'
                              innerHtml+='</div>'
-
-
                         }
                     }
-                    
+                    localStorage.setItem('countSession',countSession)
                     // console.log(dataResult.major_task.pomodoro)
                    
                     $('#currentSession').html(currentSession)
@@ -714,14 +717,17 @@ var timer = {
             })
         }
         var i = 0;
-        function move() {
+        function move(res) {
+            var count_session = localStorage.getItem('countSession')
+
+            var total = 100 * (res / count_session)
           if (i == 0) {
             i = 1;
             var elem = document.getElementById("progressTracker");
             var width = 10;
             var id = setInterval(frame, 10);
             function frame() {
-              if (width >= 100) {
+              if (width >= total) {
                 clearInterval(id);
                 i = 0;
               } else {
@@ -731,6 +737,7 @@ var timer = {
               }
             }
           }
+          orderSession(res)
         }
         </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

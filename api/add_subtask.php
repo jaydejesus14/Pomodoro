@@ -3,7 +3,8 @@ include 'database.php';
 
 $to_insert_subtask = array(
     'majorTaskId' => $_POST['id'],
-    'subtaskName' => $_POST['name']
+    'subtaskName' => $_POST['name'],
+    'note'        => $_POST['note']
 );
 
 $is_insert = $db->majorSubTask->insertOne($to_insert_subtask);

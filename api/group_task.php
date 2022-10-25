@@ -41,7 +41,8 @@ foreach ($docs as $key => $value){
         'majorTaskId' => $value['_id']->__toString()
     );
     $select_fields = array(
-        'subtaskName' => 1
+        'subtaskName' => 1,
+        'note' => 1
         
     );
     $options = array(
