@@ -288,15 +288,15 @@
                             for (let x = 0; x < dataResult[i].subtask.length; x++) {
                                 var subtask = dataResult[i].subtask
                                 innerHtml+='<div id = "'+subtask[x]._id['$oid']+'todoInputMajor'+x+'" class ="card subTask text-center mb-3 "  >'
-                                    innerHtml+='<div class = "row" id="'+subtask[x]._id['$oid']+'accordionExample2'+x+'">'
+                                    innerHtml+='<div class = "row" id="accordion'+subtask[x]._id['$oid']+'accordionExample2'+x+'">'
                                         innerHtml+='<div class = "col-10 text-left" id="subTaskName">'
                                             innerHtml+='<input type="text" value="'+subtask[x].subtaskName+'"  class = "taskName" placeholder="Task Name">'
                                         innerHtml+='</div>'
                                         innerHtml+='<div class = "col-2 mt-1" id="subTaskName">'
-                                            innerHtml+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#collapseTwo'+x+''+i+'" aria-expanded="true" aria-controls="'+subtask[x]._id['$oid']+'collapseTwo'+x+'">'
+                                            innerHtml+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#collapseTwo'+x+''+i+'" aria-expanded="true" aria-controls="accordion'+subtask[x]._id['$oid']+'collapseTwo'+x+'">'
                                             innerHtml+='<i class="fa fa-ellipsis-h" style="font-size:20px" id="indivIcon"></i></button>'
                                         innerHtml+='</div>'
-                                        innerHtml+='<div id="collapseTwo'+x+''+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#'+subtask[x]._id['$oid']+'accordionExample2'+x+'">'
+                                        innerHtml+='<div id="collapseTwo'+x+''+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordion'+subtask[x]._id['$oid']+'accordionExample2'+x+'">'
                                             innerHtml+='<hr class="solid" id="hrBlack">'
                                             innerHtml+='<div class = "noteSubTask"><textarea class ="notesTimerInput" type = "text" placeholder="add a note" style="color: black" cols="40" rows="6"></textarea>'
                                             innerHtml+='</div>'
