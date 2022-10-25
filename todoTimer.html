@@ -191,7 +191,7 @@
                         <div class="modal-footer">
                             
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id = "modal-save">Save changes</button>
+                            <button type="button" class="btn btn-primary" onclick="saveSessionTime()" id = "modal-save">Save changes</button>
                        </div>
                        
                               </div>
@@ -478,7 +478,7 @@
     <script>
 var timer = {
     pomodoro: localStorage.getItem('pomodoro'),
-    shortBreak:  5,
+    shortBreak:  localStorage.getItem('short_break'),
     longBreak:  localStorage.getItem('long_break'),
     longBreakInterval: 4,
     sessions: 0,
@@ -609,6 +609,35 @@ var timer = {
     <script>
         orderSession(0)
 
+        function saveSessionTime(){
+            var id = localStorage.getItem('majorTaskId')
+            var pomodoro = document.getElementById('timeRoutine').value 
+            var short_break = document.getElementById('timeRoutine1').value 
+            var long_break = document.getElementById('timeRoutine2').value 
+
+            localStorage.setItem('pomodoro',pomodoro)
+            localStorage.setItem('long_break',long_break)
+            localStorage.setItem('short_break',short_break)
+            $.ajax({
+                    type:"POST",
+                    url: "http://localhost/pomodoro/api/session_time_update.php",
+                    dataType: "json",
+                    data:{
+                        id: id,
+                        pomodoro: pomodoro,
+                        short_break: short_break,
+                        long_break: long_break
+                    },
+                    
+                    cache:false,
+                    success: function(dataResult){
+                        
+                       location.reload()
+                    },error:function(err){
+                console.log('error')		 
+                }
+            })
+        }
         function orderSession(res){
             var majorTaskId = localStorage.getItem('majorTaskId')
             $.ajax({
