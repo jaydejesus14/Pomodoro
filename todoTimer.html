@@ -263,7 +263,7 @@
             </div>
           </div>
           <!-- REMOVE BUTTON JUST A TESTING ON DESIGN -->
-          <button class = "btn mt-3" style = "color: white" onclick="move()">TESTING PROGRESS DESIGN</button> 
+          <!-- <button class = "btn mt-3" style = "color: white" onclick="move()">TESTING PROGRESS DESIGN</button>  -->
         </div>
           
           <br>
@@ -681,7 +681,7 @@ var timer = {
                              innerHtml+='<div class = "card-body sessionsTimer">'
                              innerHtml+='<div class = "row text-center">'
                              innerHtml+='<div class = "notesTimer">'
-                             innerHtml+='<textarea class ="notesTimerInput" type = "text" placeholder="Session #" style="color: black" cols="40" rows="6"></textarea>'
+                             innerHtml+='<textarea class ="notesTimerInput" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].note+'</textarea>'
                              innerHtml+='</div>' 
                              innerHtml+='</div>'
                              innerHtml+='<hr>'
