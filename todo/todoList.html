@@ -275,7 +275,7 @@
                         innerHtml+='<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">'
                         innerHtml+='<a class="dropdown-item" href="#" onclick="passIdToConvertSession('+"'"+dataResult[i].id['$oid']+"'"+')">Convert to Session</a>'
                         innerHtml+='<a class="dropdown-item" href="#" >Edit Task Name</a>'
-                        innerHtml+='<a class="dropdown-item" href="#" onclick="removeMajorTask('+"'"+dataResult[i].id+"'"+')">Delete Task</a>'
+                        innerHtml+='<a class="dropdown-item" href="#" onclick="removeMajorTask('+"'"+dataResult[i].id['$oid']+"'"+')">Delete Task</a>'
                         innerHtml+='</div></div></div>'
                         innerHtml+='<span id = "content" class = "text-center"><input class = "todoTitle2 text-center"type="text" value="'+dataResult[i].task_name+'"/></span>'
                         innerHtml+='<hr class="solid" id="hrBlack">'
@@ -501,7 +501,7 @@
                 
                 cache:false,
                 success: function(dataResult){
-                    console.log(dataResult.status)
+                    location.reload();
                 },error:function(err){
               console.log('error')		 
             }
