@@ -11,6 +11,7 @@
     $select_fields = array(
         'subtaskName' => 1,
         'note' => 1,
+        'is_complete' => 1
     );
     
     $options = array(
