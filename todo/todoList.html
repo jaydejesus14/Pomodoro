@@ -290,7 +290,7 @@
                                 innerHtml+='<div id = "'+subtask[x]._id['$oid']+'todoInputMajor'+x+'" class ="card subTask text-center mb-3 "  >'
                                     innerHtml+='<div class = "row" id="accordion'+subtask[x]._id['$oid']+'accordionExample2'+x+'">'
                                         innerHtml+='<div class = "col-10 text-left" id="subTaskName">'
-                                            innerHtml+='<input type="text" value="'+subtask[x].subtaskName+'" id="inputtext'+i+'"  class = "taskName" placeholder="Task Name">'
+                                            innerHtml+='<input type="text" value="'+subtask[x].subtaskName+'" id="inputtext'+i+''+x+'"  class = "taskName" placeholder="Task Name">'
                                         innerHtml+='</div>'
                                         innerHtml+='<div class = "col-2 mt-1" id="subTaskName">'
                                             innerHtml+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#collapseTwo'+x+''+i+'" aria-expanded="true" aria-controls="accordion'+subtask[x]._id['$oid']+'collapseTwo'+x+'">'
@@ -305,7 +305,7 @@
                                                 innerHtml+='<div class = "col-6"><button class = "btn" id ="subBtn2" onclick="removeSubtask('+"'"+subtask[x]._id['$oid']+"'"+')">REMOVE</button>'
                                                 innerHtml+='</div>'
                                                 innerHtml+='<div class = "col-6">'
-                                                    innerHtml+='<button class = "btn" id = "subBtn" onclick="updateSubtask('+i+','+"'"+subtask[x]._id['$oid']+"'"+')">SAVE</button>'
+                                                    innerHtml+='<button class = "btn" id = "subBtn" onclick="updateSubtask('+i+','+x+','+"'"+subtask[x]._id['$oid']+"'"+')">SAVE</button>'
                                                 innerHtml+='</div>'
                                             innerHtml+='</div>'
                                         innerHtml+='</div>'
@@ -433,8 +433,8 @@
             })
             location.reload();
         }
-        function updateSubtask(i,id){
-            var name = document.getElementById('inputtext'+i).value
+        function updateSubtask(i,x,id){
+            var name = document.getElementById('inputtext'+i+''+x).value
             // console.log(id)
         $.ajax({
                 type:"POST",
