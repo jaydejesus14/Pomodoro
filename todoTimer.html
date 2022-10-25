@@ -179,10 +179,10 @@
                       
                         
                             <div class = " col-4 mt-2 mb-4">
-                                <input type = "number" class = "timeRoutine text-center" id = "timeRoutine1" value ="05" step="5" max ="15" min="5"></input>
+                                <input type = "number" class = "timeRoutine text-center" id = "timeRoutine1" value ="" step="5" max ="15" min="5"></input>
                             </div>
                             <div class = " col-4 mt-2 mb-4">
-                                <input type = "number" class = "timeRoutine text-center" id = "timeRoutine2" value ="05" step="5" max ="15" min="5"></input>
+                                <input type = "number" class = "timeRoutine text-center" id = "timeRoutine2" value ="" step="5" max ="15" min="5"></input>
                             </div>
                            
                         </div>
@@ -670,6 +670,9 @@ var timer = {
                     // console.log(dataResult.major_task.pomodoro)
                    
                     $('#currentSession').html(currentSession)
+                    document.getElementById('timeRoutine').value = dataResult.major_task.pomodoro
+                    document.getElementById('timeRoutine1').value = dataResult.major_task.short_break
+                    document.getElementById('timeRoutine2').value = dataResult.major_task.long_break
                     localStorage.setItem('pomodoro',dataResult.major_task.pomodoro)
                     // localStorage.setItem('short_break',dataResult.major_task.short_break)
                     localStorage.setItem('long_break',dataResult.major_task.long_break)
