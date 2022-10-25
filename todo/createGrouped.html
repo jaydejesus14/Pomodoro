@@ -51,14 +51,8 @@
                             <label>SESSIONS: </label>
                             <div class = "groupedSess">
                                 <!-- START OF SESSIONS-->
-                                <div class = "row" id="newSubTask" hidden >
-                                    <div class = "col-10 text-left" >
-                                        <span><input type="text" class = "taskName" id="sub_task_name" placeholder="Sub-Task Name"></span>
-                                    </div>
-                                    <div class = "col-2 text-center mb-4">
-                                        <i class="fa fa-trash" id = "trashIcon"></i>
-                                    </div>
-                                    <hr class = "hrWhite2">
+                                <div id="newSubTask1" >
+                                    
                                 </div>
                                 <!--END-->
 
@@ -150,9 +144,39 @@
 
             // console.log(data)
         }
+        var count = 0;
         function addASubtask(){
-            document.getElementById('newSubTask').hidden = false
+            count=count+1;
+            var innerHtml=''
+            for(let i = 0; i < count; i++) {
+                console.log(count +" = inside for add")
+                innerHtml+='<div class = "row" id="newSubTask'+count+'" >'
+                innerHtml+=' <div class = "col-10 text-left" >'
+                innerHtml+=' <span><input type="text" class = "taskName" id="sub_task_name" placeholder="Sub-Task Name"></span>'
+                innerHtml+='</div>'
+                innerHtml+='<div class = "col-2 text-center mb-4">'
+                innerHtml+='  <i class="fa fa-trash" id = "trashIcon" onClick = "removeInput()"></i>'
+                innerHtml+='</div>'
+                innerHtml+='<hr class = "hrWhite2">'
+                innerHtml+='</div>'
+              
+                
+            }
+            console.log(count +" = outside for add")
+            $('#newSubTask1').html(innerHtml)
+            //document.getElementById('newSubTask').hidden = false
        }
+       function removeInput(){
+       
+        const element = document.getElementById('newSubTask'+count);
+        element.remove();
+        count=count-1;
+        console.log(count +" = remove 1")
+
+        
+
+       }
+     
     </script>
     
     <script>
