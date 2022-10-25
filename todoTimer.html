@@ -251,7 +251,7 @@
         <div class = "row justify-content-md-center text-center mx-auto mt-4 mb-4">
             <div class = "col">
         <div id="progressBar">
-            <div id="progressTracker">10%</div>
+            <div id="progressTracker">0%</div>
             
           </div>
           <div class = "row">
@@ -788,7 +788,7 @@ var timer = {
           if (i == 0) {
             i = 1;
             var elem = document.getElementById("progressTracker");
-            var width = 10;
+            var width = 0;
             var id = setInterval(frame, 10);
             function frame() {
               if (width >= total) {
