@@ -1288,17 +1288,18 @@ textarea {
   width: 700px;
   height: 35px;
   max-height: 100%;
-  margin: 30px;
+  margin: auto;
   padding: 40px;
   border-radius: 20px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
 }
 .routinesCard:hover{
   width: 700px;
   height: 35px;
   max-height: 100%;
-  margin: 30px;
+  margin: auto;
   background: #403234;
   color: white;
   padding: 40px;
