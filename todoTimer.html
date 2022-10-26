@@ -285,9 +285,9 @@
 
           <!-- POMODORO SESSIONS LIST !-->
           <div class = "row justify-content-md-center text-center mx-auto" id="pomodoroList">
-            <div class="card sessionsList">
+            <div class="card sessionsList" id = "newSession" >
                 <div class = "card-header sessionHeader">
-                        <div class = "row  justify-content-md-center text-center" id ="accordionSession">
+                        <div class = "row  justify-content-md-center text-center" id ="accordionSession" >
                         <div class = "col-8 text-left">
                             <div class = "sessionListName">
                                 <input class ="sessionListInput" type = "text" placeholder="Session #" style="color: white">
@@ -321,6 +321,8 @@
                 </div>
             </div>
         </div>
+        <div class = "row justify-content-md-center text-center mx-auto" id = "newSesss">
+            </div>
              
              
         
@@ -330,7 +332,7 @@
         <!-- ADDING A SESSION !-->
         <div class = "row justify-content-md-center text-center mx-auto">
             <div class = "col">
-                <button class="btn-block text-center" id = "addSession_btn">
+                <button class="btn-block text-center" id = "addSession_btn"  onClick = addASession()>
                          <i class="fa fa-plus-circle" style="font-size:24px; margin-right:10px;" id="indivIcon"></i> ADD A SESSION
                 </button>
             </div>
@@ -839,6 +841,51 @@ var timer = {
           }
         //   
         }
+        // TESTING ADD OF SESSION
+        var count = 0;
+
+        function addASession(){
+            count
+            var addingSession=''
+            for(let i = 0; i <= count; i++) {
+                addingSession+='<div class="card sessionsList">'
+                            addingSession+='<div class = "card-header sessionHeader">'
+                            addingSession+='<div class = "row  justify-content-md-center text-center" id ="accordionSessions">'
+                            addingSession+='<div class = "col-8 text-left">'
+                            addingSession+='<div class = "sessionListName">'
+                            addingSession+='<input class ="sessionListInput" type = "text" value="" placeholder="Session Name" style="color: white">'
+                            addingSession+='</div>'
+                            addingSession+='</div>'
+                            addingSession+='<div class ="col-2 text-right mt-1">'
+                            addingSession+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapseee'+count+'" aria-expanded="true" aria-controls="collapseOne">'
+                            addingSession+=' <i class="fa fa-angle-down" id="sessionIcons"></i>'
+                             addingSession+='</button>'
+                             addingSession+='</div>'
+                             addingSession+='</div>'
+                             addingSession+='</div>'
+                             addingSession+='<div id="sessionCollapseee'+count+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSessions">'
+                             addingSession+='<div class = "card-body sessionsTimer">'
+                             addingSession+='<div class = "row text-center">'
+                             addingSession+='<div class = "notesTimer">'
+                             addingSession+='<textarea class ="notesTimerInput" type = "text" value="" placeholder="Add a note" style="color: black" cols="40" rows="6"></textarea>'
+                             addingSession+='</div>' 
+                             addingSession+='</div>'
+                             addingSession+='<hr>'
+                             addingSession+='<div class = "row">'
+                             addingSession+='<div class = "col-6 text-left">'
+                             addingSession+='<button type="button" class="btn lext-right" id = "sessSaveBtn">REMOVE</button>'
+                             addingSession+='</div>'
+                             addingSession+='<div class = "col-6 text-right">'
+                             addingSession+='<button type="button" class="btn " id = "sessSaveBtn">SAVE</button>'
+                             addingSession+='</div>'
+                             addingSession+='</div>'
+                             addingSession+='</div>'
+                             addingSession+='</div>'
+                             addingSession+='</div>'
+            }
+            console.log(count +" = outside for add")
+            $('#newSesss').html(addingSession)
+       }
         </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -846,7 +893,7 @@ var timer = {
     <script>
          var clicks = 0;
     function openSpotify() {
-      document.getElementById("spotifyContainer").style.display = "block";
+      document.getElementById("pomodoroList").style.display = "block";
       
         if(clicks == 0){
             alert("Please make sure to lower the volume before playing!");
