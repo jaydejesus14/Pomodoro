@@ -466,6 +466,19 @@ input:focus, textarea:focus {
   border-bottom-style: hidden;
   color: #783937;
 }
+.sessionOnTimerInput {
+  font-size: 18px;
+  background-color: white;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  color: black;
+  padding: 10px;
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 10px;
+}
 #expandIcon:hover{
   cursor: pointer;
 }
@@ -542,6 +555,19 @@ input:focus, textarea:focus {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+.notesTimerInput2 {
+  background-color: white;
+  height: 130px;
+  width: 100%;
+  border: 20px;
+  text-align: left;
+  padding: 10px;
+ 
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 10px;
+}
+
 
 textarea {
   resize: none;

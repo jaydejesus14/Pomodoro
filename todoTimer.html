@@ -236,7 +236,7 @@
             </div>   
         </div>
     </div>
-    <div class = "row " style = "margin-top: -60px;">
+    <div class = "row " style = "margin-top: -60px;" id = "currentSessionIcons">
         <div class = "col-md-8"></div>
             <div class = "col-md-4 text-right mx-auto">
                 <button class="btn-block" id = "sessions_btns">
@@ -244,6 +244,9 @@
                     <i class="fa fa-sticky-note" style="font-size:28px" id="indivIcon"></i>
                 </button>
             </div>
+        </div>
+        <div class = "row" id = "currentSessionModals">
+
         </div>   
     <div class = "row justify-content-md-center text-center">
         <hr class="solid" id="hrWhite">
@@ -658,6 +661,8 @@ var timer = {
                     var currentSession = ''
                     var innerHtml = ''
                     var completedInnerHtml = ''
+                    var currentSessionIcons = ''
+                    var currentSessionModals = ''
                     var countSession = 0
                     var setCurrent = true
                     for(let i = 0; i < dataResult.subtask.length; i++){
@@ -704,6 +709,32 @@ var timer = {
                         else if( setCurrent ){
                             currentSession = dataResult.subtask[i].subtaskName
                             currentSessionId = dataResult.subtask[i]._id['$oid']
+                            currentSessionIcons+='<div class = "col-md-8"></div>'
+                            currentSessionIcons+='<div class = "col-md-4 text-right mx-auto">'
+                            currentSessionIcons+='<button class="btn-block" id = "sessions_btns">'
+                            currentSessionIcons+='<i class="fa fa-pencil-alt" style="font-size:28px" id="indivIcon" data-toggle = "modal" data-target = "#settings1'+i+'"></i>'
+                            currentSessionIcons+='<i class="fa fa-sticky-note" style="font-size:28px" id="indivIcon"></i>'
+                            currentSessionIcons+='</button>'
+                            currentSessionIcons+='</div>'
+                            currentSessionModals+='<div class = "modal fade " id="settings1'+i+'" role="dialog">'
+                            currentSessionModals+='<div class = "modal-dialog modal-dialog-centered">'
+                            currentSessionModals+='<div class = "modal-content">'
+                            currentSessionModals+='<div class = "modal-header text-center d-block  "><h4 class="modal-title  d-inline-block">EDIT SESSION</h4></div>'
+                            currentSessionModals+='<div class = "modal-body">'
+                            currentSessionModals+='<div class = "row  justify-content-md-center text-center">'
+                            currentSessionModals+='<div class = "col-8 text-center">'
+                            currentSessionModals+='<span class = "text-left">Session Name: </span><input class ="sessionOnTimerInput" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black">'
+                            currentSessionModals+='<span class = "text-left mt-3">Notes: </span>'
+                            currentSessionModals+='<textarea class ="notesTimerInput2" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].note+'</textarea>'
+                            currentSessionModals+='</div>'
+                            currentSessionModals+='</div>'
+                            currentSessionModals+='<div class = "modal-footer">'
+             
+                            currentSessionModals+='<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'
+                            currentSessionModals+='<button type="button" class="btn btn-primary" id = "modal-save">Save changes</button>'
+                            currentSessionModals+='</div>'
+                   
+                            
                             setCurrent = false
                         }
                         else
@@ -749,6 +780,8 @@ var timer = {
                     // console.log(dataResult.major_task.pomodoro)
                    $('#completedPomodoro').html(completedInnerHtml)
                     $('#currentSession').html(currentSession)
+                    $('#currentSessionIcons').html(currentSessionIcons)
+                    $('#currentSessionModals').html(currentSessionModals)
                     document.getElementById('timeRoutine').value = dataResult.major_task.pomodoro
                     document.getElementById('timeRoutine1').value = dataResult.major_task.short_break
                     document.getElementById('timeRoutine2').value = dataResult.major_task.long_break
