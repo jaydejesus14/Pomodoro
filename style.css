@@ -301,6 +301,45 @@ input:focus, textarea:focus {
   padding: 5px;
 }
 
+.timer{
+  position: relative;
+ 
+}
+
+.time {
+  position: absolute;
+
+}
+
+.time{
+  font-size: 40px;
+  color: #fff;
+}
+
+svg{
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -50px;
+  
+ 
+}
+circle{
+  stroke-width: 10px;
+  fill: transparent;
+  stroke-linecap: round;
+  height: 100px;
+  
+}
+
+#circle1{
+  stroke: rgba(255, 255, 255, 0.4);
+}
+
+#circle2{
+  stroke:#403234;
+  stroke-width: 15px;
+  transition: 0.1s linear;
+}
 .timers {
   width: 50%;
   margin: 30px 0px;
@@ -310,8 +349,9 @@ input:focus, textarea:focus {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
+/*
 .time {
-  background-color: #000000;
+  background-color: black;
   position: relative;
   margin: auto;
   margin-top: 25%;
@@ -326,6 +366,28 @@ input:focus, textarea:focus {
   font-size: 20px;
   margin: 4px 2px;
   cursor: pointer;
+}*/
+
+.time {
+  background: rgb(120,55,55);
+            background: linear-gradient(0deg, rgba(120,55,55,0.5060399159663865) 0%, rgba(64,64,64,0.5032387955182073) 100%);
+
+  position: absolute;
+  margin: auto;
+  margin-left: 20%;
+  margin-top: 20%;
+  box-sizing: inherit;
+  border: none;
+  padding: 20px 100px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  z-index: 1;
+  cursor: pointer;
+  border-radius: 10px;
+
 }
 
 .timeNumber{
@@ -335,8 +397,8 @@ input:focus, textarea:focus {
 
 #timerStart_btn {
   border-radius: 25px;
-  color: #fff;
-  background-color: #783937;
+  color: black;
+  background-color: #F0DFD1;
   padding: 15px 50px;
   cursor: pointer;
   margin-top: 30px;

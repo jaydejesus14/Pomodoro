@@ -140,11 +140,14 @@
                 </div>
             </div>
 
-            <div class="card timers mx-auto">
+            <div class="card timers mx-auto" style = "
+            background: rgb(120,57,55);
+background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%);
+           box-shadow: none">
                 <div class = "row justify-content-md-center text-center ml-auto mr-3 mb-1">
                         <div class = "col ">
                             <div class = "settingsIcon">
-                            <i class="fa fa-cog" data-toggle = "modal" data-target = "#settings" id="timerIcons" style="font-size:24px"></i>
+                            <i class="fa fa-cog" data-toggle = "modal" data-target = "#settings" id="timerIcons" style="font-size:24px; z-index:9"></i>
                         </div>
                         </div>
                     </div>
@@ -199,11 +202,20 @@
                      </div>
                 <div class = "row justify-content-md-center text-center mx-auto">
                     <div class = "col">
+                       
                         <div class = "time text-center" id ="js-clock">
+                           
                             <span id="js-minutes" style = "font-size: 40px"></span>
                             <span class="separator" style = "font-size: 40px">:</span>
                             <span id="js-seconds" style = "font-size: 40px">00</span>
                         </div>
+                        <svg width="500" height="425">
+                            <circle id="circle1" cx="250" cy="210" r="200"></circle>
+                            <circle id="circle2" cx="250" cy="210" r="200"></circle>
+                          </svg>
+                        <div>
+                           
+                            </div>
 
                  <!-- Start Pause and Skip Buttons !-->
                 <div class = "row justify-content-md-center text-center mx-auto">
@@ -490,6 +502,11 @@ var timer = {
   };
   
   let interval;
+  const circle = document.getElementById('circle2');
+  const length = circle.getTotalLength();
+   
+    circle.style.strokeDasharray = length;
+    circle.style.strokeDashoffset = length;
 
 
   var btns = document.getElementsByClassName("currentSession");
@@ -522,20 +539,25 @@ var timer = {
     };
   }
   
+  
   function startTimer() {
     let { total } = timer.remainingTime;
     const endTime = Date.parse(new Date()) + total * 1000;
+    const newEnd =  Number.parseInt(endTime / 1000, 10);
   
     if (timer.mode === 'pomodoro') timer.sessions++;
   
     mainButton.dataset.action = 'STOP';
     mainButton.textContent = 'STOP';
     mainButton.classList.add('active');
+    
   
     interval = setInterval(function() {
       timer.remainingTime = getRemainingTime(endTime);
       updateClock();
       total = timer.remainingTime.total;
+      circle.style.strokeDashoffset = length - (total / 60) * length;
+      
       if (total <= 0) {
         clearInterval(interval);
   
