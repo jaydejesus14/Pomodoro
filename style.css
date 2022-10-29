@@ -370,7 +370,7 @@ circle{
 
 .time {
   background: rgb(120,55,55);
-            background: linear-gradient(0deg, rgba(120,55,55,0.5060399159663865) 0%, rgba(64,64,64,0.5032387955182073) 100%);
+  background: linear-gradient(0deg, rgba(120,55,55,0.5060399159663865) 0%, rgba(64,64,64,0.5032387955182073) 100%);
 
   position: absolute;
   margin: auto;
@@ -396,27 +396,25 @@ circle{
 }
 
 #timerStart_btn {
-  border-radius: 25px;
-  color: black;
-  background-color: rgb( 240, 223, 209,0.7);
-  padding: 15px 50px;
-  cursor: pointer;
+  flex: 1 1 auto;
   margin-top: 30px;
+  padding: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 0 40px 40px #F0DFD1 inset, 0 0 0 0 #F0DFD1;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  background-size: 200% auto;
+  color: black;
+  padding: 15px 50px;
+  border-radius: 25px;
+  border: 2px solid transparent;
   font-size: 26px;
-  border:none;
-  box-shadow: 5px 5px 5px #888888;
+ 
 }
 
 #timerStart_btn:hover {
-  border-radius: 25px;
-  color: black;
-  background-color: #783937;
-  padding: 15px 50px;
-  cursor: pointer;
-  border: none;
-  margin-top: 30px;
-  font-size: 26px;
-  box-shadow: 5px 5px 5px #888888;
+  box-shadow: 0 0 10px 0 #F0DFD1 inset, 0 0 10px 4px #F0DFD1;
 }
 
 .skip_btn {
@@ -526,7 +524,7 @@ circle{
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: hidden;
-  color: #783937;
+  color: black;
 }
 .sessionOnTimerInput {
   font-size: 18px;
@@ -642,6 +640,7 @@ textarea {
   line-height: 30px; /* To center it vertically */
   color: white;
   border-radius: 15px;
+  
 }
 #progressBar {
   width: 100%;
@@ -667,7 +666,7 @@ textarea {
 
 #sessionIcons {
   font-size: 24px;
-  color: white;
+  color: black;
 }
  #sessionIcons:hover {
   font-size: 24px;
