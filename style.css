@@ -401,14 +401,14 @@ circle{
   padding: 30px;
   text-align: center;
   text-transform: uppercase;
-  box-shadow: 0 0 40px 40px #F0DFD1 inset, 0 0 0 0 #F0DFD1;
+  background-color: transparent;
   -webkit-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
   background-size: 200% auto;
-  color: black;
+  color: white;
   padding: 15px 50px;
   border-radius: 25px;
-  border: 2px solid transparent;
+  border: 4px solid rgba(255, 255, 255, 0.4);
   font-size: 26px;
  
 }
@@ -460,6 +460,25 @@ circle{
 #timerIcons:hover {
   color: #783937;
   cursor: pointer;
+  transition: 0.70s;
+  -webkit-transition: 0.70s;
+  -moz-transition: 0.70s;
+  -ms-transition: 0.70s;
+  -o-transition: 0.70s;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+#timerIcons {
+  transition: 0.70s;
+  -webkit-transition: 0.70s;
+  -moz-transition: 0.70s;
+  -ms-transition: 0.70s;
+  -o-transition: 0.70s;
+
 }
 
 .currentSessionName {
@@ -1013,11 +1032,13 @@ textarea {
   z-index: 1;
   top: 70;
   left: 0;
-  background-color: #403234;
-  overflow-x: hidden;
+  background: rgb(55,50,64);
+  background: linear-gradient(0deg, rgba(55,50,64,1) 0%, rgba(64,50,52,1) 100%);
   padding-top: 20px;
   float:left;
   margin-right: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  color: black;
 }
 #biggerContainer {
   height: 800px;
@@ -1109,9 +1130,11 @@ textarea {
   width: 340px;
   margin: 30px 5px;
   padding: 25px 20px 40px 20px;
-  border-radius: 20px;
+  border-radius: 15px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background: rgb(253,251,249);
+  background: linear-gradient(0deg, rgba(253,251,249,1) 0%, rgba(240,223,209,1) 100%);
 }
 
 .todoTitle{
@@ -1191,7 +1214,7 @@ textarea {
 .addSubTask{
   height: 80px;
   width: 100%;
-  background-color: #F0DFD1;
+  background-color: transparent;
   padding: 25px;
   border-radius: 20px;
   position: relative;
