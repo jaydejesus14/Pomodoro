@@ -102,8 +102,13 @@
             }
         });
         });
-
+        var count = 0;
         function add_task(){
+            var subtask = [];
+            for(let i = 0; i < count; i++) {
+                subtask.push(document.getElementById('sub_task_name'+i).value)
+               
+            }
             var task_name = document.getElementById('task_name').value
             if(task_name != ''){
             $.ajax({
@@ -116,7 +121,7 @@
                     pomodoro: document.getElementById('pomodoro').value,
                     short_break: document.getElementById('short_break').value,
                     long_break: document.getElementById('long_break').value,
-                    sub_task_name: document.getElementById('sub_task_name').value,
+                    sub_task_name: subtask,
                 },
                 cache:false,
                 success: function(dataResult){
@@ -144,15 +149,15 @@
 
             // console.log(data)
         }
-        var count = 0;
+        
         function addASubtask(){
             count=count+1;
             var innerHtml=''
             for(let i = 0; i < count; i++) {
-                console.log(count +" = inside for add")
-                innerHtml+='<div class = "row" id="newSubTask'+count+'" >'
+                // console.log(count +" = inside for add")
+                innerHtml+='<div class = "row" id="newSubTask'+i+'" >'
                 innerHtml+=' <div class = "col-10 text-left" >'
-                innerHtml+=' <span><input type="text" class = "taskName" id="sub_task_name" placeholder="Sub-Task Name"></span>'
+                innerHtml+=' <span><input type="text" class = "taskName" id="sub_task_name'+i+'" placeholder="Sub-Task Name"></span>'
                 innerHtml+='</div>'
                 innerHtml+='<div class = "col-2 text-center mb-4">'
                 innerHtml+='  <i class="fa fa-trash" id = "trashIcon" onClick = "removeInput()"></i>'
@@ -168,11 +173,27 @@
        }
        function removeInput(){
        
-        const element = document.getElementById('newSubTask'+count);
-        element.remove();
+        // const element = document.getElementById('newSubTask'+count);
+        // element.remove();
         count=count-1;
-        console.log(count +" = remove 1")
-
+        // console.log(count +" = remove 1")
+        var innerHtml=''
+            for(let i = 0; i < count; i++) {
+                // console.log(count +" = inside for add")
+                innerHtml+='<div class = "row" id="newSubTask'+i+'" >'
+                innerHtml+=' <div class = "col-10 text-left" >'
+                innerHtml+=' <span><input type="text" class = "taskName" id="sub_task_name'+i+'" placeholder="Sub-Task Name"></span>'
+                innerHtml+='</div>'
+                innerHtml+='<div class = "col-2 text-center mb-4">'
+                innerHtml+='  <i class="fa fa-trash" id = "trashIcon" onClick = "removeInput()"></i>'
+                innerHtml+='</div>'
+                innerHtml+='<hr class = "hrWhite2">'
+                innerHtml+='</div>'
+              
+                
+            }
+            console.log(count +" = outside for add")
+            $('#newSubTask1').html(innerHtml)
         
 
        }
