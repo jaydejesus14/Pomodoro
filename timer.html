@@ -98,7 +98,7 @@
         </div>
 </div>
 
-    <section class ="timer">
+<section class ="timer">
     <div class="container px-5 py-5 mx-auto">
    
         
@@ -138,11 +138,14 @@
                 </div>
             </div>
 
-            <div class="card timers mx-auto">
+            <div class="card timers mx-auto" style = "
+            background: rgb(120,57,55);
+background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%);
+           box-shadow: none">
                 <div class = "row justify-content-md-center text-center ml-auto mr-3 mb-1">
                         <div class = "col ">
                             <div class = "settingsIcon">
-                            <i class="fa fa-cog" data-toggle = "modal" data-target = "#settings" id="timerIcons" style="font-size:24px"></i>
+                            <i class="fa fa-cog" data-toggle = "modal" data-target = "#settings" id="timerIcons" style="font-size:24px; z-index:9"></i>
                         </div>
                         </div>
                     </div>
@@ -172,15 +175,15 @@
                             <div class = "row text-center">
                                 
                                 <div class = "col-4 mt-2 mb-4">
-                                    <input type = "number" class = "timeRoutine text-center" id = "timeRoutine" value ="30" data-id='inputnumber' step="5" min="20" max ="60"></input>
+                                    <input type = "number" class = "timeRoutine text-center" id = "timeRoutine" value ="" data-id='inputnumber' step="5" min="10" max ="60"></input>
                                 </div>
                       
                         
                             <div class = " col-4 mt-2 mb-4">
-                                <input type = "number" class = "timeRoutine text-center" id = "timeRoutine1" value ="05" step="5" max ="15" min="5"></input>
+                                <input type = "number" class = "timeRoutine text-center" id = "timeRoutine1" value ="" step="5" max ="15" min="5"></input>
                             </div>
                             <div class = " col-4 mt-2 mb-4">
-                                <input type = "number" class = "timeRoutine text-center" id = "timeRoutine2" value ="05" step="5" max ="15" min="5"></input>
+                                <input type = "number" class = "timeRoutine text-center" id = "timeRoutine2" value ="" step="5" max ="15" min="5"></input>
                             </div>
                            
                         </div>
@@ -189,7 +192,7 @@
                         <div class="modal-footer">
                             
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id = "modal-save">Save changes</button>
+                            <button type="button" class="btn btn-primary" onclick="saveSessionTime()" id = "modal-save">Save changes</button>
                        </div>
                        
                               </div>
@@ -197,11 +200,20 @@
                      </div>
                 <div class = "row justify-content-md-center text-center mx-auto">
                     <div class = "col">
+                       
                         <div class = "time text-center" id ="js-clock">
-                            <span id="js-minutes" style = "font-size: 40px">25</span>
+                           
+                            <span id="js-minutes" style = "font-size: 40px"></span>
                             <span class="separator" style = "font-size: 40px">:</span>
                             <span id="js-seconds" style = "font-size: 40px">00</span>
                         </div>
+                        <svg width="500" height="425">
+                            <circle id="circle1" cx="250" cy="210" r="200"></circle>
+                            <circle id="circle2" cx="250" cy="210" r="200"></circle>
+                          </svg>
+                        <div>
+                           
+                            </div>
 
                  <!-- Start Pause and Skip Buttons !-->
                 <div class = "row justify-content-md-center text-center mx-auto">

@@ -7,6 +7,12 @@ var timer = {
   };
   
   let interval;
+  const circle = document.getElementById('circle2');
+  const length = circle.getTotalLength();
+   
+    circle.style.strokeDasharray = length;
+    circle.style.strokeDashoffset = length;
+
 
 
   var btns = document.getElementsByClassName("currentSession");
@@ -53,6 +59,7 @@ var timer = {
       timer.remainingTime = getRemainingTime(endTime);
       updateClock();
       total = timer.remainingTime.total;
+       circle.style.strokeDashoffset = length - (total / 60) * length;
       if (total <= 0) {
         clearInterval(interval);
   

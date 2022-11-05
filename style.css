@@ -79,9 +79,12 @@ hr.solid {
 #notLoggedIn {
   width: 300px;
   padding: 25px;
-  border-radius: 25px;
+  border-radius: 10px;
   text-align: center;
-  background-color: #F0DFD1;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  margin-top: 20px;
+
 }
 #loggedIn {
   width: 400px;
@@ -99,7 +102,7 @@ hr.solid {
   text-align: center;
   padding: 15px;
   margin: 4px;
-  border-radius: 25px;
+  border-radius: 10px;
   border: 2px solid #783937;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
@@ -1118,6 +1121,7 @@ textarea {
 #dropDown{
   background-color: #F0DFD1;
   padding: 25px;
+  border-radius: 10px;
 }
 
 #dropdownbtns{
