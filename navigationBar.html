@@ -46,16 +46,16 @@
                         <div class = "row">
                             <div class = "col text-center">
                             <i class="fa fa-user-circle" id="loggedInIcons"></i>
-                            <h4 class = "text-center mt-3">USERNAME</h4>
+                            <h4 class = "text-center mt-3" id="userName">USERNAME</h4>
                                 <div class = "row">
                                     <div class = "col-md-6 text-right ">
-                                        <span class = "">FirstName</span>
+                                        <span class = "" id="Fname">FirstName</span>
                                     </div>
                                     <div class = "col-md-6 text-left">
-                                        <span class = "">LastName</span>
+                                        <span class = "" id="Lname">LastName</span>
                                     </div>
                                 </div>
-                            <span>emailaddress@email.com</span>
+                            <span id="Email">emailaddress@email.com</span>
                             <hr class = "hrWhite">
                             </div>
                         </div>
@@ -85,4 +85,26 @@
         localStorage.removeItem("user_id");
         window.location.href = "http://localhost/pomodoro/user/login.html";
     }
+
+
+    $.ajax({
+            type:"POST",
+            url: "http://localhost/pomodoro/api/user_info.php",
+            dataType: "json",
+            data:{
+                user_id: localStorage.getItem('user_id'),
+            },
+            
+            cache:false,
+            success: function(dataResult){
+                $('#userName').html(dataResult.user_name)
+                $('#Fname').html(dataResult.Fname)
+                $('#Lname').html(dataResult.Lname)
+                $('#Email').html(dataResult.email)
+
+                },error:function(err){
+            console.log('error')		 
+            }
+        })
+        console.log('test')
 </script>

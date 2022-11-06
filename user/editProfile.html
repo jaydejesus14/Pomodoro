@@ -26,20 +26,20 @@
                     <div class = "row">
                         <div class = "form-group col-6 mt-4">
                             <label class = "text-left">First Name</label>
-                            <input type = "text" class="form-control" id = "fullInput" placeholder = "first name">
+                            <input type = "text" class="form-control" id = "firstName" placeholder = "first name">
                         </div>
                         <div class = "form-group col-6 mt-4">
                             <label class = "text-left">Last Name</label>
-                            <input type = "text" class="form-control" id = "fullInput" placeholder = "lastname">
+                            <input type = "text" class="form-control" id = "lastName" placeholder = "lastname">
                         </div>
                     </div>
                     <div class = "form-group">
                         <label class = "text-left">Username</label>
-                        <input type = "text" class="form-control" id = "fullInput" placeholder = "username">
+                        <input type = "text" class="form-control" id = "user_Name" placeholder = "username">
                     </div>
                     <hr class = "hrWhite">
                     <div class = "row text-center">
-                        <button type = "submit" value="" class="btn-block btn-color" id = "form_btns">SAVE</button>
+                        <button type = "submit" value="" class="btn-block btn-color" id = "form_btns" onclick="updateProfile()">SAVE</button>
                         <button onClick = "window.location.href='../timer.html'"  class="btn-block btn-color" id = "form_btns2">CANCEL</button>
                     </div>
                 </div>
@@ -52,10 +52,50 @@
         $("#nav-placeholder").replaceWith(data);
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            type:"POST",
+            url: "http://localhost/pomodoro/api/user_info.php",
+            dataType: "json",
+            data:{
+                user_id: localStorage.getItem('user_id'),
+            },
+            
+            cache:false,
+            success: function(dataResult){
+                    $('#user_Name').val(dataResult.user_name)
+                    $('#firstName').val(dataResult.Fname)
+                    $('#lastName').val(dataResult.Lname)
+                    $('#routineName').html(dataResult.email)
+                    },error:function(err){
+                console.log('error')		 
+                }
+            })
+
+        function updateProfile(){
+            $.ajax({
+            type:"POST",
+            url: "http://localhost/pomodoro/api/update_info.php",
+            dataType: "json",
+            data:{
+                user_id: localStorage.getItem('user_id'),
+                Fname: document.getElementById('firstName').value,
+                Lname: document.getElementById('lastName').value,
+                userName: document.getElementById('user_Name').value
+            },
+                    cache:false,
+                    success: function(dataResult){
+                            console.log(dataResult)
+                        },error:function(err){
+                    console.log('error')		 
+                    }
+                })
+            }
+    </script>
 
 
 </body>
