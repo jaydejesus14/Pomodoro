@@ -250,10 +250,33 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
             <div class = "col-md-8"></div>
                 <div class = "col-md-4 text-right mx-auto">
                     <button class="btn-block" id = "sessions_btns">
-                        <i class="fa fa-pencil-alt"  data-toggle="modal" data-target="#exampleModalCenter" style="font-size:28px" id="indivIcon"></i>
+                        <i class="fa fa-pencil-alt" style="font-size:28px" id="indivIcon" data-toggle = "modal" data-target = "#settings1"></i>
                         <i class="fa fa-sticky-note" style="font-size:28px" id="indivIcon"></i>
                     </button>
                 </div>
+                <div class = "modal fade " id="settings1" role="dialog">
+                    <div class = "modal-dialog modal-dialog-centered">
+                        <div class = "modal-content">
+                            <div class = "modal-header text-center d-block  ">
+                                <h4 class="modal-title  d-inline-block">EDIT SESSION</h4>
+                            </div>
+                            <div class = "modal-body">
+                                <div class = "row  justify-content-md-center text-center">
+                                    <div class = "col-8 text-center">
+                                        <span class = "text-left">Session Name: </span><input class ="sessionOnTimerInput" type = "text" value="" placeholder="Session #" style="color: black">
+                                        <span class = "text-left mt-3">Notes: </span>
+                                        <textarea class ="notesTimerInput2" type = "text" value="" placeholder="Session #" style="color: black" cols="40" rows="6"></textarea>
+                                    </div>
+                                </div>
+                                <div class = "modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" id = "modal-save">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         <div class = "row justify-content-md-center text-center">
             <hr class="solid" id="hrWhite">
