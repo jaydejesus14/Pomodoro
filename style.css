@@ -682,6 +682,17 @@ textarea {
 #sessSaveBtn:hover {
   padding: 10px 20px;
   background-color: rgb( 120, 57, 55);
+  color: #783937;
+
+}
+#sessSaveBtn2 {
+  padding: 10px 20px;
+  background-color: rgb( 120, 57, 55, 0.3);
+
+}
+#sessSaveBtn2:hover {
+  padding: 10px 20px;
+  background-color: rgb( 120, 57, 55);
   color: white;
 
 }
@@ -1336,6 +1347,10 @@ textarea {
   cursor: pointer;
 }
 
+#trashIcon2 {
+  font-size: 16px;
+  margin-right: 5px;
+}
 #grouped_btns {
   border-radius: 15px;
   width: 70%;

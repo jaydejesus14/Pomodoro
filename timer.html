@@ -259,6 +259,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                         <div class = "modal-content">
                             <div class = "modal-header text-center d-block  ">
                                 <h4 class="modal-title  d-inline-block">EDIT SESSION</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style = "color: black;"></button>
                             </div>
                             <div class = "modal-body">
                                 <div class = "row  justify-content-md-center text-center">
@@ -268,10 +269,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                                         <textarea class ="notesTimerInput2" type = "text" value="" placeholder="Session #" style="color: black" cols="40" rows="6"></textarea>
                                     </div>
                                 </div>
-                                <div class = "modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" id = "modal-save">Save changes</button>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -329,6 +327,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                             <button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapse" aria-expanded="true" aria-controls="collapseOne">
                                 <i class="fa fa-angle-down" id="sessionIcons"></i>
                             </button>
+                            
                         </div>
                     </div>
                 </div>
@@ -342,11 +341,9 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                       </div>
                       <hr>
                       <div class = "row">
-                        <div class = "col-6 text-left">
-                            <button type="button" class="btn lext-right" id = "sessSaveBtn">REMOVE</button>
-                       </div>
-                       <div class = "col-6 text-right">
-                            <button type="button" class="btn " id = "sessSaveBtn">SAVE</button>
+                       
+                       <div class = "col text-center">
+                            <button type="button" class="btn " id = "sessSaveBtn2"><i class="fa fa-trash" id = "trashIcon2"></i> REMOVE</button>
                         </div>
                         </div>
                     </div>
@@ -405,13 +402,10 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                       </div>
                       <hr>
                       <div class = "row">
-                        <div class = "col-6 text-left">
-                            <button type="button" class="btn btn-primary lext-right" id = "sessSaveBtn">CANCEL</button>
-                       </div>
-                       <div class = "col-6 text-right">
-                            <button type="button" class="btn btn-primary" id = "sessSaveBtn">SAVE</button>
-                        </div>
-                        </div>
+                        <div class = "col text-center">
+                            <button type="button" class="btn " id = "sessSaveBtn2"><i class="fa fa-trash" id = "trashIcon2"></i> REMOVE</button>
+                      </div>
+                      </div>
                     </div>
                 </div>
             </div>
