@@ -64,7 +64,7 @@
                             <a class="dropdown-item" id = "loggedInBtns" href="../user/changePassword.html">CHANGE PASSWORD</a>
                             <a class="dropdown-item" id = "loggedInBtns" href="../user/reports.html">REPORTS</a>
                             <hr class = "hrBlack">
-                            <a class="dropdown-item" id = "loggedInBtns" href="timer.html">LOG-OUT</a>
+                            <a class="dropdown-item" id = "loggedInBtns" onclick="logout()">LOG-OUT</a>
                         </div>    
                     </ul>
                 </div>
@@ -79,3 +79,10 @@
 
 </body>
 </html>
+<script>
+
+    function logout(){
+        localStorage.removeItem("user_id");
+        window.location.href = "http://localhost/pomodoro/user/login.html";
+    }
+</script>

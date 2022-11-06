@@ -9,7 +9,7 @@
     <link rel='stylesheet' href="../style.css">
     
 </head>
-<body>
+<body onload="validate_login()">
     <style>
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
@@ -230,6 +230,16 @@
     }; -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
+        // function validate_login(){
+        //     if(!localStorage.getItem('user_id')){
+        //         alert('login muna')
+        //         window.location.href = "http://localhost/pomodoro/user/login.html";
+        //     }
+        // }
+        if(!localStorage.getItem('user_id')){
+            
+          window.location = "http://localhost/pomodoro/user/login.html";
+       }
        var $template = $(".template");
 
         var hash = 2;
