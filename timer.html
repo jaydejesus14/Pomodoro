@@ -241,20 +241,20 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         <!-- Session Name, Rewrite Session Name and Sticky Note !-->
         <div class = "row justify-content-md-center text-center mt-3 mx-auto">
             <div class = "col text-center">
-                <div class = "currentSessionName">
-                SESSION NAME
-                </div>   
+                <span class = "currentSessionName">
+                    Pomodoro name
+                </span>  
             </div>
         </div>
         <div class = "row " style = "margin-top: -60px;">
             <div class = "col-md-8"></div>
                 <div class = "col-md-4 text-right mx-auto">
                     <button class="btn-block" id = "sessions_btns">
-                        <i class="fa fa-pencil-alt" style="font-size:28px" id="indivIcon"></i>
+                        <i class="fa fa-pencil-alt"  data-toggle="modal" data-target="#exampleModalCenter" style="font-size:28px" id="indivIcon"></i>
                         <i class="fa fa-sticky-note" style="font-size:28px" id="indivIcon"></i>
                     </button>
                 </div>
-            </div>   
+            </div>
         <div class = "row justify-content-md-center text-center">
             <hr class="solid" id="hrWhite">
         </div>
@@ -269,6 +269,28 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                 <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i>
             </div>
         </div>
+        
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <input type="text" id="currentSessionName"/>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
         <!-- POMODORO SESSIONS LIST !-->
         <div class = "row justify-content-md-center text-center mx-auto">
@@ -463,6 +485,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
 </section>
 
 <script>
+    
     var clicks = 0;
     function openSpotify() {
       document.getElementById("spotifyContainer").style.display = "block";
