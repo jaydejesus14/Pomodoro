@@ -1101,6 +1101,9 @@ textarea {
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: hidden;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 
