@@ -358,7 +358,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         <!-- ADDING A SESSION !-->
         <div class = "row justify-content-md-center text-center mx-auto">
             <div class = "col">
-                <button class="btn-block text-center" id = "addSession_btn">
+                <button class="btn-block text-center" id = "addSession_btn" onclick="addSession()">
                          <i class="fa fa-plus-circle" style="font-size:24px; margin-right:10px;" id="indivIcon"></i> ADD A SESSION
                 </button>
             </div>
@@ -520,7 +520,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
     }
 
     let sessionArray = ['pomodoro #1','pomodoro #2','pomodoro #3']
-    let noteArray = ['pomodoro #1','pomodoro #2']
+    let noteArray = ['pomodoro #1','pomodoro #2','pomodoro #3']
 
     let completedArray = []
     let comNoteArray = []
@@ -553,7 +553,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                 innerHtml +='<div class = "card-body sessionsTimer">'
                 innerHtml +='<div class = "row text-center">'
                 innerHtml += '<div class = "notesTimer">'
-                innerHtml += '<textarea class ="notesTimerInput" type = "text" placeholder="Session #" style="color: black" cols="40" rows="6"></textarea>'
+                innerHtml += '<textarea class ="notesTimerInput" type = "text" placeholder="Session #" style="color: black" cols="40" rows="6">'+noteArray[i]+'</textarea>'
                 innerHtml += '</div> '
                 innerHtml += '</div>'
                 innerHtml += '<hr>'
@@ -588,6 +588,14 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
     }
     function editSessionArray(value,index){
         sessionArray[index] = value
+    }
+    function addSession(){
+        sessionArray.push('pomodoro #'+parseInt(sessionArray.length+1))
+        noteArray.push('pomodoro #'+parseInt(sessionArray.length+1))
+        loadList();
+    }
+    function removeSession(){
+
     }
 
     // $.ajax({
