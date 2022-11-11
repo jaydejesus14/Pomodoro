@@ -23,11 +23,11 @@ $is_exist = $db->routine->findOne(array("routine_name" => $routine_name, "user_i
 
 if(!$is_exist)
 {
-  $is_insert = $db->groupTask->insertOne($to_insert);
+  $is_insert = $db->Session->insertOne($to_insert);
   if($is_insert)
   {
       $json_return['status'] = true;
-      $forSubtask = $db->groupTask->findOne(array("routine_name" => $routine_name, "user_id" => $user_id));
+      $forSubtask = $db->routine->findOne(array("routine_name" => $routine_name, "user_id" => $user_id));
       $objId = $forSubtask['_id']->__toString();
 
       foreach($subtaskName as $key => $value){
@@ -37,7 +37,7 @@ if(!$is_exist)
         "notes" => $value['notes']
       );
 
-      $db->majorSubTask->insertOne($to_insert_subtask);
+      $db->sessionTask->insertOne($to_insert_subtask);
     }
   }
   else
