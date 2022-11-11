@@ -19,18 +19,18 @@ $to_insert = array(
 );
 
 // $result = $db->users->findOne(array("email" => $email,"password"=>$password));
-$is_exist = $db->routine->findOne(array("routine_name" => $routine_name, "user_id" => $user_id));
+$is_exist = $db->session->findOne(array("routine_name" => $routine_name, "user_id" => $user_id));
 
 if(!$is_exist)
 {
-  $is_insert = $db->Session->insertOne($to_insert);
+  $is_insert = $db->session->insertOne($to_insert);
   if($is_insert)
   {
       $json_return['status'] = true;
-      $forSubtask = $db->routine->findOne(array("routine_name" => $routine_name, "user_id" => $user_id));
+      $forSubtask = $db->session->findOne(array("routine_name" => $routine_name, "user_id" => $user_id));
       $objId = $forSubtask['_id']->__toString();
 
-      foreach($subtaskName as $key => $value){
+      foreach($sessionArray as $key => $value){
       $to_insert_subtask = array(
         "routineId" => $objId,
         "name" => $value['name'],
