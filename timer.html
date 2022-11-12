@@ -377,7 +377,8 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
             </div>
         </div>
         <div class = "row justify-content-md-center text-center mx-auto">
-            <div class="card sessionsList">
+            <h2>No Completed session yet</h2>
+            <!-- <div class="card sessionsList">
                 <div class = "card-header">
                         <div class = "row  justify-content-md-center text-center" id ="accordionSessionC">
                         <div class = "col-8 text-left">
@@ -408,7 +409,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                       </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
        
@@ -603,6 +604,10 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         // updateClock()
     }
 
+    function removeArray(index){
+        sessionArray.splice(index, 1)
+        loadList();
+    }
     function assignSession(){
         innerHtml = ''
         for (let i = 0; i < sessionArray.length; i++) {
