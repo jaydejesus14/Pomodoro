@@ -692,7 +692,13 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
             
             cache:false,
             success: function(dataResult){
-                console.log(dataResult)
+                
+                if(dataResult.status){
+                    alert('Successfully added to routine')
+                    window.location.href = 'routine/routines.html'
+                }else{
+                    alert(dataResult.message)
+                }
                     },error:function(err){
                 console.log('error')		 
                 }
