@@ -517,12 +517,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
 
     $( document ).ready(function() {
         loadList();
-        document.getElementById('timeRoutine').value = pomodoro
-        document.getElementById('timeRoutine1').value = short_break
-        document.getElementById('timeRoutine2').value = long_break
-        document.getElementById('timeRoutinea').value = pomodoro
-        document.getElementById('timeRoutine1a').value = short_break
-        document.getElementById('timeRoutine2a').value = long_break
+       setTime()
     });
     var clicks = 0;
     function openSpotify() {
@@ -533,6 +528,14 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
             clicks += 1;
         }
      
+    }
+    function setTime(){
+        document.getElementById('timeRoutine').value = pomodoro
+        document.getElementById('timeRoutine1').value = short_break
+        document.getElementById('timeRoutine2').value = long_break
+        document.getElementById('timeRoutinea').value = pomodoro
+        document.getElementById('timeRoutine1a').value = short_break
+        document.getElementById('timeRoutine2a').value = long_break
     }
     
     function closeSpotify() {
@@ -585,6 +588,19 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
             // console.log('test array')
         }
         $('#sessionList').html(innerHtml)
+    }
+
+    function saveSessionTime(){
+        pomodoro = 20
+        setTime()
+        timer = {
+            pomodoro: pomodoro,
+            shortBreak:  short_break,
+            longBreak: long_break,
+            longBreakInterval: 4,
+            sessions: 0,
+        };
+        // updateClock()
     }
 
     function assignSession(){
@@ -673,11 +689,11 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
       };
       
       let interval;
-      const circle = document.getElementById('circle2');
-      const length = circle.getTotalLength();
+    //   const circle = document.getElementById('circle2');
+    //   const length = circle.getTotalLength();
        
-        circle.style.strokeDasharray = length;
-        circle.style.strokeDashoffset = length;
+    //     circle.style.strokeDasharray = length;
+    //     circle.style.strokeDashoffset = length;
     
     
       var btns = document.getElementsByClassName("currentSession");
@@ -727,7 +743,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
           timer.remainingTime = getRemainingTime(endTime);
           updateClock();
           total = timer.remainingTime.total;
-          circle.style.strokeDashoffset = length - (total / 60) * length;
+        //   circle.style.strokeDashoffset = length - (total / 60) * length;
           
           if (total <= 0) {
             clearInterval(interval);

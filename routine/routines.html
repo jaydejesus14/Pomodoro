@@ -29,8 +29,8 @@
         <div class="container px-5 py-1 mx-auto">
 
             <!-- ONE ROUTINE !-->
-            <div class = "row justify-content-md-center text-center mx-auto mt-4">
-                <div class="card routinesCard">
+            <div class = "row justify-content-md-center text-center mx-auto mt-4" id="display_routines">
+                <!-- <div class="card routinesCard">
                     <div class = "color text-center">
                         <div class = "card-header routineHeader">
                             <div class = "row  justify-content-md-center text-center" id ="accordionSession">
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 <!-- END -->
 
 
@@ -104,6 +104,7 @@
         $("#nav-placeholder").replaceWith(data);
         });
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
@@ -113,7 +114,7 @@
     function myFunction() {
       document.getElementById("myDropdown1").classList.toggle("show");
     }
-    
+    displayRoutines()
     // Close the dropdown if the user clicks outside of it
     window.onclick = function(event) {
       if (!event.target.matches('.dropbtn1')) {
@@ -126,6 +127,87 @@
           }
         }
       }
+    }
+
+
+    function displayRoutines(){
+        $.ajax({
+                    type:"POST",
+                    url: "http://localhost/pomodoro/api/display_routine.php",
+                    dataType: "json",
+                    data:{
+                        id: id,
+                        pomodoro: pomodoro,
+                        short_break: short_break,
+                        long_break: long_break
+                    },
+                    
+                    cache:false,
+                    success: function(dataResult){
+                        
+                 
+        var innerHtml = ''
+                        innerHtml+='<div class="card routinesCard">'
+                        innerHtml+='<div class = "color text-center">'
+                        innerHtml+='<div class = "card-header routineHeader">'
+                        innerHtml+='<div class = "row  justify-content-md-center text-center" id ="accordionSession">'
+                        innerHtml+='<div class = "col-8 text-left">'
+                        innerHtml+='<div class = "sessionListName">'
+                        innerHtml+='<input class ="routineNameInput" type = "text" placeholder="Session #" style="color: white">'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='<div class ="col-1 text-right ">'
+                        innerHtml+='<div class = "dropdown1" >'
+                        innerHtml+='<button onclick="myFunction()" class="dropbtn1"><i class="fa fa-cog" id="routineDrop1" ></i></button>'
+                        innerHtml+='<div id="myDropdown1" class="dropdown-content1">'
+                        innerHtml+='<a class="dropdown-item" href="#">Convert to Session</a>'
+                        innerHtml+='<a class="dropdown-item" href="viewRoutine.html">View Routine</a>'
+                        innerHtml+='<a class="dropdown-item" href="editRoutine.html">Edit Routine</a>'
+                        innerHtml+='<a class="dropdown-item" href="#">Delete Routine</a>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='<div class ="col-1 text-right mt-1">'
+                        innerHtml+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapse" aria-expanded="true" aria-controls="collapseOne">'
+                        innerHtml+='<i class="fa fa-angle-down" id="sessionIcons"></i>'
+                        innerHtml+='</button>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='<div id="sessionCollapse" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSession">'
+                        innerHtml+='<div class = "card-body subRoutinesBody">'
+                        innerHtml+='<div class = "row text-center">'
+                        innerHtml+='<div class = "subRoutinesInfo">'
+                        innerHtml+='<div class = "row">'
+                        innerHtml+='<div class = "col-10 text-left">'
+                        innerHtml+='<span class = "subRoutinesInfoText">TIME PER SESSION: </span>'
+                        innerHtml+='</div>'
+                        innerHtml+='<div class = "col-2 text-center">'
+                        innerHtml+='<span class = "subRoutinesInfoText">25:00 </span>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='<div class = "row">'
+                        innerHtml+='<div class = "indivSubRoutines">'
+                        innerHtml+='<div class = "row">'
+                        innerHtml+='<div class = "col-10 text-left">'
+                        innerHtml+='<span class = "subRoutinesInfoText">SESSION#1: </span>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+
+                    },error:function(err){
+                console.log('error')		 
+                }
+            })
+
+$('#display_routines').html(innerHtml);
     }
     </script>
    
