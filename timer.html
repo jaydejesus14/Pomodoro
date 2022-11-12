@@ -192,7 +192,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                         <div class="modal-footer">
                             
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="saveSessionTime()" id = "modal-save">Save changes</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveSessionTime()" id = "modal-save">Save changes</button>
                        </div>
                        
                               </div>
@@ -307,7 +307,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-primary" >Save changes</button>
                 </div>
               </div>
             </div>
@@ -376,7 +376,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                     <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i>
             </div>
         </div>
-        <div class = "row justify-content-md-center text-center mx-auto">
+        <div class = "row justify-content-md-center text-center mx-auto" id="completed_session">
             <h2>No Completed session yet</h2>
             <!-- <div class="card sessionsList">
                 <div class = "card-header">
@@ -504,9 +504,18 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
 <script>
     //variables
     let sessionArray = [{
-        name:'pomodoro #1',notes:'pomodoro #1'
-    },{
-        name:'pomodoro #2',notes:'pomodoro #2'
+        name:'pomodoro #1',
+        notes:'pomodoro #1',
+        is_completed: true
+    },
+    {
+        name:'pomodoro #2',
+        notes:'pomodoro #2'
+    }
+    ,{
+        name:'pomodoro #3',
+        notes:'pomodoro #3',
+        
     }]
     // let noteArray = ['pomodoro #1','pomodoro #2','pomodoro #3']
 
@@ -543,14 +552,54 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
       document.getElementById("spotifyContainer").style.display = "none";
     }
 
-
+    var reference_index = 0
     //default session
     function loadList(){
     innerHtml = '';
-
+    completedInnerHtml = '';
+    var val = 0
         for (let i = 0; i < sessionArray.length; i++) {
-            if( i == 0){
+            
+            if(!sessionArray[i].is_completed && val == 0){
+                val = 1
+                reference_index = i
                 $('#currentSession').html(sessionArray[i].name)
+                
+            }else if(sessionArray[i].is_completed){
+                completedInnerHtml +=' <div class="card sessionsList">'
+                completedInnerHtml +='<div class = "card-header sessionHeader">'
+                completedInnerHtml +='<div class = "row  justify-content-md-center text-center" id ="accordionSession'+i+'">'
+                completedInnerHtml +='<div class = "col-8 text-left">'
+                completedInnerHtml += '<div class = "sessionListName">'
+                completedInnerHtml += '<input class ="sessionListInput" type = "text" onkeyup="editSessionArray(event.target.value,'+i+')" value="'+sessionArray[i].name+'" placeholder="Session #1" style="color: black">'
+                completedInnerHtml += '</div>'
+                completedInnerHtml += '</div>'
+                completedInnerHtml += '<div class ="col-2 text-right mt-1">'
+                completedInnerHtml += '<button class = "moreBtn" id = "collapsible'+i+'"  data-toggle="collapse" data-target="#sessionCollapse'+i+'" aria-expanded="true" aria-controls="collapseOne">'
+                completedInnerHtml += '<i class="fa fa-angle-down" id="sessionIcons'+i+'"></i>'
+                completedInnerHtml += '</button>'
+                completedInnerHtml += '</div>'
+                completedInnerHtml += '</div>'
+                completedInnerHtml += '</div>'
+            
+                completedInnerHtml +='<div id="sessionCollapse'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSession'+i+'">'
+                completedInnerHtml +='<div class = "card-body sessionsTimer">'
+                completedInnerHtml +='<div class = "row text-center">'
+                completedInnerHtml += '<div class = "notesTimer">'
+                completedInnerHtml += '<textarea class ="notesTimerInput" type = "text" placeholder="Session #" style="color: black" cols="40" rows="6">'+sessionArray[i].notes+'</textarea>'
+                completedInnerHtml += '</div> '
+                completedInnerHtml += '</div>'
+                completedInnerHtml += '<hr>'
+                completedInnerHtml += '<div class = "row">'
+                            
+                completedInnerHtml += '<div class = "col text-center">'
+                completedInnerHtml += '<button type="button" class="btn " id = "sessSaveBtn2" onclick="removeArray('+i+')"><i class="fa fa-trash" id = "trashIcon2"></i> REMOVE</button>'
+                completedInnerHtml += '</div>'
+                completedInnerHtml +='</div>'
+                completedInnerHtml +='</div>'
+                completedInnerHtml +='</div>'
+                completedInnerHtml +='</div>'
+
             }else{
                 innerHtml +=' <div class="card sessionsList">'
                 innerHtml +='<div class = "card-header sessionHeader">'
@@ -589,18 +638,25 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
             // console.log('test array')
         }
         $('#sessionList').html(innerHtml)
+        $('#completed_session').html(completedInnerHtml)
     }
 
     function saveSessionTime(){
-        pomodoro = 20
-        setTime()
+        // pomodoro = 20
+        
+        pomodoro = document.getElementById('timeRoutine').value
+        short_break = document.getElementById('timeRoutine1').value
+        long_break = document.getElementById('timeRoutine2').value
         timer = {
             pomodoro: pomodoro,
             shortBreak:  short_break,
             longBreak: long_break,
             longBreakInterval: 4,
             sessions: 0,
-        };
+        }
+
+        setTime()
+        switchMode('pomodoro')
         // updateClock()
     }
 
@@ -657,6 +713,10 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
 
         
 
+    }
+    function is_completed(i){
+        sessionArray[i].is_completed = true
+        loadList()
     }
 
     // $.ajax({
@@ -763,8 +823,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                 break;
               default:
                 switchMode('pomodoro');
-                // completed++
-                // is_completed(currentSessionId)
+                is_completed(reference_index)
                 // move(completed,0)
             }
       
