@@ -41,7 +41,7 @@ foreach ($docs as $key => $value){
         'routineId' => $value['_id']->__toString()
     );
     $select_fields = array(
-        '_id' => 1,
+        // '_id' => 1,
         'name' => 1,
         'notes' => 1
         

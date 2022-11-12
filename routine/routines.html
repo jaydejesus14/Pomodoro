@@ -159,7 +159,7 @@
                             innerHtml+='<button onclick="myFunction('+i+')" class="dropbtn1"><i class="fa fa-cog" id="routineDrop1'+i+'" ></i></button>'
                             innerHtml+='<div id="myDropdown1'+i+'" class="dropdown-content1">'
                             innerHtml+='<a class="dropdown-item" href="#">Convert to Session</a>'
-                            innerHtml+='<a class="dropdown-item" href="viewRoutine.html">View Routine</a>'
+                            innerHtml+='<a class="dropdown-item" href="viewRoutine.html?'+dataResult[i].id['$oid']+'">View Routine</a>'
                             innerHtml+='<a class="dropdown-item" href="editRoutine.html">Edit Routine</a>'
                             innerHtml+='<a class="dropdown-item" href="#">Delete Routine</a>'
                             innerHtml+='</div>'
