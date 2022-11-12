@@ -132,83 +132,83 @@
 
     function displayRoutines(){
         $.ajax({
-                    type:"POST",
-                    url: "http://localhost/pomodoro/api/display_routine.php",
-                    dataType: "json",
-                    data:{
-                        user_id: localStorage.getItem('user_id'),
-                    },
+                type:"POST",
+                url: "http://localhost/pomodoro/api/display_routine.php",
+                dataType: "json",
+                data:{
+                    user_id: localStorage.getItem('user_id'),
+                },
+                
+                cache:false,
+                success: function(dataResult){
                     
-                    cache:false,
-                    success: function(dataResult){
+                
+                    var innerHtml = ''
+                    for(let i = 0; i < dataResult.length; i++){
+                        innerHtml+='<div class="card routinesCard">'
+                        innerHtml+='<div class = "color text-center">'
+                        innerHtml+='<div class = "card-header routineHeader">'
+                        innerHtml+='<div class = "row  justify-content-md-center text-center" id ="accordionSession'+i+'">'
+                        innerHtml+='<div class = "col-8 text-left">'
+                        innerHtml+='<div class = "sessionListName">'
+                        innerHtml+='<input class ="routineNameInput" value="'+dataResult[i].routine_name+'" type = "text" placeholder="Session #" style="color: white">'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='<div class ="col-1 text-right ">'
+                        innerHtml+='<div class = "dropdown1" >'
+                        innerHtml+='<button onclick="myFunction('+i+')" class="dropbtn1"><i class="fa fa-cog" id="routineDrop1'+i+'" ></i></button>'
+                        innerHtml+='<div id="myDropdown1'+i+'" class="dropdown-content1">'
+                        innerHtml+='<a class="dropdown-item" href="#">Convert to Session</a>'
+                        innerHtml+='<a class="dropdown-item" href="viewRoutine.html?'+dataResult[i].id['$oid']+'">View Routine</a>'
+                        innerHtml+='<a class="dropdown-item" href="editRoutine.html">Edit Routine</a>'
+                        innerHtml+='<a class="dropdown-item" href="#">Delete Routine</a>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='<div class ="col-1 text-right mt-1">'
+                        innerHtml+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapse'+i+'" aria-expanded="true" aria-controls="collapseOne">'
+                        innerHtml+='<i class="fa fa-angle-down" id="sessionIcons"></i>'
+                        innerHtml+='</button>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='<div id="sessionCollapse'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSession'+i+'">'
+                        innerHtml+='<div class = "card-body subRoutinesBody">'
+                        innerHtml+='<div class = "row text-center">'
+                        innerHtml+='<div class = "subRoutinesInfo">'
+                        innerHtml+='<div class = "row">'
+                        innerHtml+='<div class = "col-10 text-left">'
+                        innerHtml+='<span class = "subRoutinesInfoText">TIME PER SESSION: </span>'
+                        innerHtml+='</div>'
+                        innerHtml+='<div class = "col-2 text-center">'
+                        innerHtml+='<span class = "subRoutinesInfoText">'+dataResult[i].pomodoro+':00 </span>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='<div class = "row">'
+                            for(let x = 0; x < dataResult[i].session_task.length; x++){
+                                innerHtml+='<div class = "indivSubRoutines">'
+                                innerHtml+='<div class = "row">'
+                                innerHtml+='<div class = "col-10 text-left">'
+                                innerHtml+='<span class = "subRoutinesInfoText">'+dataResult[i].session_task[x].name+'</span>'
+                                innerHtml+='</div>'
+                                innerHtml+='</div>'
+                                innerHtml+='</div>'
+                            }
                         
-                 
-                        var innerHtml = ''
-                        for(let i = 0; i < dataResult.length; i++){
-                            innerHtml+='<div class="card routinesCard">'
-                            innerHtml+='<div class = "color text-center">'
-                            innerHtml+='<div class = "card-header routineHeader">'
-                            innerHtml+='<div class = "row  justify-content-md-center text-center" id ="accordionSession'+i+'">'
-                            innerHtml+='<div class = "col-8 text-left">'
-                            innerHtml+='<div class = "sessionListName">'
-                            innerHtml+='<input class ="routineNameInput" value="'+dataResult[i].routine_name+'" type = "text" placeholder="Session #" style="color: white">'
-                            innerHtml+='</div>'
-                            innerHtml+='</div>'
-                            innerHtml+='<div class ="col-1 text-right ">'
-                            innerHtml+='<div class = "dropdown1" >'
-                            innerHtml+='<button onclick="myFunction('+i+')" class="dropbtn1"><i class="fa fa-cog" id="routineDrop1'+i+'" ></i></button>'
-                            innerHtml+='<div id="myDropdown1'+i+'" class="dropdown-content1">'
-                            innerHtml+='<a class="dropdown-item" href="#">Convert to Session</a>'
-                            innerHtml+='<a class="dropdown-item" href="viewRoutine.html?'+dataResult[i].id['$oid']+'">View Routine</a>'
-                            innerHtml+='<a class="dropdown-item" href="editRoutine.html">Edit Routine</a>'
-                            innerHtml+='<a class="dropdown-item" href="#">Delete Routine</a>'
-                            innerHtml+='</div>'
-                            innerHtml+='</div>'
-                            innerHtml+='</div>'
-                            innerHtml+='<div class ="col-1 text-right mt-1">'
-                            innerHtml+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapse'+i+'" aria-expanded="true" aria-controls="collapseOne">'
-                            innerHtml+='<i class="fa fa-angle-down" id="sessionIcons"></i>'
-                            innerHtml+='</button>'
-                            innerHtml+='</div>'
-                            innerHtml+='</div>'
-                            innerHtml+='</div>'
-                            innerHtml+='</div>'
-                            innerHtml+='<div id="sessionCollapse'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSession'+i+'">'
-                            innerHtml+='<div class = "card-body subRoutinesBody">'
-                            innerHtml+='<div class = "row text-center">'
-                            innerHtml+='<div class = "subRoutinesInfo">'
-                            innerHtml+='<div class = "row">'
-                            innerHtml+='<div class = "col-10 text-left">'
-                            innerHtml+='<span class = "subRoutinesInfoText">TIME PER SESSION: </span>'
-                            innerHtml+='</div>'
-                            innerHtml+='<div class = "col-2 text-center">'
-                            innerHtml+='<span class = "subRoutinesInfoText">'+dataResult[i].pomodoro+':00 </span>'
-                            innerHtml+='</div>'
-                            innerHtml+='</div>'
-                            innerHtml+='</div>'
-                            innerHtml+='<div class = "row">'
-                                for(let x = 0; x < dataResult[i].session_task.length; x++){
-                                    innerHtml+='<div class = "indivSubRoutines">'
-                                    innerHtml+='<div class = "row">'
-                                    innerHtml+='<div class = "col-10 text-left">'
-                                    innerHtml+='<span class = "subRoutinesInfoText">'+dataResult[i].session_task[x].name+'</span>'
-                                    innerHtml+='</div>'
-                                    innerHtml+='</div>'
-                                    innerHtml+='</div>'
-                                }
-                           
-                            innerHtml+='</div>'
-                            innerHtml+='</div>'
-                            innerHtml+='</div>'
-                            innerHtml+='</div>'
-                            innerHtml+='</div>'
-                        }
-                        $('#display_routines').html(innerHtml);
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                    }
+                    $('#display_routines').html(innerHtml);
 
-                    },error:function(err){
-                console.log('error')		 
-                }
-            })
+                },error:function(err){
+            console.log('error')		 
+            }
+        })
 
 
     }

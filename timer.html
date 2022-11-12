@@ -264,9 +264,9 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                             <div class = "modal-body">
                                 <div class = "row  justify-content-md-center text-center">
                                     <div class = "col-8 text-center">
-                                        <span class = "text-left">Session Name: </span><input class ="sessionOnTimerInput" type = "text" value="" placeholder="Session #" style="color: black">
+                                        <span class = "text-left">Session Name: </span><input onkeyup="onkeyupedit('name')" class ="sessionOnTimerInput" id='nameCurrentSession' type = "text" value="" placeholder="Session #" style="color: black">
                                         <span class = "text-left mt-3">Notes: </span>
-                                        <textarea class ="notesTimerInput2" type = "text" value="" placeholder="Session #" style="color: black" cols="40" rows="6"></textarea>
+                                        <textarea class ="notesTimerInput2" type = "text" onkeyup="onkeyupedit('notes')" id="notesCurrentSession" value="" placeholder="Session #" style="color: black" cols="40" rows="6"></textarea>
                                     </div>
                                 </div>
                                
@@ -506,7 +506,6 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
     let sessionArray = [{
         name:'pomodoro #1',
         notes:'pomodoro #1',
-        is_completed: true
     },
     {
         name:'pomodoro #2',
@@ -564,6 +563,8 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                 val = 1
                 reference_index = i
                 $('#currentSession').html(sessionArray[i].name)
+                document.getElementById('nameCurrentSession').value = sessionArray[i].name
+                document.getElementById('notesCurrentSession').value = sessionArray[i].notes
                 
             }else if(sessionArray[i].is_completed){
                 completedInnerHtml +=' <div class="card sessionsList">'
@@ -717,6 +718,11 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
     function is_completed(i){
         sessionArray[i].is_completed = true
         loadList()
+    }
+    function onkeyupedit(name) {
+        sessionArray[reference_index].name = document.getElementById('nameCurrentSession').value
+        sessionArray[reference_index].notes = document.getElementById('notesCurrentSession').value
+        $('#currentSession').html(sessionArray[reference_index].name)
     }
 
     // $.ajax({
