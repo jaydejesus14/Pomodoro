@@ -54,7 +54,7 @@
                         </div></span>
                     </div>
                     <div class = "row text-center">
-                        <button type = "submit" value="" class="btn-block btn-color" id = "routine_btn">SAVE</button>
+                        <button type = "submit" value="" class="btn-block btn-color" onclick="saveRoutine()" id = "routine_btn">SAVE</button>
                         <button onClick = "window.location.href='routines.html'"  class="btn-block btn-color" id = "routine_btn2">CANCEL</button>
                     </div>
                 </div>
@@ -126,6 +126,18 @@
             sessionArray.push(pushableArray)
             loadtask()
         }
+
+        function onkeyupedit(value,guide,reference_index) {
+            //1 name
+            //2 note
+            if(guide == 1) {
+                sessionArray[reference_index].name = value
+            }else{
+                sessionArray[reference_index].notes = value
+            }
+            
+            // $('#currentSession').html(sessionArray[reference_index].name)
+        }
         function loadSession(){
             $.ajax({
             type:"POST",
@@ -157,14 +169,39 @@
             for(let i = 0; i < sessionArray.length; i++){
                 innerHtml+='<div class = "row mt-3">'
                 innerHtml+='<div class = "col-3 mt-2">'
-                innerHtml+='<input type = "text" id = "routineSessInput" value="'+sessionArray[i].name+'" placeholder = "Session#1"></input>'
+                innerHtml+='<input type = "text" onkeyup="onkeyupedit(event.target.value,1,'+i+')" id = "routineSessInput" value="'+sessionArray[i].name+'" placeholder = "Session#1"></input>'
                 innerHtml+='</div>'
                 innerHtml+='<div class = "col-9">'
-                innerHtml+='<input type = "text" id = "routineNoteInput" value="'+sessionArray[i].notes+'" placeholder = "Add a note"></input>'
+                innerHtml+='<input type = "text" onkeyup="onkeyupedit(event.target.value,2,'+i+')" id = "routineNoteInput" value="'+sessionArray[i].notes+'" placeholder = "Add a note"></input>'
                 innerHtml+='</div>'
                 innerHtml+='</div>'
             }
             $('#sessionTask').html(innerHtml);
+        }
+        function saveRoutine(){
+            $.ajax({
+            type:"POST",
+            url: "http://localhost/pomodoro/api/save_routine.php",
+            dataType: "json",
+            data:{
+                id: id,
+                pomodoro: document.getElementById('pomodoro').value,
+                short_break: document.getElementById('short_break').value,
+                long_break: document.getElementById('long_break').value,
+                sessionArray: sessionArray
+            },
+            
+            cache:false,
+            success: function(dataResult){
+              alert('success')
+                // console.log(dataResult)
+                // var innerHtml = ''
+                // $('#sessionTask').html(innerHtml);
+                
+                    },error:function(err){
+                console.log('error')		 
+                }
+            })
         }
     </script>
 
