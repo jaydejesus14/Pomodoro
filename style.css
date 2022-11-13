@@ -707,11 +707,14 @@ textarea {
 }
 
 #sessionIcons2 {
-  font-size: 24px;
-  color: white;
+  font-size: 20px;
+  color: black;
+  background-color: rgb(253,251,249, 0.8);
+  padding: 3px 10px;
+  border-radius: 50px;
 }
  #sessionIcons2:hover {
-  font-size: 24px;
+  font-size: 20px;
   color: rgb( 120, 57, 55);
 }
 
@@ -1421,10 +1424,9 @@ textarea {
 .routinesCard {
   width: 700px;
   margin: auto;
-  border-radius: 50px;
+  border-radius: 20px;
   box-sizing: content-box;
   background-color: transparent;
- 
   color: white;
   text-align: center;
 }
@@ -1438,8 +1440,17 @@ textarea {
   padding: 10px;
   
 }
-.routineHeader:hover {
+.routinesCard:hover {
   color: white;
+  background: hsla(15, 21%, 65%, 1);
+
+  background: linear-gradient(90deg, hsla(15, 21%, 65%, 1) 0%, hsla(4, 17%, 48%, 1) 100%);
+  
+  background: -moz-linear-gradient(90deg, hsla(15, 21%, 65%, 1) 0%, hsla(4, 17%, 48%, 1) 100%);
+  
+  background: -webkit-linear-gradient(90deg, hsla(15, 21%, 65%, 1) 0%, hsla(4, 17%, 48%, 1) 100%);
+  
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#B89C93", endColorstr="#8E6865", GradientType=1 );
 }
 .color:hover {
   background-color: #403234;
@@ -1448,9 +1459,17 @@ textarea {
 }
 
 .color {
-  background-color:  rgb(64, 50, 52, 0.8);
+  background: hsla(15, 21%, 65%, 1);
 
- padding: 20px 0px;
+  background: linear-gradient(90deg, hsla(15, 21%, 65%, 1) 0%, hsla(4, 17%, 48%, 1) 100%);
+  
+  background: -moz-linear-gradient(90deg, hsla(15, 21%, 65%, 1) 0%, hsla(4, 17%, 48%, 1) 100%);
+  
+  background: -webkit-linear-gradient(90deg, hsla(15, 21%, 65%, 1) 0%, hsla(4, 17%, 48%, 1) 100%);
+  
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#B89C93", endColorstr="#8E6865", GradientType=1 );
+
+  padding: 20px 0px;
   align-items: center;
   height: 100px;
   border-radius: 20px;
@@ -1458,7 +1477,7 @@ textarea {
 }
 .dropbtn1 {
   background-color: transparent;
-  color: white;
+  color: black;
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -1474,12 +1493,17 @@ textarea {
   position: relative;
   display: inline-block;
   margin-top: -10px;
+  
+ 
 }
 #routineDrop1 {
   font-size: 16px;
   color: white;
-  z-index: -4;
+  z-index: -1;
   margin-top: -8px;
+  background-color: white;
+  padding: 3px 3px;
+  border-radius: 50px;
 }
 
 .dropdown-content1 {
@@ -1489,7 +1513,7 @@ textarea {
   min-width: 160px;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 4;
 }
 
 .dropdown-content1 a {
@@ -1504,7 +1528,8 @@ textarea {
 .show {display: block;}
 
 .routineNameInput {
-  font-size: 22px;
+  font-size: 20px;
+  margin-top: 2px;
   background-color: transparent;
   border-top-style: hidden;
   border-right-style: hidden;
@@ -1544,14 +1569,14 @@ textarea {
 }
 
 .subRoutinesInfo{
-  width: 620px;
+  width: 630px;
   height: 12px;
-  background: #F0DFD1;
+  background: hsla(15, 21%, 65%, 1);
   padding: 30px 20px 40px 20px;
   border-radius: 20px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  border: 4px solid transparent;
+  border: 1px solid transparent;
   color: black;
 }
 
@@ -1561,32 +1586,32 @@ textarea {
   
 }
 .subRoutinesInfo:hover{
-  width: 620px;
+  width: 630px;
   height: 12px;
   background: #F0DFD1;
   padding: 30px 20px 40px 20px;
   border-radius: 20px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  border: 4px solid #403234;
+  border: 1px solid #403234;
   color: black;
 }
 
 .indivSubRoutines{
-  width: 620px;
+  width: 630px;
   height: 24px;
-  background: #F0DFD1;
+  background: hsla(15, 21%, 65%, 1);
   padding: 40px 20px;
   margin: 2px 0px 0px 0px;
   border-radius: 20px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  border: 4px solid transparent;
+  border: 2px solid transparent;
   color: black;
 }
 
 .indivSubRoutines:hover{
-  width: 620px;
+  width: 630px;
   height: 24px;
   background: #F0DFD1;
   padding: 40px 20px;
@@ -1594,7 +1619,7 @@ textarea {
   border-radius: 20px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  border: 4px solid #403234;
+  border: 2px solid #403234;
   color: black;
 }
 #dropdownMenuButton{
