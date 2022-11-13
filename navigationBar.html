@@ -40,7 +40,7 @@
                                         <!-- LOGGED IN -->
 
                 <div class="dropdown" id="createMarginLeft">
-                    <button id="dropdown" class="btn btn-primary" type="button" data-toggle="dropdown"  aria-expanded="false" style = "text-align: center; border-radius: 100px; border: 1px solid transparent"><i id="userDropDown" class="fa fa-user-circle"></i>
+                    <button id="dropdown" class="btn btn-primary  dropdown-toggle" type="button" data-toggle="dropdown"  aria-expanded="false" style = "text-align: center; border-radius: 100px; border: 1px solid transparent"><i id="userDropDown" class="fa fa-user-circle"></i>
                 </button>
                     <ul class="dropdown-menu dropdown-menu-right" id = "loggedIn">
                         <div class = "row">
@@ -106,5 +106,8 @@
             console.log('error')		 
             }
         })
+        $(document).ready(function(){
+  $(".dropdown-toggle").dropdown();
+});
         console.log('test')
 </script>

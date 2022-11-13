@@ -706,6 +706,16 @@ textarea {
   color: rgb( 120, 57, 55);
 }
 
+#sessionIcons2 {
+  font-size: 24px;
+  color: white;
+}
+ #sessionIcons2:hover {
+  font-size: 24px;
+  color: rgb( 120, 57, 55);
+}
+
+
 .sessionHeader {
   background-color: transparent;
   border-bottom: 1px solid transparent;
