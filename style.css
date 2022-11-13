@@ -1468,8 +1468,8 @@ textarea {
 #routineDrop1 {
   font-size: 16px;
   color: white;
-  z-index: -1;
-  margin-top: -5px;
+  z-index: -4;
+  margin-top: -8px;
 }
 
 .dropdown-content1 {
@@ -1548,6 +1548,7 @@ textarea {
 .subRoutinesInfoText{
   font-size: 18px;
   margin: 4px
+  
 }
 .subRoutinesInfo:hover{
   width: 620px;
@@ -1680,7 +1681,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 #routineSessInput{
   width: 180px;
   height: 80px;
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
