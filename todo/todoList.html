@@ -236,6 +236,8 @@
         //         window.location.href = "http://localhost/pomodoro/user/login.html";
         //     }
         // }
+
+        
         if(!localStorage.getItem('user_id')){
             
           window.location = "http://localhost/pomodoro/user/login.html";
@@ -594,10 +596,16 @@
     <!-- EDIT TASK NAME BUT NOT YET DYNAMIC AND STORED ON LOCAL STORAGE-->
     <script>
         window.onload = function() {
+            
 	if(localStorage.getItem('content')) {
 		document.querySelector('.content').innerHTML = localStorage.getItem('content');
     }
+    if(!window.location.hash) {
+          
+            window.location = window.location + '#loaded';
+            window.location.reload();
     }
+}
 
     let editBtn = document.querySelector('#edit_content');
     let content = document.querySelector('.todoTitle');

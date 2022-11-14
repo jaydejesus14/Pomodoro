@@ -412,6 +412,12 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
 <script src="//code.jquery.com/jquery.min.js"></script>
     <!-- <script src="timer.js"></script> -->
     <script>
+       window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }}
+
 var timer = {
     pomodoro: localStorage.getItem('pomodoro'),
     shortBreak:  localStorage.getItem('short_break'),
