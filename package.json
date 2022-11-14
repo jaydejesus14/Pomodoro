@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "heroku": "^7.66.1"
+    "heroku": "^7.66.1",
+    "sweetalert2": "^11.6.8"
   }
 }
