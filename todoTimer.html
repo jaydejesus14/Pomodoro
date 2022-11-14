@@ -255,7 +255,6 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
             <div class = "col-md-4 text-right mx-auto">
                 <button class="btn-block" id = "sessions_btns">
                     <i class="fa fa-pencil-alt" style="font-size:28px" id="indivIcon"></i>
-                    <i class="fa fa-sticky-note" style="font-size:28px" id="indivIcon"></i>
                 </button>
             </div>
         </div>
@@ -653,11 +652,10 @@ var timer = {
                         else if( setCurrent ){
                             currentSession = dataResult.subtask[i].subtaskName
                             currentSessionId = dataResult.subtask[i]._id['$oid']
-                            currentSessionIcons+='<div class = "col-md-8"></div>'
+                            currentSessionIcons+='<div class = "col-md-8 hovertext"  data-hover="Current Session Name"></div>'
                             currentSessionIcons+='<div class = "col-md-4 text-right mx-auto">'
                             currentSessionIcons+='<button class="btn-block" id = "sessions_btns">'
                             currentSessionIcons+='<i class="fa fa-pencil-alt" style="font-size:28px" id="indivIcon" data-toggle = "modal" data-target = "#settings1'+i+'"></i>'
-                            currentSessionIcons+='<i class="fa fa-sticky-note" style="font-size:28px" id="indivIcon"></i>'
                             currentSessionIcons+='</button>'
                             currentSessionIcons+='</div>'
                             currentSessionModals+='<div class = "modal fade " id="settings1'+i+'" role="dialog">'
