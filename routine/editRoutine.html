@@ -100,12 +100,21 @@
             </div>
 
     <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <script>
         const inputs = document.querySelectorAll('input[data-name="inputNumber"]');
         inputs.forEach(input => {
         input.addEventListener('change', () => {
             if (input.value % 5 !== 0) {
-            alert('not valid');
+                Swal.fire({
+                    title: 'ERROR',
+                    icon: 'error',
+                    confirmButtonColor: "#783937",
+                    confirmButtonText: 'OK'
+                    
+                })
             input.value = 5;
             
                 
@@ -193,7 +202,13 @@
             
             cache:false,
             success: function(dataResult){
-              alert('success')
+                Swal.fire({
+                    title: 'UPDATED SUCCESSFULLY!!',
+                    confirmButtonColor: "#783937",
+                    text: 'Do you want to continue',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                })
                 // console.log(dataResult)
                 // var innerHtml = ''
                 // $('#sessionTask').html(innerHtml);

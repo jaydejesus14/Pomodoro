@@ -90,12 +90,19 @@
         
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <script>
         const inputs = document.querySelectorAll('input[data-name="inputNumber"]');
         inputs.forEach(input => {
         input.addEventListener('change', () => {
             if (input.value % 5 !== 0) {
-            alert('not valid');
+                Swal.fire({
+                    title: 'INVALID INPUT',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                })
             input.value = 5;
             
                 
@@ -137,7 +144,13 @@
             }
             })
         }else{
-            alert('Task Name Required')
+            Swal.fire({
+                    title: 'Invalid Input',
+                    confirmButtonColor: "#783937",
+                    text: 'Task Name is Required to Proceed',
+                    icon: 'info',
+                    confirmButtonText: 'OK'
+                })
         }
             // const data = {
             //         user_id: localStorage.getItem('user_id'),

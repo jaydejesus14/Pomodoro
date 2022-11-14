@@ -229,6 +229,10 @@
         }
     }; -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
     <script>
         // function validate_login(){
         //     if(!localStorage.getItem('user_id')){
@@ -462,7 +466,12 @@
                 
                 cache:false,
                 success: function(dataResult){
-                    alert('Update Success')
+                    Swal.fire({
+                    title: 'SubTask Updated Successfully',
+			        confirmButtonColor: "#783937",
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                })
                 },error:function(err){
               console.log('error')		 
             }
@@ -577,7 +586,12 @@
                 
                 cache:false,
                 success: function(dataResult){
-                    alert('Update Success')
+                    Swal.fire({
+                    title: 'To-Do has been updated',
+			        confirmButtonColor: "#783937",
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                })
                 },error:function(err){
               console.log('error')		 
             }
