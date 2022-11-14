@@ -876,15 +876,21 @@ textarea {
 #termsAndConditions{
   background-color: none;
   text-decoration: underline;
+  padding: 0px;
+  margin-top: -5px;
 }
 #termsAndConditions:hover{
   background-color: none;
   text-decoration: underline;
   border-bottom: 2px solid black;
+  padding: 0px;
+ 
 }
 .terms {
   text-decoration: underline;
+ 
 }
+
 
 .mainRegistration{
   padding: 10px;
@@ -1694,6 +1700,19 @@ textarea {
   background-color: white;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  
+}
+
+.routineNote2 {
+  height: 100px;
+  width: 500px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  text-align: left;
+  font-size: 16px;
+  padding: 20px;
+  
 }
 .sessionsRoutine {
   overflow-x: hidden;

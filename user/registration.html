@@ -72,17 +72,17 @@
                     <hr class = "hrWhite">
                     <div class = "row">
                         <div class = "col text-center">
-                            <input type="checkbox" id="termsAndConditions" name="termsAndConditions" value="termsAndConditions" data-group="group1" required><button type="button" class="btn " data-toggle="modal" data-target="#termsModal" id = "termsAndConditions1"><span class = "terms">
-                                I agree to the terms and conditions</span>
-                              </button>
-                              
-                        </div>
-                    </div>
-                    <div class = "row">
-                        <div class = "col text-center">
-                            <input type="checkbox" id="privacyPolicy" name="privacyPolicy" value="privacyPolicy" data-group="group2" required><button type="button" class="btn " data-toggle="modal" data-target="#privacyModal" id = "termsAndConditions"><span class = "terms">
-                                I agree to the Privacy Policy</span>
-                              </button>
+                            <input type="checkbox" id="termsAndConditions" name="termsAndConditions" value="termsAndConditions" data-group="group1" required>
+                            <span class = "mt-3"> I agree to the</span>
+                            <button type="button" class="btn termsAndConditionsBtn" data-toggle="modal" data-target="#termsModal" id = "termsAndConditions">
+                                <span class = "terms">
+                                    Terms and Conditions</span>
+                            </button>
+                            <span> and </span>
+                            <button type="button" class="btn termsAndConditionsBtn" data-toggle="modal" data-target="#privacyModal" id = "termsAndConditions">
+                                <span class = "terms">
+                                    Privacy Policy</span>
+                                </button>
                         </div>
                     </div>
                     <!-- Modal -->
@@ -130,7 +130,7 @@
                                 <hr class = "solid">
                                 <div class = "row text-center">
                                     <div class = "col mt-4 mb-4">
-                                        <input type="checkbox" id="privacyPolicy" name="privacyPolicy" value="privacyPolicy" data-group="group2" required><span class = "terms ml-3">
+                                        <input type="checkbox" id="privacyPolicy" name="privacyPolicy" value="privacyPolicy" data-group="group1" required><span class = "terms ml-3">
                                             I agree to the Privacy Policy</span>
   
                                 </div>
