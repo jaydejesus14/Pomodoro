@@ -74,7 +74,7 @@
                                         <button onClick = "window.location.href='todoList.html'"  class="btn-block btn-color" id = "grouped_btns2">CANCEL</button>
                                     </div>
                                     <div class = "col-6 text-center mt-2">
-                                       <a href="./todoList.html"><button type = "submit" value="" class="btn-block btn-color" id = "grouped_btns" onclick="add_task()">SAVE</button></a> 
+                                        <button type = "submit" value="" class="btn-block btn-color" id = "grouped_btns" onclick="add_task()">SAVE</button>
                                     </div>
                                     
                              
@@ -126,7 +126,7 @@
                 cache:false,
                 success: function(dataResult){
                     if(dataResult.status){
-                        window.location.reload = "./todoList.html";
+                        window.location.href = "./todoList.html";
                     }else{
                         alert(dataResult.message)
                     }
