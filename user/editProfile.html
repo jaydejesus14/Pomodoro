@@ -79,7 +79,7 @@
         function updateProfile(){
             $.ajax({
             type:"POST",
-            url: "http://localhost/pomodoro/api/update_info.php",
+            url: "../api/update_info.php",
             dataType: "json",
             data:{
                 user_id: localStorage.getItem('user_id'),
