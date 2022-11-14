@@ -501,6 +501,9 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         </div>
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
 
 <script>
     //variables
@@ -530,7 +533,13 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
       document.getElementById("spotifyContainer").style.display = "block";
       
         if(clicks == 0){
-            alert("Please make sure to lower the volume before playing!");
+            Swal.fire({
+                    title: 'Warning!',
+                    text: '"Please make sure to lower the volume before playing!" ',
+			        confirmButtonColor: "#783937",
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                })
             clicks += 1;
         }
      
@@ -691,8 +700,15 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
             success: function(dataResult){
                 
                 if(dataResult.status){
-                    alert('Successfully added to routine')
+                    Swal.fire({
+                    title: 'ROUTINE ADDED!', 
+			        confirmButtonColor: "#783937",
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(function() {
                     window.location.href = 'routine/routines.html'
+                });
+                                    
                 }else{
                     alert(dataResult.message)
                 }

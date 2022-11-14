@@ -159,6 +159,9 @@
 
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
        
         <script>
         
@@ -191,9 +194,16 @@
                 
                 cache:false,
                 success: function(dataResult){
-                    alert(dataResult.message)
                     if(dataResult.status){
+                        Swal.fire({
+                        title: 'EMAIL SENT!', 
+                        confirmButtonColor: "#783937",
+                        text: "Please check the inbox of the email address that you provided.",
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then(function() {
                         window.location.href = "emailVerification.html";
+                    });
                     }
                     // var dataResult = JSON.parse(dataResult);
                     

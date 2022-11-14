@@ -78,6 +78,10 @@
 </section>
     <!-- SCRIPTS -->
         <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="sweetalert2.all.min.js"></script>
+        <link rel="stylesheet" href="sweetalert2.min.css">
+
         <script>
         $.get("../navigationBar.html", function(data){
         $("#nav-placeholder").replaceWith(data);
@@ -111,13 +115,25 @@
                     success: function(dataResult){
                         // console.log(dataResult)
                         if(dataResult.status){
-                            alert('login success')
+                            Swal.fire({
+                                title: 'WELCOME BACK!',
+                                text: 'You have logged in successfully.',
+                                confirmButtonColor: "#783937",
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                             })
                             
                             //path ng landing page after mag success ng login
                             localStorage.setItem('user_id',dataResult.data['_id']['$oid'])
                             window.location.href = "../timer.html";
                         }else{
-                            alert('invalid credentials')
+                            Swal.fire({
+                                title: 'INVALID CREDENTIALS',
+			                    confirmButtonColor: "#783937",
+                                text: 'Wrong Email and/or Password',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            })
                         }
                         
                     
