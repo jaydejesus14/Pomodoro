@@ -3,8 +3,8 @@
 
 require_once __DIR__ .'/vendor/autoload.php';
 
-
-$con = new MongoDB\Client("mongodb+srv://admin:bardug123@pomodoro.ixsez7h.mongodb.net/?retryWrites=true&w=majority");
+$config_var = getenv('MONGODB_URI');
+$con = new MongoDB\Client($config_var);
 $db = $con->pomodoro;
 
 
