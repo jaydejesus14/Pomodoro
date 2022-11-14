@@ -256,6 +256,7 @@
           
 
        }
+       
        var $template = $(".template");
 
         var hash = 2;
@@ -629,7 +630,12 @@
             window.location = window.location + '#loaded';
             window.location.reload();
     }
-}
+    window.onpageshow = function (event) {
+        if (event.persisted) {
+            window.location.reload(); //reload page if it has been loaded from cache
+        }
+        };
+    }
 
     let editBtn = document.querySelector('#edit_content');
     let content = document.querySelector('.todoTitle');
