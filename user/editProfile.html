@@ -89,6 +89,8 @@
             },
                     cache:false,
                     success: function(dataResult){
+                            alert('Profile Updated');
+                            location.reload();
                             console.log(dataResult)
                         },error:function(err){
                     console.log('error')		 
