@@ -133,7 +133,7 @@
     function displayRoutines(){
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/display_routine.php",
+                url: "../api/display_routine.php",
                 dataType: "json",
                 data:{
                     user_id: localStorage.getItem('user_id'),
