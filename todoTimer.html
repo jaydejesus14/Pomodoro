@@ -405,91 +405,9 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
 
        
         
-        <hr class="solid" id="hrWhite2">
 
-        <!-- SAVING ALL AS ROUTINE !-->
-        <div class = "row justify-content-md-center text-center mx-auto">
-            <div class = "col">
-                <button class="btn-block text-center" id = "addSession_btn" data-toggle = "modal" data-target = "#saveRoutine">
-                         <i class="fa fa-save"   style="font-size:24px; margin-right:10px;" id="indivIcon"></i> SAVE ALL AS ROUTINE
-                </button>
-            </div>
-        <!-- SAVE AS ROUTINE MODAL -->
-            <div class = "modal fade" id="saveRoutine" role="dialog">
-                <div class = "modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                   <div class = "modal-content">
-                      <div class = "modal-header text-center d-block  ">
-                         <h4 class="modal-title  d-inline-block">SAVE ROUTINE?</h4>
-                      </div>
-                      <div class = "modal-body">
-                        <span class = "text-left">Time per session (minutes): </span>
-                        <div class = "row text-center">
-                        
-                            <div class = "col-4 mt-4">
-                                <span class = "text-center">POMODORO</span>
-                            </div>
-                  
-                    
-                        <div class = "col-4 mt-4">
-                            <span class = "text-center">SHORT BREAK</span>
-                        </div>
-                        <div class = "col-4 mt-4">
-                            <span class = "text-center">LONG BREAK</span>
-                        </div>
-                       
-                    </div>
-                    <div class = "row text-center">
-                        
-                        <div class = "col-4 mt-2 mb-4">
-                            <input type = "number" class = "timeRoutine text-center" id = "timeRoutine" value ="20" data-id='inputnumber' step="5" min="20" max ="60"></input>
-                        </div>
-              
-                
-                    <div class = " col-4 mt-2 mb-4">
-                        <input type = "number" class = "timeRoutine text-center" id = "timeRoutine1" value ="05" step="5" max ="15" min="5"></input>
-                    </div>
-                    <div class = " col-4 mt-2 mb-4">
-                        <input type = "number" class = "timeRoutine text-center" id = "timeRoutine2" value ="05" step="5" max ="15" min="5"></input>
-                    </div>
-                   
-                </div>
-                <hr>
-                <span class = "text-left mb-3" style = "font-size: 20px;">SESSIONS: </span>
-                <div class = "groupedSess">
-                    <!-- START OF SESSIONS-->
-                    <div class = "row">
-                        <div class = "col-10 text-left">
-                            <input type="text" class = "taskName" id="todoName" placeholder="Session 1">
-                        </div>
-                        <div class = "col-2 text-center mb-4">
-                            <i class="fa fa-trash" id = "trashIcon"></i>
-                        </div>
-                        <hr class = "hrWhite2">
-                    </div>
-                    <!--END-->
-
-                    <!-- START OF ADD SESSIONS -->
-                    <div class = "row">
-                        <div class = "col text-center" id = "addSubGroup">
-                        <i class="fa fa-plus-circle"  ></i>
-                        <span class = "ml-2"  >Add Sub-Task</span>
-                    </div>
-                        
-                    </div>
-                    <!-- END -->            
-                </div>
-                </div>
-                
-                
-                <div class="modal-footer">
-                    
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
-                    <button type="button" class="btn btn-primary" id = "modal-save">SAVE</button>
-               </div>
-               
-                      </div>
-                </div>
-             </div>
+       
+        
         </div>
 </section>
 <script src="//code.jquery.com/jquery.min.js"></script>
