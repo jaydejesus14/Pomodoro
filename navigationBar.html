@@ -71,6 +71,32 @@
                     </ul>
                 </div>
                 <!-- END OF LOGGED-IN -->
+                <!-- LOGGED IN ADMIN -->
+
+                <div class="dropdown" id="dropdownLoggedAdmin">
+                    <button id="dropdown" class="btn btn-primary  dropdown-toggle" type="button" data-toggle="dropdown"  aria-expanded="false" style = "text-align: center; border-radius: 100px; border: 1px solid transparent"><i id="userDropDown" class="fa fa-user-circle"></i>
+                </button>
+                    <ul class="dropdown-menu dropdown-menu-right" id = "loggedIn">
+                        <div class = "row">
+                            <div class = "col text-center">
+                            <i class="fa fa-user-circle" id="loggedInIcons"></i>
+                            <h4 class = "text-center mt-3" id="userNameAdmin">ADMINISTRATOR</h4>
+                            <span id="EmailAdmin">pivotacc.pomodoro@gmail.com</span>
+                            <hr class = "hrWhite">
+                            </div>
+                        </div>
+                        <div class = "btnLogged">
+                            <a class="dropdown-item" id = "loggedInBtns" href="viewUserAdmin.html">VIEW LIST OF USERS</a>
+                            <a class="dropdown-item" id = "loggedInBtns" href="reports.html">ALL USER REPORTS</a>
+                            <a class="dropdown-item" id = "loggedInBtns" href="editProfileAdmin.html">EDIT PROFILE</a>
+                            <a class="dropdown-item" id = "loggedInBtns" href="changePasswordAdmin.html">CHANGE PASSWORD</a>
+                           
+                            <hr class = "hrBlack">
+                            <a class="dropdown-item" id = "loggedInBtns" onclick="logout()">LOG-OUT</a>
+                        </div>    
+                    </ul>
+                </div>
+                <!-- END OF LOGGED-IN -->
                  <!-- NOT LOGGED IN DROPDOWN  !-->
                 
                  <div class="dropdown" id="dropdownGuest">
@@ -136,6 +162,7 @@
         const guestBtns = document.getElementById('dropdownGuest');
         const userBtns = document.getElementById('dropdownLogged');
         const adminBtns = document.getElementById('nav_btnAdmin');
+        const adminBtns2 = document.getElementById('dropdownLoggedAdmin');
  
   
             if(localStorage.getItem('user_id')){
@@ -165,10 +192,12 @@
                     guestBtns.style.display='none'; 
                     userBtns.style.display='block'; 
                     adminBtns.style.display='none'; 
+                    adminBtns2.style.display='none'; 
             }else{
                 guestBtns.style.display='none'; 
-                    userBtns.style.display='block'; 
+                    userBtns.style.display='none'; 
                     adminBtns.style.display='block'; 
+                    adminBtns2.style.display='block'; 
             }
                
                 console.log(emailAdd)
@@ -177,6 +206,7 @@
                 guestBtns.style.display='block';
                 userBtns.style.display='none'; 
                 adminBtns.style.display='none'; 
+                adminBtns2.style.display='none'; 
             }
         }) 
        
