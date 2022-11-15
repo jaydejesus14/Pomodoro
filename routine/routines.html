@@ -195,7 +195,7 @@
                         innerHtml+='<a class="dropdown-item" href="#">Convert to Session</a>'
                         innerHtml+='<a class="dropdown-item" href="viewRoutine.html?'+dataResult[i].id['$oid']+'">View Routine</a>'
                         innerHtml+='<a class="dropdown-item" href="editRoutine.html?'+dataResult[i].id['$oid']+'">Edit Routine</a>'
-                        innerHtml+='<a class="dropdown-item" href="#">Delete Routine</a>'
+                        innerHtml+='<a class="dropdown-item" href="#" onclick = "removeRoutine('+"'"+dataResult[i].id['$oid']+"'"+')">Delete Routine</a>'
                         innerHtml+='</div>'
                         innerHtml+='</div>'
                         innerHtml+='</div>'
@@ -246,6 +246,45 @@
 
 
     }
+    function removeRoutine(res){
+        Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#783937',
+
+        confirmButtonText: 'CONFIRM'
+    }).then((result) => {
+        if (result.isConfirmed) {
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/delete_routine.php",
+                dataType: "json",
+                 data:{
+                    routineId: res
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                    Swal.fire({
+                    title: 'ROUTINE DELETED', 
+                    confirmButtonColor: "#783937",
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(function() {
+                    location.reload();
+                });
+                
+       
+                  
+                },error:function(err){
+              console.log('error')		 
+            }
+            })
+            // location.reload();
+       }})}
+       
     </script>
    
 
