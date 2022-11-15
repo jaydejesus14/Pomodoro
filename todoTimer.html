@@ -508,7 +508,7 @@ var timer = {
             localStorage.setItem('short_break',short_break)
             $.ajax({
                     type:"POST",
-                    url: "../api/session_time_update.php",
+                    url: "http://localhost/pomodoro/api/session_time_update.php",
                     dataType: "json",
                     data:{
                         id: id,
@@ -531,7 +531,7 @@ var timer = {
             var majorTaskId = localStorage.getItem('majorTaskId')
             $.ajax({
                     type:"POST",
-                    url: "../api/return_specific_group_task.php",
+                    url: "http://localhost/pomodoro/api/return_specific_group_task.php",
                     dataType: "json",
                     data:{
                         id: majorTaskId
@@ -679,7 +679,7 @@ var timer = {
         function is_completed(res){
             $.ajax({
                     type:"POST",
-                    url: "../api/is_completed_task.php",
+                    url: "http://localhost/pomodoro/api/is_completed_task.php",
                     dataType: "json",
                     data:{
                         id: res,

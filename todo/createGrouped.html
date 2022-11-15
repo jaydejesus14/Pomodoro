@@ -120,7 +120,7 @@
             if(task_name != ''){
             $.ajax({
                 type:"POST",
-                url: "../api/add_group_task.php",
+                url: "http://localhost/pomodoro/api/add_group_task.php",
                 dataType: "json",
                  data:{
                    user_id: localStorage.getItem('user_id'),

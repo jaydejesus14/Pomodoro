@@ -618,7 +618,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
     function saveRoutine(){
             $.ajax({
             type:"POST",
-            url: "../api/add_routine.php",
+            url: "http://localhost/pomodoro/api/add_routine.php",
             dataType: "json",
             data:{
                 user_id: localStorage.getItem('user_id'),
