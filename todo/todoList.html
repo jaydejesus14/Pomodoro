@@ -512,6 +512,7 @@
         function passIdToConvertSession(res){
             localStorage.setItem('majorTaskId',res)
             window.location.href = "../todoTimer.html";
+            window.location.reload ="../todoTimer.html";
         }
         function disableOwnInput(res){
            document.getElementById('todoName'+res).disabled = !document.getElementById('todoName'+res).disabled
