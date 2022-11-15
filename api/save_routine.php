@@ -1,7 +1,7 @@
 <?php
 	include 'database.php';
   $id = $_POST['id'];
-//   $routine_name = $_POST['routine_name'];
+ $routine_name = $_POST['routine_name'];
   $pomodoro = $_POST['pomodoro'];
   $short_break = $_POST['short_break'];
   $long_break = $_POST['long_break'];
@@ -20,7 +20,7 @@ $json_return['status'] = false;
 
 $is_update = $db->session->updateOne(
     [ '_id' =>  new MongoDB\BSON\ObjectId ($id)],
-    [ '$set' => [ 'is_complete' => true, 'pomodoro' => $pomodoro, 'short_break' => $short_break, 'long_break' => $long_break ]]
+    [ '$set' => [ 'is_complete' => true, 'pomodoro' => $pomodoro, 'short_break' => $short_break, 'long_break' => $long_break, 'routine_name' => $routine_name,  ]]
     );
 
 $is_delete = $db->sessionTask->deleteMany(['routineId' => $id]);
