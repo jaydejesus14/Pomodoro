@@ -587,7 +587,63 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         pomodoro = document.getElementById('timeRoutine').value
         short_break = document.getElementById('timeRoutine1').value
         long_break = document.getElementById('timeRoutine2').value
-        timer = {
+
+        if (pomodoro < 20){
+            Swal.fire({
+                    title: 'Warning!',
+                    text: '"The pomodoro timer cannot be less than 20 minutes!" ',
+			        confirmButtonColor: "#783937",
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                })
+        }
+        if (pomodoro > 60){
+            Swal.fire({
+                    title: 'Warning!',
+                    text: '"The pomodoro timer cannot exceed 60 minutes!" ',
+			        confirmButtonColor: "#783937",
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                })
+        }
+        else if(short_break < 2){
+            Swal.fire({
+                    title: 'Warning!',
+                    text: '"The short break timer cannot be less than 2 minutes!" ',
+			        confirmButtonColor: "#783937",
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                })
+        }
+        else if(short_break > 5){
+            Swal.fire({
+                    title: 'Warning!',
+                    text: '"The short break timer cannot be more than 5 minutes!" ',
+			        confirmButtonColor: "#783937",
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                })
+        }
+        else if(long_break < 10){
+            Swal.fire({
+                    title: 'Warning!',
+                    text: '"The long break timer cannot be less than 10 minutes!" ',
+			        confirmButtonColor: "#783937",
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                })
+        }
+        else if(long_break > 20){
+            Swal.fire({
+                    title: 'Warning!',
+                    text: '"The long break timer cannot be more than 20 minutes!" ',
+			        confirmButtonColor: "#783937",
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                })
+        }
+        else{
+            timer = {
             pomodoro: pomodoro,
             shortBreak:  short_break,
             longBreak: long_break,
@@ -597,6 +653,8 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
 
         setTime()
         switchMode('pomodoro')
+        }
+        
         // updateClock()
     }
 

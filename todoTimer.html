@@ -506,6 +506,7 @@ var timer = {
             localStorage.setItem('pomodoro',pomodoro)
             localStorage.setItem('long_break',long_break)
             localStorage.setItem('short_break',short_break)
+            
             $.ajax({
                     type:"POST",
                     url: "http://localhost/pomodoro/api/session_time_update.php",
