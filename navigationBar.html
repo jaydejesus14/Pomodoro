@@ -97,6 +97,7 @@
 
     function logout(){
         localStorage.removeItem("user_id");
+        localStorage.removeItem("user_id");
         window.location.href = "http://localhost/pomodoro/user/login.html";
     }
     function redirect(res){
@@ -125,6 +126,9 @@
         $(document).ready(function(){
         $(".dropdown-toggle").dropdown();
         console.log(localStorage.getItem('user_id'))
+        console.log(localStorage.getItem('emailAdd'))
+        
+        
 
       
         const guestBtns = document.getElementById('dropdownGuest');
@@ -138,6 +142,7 @@
                 dataType: "json",
                 data:{
                     user_id: localStorage.getItem('user_id'),
+                 
                 },
                 
                 cache:false,
@@ -146,6 +151,7 @@
                 $('#Fname').html(dataResult.Fname)
                 $('#Lname').html(dataResult.Lname)
                 $('#Email').html(dataResult.email)
+                
                
 
                 },error:function(err){
@@ -154,7 +160,7 @@
         })
                 guestBtns.style.display='none'; 
                 userBtns.style.display='block'; 
-                console.log('here')
+                console.log(emailAdd)
             } else {
                 
                 guestBtns.style.display='block';

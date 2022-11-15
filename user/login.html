@@ -125,7 +125,12 @@
                             
                             //path ng landing page after mag success ng login
                             localStorage.setItem('user_id',dataResult.data['_id']['$oid'])
-                            window.location.href = "../timer.html";
+                            localStorage.setItem('emailAdd',dataResult.data['email'],email)
+                            if(localStorage.getItem('emailAdd')=="pivotacc.pomodoro@gmail.com"){
+                                window.location.href = "../admin/dashboard.html";
+                            } else {
+                                window.location.href = "../timer.html";
+                            }
                         }else{
                             Swal.fire({
                                 title: 'INVALID CREDENTIALS',

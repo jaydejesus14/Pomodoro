@@ -65,8 +65,8 @@
                     <button id="dropdown" class="btn btn-primary " type="button" data-toggle="dropdown"  aria-expanded="false" style = "text-align: center; border-radius: 100px; border: 1px solid transparent"><i id="userDropDown" class="fa fa-user-circle"></i>
                 </button>
                     <ul class="dropdown-menu dropdown-menu-right" id = "notLoggedIn">
-                        <a class="dropdown-item" id = "notLoggedInBtns" href="../user/login.html">LOG-IN</a>
-                        <a class="dropdown-item" id = "notLoggedInBtns" href="../user/registration.html">SIGN-UP</a>
+                        <a class="dropdown-item" id = "notLoggedInBtns" href="user/login.html">LOG-IN</a>
+                        <a class="dropdown-item" id = "notLoggedInBtns" href="user/registration.html">SIGN-UP</a>
                         
                     </ul>
                     </div>
@@ -82,74 +82,80 @@
 </html>
 <script>
     
-      var isLogged=true;
-     
+    var isLogged=true;
+   
 
-    function logout(){
-        localStorage.removeItem("user_id");
-        window.location.href = "http://localhost/pomodoro/user/login.html";
-    }
-    function redirect(res){
-        // window.location.href = res;
-        console.log(res)
-        
-
-        if(localStorage.getItem('user_id')){
-            window.location.href = "http://localhost/pomodoro"+res;
-        } else {
-            Swal.fire({
-                        title: 'LOGIN FIRST!', 
-                        confirmButtonColor: "#783937",
-                        text: "Before proceeding, log-in or create an account. ",
-                        icon: 'success',
-                        confirmButtonText: 'OK'
-                    }).then(function() {
-                        window.location = "http://localhost/pomodoro/user/login.html";
-                    });
+  function logout(){
+      localStorage.removeItem("user_id");
+      localStorage.removeItem("user_id");
+      window.location.href = "http://localhost/pomodoro/user/login.html";
+  }
+  function redirect(res){
+      // window.location.href = res;
+      console.log(res)
       
-        }
-    }
+
+      if(localStorage.getItem('user_id')){
+          window.location.href = "http://localhost/pomodoro"+res;
+      } else {
+          Swal.fire({
+                      title: 'LOGIN FIRST!', 
+                      confirmButtonColor: "#783937",
+                      text: "Before proceeding, log-in or create an account. ",
+                      icon: 'success',
+                      confirmButtonText: 'OK'
+                  }).then(function() {
+                      window.location = "http://localhost/pomodoro/user/login.html";
+                  });
+    
+      }
+  }
 
 
-    /*  */
-        $(document).ready(function(){
-        $(".dropdown-toggle").dropdown();
-        console.log(localStorage.getItem('user_id'))
-
+  /*  */
+      $(document).ready(function(){
+      $(".dropdown-toggle").dropdown();
+      console.log(localStorage.getItem('user_id'))
+      console.log(localStorage.getItem('emailAdd'))
       
-        const guestBtns = document.getElementById('dropdownGuest');
-        const userBtns = document.getElementById('dropdownLogged');
- 
-  
-            if(localStorage.getItem('user_id')){
-                $.ajax({
-                type:"POST",
-                url: "http://localhost/pomodoro/api/user_info.php",
-                dataType: "json",
-                data:{
-                    user_id: localStorage.getItem('user_id'),
-                },
-                
-                cache:false,
-            success: function(dataResult){
-                $('#userName').html(dataResult.user_name)
-                $('#Fname').html(dataResult.Fname)
-                $('#Lname').html(dataResult.Lname)
-                $('#Email').html(dataResult.email)
+      
+
+    
+      const guestBtns = document.getElementById('dropdownGuest');
+      const userBtns = document.getElementById('dropdownLogged');
+
+
+          if(localStorage.getItem('user_id')){
+              $.ajax({
+              type:"POST",
+              url: "http://localhost/pomodoro/api/user_info.php",
+              dataType: "json",
+              data:{
+                  user_id: localStorage.getItem('user_id'),
                
+              },
+              
+              cache:false,
+          success: function(dataResult){
+              $('#userName').html(dataResult.user_name)
+              $('#Fname').html(dataResult.Fname)
+              $('#Lname').html(dataResult.Lname)
+              $('#Email').html(dataResult.email)
+              
+             
 
-                },error:function(err){
-            console.log('error')		 
-            }
-        })
-                guestBtns.style.display='none'; 
-                userBtns.style.display='block'; 
-                console.log('here')
-            } else {
-                
-                guestBtns.style.display='block';
-                userBtns.style.display='none'; 
-            }
-        }) 
-       
+              },error:function(err){
+          console.log('error')		 
+          }
+      })
+              guestBtns.style.display='none'; 
+              userBtns.style.display='block'; 
+              console.log(emailAdd)
+          } else {
+              
+              guestBtns.style.display='block';
+              userBtns.style.display='none'; 
+          }
+      }) 
+     
 </script>
