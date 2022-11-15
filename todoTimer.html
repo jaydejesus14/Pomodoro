@@ -339,10 +339,11 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
 <script src="//code.jquery.com/jquery.min.js"></script>
     <!-- <script src="timer.js"></script> -->
     <script>
-        $.get("navigationBar2.html", function(data){
-            $("#nav-placeholder").replaceWith(data);
-            });
-        </script>
+    
+    $.get("navigationBar2.html", function(data){
+        $("#nav-placeholder").replaceWith(data);
+    });
+    </script>
     <script>
        window.onload = function() {
     if(!window.location.hash) {
@@ -357,7 +358,8 @@ var timer = {
     longBreakInterval: 4,
     sessions: 0,
   };
-  
+  var is_start = false
+  var startDate = null
   let interval;
   const circle = document.getElementById('circle2');
   const length = circle.getTotalLength();
@@ -369,6 +371,46 @@ var timer = {
   var btns = document.getElementsByClassName("currentSession");
   const mainButton = document.getElementById('timerStart_btn');
   mainButton.addEventListener('click', () => {
+    if(!is_start){
+        is_start = true
+        var dtToday = new Date();
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        var hr = dtToday.getHours();
+        var min = dtToday.getMinutes();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+
+        var maxDate = year + '-' + month + '-' + day;
+        var time = hr + ':' + min;
+        // startDate = new Date('Y-m-D')
+        // console.log()
+
+
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/update_date_todo.php",
+                dataType: "json",
+                data:{
+                    id: localStorage.getItem('majorTaskId'),
+                    key: 'start',
+                    date: maxDate,
+                    time: time
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                    console.log(dataResult.status)
+                },error:function(err){
+                    console.log('error')		 
+                }
+            })
+
+    }
+
     const { action } = mainButton.dataset;
     if (action === 'START') {
       startTimer();
@@ -730,8 +772,47 @@ var timer = {
             var count_session = localStorage.getItem('countSession')
 
             var total = 100 * (res / count_session)
+            if((localStorage.getItem('pomodoro') * res) == 2){
+                //sweet alert before assessments
+                window.location.href = 'user/assessment.html'
+            }
             if(total == 100){
-                window.location.href = 'user/reports.html';
+                //sweet alert before reports
+                var dtToday = new Date();
+        
+        var month = dtToday.getMonth() + 1;
+                var day = dtToday.getDate();
+                var year = dtToday.getFullYear();
+                var hr = dtToday.getHours();
+                var min = dtToday.getMinutes();
+                if(month < 10)
+                    month = '0' + month.toString();
+                if(day < 10)
+                    day = '0' + day.toString();
+                var maxDate = year + '-' + month + '-' + day;
+                var time = hr + ':' + min;
+                // startDate = new Date('Y-m-D')
+                console.log(time)
+                $.ajax({
+                        type:"POST",
+                        url: "http://localhost/pomodoro/api/update_date_todo.php",
+                        dataType: "json",
+                        data:{
+                            id: localStorage.getItem('majorTaskId'),
+                            key: 'end',
+                            date: maxDate,
+                            time: time
+                        },
+                        
+                        cache:false,
+                        success: function(dataResult){
+                            console.log(dataResult.status)
+                            window.location.href = 'user/reports.html';
+                        },error:function(err){
+                            console.log('error')		 
+                        }
+                    })
+                    // 
             }
             if (i == 0) {
                 i = 1;
