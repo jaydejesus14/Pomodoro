@@ -89,7 +89,7 @@
   function logout(){
       localStorage.removeItem("user_id");
       localStorage.removeItem("emailAdd");
-      window.location.href = "http://localhost/pomodoro/user/login.html";
+      window.location.href = "../user/login.html";
   }
   function redirect(res){
       // window.location.href = res;
@@ -97,7 +97,7 @@
       
 
       if(localStorage.getItem('user_id')){
-          window.location.href = "http://localhost/pomodoro"+res;
+          window.location.href = ".."+res;
       } else {
           Swal.fire({
                       title: 'LOGIN FIRST!', 
@@ -106,7 +106,7 @@
                       icon: 'success',
                       confirmButtonText: 'OK'
                   }).then(function() {
-                      window.location = "http://localhost/pomodoro/user/login.html";
+                      window.location = "../user/login.html";
                   });
     
       }
@@ -130,7 +130,7 @@
           if(localStorage.getItem('user_id')){
               $.ajax({
               type:"POST",
-              url: "http://localhost/pomodoro/api/user_info.php",
+              url: "../api/user_info.php",
               dataType: "json",
               data:{
                   user_id: localStorage.getItem('user_id'),

@@ -144,7 +144,7 @@
     }
     window.onpageshow = function (event) {
         if (event.persisted) {
-            window.location.reload(); 
+            window.location.reload(); //reload page if it has been loaded from cache
         }
         };
     }
@@ -158,7 +158,7 @@
                 icon: 'success',
                 confirmButtonText: 'OK'
             }).then(function() {
-                window.location = "http://localhost/pomodoro/user/login.html";
+                window.location = "../user/login.html";
              });
             
         }
@@ -167,7 +167,7 @@
     function displayRoutines(){
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/display_routine.php",
+                url: "../api/display_routine.php",
                 dataType: "json",
                 data:{
                     user_id: localStorage.getItem('user_id'),

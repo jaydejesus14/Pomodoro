@@ -250,7 +250,7 @@
                         icon: 'success',
                         confirmButtonText: 'OK'
                     }).then(function() {
-                        window.location = "http://localhost/pomodoro/user/login.html";
+                        window.location = "../user/login.html";
                     });
             
           
@@ -273,7 +273,7 @@
 //group task
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/group_task.php",
+                url: "../api/group_task.php",
                 dataType: "json",
                 data:{
                     user_id: localStorage.getItem('user_id'),
@@ -385,7 +385,7 @@
 
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/display_todo.php",
+                url: "../api/display_todo.php",
                 dataType: "json",
                 data:{
                     user_id: localStorage.getItem('user_id'),
@@ -444,7 +444,7 @@
             var note = document.getElementById('note'+i).value
             $.ajax({
                     type:"POST",
-                    url: "http://localhost/pomodoro/api/add_subtask.php",
+                    url: "../api/add_subtask.php",
                     dataType: "json",
                     data:{
                         name: name,
@@ -467,7 +467,7 @@
             // console.log(id)
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/update_subtask.php",
+                url: "../api/update_subtask.php",
                 dataType: "json",
                  data:{
                     id: id,
@@ -494,7 +494,7 @@
 
            $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/remove_subtask.php",
+                url: "../api/remove_subtask.php",
                 dataType: "json",
                  data:{
                     task_id: res
@@ -530,7 +530,7 @@
 
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/add_todo.php",
+                url: "../api/add_todo.php",
                 dataType: "json",
                  data:{
                     todo_name: todo_name,
@@ -552,7 +552,7 @@
         // console.log(res)
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/delete_todo.php",
+                url: "../api/delete_todo.php",
                 dataType: "json",
                  data:{
                     todo_id: res
@@ -570,7 +570,7 @@
        function removeMajorTask(res){
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/delete_major_task.php",
+                url: "../api/delete_major_task.php",
                 dataType: "json",
                  data:{
                     task_id: res
@@ -589,7 +589,7 @@
         var todoName = document.getElementById('todoName'+input).value
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/update_todo.php",
+                url: "../api/update_todo.php",
                 dataType: "json",
                  data:{
                     todo_id: id,

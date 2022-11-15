@@ -71,14 +71,14 @@
     
     if(!localStorage.getItem('user_id')){
        
-                window.location = "http://localhost/pomodoro/user/login.html";
+                window.location = "../user/login.html";
           
             
         }
 
         $.ajax({
             type:"POST",
-            url: "http://localhost/pomodoro/api/user_info.php",
+            url: "../api/user_info.php",
             dataType: "json",
             data:{
                 user_id: localStorage.getItem('user_id'),
@@ -98,7 +98,7 @@
         function updateProfile(){
             $.ajax({
             type:"POST",
-            url: "http://localhost/pomodoro/api/update_info.php",
+            url: "../api/update_info.php",
             dataType: "json",
             data:{
                 user_id: localStorage.getItem('user_id'),
