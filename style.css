@@ -82,7 +82,8 @@ hr.solid {
   border-radius: 10px;
   text-align: center;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  background: linear-gradient(0deg, rgba(253,251,249,1) 0%, rgba(240,223,209,1) 100%);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   margin-top: 20px;
 
 }
@@ -103,9 +104,9 @@ hr.solid {
   background-color: white;
   text-align: center;
   padding: 15px;
-  margin: 4px;
-  border-radius: 10px;
-  border: 2px solid #783937;
+  margin: 6px;
+  border-radius: 15px;
+  border: 2px solid white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 a.dropdown-toggle {
@@ -120,9 +121,9 @@ a.dropdown-toggle {
   background-color: #783937;
   text-align: center;
   padding: 15px;
-  margin: 4px;
-  border-radius: 25px;
-  border: 2px solid white;
+  margin: 6px;
+  border-radius: 15px;
+
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 #loggedInIcons {
@@ -219,16 +220,16 @@ input:focus, textarea:focus {
 
 #login_btn {
   border-radius: 15px;
-  color: #fff;
-  background-color: rgb( 120, 57, 55 , 0.5);
+  color: black;
+  background: rgb(120,55,55);
+  background: linear-gradient(0deg, rgba(120,55,55,0.5060399159663865) 0%, rgba(64,64,64,0.5032387955182073) 100%);
   padding: 15px;
   cursor: pointer;
   border: none;
   margin: 20px auto 0px auto;
-
   width: 60%;
   text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+ 
 }
 
 #login_btn:hover {
@@ -786,6 +787,8 @@ textarea {
   border-radius: 50px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background: rgb(253,251,249);
+  background: linear-gradient(0deg, rgba(253,251,249,1) 0%, rgba(240,223,209,1) 100%);
 
 
   
@@ -798,6 +801,8 @@ textarea {
   border-radius: 50px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background: rgb(253,251,249);
+  background: linear-gradient(0deg, rgba(253,251,249,1) 0%, rgba(240,223,209,1) 100%);
 
 }
 
@@ -878,7 +883,8 @@ textarea {
   background-color: #F0DFD1;
 }
 .regCard {
-  background-color: #F0DFD1;
+  background: rgb(253,251,249);
+  background: linear-gradient(0deg, rgba(253,251,249,1) 0%, rgba(240,223,209,1) 100%);
   margin-top: 40px;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
@@ -949,11 +955,12 @@ textarea {
 }
 #btnOnSignUp{
   border-radius: 20px;
-  color: #fff;
-  background-color: rgb( 120, 57, 55 , 0.5);
+  color: white;
+  background: rgb(120,55,55, 0.5);
+ 
   padding: 15px;
   cursor: pointer;
-  border: 2px solid #783937;
+  border: 2px solid transparent;
   width: 100%;
 }
 #btnOnSignUp:hover{
@@ -1825,34 +1832,38 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 #form_btns {
   border-radius: 15px;
   width: 55%;
-  color: white;
+  color: black;
   background-color: rgb( 120, 57, 55, 0.5 );
   padding: 15px;
   cursor: pointer;
   border: none;
   margin: 3px auto;
+  border: 2px solid transparent
+  
   
 }
 #form_btns2 {
   border-radius: 15px;
   width: 55%;
-  color: white;
-  background-color: rgb( 120, 57, 55, 0.2);
+  color: black;
+  background-color: transparent;
   padding: 15px;
   cursor: pointer;
   border: none;
   margin: 3px auto;
+  border: 2px solid transparent
 }
 #form_btns:hover, #form_btns2:hover {
   border-radius: 15px;
   width: 55%;
   color: white;
-  background-color: rgb( 120, 57, 55);
+  background-color: rgb( 120, 57, 55, 0.8);
   padding: 15px;
   cursor: pointer;
   border: none;
   margin: 3px auto;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border: 2px solid #783937
+ 
 }
 
 /* CHANGE PASSWORD */
@@ -1882,6 +1893,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   border-radius: 15px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background: rgb(253,251,249);
+  background: linear-gradient(0deg, rgba(253,251,249,1) 0%, rgba(240,223,209,1) 100%);
 }
 
 #emailInput {
