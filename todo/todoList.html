@@ -75,7 +75,7 @@
                                                    <i class="fa fa-ellipsis-h" style="font-size:20px" id="indivIcon"></i>
                                                 </button>
                                         </div>
-                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                             <hr class="solid" id="hrBlack">
                                             <div class = "noteSubTask">
                                                 <textarea class ="notesTimerInput" type = "text" placeholder="add a note" style="color: black" cols="40" rows="6"></textarea>
@@ -478,11 +478,13 @@
                 cache:false,
                 success: function(dataResult){
                     Swal.fire({
-                    title: 'SubTask Updated Successfully',
+                    title: 'UPDATE SUCCESS',
 			        confirmButtonColor: "#783937",
                     icon: 'success',
                     confirmButtonText: 'OK'
-                })
+                }).then(function() {
+                        location.reload();
+                    });
                 },error:function(err){
               console.log('error')		 
             }
