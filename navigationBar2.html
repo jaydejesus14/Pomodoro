@@ -10,6 +10,7 @@
                                 </div>
                                 <div class="col-12 col-md-5">
                                     <ul class="nav justify-content-center">
+                                        <a href='admin/dashboard.html' class="btn" role="button" id="nav_btnAdmin" aria-disabled="true"><i id="createMargin" class="fa fa-bars"></i>Dashboard</a>
 
                                         <li class="nav-item">
                                             <a href='timer.html' class="btn" role="button" id="nav_btn" aria-disabled="true"><i id="createMargin" class="fa fa-clock"></i>Timer</a>
@@ -87,7 +88,7 @@
 
   function logout(){
       localStorage.removeItem("user_id");
-      localStorage.removeItem("user_id");
+      localStorage.removeItem("emailAdd");
       window.location.href = "http://localhost/pomodoro/user/login.html";
   }
   function redirect(res){
@@ -123,6 +124,7 @@
     
       const guestBtns = document.getElementById('dropdownGuest');
       const userBtns = document.getElementById('dropdownLogged');
+      const adminBtns = document.getElementById('nav_btnAdmin');
 
 
           if(localStorage.getItem('user_id')){
@@ -148,13 +150,22 @@
           console.log('error')		 
           }
       })
+          if(localStorage.getItem('emailAdd')!="pivotacc.pomodoro@gmail.com"){
+                  guestBtns.style.display='none'; 
+                  userBtns.style.display='block'; 
+                  adminBtns.style.display='none'; 
+          }else{
               guestBtns.style.display='none'; 
-              userBtns.style.display='block'; 
+                  userBtns.style.display='block'; 
+                  adminBtns.style.display='block'; 
+          }
+             
               console.log(emailAdd)
           } else {
               
               guestBtns.style.display='block';
               userBtns.style.display='none'; 
+              adminBtns.style.display='none'; 
           }
       }) 
      

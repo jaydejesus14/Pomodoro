@@ -41,7 +41,7 @@
                         Change Password
                     </button>
                     <hr >
-                    <button type = "button" class = "btn mt-2" id = "dashboardMenu2">
+                    <button type = "button" class = "btn mt-2" id = "dashboardMenu2" onClick = "logoutAdmin()"> 
                         LOGOUT
                     </button>
 
@@ -80,6 +80,11 @@
 
             window.location = "http://localhost/pomodoro/timer.html";
         };
+        function logoutAdmin(){
+        localStorage.removeItem("user_id");
+        localStorage.removeItem("emailAdd");
+        window.location.href = "http://localhost/pomodoro/user/login.html";
+    }
  
             
        
