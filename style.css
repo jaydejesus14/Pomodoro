@@ -744,14 +744,14 @@ textarea {
   color: rgb( 120, 57, 55);
 }
 
-#sessionIcons2 {
+#sessionsIcons2 {
   font-size: 20px;
   color: black;
   background-color: rgb(253,251,249, 0.8);
   padding: 3px 10px;
   border-radius: 50px;
 }
- #sessionIcons2:hover {
+ #sessionsIcons2:hover {
   font-size: 20px;
   color: rgb( 120, 57, 55);
 }
