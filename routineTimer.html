@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel='stylesheet' href="style.css">
+    
+</head>
+<body>
+    
+    
+    <div id="nav-placeholder">
+    </div>
+<div class = "spotify" >
+    <button class="open-btn" onclick="openSpotify()" ><img src="images/spotifyLogo.png" alt="Spotify" width = "30px" height = "100%" ></button>
+
+    <div class="spotify-popup" id="spotifyContainer">
+        <div class = "row">
+            <div class = "col text-right">
+                <button type="button" class="btn" onclick="closeSpotify()" style="width: 50px;  /*! background-color: rgb(0, 0, 0, 0.2); */border-color: transparent;color: white; border-radius: 15px"><i class="fa fa-window-close" id = "toDoDrop" ></i></button>
+            </div>
+        </div>
+        <div class = "row">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6wObnEPQ63a4kei1sEcMdH?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+</div>
+
+
+
+    <section class ="timer">
+    <div class="container px-5 py-5 mx-auto">
+   
+        
+        <div class="container d-flex justify-content-around ">
+        
+            <div class = "button-group mode-buttons" id ="js-mode-buttons">
+                <div class = "row">
+                    <div class = "col-4">
+                        <button
+                        data-mode="pomodoro"
+                        class = "button active currentSession"
+                        id = "js-pomodoro" disabled
+                        >POMODORO
+                        
+                        </button>
+                     </div>
+                     <div class = "col-4">
+                     <button 
+                    data-mode="shortBreak"
+                    class = "currentSession"
+                    id = "js-short-break" disabled>
+                        BREAK
+                        </button>
+                        </div>
+
+                        <div class = "col-4">
+                        <button 
+                        data-mode="longBreak"
+                        class = "currentSession"
+                        id = "js-long-break" disabled>
+                            LONG BREAK
+                            </button>
+                        </div>
+                        
+                    
+                </div>
+                </div>
+            </div>
+
+            <div class="card timers mx-auto" style = "
+            background: rgb(120,57,55);
+background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%);
+           box-shadow: none">
+                <div class = "row justify-content-md-center text-center ml-auto mr-3 mb-1">
+                        <div class = "col ">
+                            <div class = "settingsIcon">
+                            <i class="fa fa-cog" data-toggle = "modal" data-target = "#settings" id="timerIcons" style="font-size:24px; z-index:9"></i>
+                        </div>
+                        </div>
+                    </div>
+                    <div class = "modal fade" id="settings" role="dialog">
+                        <div class = "modal-dialog modal-dialog-centered">
+                           <div class = "modal-content">
+                              <div class = "modal-header text-center d-block  ">
+                                 <h4 class="modal-title  d-inline-block">SESSION SETTINGS</h4>
+                              </div>
+                              <div class = "modal-body">
+                                <span class = "text-left">Time per session (minutes): </span>
+                                <div class = "row text-center">
+                                
+                                    <div class = "col-4 mt-4">
+                                        <span class = "text-center">POMODORO</span>
+                                    </div>
+                          
+                            
+                                <div class = "col-4 mt-4">
+                                    <span class = "text-center">SHORT BREAK</span>
+                                </div>
+                                <div class = "col-4 mt-4">
+                                    <span class = "text-center">LONG BREAK</span>
+                                </div>
+                               
+                            </div>
+                            <div class = "row text-center">
+                                
+                                <div class = "col-4 mt-2 mb-4">
+                                    <input type = "number" class = "timeRoutine text-center" id = "timeRoutine" value ="" data-id='inputnumber' step="5" min="10" max ="60"></input>
+                                </div>
+                      
+                        
+                            <div class = " col-4 mt-2 mb-4">
+                                <input type = "number" class = "timeRoutine text-center" id = "timeRoutine1" value ="" step="5" max ="15" min="5"></input>
+                            </div>
+                            <div class = " col-4 mt-2 mb-4">
+                                <input type = "number" class = "timeRoutine text-center" id = "timeRoutine2" value ="" step="5" max ="15" min="5"></input>
+                            </div>
+                           
+                        </div>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="saveSessionTime()" id = "modal-save">Save changes</button>
+                       </div>
+                       
+                              </div>
+                        </div>
+                     </div>
+                <div class = "row justify-content-md-center text-center mx-auto">
+                    <div class = "col">
+                       
+                        <div class = "time text-center" id ="js-clock">
+                           
+                            <span id="js-minutes" style = "font-size: 40px"></span>
+                            <span class="separator" style = "font-size: 40px">:</span>
+                            <span id="js-seconds" style = "font-size: 40px">00</span>
+                        </div>
+                        <svg width="500" height="425">
+                            <circle id="circle1" cx="250" cy="210" r="200"></circle>
+                            <circle id="circle2" cx="250" cy="210" r="200"></circle>
+                          </svg>
+                        <div>
+                           
+                            </div>
+
+                 <!-- Start Pause and Skip Buttons !-->
+                <div class = "row justify-content-md-center text-center mx-auto">
+                    <div class="col">
+                    </div>
+                    <div class="col">
+                        <button class="btn-block"  id = "timerStart_btn">
+                            START
+                        </button>
+                    </div>
+                    <div class="col">
+                 
+
+                        <button class="btn-block skip_btn active" id = "skip_btn">
+                    <i class="fa fa-fast-forward" id = "timerIcons" style="font-size:30px"></i>
+                        </button>
+                     
+                    
+                    </div>
+                </div>
+            </div>          
+                  
+</div>
+</div>
+       <!-- Session Name, Rewrite Session Name and Sticky Note !-->
+       <div class = "row justify-content-md-center text-center mt-3 mx-auto">
+        <div class = "col text-center">
+            <div class = "currentSessionName" id="currentSession">
+            SESSION NAME
+            </div>   
+        </div>
+    </div>
+    <div class = "row " style = "margin-top: -60px;" id = "currentSessionIcons">
+        <div class = "col-md-8"></div>
+            <div class = "col-md-4 text-right mx-auto">
+                <button class="btn-block" id = "sessions_btns">
+                    <i class="fa fa-pencil-alt" style="font-size:28px" id="indivIcon"></i>
+                </button>
+            </div>
+        </div>
+        <div class = "row" id = "currentSessionModals">
+
+        </div>   
+    <div class = "row justify-content-md-center text-center">
+        <hr class="solid" id="hrWhite">
+    </div>
+        <div class = "row justify-content-md-center text-center mx-auto mt-4 mb-4">
+            <div class = "col">
+        <div id="progressBar">
+            <div id="progressTracker">0%</div>
+            
+          </div>
+          <div class = "row">
+            <div class = "col-6 text-left mt-2">
+                <span class = "percentNum">0%</span>
+            </div>
+            <div class = "col-6 text-right mt-2">
+                <span  class = "percentNum">100%</span>
+            </div>
+          </div>
+          <!-- REMOVE BUTTON JUST A TESTING ON DESIGN -->
+          <!-- <button class = "btn mt-3" style = "color: white" onclick="move()">TESTING PROGRESS DESIGN</button>  -->
+        </div>
+          
+          <br>
+          
+          </div>
+        <div class = "row justify-content-md-center text-center mx-auto">
+        <div class = "col-8 text-left">
+                    <div class = "pomSesions" style = "color:white; font-size:20px;">
+                        POMODORO SESSIONS:
+                    </div>
+                      </div>
+                    <div class ="col-2 text-right mt-1 mr-3">
+                <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i>
+                </div>
+                </div>
+
+          <!-- POMODORO SESSIONS LIST !-->
+          <div class = "row justify-content-md-center text-center mx-auto" id="pomodoroList">
+            <div class="card sessionsList" id = "newSession" >
+                <div class = "card-header sessionHeader">
+                        <div class = "row  justify-content-md-center text-center" id ="accordionSession" >
+                        <div class = "col-8 text-left">
+                            <div class = "sessionListName">
+                                <input class ="sessionListInput" type = "text" placeholder="Session #" style="color: white">
+                            </div>
+                        </div>
+                        <div class ="col-2 text-right mt-1">
+                            <button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapse" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="fa fa-angle-down" id="sessionIcons"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+      
+                <div id="sessionCollapse" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSession">
+                    <div class = "card-body sessionsTimer">
+                      <div class = "row text-center">
+                        <div class = "notesTimer">
+                            <textarea class ="notesTimerInput" type = "text" placeholder="Session #" style="color: black" cols="40" rows="6"></textarea>
+                        </div> 
+                      </div>
+                      <hr>
+                      <div class = "row">
+                        <div class = "col-6 text-left">
+                            <button type="button" class="btn lext-right" id = "sessSaveBtn">REMOVE</button>
+                       </div>
+                       <div class = "col-6 text-right">
+                            <button type="button" class="btn " id = "sessSaveBtn">SAVE</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "row justify-content-md-center text-center mx-auto" id = "newSesss">
+            </div>
+             
+             
+        
+      
+        
+          
+        <!-- ADDING A SESSION !-->
+        <div class = "row justify-content-md-center text-center mx-auto">
+            <div class = "col">
+                <button class="btn-block text-center" id = "addSession_btn"  onClick = addASession()>
+                         <i class="fa fa-plus-circle" style="font-size:24px; margin-right:10px;" id="indivIcon"></i> ADD A SESSION
+                </button>
+            </div>
+        </div>
+        <hr class="solid" style="margin-bottom: 10px" id="hrWhite2">
+
+         <!-- COMPLETED SESSIONS LIST !-->
+         <div class = "row justify-content-md-center text-center mx-auto">
+            <div class = "col-8 text-left">
+                        <div class = "pomSesions" style = "color:white; font-size:20px;">
+                            COMPLETED POMODORO SESSIONS:
+                        </div>
+                        </div>
+                        <div class ="col-2 text-right mt-1 mr-3">
+                    <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i>
+            </div>
+        </div>
+        <div class = "row justify-content-md-center text-center mx-auto" id="completedPomodoro">
+            <div class="card sessionsList">
+                <div class = "card-header">
+                        <div class = "row  justify-content-md-center text-center" id ="accordionSessionC">
+                        <div class = "col-8 text-left">
+                            <div class = "sessionListName">
+                                <input class ="sessionListInput" type = "text" placeholder="Session #">
+                            </div>
+                        </div>
+                        <div class ="col-2 text-right mt-1">
+                            <button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapse2" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="fa fa-angle-down" id="sessionIcons"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+      
+                <div id="sessionCollapse2" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSessionC">
+                    <div class = "card-body sessionsTimer">
+                      <div class = "row text-center">
+                        <div class = "notesTimer">
+                        <textarea class ="notesTimerInput" type = "text" placeholder="Session #" style="color: black" cols="40" rows="6"></textarea>
+                    </div>
+                      </div>
+                      <hr>
+                      <div class = "row">
+                        <div class = "col-6 text-left">
+                            <button type="button" class="btn btn-primary lext-right" id = "sessSaveBtn">CANCEL</button>
+                       </div>
+                       <div class = "col-6 text-right">
+                            <button type="button" class="btn btn-primary" id = "sessSaveBtn">SAVE</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+       
+        
+
+       
+        
+        </div>
+</section>
+<script src="//code.jquery.com/jquery.min.js"></script>
+    <!-- <script src="timer.js"></script> -->
+    <script>
+        $.get("navigationBar2.html", function(data){
+            $("#nav-placeholder").replaceWith(data);
+            });
+        </script>
+    <script>
+       window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }}
+
+var timer = {
+    pomodoro: localStorage.getItem('pomodoro'),
+    shortBreak:  localStorage.getItem('short_break'),
+    longBreak:  localStorage.getItem('long_break'),
+    longBreakInterval: 4,
+    sessions: 0,
+  };
+  
+  let interval;
+  const circle = document.getElementById('circle2');
+  const length = circle.getTotalLength();
+   
+    circle.style.strokeDasharray = length;
+    circle.style.strokeDashoffset = length;
+
+
+  var btns = document.getElementsByClassName("currentSession");
+  const mainButton = document.getElementById('timerStart_btn');
+  mainButton.addEventListener('click', () => {
+    const { action } = mainButton.dataset;
+    if (action === 'START') {
+      startTimer();
+    } else {
+      stopTimer();
+    }
+  });
+  
+  const modeButtons = document.querySelector('#js-mode-buttons');
+  
+  modeButtons.addEventListener('click', handleMode);
+  
+  function getRemainingTime(endTime) {
+    const currentTime = Date.parse(new Date());
+    const difference = endTime - currentTime;
+  
+    const total = Number.parseInt(difference / 1000, 10);
+    const minutes = Number.parseInt((total / 60) % 60, 10);
+    const seconds = Number.parseInt(total % 60, 10);
+  
+    return {
+      total,
+      minutes,
+      seconds,
+    };
+  }
+  
+  
+  function startTimer() {
+    let { total } = timer.remainingTime;
+    const endTime = Date.parse(new Date()) + total * 1000;
+    const newEnd =  Number.parseInt(endTime / 1000, 10);
+  
+    if (timer.mode === 'pomodoro') timer.sessions++;
+  
+    mainButton.dataset.action = 'STOP';
+    mainButton.textContent = 'STOP';
+    mainButton.classList.add('active');
+    
+  
+    interval = setInterval(function() {
+      timer.remainingTime = getRemainingTime(endTime);
+      updateClock();
+      total = timer.remainingTime.total;
+      circle.style.strokeDashoffset = length - (total / 60) * length;
+      
+      if (total <= 0) {
+        clearInterval(interval);
+  
+        switch (timer.mode) {
+          case 'pomodoro':
+            if (timer.sessions % timer.longBreakInterval === 0) {
+              switchMode('longBreak');
+            } else {
+              switchMode('shortBreak');
+            }
+            break;
+          default:
+            switchMode('pomodoro');
+            completed++
+            is_completed(currentSessionId)
+            move(completed,0)
+        }
+  
+        startTimer();
+      }
+    }, 1000);
+  }
+  
+  function stopTimer() {
+    clearInterval(interval);
+  
+    mainButton.dataset.action = 'START';
+    mainButton.textContent = 'START';
+    mainButton.classList.remove('active');
+  }
+  
+  function updateClock() {
+    const { remainingTime } = timer;
+    const minutes = `${remainingTime.minutes}`.padStart(2, '0');
+    const seconds = `${remainingTime.seconds}`.padStart(2, '0');
+  
+    var min = document.getElementById('js-minutes');
+    var sec = document.getElementById('js-seconds');
+    
+    min.textContent = minutes;
+    sec.textContent = seconds;
+    const text = timer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
+    document.title = `${minutes}:${seconds} — ${text}`;
+  
+  }
+  
+  function switchMode(mode) {
+    timer.mode = mode;
+    timer.remainingTime = {
+      total: timer[mode] * 60,
+      minutes: timer[mode],
+      seconds: 0,
+    };
+  
+    document
+      .querySelectorAll('button[data-mode]')
+      .forEach(e => e.classList.remove('active'));
+    document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
+  
+    updateClock();
+  }
+  
+  function handleMode(event) {
+    const { mode } = event.target.dataset;
+  
+    if (!mode) return;
+  
+    switchMode(mode);
+    stopTimer();
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    switchMode('pomodoro');
+  });
+
+  
+
+    </script>
+    <script>
+        var completed = 0
+        orderSession()
+
+        function saveSessionTime(){
+            var id = localStorage.getItem('majorTaskId')
+            var pomodoro = document.getElementById('timeRoutine').value 
+            var short_break = document.getElementById('timeRoutine1').value 
+            var long_break = document.getElementById('timeRoutine2').value 
+
+            localStorage.setItem('pomodoro',pomodoro)
+            localStorage.setItem('long_break',long_break)
+            localStorage.setItem('short_break',short_break)
+            
+            $.ajax({
+                    type:"POST",
+                    url: "http://localhost/pomodoro/api/session_time_update.php",
+                    dataType: "json",
+                    data:{
+                        id: id,
+                        pomodoro: pomodoro,
+                        short_break: short_break,
+                        long_break: long_break
+                    },
+                    
+                    cache:false,
+                    success: function(dataResult){
+                        
+                       location.reload()
+                    },error:function(err){
+                console.log('error')		 
+                }
+            })
+        }
+        var currentSessionId = null
+        function orderSession(){
+            var majorTaskId = localStorage.getItem('majorTaskId')
+            $.ajax({
+                    type:"POST",
+                    url: "http://localhost/pomodoro/api/return_specific_group_task.php",
+                    dataType: "json",
+                    data:{
+                        id: majorTaskId
+                    },
+                    
+                    cache:false,
+                    success: function(dataResult){
+                    var currentSession = ''
+                    var innerHtml = ''
+                    var completedInnerHtml = ''
+                    var currentSessionIcons = ''
+                    var currentSessionModals = ''
+                    var countSession = 0
+                    var setCurrent = true
+                    for(let i = 0; i < dataResult.subtask.length; i++){
+                        countSession++
+                        // console.log(dataResult.subtask)
+                        if(dataResult.subtask[i].is_complete){
+                            completed++
+                            completedInnerHtml+='<div class="card sessionsList">'
+                            completedInnerHtml+='<div class = "card-header">'
+                            completedInnerHtml+='<div class = "row  justify-content-md-center text-center" id ="accordionSessionC">'
+                            completedInnerHtml+='<div class = "col-8 text-left">'
+                            completedInnerHtml+='<div class = "sessionListName">'
+                            completedInnerHtml+='<input class ="sessionListInput" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #">'
+                            completedInnerHtml+='</div>'
+                            completedInnerHtml+='</div>'
+                            completedInnerHtml+='<div class ="col-2 text-right mt-1">'
+                            completedInnerHtml+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapse2" aria-expanded="true" aria-controls="collapseOne">'
+                            completedInnerHtml+='<i class="fa fa-angle-down" id="sessionIcons"></i>'
+                            completedInnerHtml+='</button>'
+                            completedInnerHtml+='</div>'
+                            completedInnerHtml+='</div>'
+                            completedInnerHtml+='</div>'
+
+                            completedInnerHtml+='<div id="sessionCollapse2" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSessionC">'
+                            completedInnerHtml+='<div class = "card-body sessionsTimer">'
+                            completedInnerHtml+='<div class = "row text-center">'
+                            completedInnerHtml+='<div class = "notesTimer">'
+                            completedInnerHtml+='<textarea class ="notesTimerInput" type = "text" placeholder="Session #" style="color: black" cols="40" rows="6"></textarea>'
+                            completedInnerHtml+='</div>'
+                            completedInnerHtml+='</div>'
+                            completedInnerHtml+='<hr>'
+                            completedInnerHtml+='<div class = "row">'
+                            completedInnerHtml+='<div class = "col-6 text-left">'
+                            completedInnerHtml+='<button type="button" class="btn btn-primary lext-right" id = "sessSaveBtn">CANCEL</button>'
+                            completedInnerHtml+='</div>'
+                            completedInnerHtml+='<div class = "col-6 text-right">'
+                            completedInnerHtml+='<button type="button" class="btn btn-primary" id = "sessSaveBtn">SAVE</button>'
+                            completedInnerHtml+='</div>'
+                            completedInnerHtml+='</div>'
+                            completedInnerHtml+='</div>'
+                            completedInnerHtml+='</div>'
+                            completedInnerHtml+='</div>'
+                        }
+                        else if( setCurrent ){
+                            currentSession = dataResult.subtask[i].subtaskName
+                            currentSessionId = dataResult.subtask[i]._id['$oid']
+                            currentSessionIcons+='<div class = "col-md-8 hovertext"  data-hover="Current Session Name"></div>'
+                            currentSessionIcons+='<div class = "col-md-4 text-right mx-auto">'
+                            currentSessionIcons+='<button class="btn-block" id = "sessions_btns">'
+                            currentSessionIcons+='<i class="fa fa-pencil-alt" style="font-size:28px" id="indivIcon" data-toggle = "modal" data-target = "#settings1'+i+'"></i>'
+                            currentSessionIcons+='</button>'
+                            currentSessionIcons+='</div>'
+                            currentSessionModals+='<div class = "modal fade " id="settings1'+i+'" role="dialog">'
+                            currentSessionModals+='<div class = "modal-dialog modal-dialog-centered">'
+                            currentSessionModals+='<div class = "modal-content">'
+                            currentSessionModals+='<div class = "modal-header text-center d-block  "><h4 class="modal-title  d-inline-block">EDIT SESSION</h4></div>'
+                            currentSessionModals+='<div class = "modal-body">'
+                            currentSessionModals+='<div class = "row  justify-content-md-center text-center">'
+                            currentSessionModals+='<div class = "col-8 text-center">'
+                            currentSessionModals+='<span class = "text-left">Session Name: </span><input class ="sessionOnTimerInput" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black">'
+                            currentSessionModals+='<span class = "text-left mt-3">Notes: </span>'
+                            currentSessionModals+='<textarea class ="notesTimerInput2" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].note+'</textarea>'
+                            currentSessionModals+='</div>'
+                            currentSessionModals+='</div>'
+                            currentSessionModals+='<div class = "modal-footer">'
+             
+                            currentSessionModals+='<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'
+                            currentSessionModals+='<button type="button" class="btn btn-primary" id = "modal-save">Save changes</button>'
+                            currentSessionModals+='</div>'
+                   
+                            
+                            setCurrent = false
+                        }
+                        else
+                        {
+                            innerHtml+='<div class="card sessionsList">'
+                            innerHtml+='<div class = "card-header sessionHeader">'
+                            innerHtml+='<div class = "row  justify-content-md-center text-center" id ="accordionSessions">'
+                            innerHtml+='<div class = "col-8 text-left">'
+                            innerHtml+='<div class = "sessionListName">'
+                            innerHtml+='<input class ="sessionListInput" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black">'
+                            innerHtml+='</div>'
+                            innerHtml+='</div>'
+                            innerHtml+='<div class ="col-2 text-right mt-1">'
+                            innerHtml+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapsee'+i+'" aria-expanded="true" aria-controls="collapseOne">'
+                            innerHtml+=' <i class="fa fa-angle-down" id="sessionIcons"></i>'
+                             innerHtml+='</button>'
+                             innerHtml+='</div>'
+                             innerHtml+='</div>'
+                             innerHtml+='</div>'
+                             innerHtml+='<div id="sessionCollapsee'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSessions">'
+                             innerHtml+='<div class = "card-body sessionsTimer">'
+                             innerHtml+='<div class = "row text-center">'
+                             innerHtml+='<div class = "notesTimer">'
+                             innerHtml+='<textarea class ="notesTimerInput" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].note+'</textarea>'
+                             innerHtml+='</div>' 
+                             innerHtml+='</div>'
+                             innerHtml+='<hr>'
+                             innerHtml+='<div class = "row">'
+                             innerHtml+='<div class = "col-6 text-left">'
+                             innerHtml+='<button type="button" class="btn lext-right" id = "sessSaveBtn">REMOVE</button>'
+                             innerHtml+='</div>'
+                             innerHtml+='<div class = "col-6 text-right">'
+                             innerHtml+='<button type="button" class="btn " id = "sessSaveBtn">SAVE</button>'
+                             innerHtml+='</div>'
+                             innerHtml+='</div>'
+                             innerHtml+='</div>'
+                             innerHtml+='</div>'
+                             innerHtml+='</div>'
+                        }
+                    }
+                    move(completed,1)
+                    localStorage.setItem('countSession',countSession)
+                    // console.log(dataResult.major_task.pomodoro)
+                   $('#completedPomodoro').html(completedInnerHtml)
+                    $('#currentSession').html(currentSession)
+                    $('#currentSessionIcons').html(currentSessionIcons)
+                    $('#currentSessionModals').html(currentSessionModals)
+                    document.getElementById('timeRoutine').value = dataResult.major_task.pomodoro
+                    document.getElementById('timeRoutine1').value = dataResult.major_task.short_break
+                    document.getElementById('timeRoutine2').value = dataResult.major_task.long_break
+                    localStorage.setItem('pomodoro',dataResult.major_task.pomodoro)
+                    localStorage.setItem('short_break',dataResult.major_task.short_break)
+                    localStorage.setItem('long_break',dataResult.major_task.long_break)
+                    $('#js-minutes').html(dataResult.major_task.pomodoro)
+                    // console.log(dataResult)
+                    $('#pomodoroList').html(innerHtml);
+                    },error:function(err){
+                console.log('error')		 
+                }
+            })
+        }
+        function is_completed(res){
+            $.ajax({
+                    type:"POST",
+                    url: "http://localhost/pomodoro/api/is_completed_task.php",
+                    dataType: "json",
+                    data:{
+                        id: res,
+                    },
+                    
+                    cache:false,
+                    success: function(dataResult){
+                        
+                    },error:function(err){
+                console.log('error')		 
+                }
+            })
+        }
+        var i = 0;
+        function move(res,valid) {
+            var count_session = localStorage.getItem('countSession')
+
+            var total = 100 * (res / count_session)
+          if (i == 0) {
+            i = 1;
+            var elem = document.getElementById("progressTracker");
+            var width = 0;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= total) {
+                clearInterval(id);
+                i = 0;
+              } else {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width  + "%";
+              }
+            }
+          }
+          if(valid == 0){
+            orderSession()
+          }
+        //   
+        }
+        // TESTING ADD OF SESSION
+        var count = 0;
+
+        function addASession(){
+            count
+            var addingSession=''
+            for(let i = 0; i <= count; i++) {
+                addingSession+='<div class="card sessionsList">'
+                            addingSession+='<div class = "card-header sessionHeader">'
+                            addingSession+='<div class = "row  justify-content-md-center text-center" id ="accordionSessions">'
+                            addingSession+='<div class = "col-8 text-left">'
+                            addingSession+='<div class = "sessionListName">'
+                            addingSession+='<input class ="sessionListInput" type = "text" value="" placeholder="Session Name" style="color: white">'
+                            addingSession+='</div>'
+                            addingSession+='</div>'
+                            addingSession+='<div class ="col-2 text-right mt-1">'
+                            addingSession+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapseee'+i+'" aria-expanded="true" aria-controls="collapseOne">'
+                            addingSession+=' <i class="fa fa-angle-down" id="sessionIcons"></i>'
+                             addingSession+='</button>'
+                             addingSession+='</div>'
+                             addingSession+='</div>'
+                             addingSession+='</div>'
+                             addingSession+='<div id="sessionCollapseee'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSessions">'
+                             addingSession+='<div class = "card-body sessionsTimer">'
+                             addingSession+='<div class = "row text-center">'
+                             addingSession+='<div class = "notesTimer">'
+                             addingSession+='<textarea class ="notesTimerInput" type = "text" value="" placeholder="Add a note" style="color: black" cols="40" rows="6"></textarea>'
+                             addingSession+='</div>' 
+                             addingSession+='</div>'
+                             addingSession+='<hr>'
+                             addingSession+='<div class = "row">'
+                             addingSession+='<div class = "col-6 text-left">'
+                             addingSession+='<button type="button" class="btn lext-right" id = "sessSaveBtn">REMOVE</button>'
+                             addingSession+='</div>'
+                             addingSession+='<div class = "col-6 text-right">'
+                             addingSession+='<button type="button" class="btn " id = "sessSaveBtn">SAVE</button>'
+                             addingSession+='</div>'
+                             addingSession+='</div>'
+                             addingSession+='</div>'
+                             addingSession+='</div>'
+                             addingSession+='</div>'
+            }
+            console.log(count +" = outside for add")
+            $('#newSesss').html(addingSession)
+       }
+        </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <script>
+         var clicks = 0;
+    function openSpotify() {
+      document.getElementById("spotifyContainer").style.display = "block";
+      
+        if(clicks == 0){
+            alert("Please make sure to lower the volume before playing!");
+            clicks += 1;
+        }
+     
+    }
+        
+        function closeSpotify() {
+          document.getElementById("spotifyContainer").style.display = "none";
+        }
+     </script>
+
+
+</body>
+</html>
