@@ -1813,6 +1813,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   border-radius: 15px;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background: rgb(253,251,249);
+  background: linear-gradient(0deg, rgba(253,251,249,1) 0%, rgba(240,223,209,1) 100%);
 }
 
 .fullInput {
