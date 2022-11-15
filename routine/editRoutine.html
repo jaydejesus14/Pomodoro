@@ -207,7 +207,9 @@
                     confirmButtonColor: "#783937",
                     icon: 'success',
                     confirmButtonText: 'OK'
-                })
+                }).then(function() {
+                    window.location.href = "viewRoutine.html?"+id
+                });
                 // console.log(dataResult)
                 // var innerHtml = ''
                 // $('#sessionTask').html(innerHtml);
