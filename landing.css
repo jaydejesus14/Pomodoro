@@ -60,7 +60,7 @@ body {
 }
 
 hr.solid {
-  border-top: 5px solid black;
+  border-top: 2px solid white;
 }
 
 hr.light {
@@ -69,12 +69,12 @@ hr.light {
 
 .fontstyleH1{
     color: white;
-    font-size: 3.9vw;
+    font-size: 38px;
     font-family: 'Lora', serif;
 }
 H1{
   color: black;
-  font-size: 3.9vw;
+  font-size: 20px;
   font-family: 'Lora', serif;
 }
 
@@ -126,24 +126,89 @@ input:focus, textarea:focus {
 }
 
 .responsive {
-    position: relative;
+    position: fixed;
     display: block;
-    width: 100%;
-    border: 5px solid black;
+    width: 400px;
+
     background:#F0DFD1;
-    box-shadow: 30px 35px #783937, 
-    30px 35px 0px 3px black;
-    max-width: 1000px;
-    margin-left: 70px;
-    margin-top: -720px;
-    margin-right: 10px;
+    box-shadow: 30px 35px #783937;
+    bottom: 300px;
+    right: 300px;
     height: auto;
   }
 
+body{
+  font-family: 'Lato', sans-serif;
+}
+
+.wrapper{
+  position: fixed;
+  bottom: 170px;
+  right: 250px;
+  transform: translate(-50%, -50%);
+}
+
+.link_wrapper{
+  position: relative;
+}
+
+.btnA{
+  display: block;
+  width: 250px;
+  height: 60px;
+  line-height: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  background: linear-gradient(0deg, rgba(253,251,249,1) 0%, rgba(240,223,209,1) 100%);
+  text-align: center;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid transparent;
+  transition: all .35s;
+  border-radius: 10px;
+}
+
+.icon{
+  width: 50px;
+  height: 50px;
+  border: 3px solid transparent;
+  position: absolute;
+  transform: rotate(45deg);
+  right: 0;
+  top: 0;
+  z-index: 1;
+  transition: all .35s;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
+}
+
+.icon svg{
+  width: 30px;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  transform: rotate(-45deg);
+  fill: black;
+  transition: all .35s;
+  
+}
+
+.btnA:hover{
+  width: 230px;
+  border: 3px solid #783937;
+  background: transparent;
+  color: #783937;
+}
+
+.btnA:hover + .icon{
+  border: 3px solid #783937;
+  right: -25%;
+  fill: 783937;
+}
 .header{
 	height: auto;
-  margin-top: 50px;
-  padding-bottom: 220px;
+  margin-top: 40px;
+  padding-bottom: 60px;
   text-align: center;
   background: #783937;
   color: black;
@@ -151,13 +216,16 @@ input:focus, textarea:focus {
 }
 
 .header1{
-	height: auto;
-	margin-bottom: -200px;
+	height: fixed;
+  position: absolute;
   text-align: center;
-  background: #783937;
+  background: transparent;
   color: black;
-  font-size: 30px;
-  font-size: 1.7vw;
+  z-index: 8;
+  margin: auto;
+  
+
+
 }
 
 
@@ -192,15 +260,17 @@ input:focus, textarea:focus {
 #started_btn {
   border-radius: 50px;
   color: black;
-  margin-left: 170px;
-  margin-top: 50px;
+  position: fixed;
+
   background-color: #fff;
   padding: 15px;
   width: 300px;
   min-width: 200px;
   cursor: pointer;
   border: none;
-  margin-top: 40px;
+  bottom: 180px;
+  right: 300px;
+
 }
 
 #started_btn:hover {
@@ -214,7 +284,7 @@ input:focus, textarea:focus {
 }
 
 .caption{
-	font-size: 21px;
+	font-size: 18px;
 	text-align: center;
     width: 100%;
 }
@@ -302,7 +372,7 @@ footer{
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
 .section{
 	width: 100.75%;
-	min-height: 80vh;
+	min-height: 60vh;
 	background-color: #F0DFD1;
   left: 0;
   right: 0;
@@ -313,7 +383,7 @@ footer{
 }
 .container{
 	width: 80%;
-	padding-top: 100px;
+	padding-top: 80px;
 }
 .content-section{
   position: relative;
@@ -325,25 +395,25 @@ footer{
 	text-transform: uppercase;
 	font-size: 28px;
   text-align: center;
-  margin-top: -10px;
+  margin-top: -5px;
 }
 .content-section .content h3{
-	margin-top: 20px;
+	margin-top: 10px;
 	color:#5d5d5d;
 	font-size: 21px;
 }
 .content-section .content p{
 	margin-top: 10px;
 	font-family: 'Lora', serif;
-	font-size: 21px;
+	font-size: 20px;
 	line-height: 1.5;
 }
 .content-section .content li{
 	margin-top: 10px;
   font-weight: bold;
 	font-family: 'Lora', serif;
-	font-size: 21px;
-	line-height: 1.5;
+	font-size: 18px;
+
 }
 .content-section .content .button{
 	margin-top: 30px;
