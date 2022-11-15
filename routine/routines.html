@@ -115,7 +115,7 @@
    <script>
      /*if(!localStorage.getItem('user_id')){
         
-            window.location = "http://localhost/pomodoro/user/login.html";
+            window.location = "../user/login.html";
 
          }
     /* When the user clicks on the button, 
@@ -158,7 +158,7 @@
                 icon: 'success',
                 confirmButtonText: 'OK'
             }).then(function() {
-                window.location = "http://localhost/pomodoro/user/login.html";
+                window.location = "../user/login.html";
              });
             
         }
@@ -167,7 +167,7 @@
     function displayRoutines(){
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/display_routine.php",
+                url: "../api/display_routine.php",
                 dataType: "json",
                 data:{
                     user_id: localStorage.getItem('user_id'),
