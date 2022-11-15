@@ -29,9 +29,9 @@
                 <div class = "col-lg-3">
                     <div class = "row">
                         <div class = "card routineSummaryCard">
-                            <span class = "titleRoutine1" id="routine_name">
-                                ROUTINE NAME
-                            </span>
+                            <input type = "text" class = "fullInput3" id="routine_name" placeholder = "Routine Name">
+                               
+                            </input>
                             <hr class = "hrWhite">
                             <span class = "text-left">Time per session (minutes): </span>
                                 <div class = "row">
@@ -159,7 +159,7 @@
             cache:false,
             success: function(dataResult){
                 sessionArray = dataResult.task
-                $('#routine_name').html(dataResult.routine_name);
+                $('#routine_name').val(dataResult.routine_name);
                 $('#pomodoro').val(dataResult.pomodoro);
                 $('#short_break').val(dataResult.short_break);
                 $('#long_break').val(dataResult.long_break);

@@ -1828,7 +1828,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   width: 100%;
   margin: auto;
 }
-
+.fullInput3 {
+  width: 100%;
+  margin: auto;
+  padding: 10px; 
+  border-radius: 10px;
+}
 #form_btns {
   border-radius: 15px;
   width: 55%;
