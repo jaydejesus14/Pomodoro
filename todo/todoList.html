@@ -351,7 +351,7 @@
                                         innerHtml+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#collapseTwo'+i+'" aria-expanded="true" aria-controls="collapseTwo'+i+'">'
                                         innerHtml+='<i class="fa fa-ellipsis-h" style="font-size:20px" id="indivIcon"></i></button>'
                                     innerHtml+='</div>'
-                                    innerHtml+='<div id="collapseTwo'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample2'+i+'">'
+                                    innerHtml+='<div id="collapseTwo'+i+'" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample2'+i+'">'
                                         innerHtml+='<hr class="solid" id="hrBlack">'
                                         innerHtml+='<div class = "noteSubTask"><textarea class ="notesTimerInput" id="note'+i+'" type = "text" placeholder="add a note" style="color: black" cols="40" rows="6"></textarea>'
                                         innerHtml+='</div>'
@@ -490,24 +490,35 @@
             
         }
         function removeSubtask(res){
+            Swal.fire({
+            title: 'REMOVE SUBTASK?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#783937',
+            cancelButtonText: 'CANCEL',
+            confirmButtonText: 'CONFIRM'
+            }).then((result) => {
+            if (result.isConfirmed) {
 
 
-           $.ajax({
-                type:"POST",
-                url: "http://localhost/pomodoro/api/remove_subtask.php",
-                dataType: "json",
-                 data:{
-                    task_id: res
-                },
-                
-                cache:false,
-                success: function(dataResult){
-                    console.log(dataResult.status)
-                },error:function(err){
-              console.log('error')		 
-            }
-            })
-            location.reload();
+            $.ajax({
+                    type:"POST",
+                    url: "http://localhost/pomodoro/api/remove_subtask.php",
+                    dataType: "json",
+                    data:{
+                        task_id: res
+                    },
+                    
+                    cache:false,
+                    success: function(dataResult){
+                        console.log(dataResult.status)
+                    },error:function(err){
+                console.log('error')		 
+                }
+                })
+                location.reload();
+            }})
         }
         function passIdToConvertSession(res){
             localStorage.setItem('majorTaskId',res)
@@ -550,40 +561,77 @@
        function remove(res){
 
         // console.log(res)
-        $.ajax({
-                type:"POST",
-                url: "http://localhost/pomodoro/api/delete_todo.php",
-                dataType: "json",
-                 data:{
-                    todo_id: res
-                },
-                
-                cache:false,
-                success: function(dataResult){
-                    console.log(dataResult.status)
-                },error:function(err){
-              console.log('error')		 
-            }
-            })
-            location.reload();
+        Swal.fire({
+            title: 'DELETE SUBTASK?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#783937',
+            cancelButtonText: 'CANCEL',
+            confirmButtonText: 'CONFIRM'
+        }).then((result) => {
+            if (result.isConfirmed) {
+            $.ajax({
+                    type:"POST",
+                    url: "http://localhost/pomodoro/api/delete_todo.php",
+                    dataType: "json",
+                    data:{
+                        todo_id: res
+                    },
+                    
+                    cache:false,
+                    success: function(dataResult){
+                        Swal.fire({
+                        title: 'ROUTINE DELETED', 
+                        confirmButtonColor: "#783937",
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then(function() {
+                        location.reload();
+                    });
+                        console.log(dataResult.status)
+                    },error:function(err){
+                console.log('error')		 
+                }
+                })
+                location.reload();
+            }})
        }
        function removeMajorTask(res){
-        $.ajax({
-                type:"POST",
-                url: "http://localhost/pomodoro/api/delete_major_task.php",
-                dataType: "json",
-                 data:{
-                    task_id: res
-                },
-                
-                cache:false,
-                success: function(dataResult){
-                    location.reload();
-                },error:function(err){
-              console.log('error')		 
-            }
-            })
-            // location.reload();
+        Swal.fire({
+            title: 'REMOVE GROUPED TASK?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#783937',
+            cancelButtonText: 'CANCEL',
+            confirmButtonText: 'CONFIRM'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                        type:"POST",
+                        url: "http://localhost/pomodoro/api/delete_major_task.php",
+                        dataType: "json",
+                        data:{
+                            task_id: res
+                        },
+                        
+                        cache:false,
+                        success: function(dataResult){
+                            Swal.fire({
+                            title: 'ROUTINE DELETED', 
+                            confirmButtonColor: "#783937",
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then(function() {
+                            location.reload();
+                        });
+                        },error:function(err){
+                    console.log('error')		 
+                    }
+                    })
+                    // location.reload();
+                }})
        }
        function UpdateTodo(id,input){
         var todoName = document.getElementById('todoName'+input).value
