@@ -47,6 +47,9 @@
         </div>
 
     <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <script>
     $.get("../navigationBar.html", function(data){
         $("#nav-placeholder").replaceWith(data);
@@ -89,9 +92,15 @@
             },
                     cache:false,
                     success: function(dataResult){
-                            alert("Profile Updated")
-                            location.reload();
+                        Swal.fire({
+                            title: 'PROFILE UPDATED!',
+                            confirmButtonColor: "#783937",
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                }).then(function() {
+                    location.reload();
                             console.log(dataResult)
+                    });
                         },error:function(err){
                     console.log('error')		 
                     }

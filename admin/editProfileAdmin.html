@@ -28,20 +28,19 @@
                     <div class = "row">
                         <div class = "form-group col-6 mt-4">
                             <label class = "text-left">First Name</label>
-                            <input type = "text" class="form-control" id = "fullInput" placeholder = "first name">
+                            <input type = "text" class="form-control"id = "firstName" placeholder = "first name">
                         </div>
                         <div class = "form-group col-6 mt-4">
                             <label class = "text-left">Last Name</label>
-                            <input type = "text" class="form-control" id = "fullInput" placeholder = "lastname">
-                        </div>
+                            <input type = "text" class="form-control" id = "lastName" placeholder = "lastname">
                     </div>
                     <div class = "form-group">
                         <label class = "text-left">Username</label>
-                        <input type = "text" class="form-control" id = "fullInput" placeholder = "username">
+                        <input type = "text" class="form-control" id = "user_Name" placeholder = "username">
                     </div>
                     <hr class = "hrWhite">
                     <div class = "row text-center">
-                        <button type = "submit" value="" class="btn-block btn-color" id = "form_btns">SAVE</button>
+                        <button type = "submit" value="" class="btn-block btn-color" id = "form_btns"  onclick="updateProfile()">SAVE</button>
                         <button onClick = "window.location.href='../admin/dashboard.html'"  class="btn-block btn-color" id = "form_btns2">CANCEL</button>
                     </div>
                 </div>
@@ -49,6 +48,9 @@
         </div>
 
     <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <script>
     $.get("../navigationBar.html", function(data){
         $("#nav-placeholder").replaceWith(data);
@@ -78,6 +80,55 @@
         
  
      </script>
+     <script>
+        $.ajax({
+            type:"POST",
+            url: "http://localhost/pomodoro/api/user_info.php",
+            dataType: "json",
+            data:{
+                user_id: localStorage.getItem('user_id'),
+            },
+            
+            cache:false,
+            success: function(dataResult){
+                    $('#user_Name').val(dataResult.user_name)
+                    $('#firstName').val(dataResult.Fname)
+                    $('#lastName').val(dataResult.Lname)
+                    $('#routineName').html(dataResult.email)
+                    },error:function(err){
+                console.log('error')		 
+                }
+            })
+
+        function updateProfile(){
+            $.ajax({
+            type:"POST",
+            url: "http://localhost/pomodoro/api/update_info.php",
+            dataType: "json",
+            data:{
+                user_id: localStorage.getItem('user_id'),
+                Fname: document.getElementById('firstName').value,
+                Lname: document.getElementById('lastName').value,
+                userName: document.getElementById('user_Name').value
+            },
+                    cache:false,
+                    success: function(dataResult){
+                        Swal.fire({
+                            title: 'PROFILE UPDATED!',
+                            confirmButtonColor: "#783937",
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                }).then(function() {
+                    location.reload();
+                            console.log(dataResult)
+                    });
+                            
+                        },error:function(err){
+                    console.log('error')		 
+                    }
+                })
+            }
+    </script>
    
 
 
