@@ -583,6 +583,7 @@ var timer = {
                     
                     cache:false,
                     success: function(dataResult){
+                    completed = 0
                       
                     var currentSession = ''
                     var innerHtml = ''
@@ -776,7 +777,7 @@ var timer = {
             var count_session = localStorage.getItem('countSession')
 
             var total = 100 * (res / count_session)
-            if((localStorage.getItem('pomodoro') * res) == 3){ //palitan na lang yung 2
+            if((localStorage.getItem('pomodoro') * res) >= 2){ //palitan na lang yung 2
                 //sweet alert before assessments
                 window.location.href = 'user/assessment.html'
             }
