@@ -1928,6 +1928,11 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   margin-top: 3px;
 }
 
+#reportsSort{
+  background-color: rgb( 120, 57, 55);
+  padding: 10px 45px;
+  color: white
+}
 .reportsCard {
   width: 1000px;
   margin: 30px 40px;
