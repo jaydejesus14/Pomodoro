@@ -126,7 +126,7 @@
                                     <th scope="col-2">TIME/DATE COMPLETED</th>
                                   </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="task">
                                     <!-- ONE TASK REPORT -->
                                   <tr>
                                     <td colspan="2" class = "text-left">PROGRAMMING</td>
@@ -180,7 +180,7 @@
                                     
                                   </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="assessments">
                                     <!-- ONE ROUTINE REPORT -->
                                   <tr>
                                     
@@ -230,6 +230,61 @@
                         window.location = "http://localhost/pomodoro/user/login.html";
                   
                     
+                }
+            </script>
+            <script>
+                showReports()
+
+                function showReports(){
+                 $.ajax({
+                        type:"POST",
+                        url: "http://localhost/pomodoro/api/reports.php",
+                        dataType: "json",
+                        data:{
+                            user_id: localStorage.getItem('user_id'),
+                        },
+                        
+                        cache:false,
+                        success: function(dataResult){
+                            var arrayAssessments = dataResult.assessments;
+                            var arrayTask = dataResult.task;
+                            console.log(dataResult)
+
+                            var innerHtmlAssessments = ''
+                            var innerHtmlTask = ''
+                            for(let i = 0; dataResult.assessments.length > i; i++){
+                                var managementSkill = ''
+                                if(arrayAssessments[i].points >= 45 && arrayAssessments[i].points <= 50 ){
+                                    managementSkill = 'You have excellent time mangament skills and should use this guide as a reference	 '
+                                }else if(arrayAssessments[i].points >= 30 && arrayAssessments[i].points <= 44){
+                                    managementSkill = 'You manage your time fairly well but should use this guide to increase skill'
+
+                                }else{
+                                    managementSkill = 'Your time management skill should be improved for college but not panic, following the subsquent guidelines will assist you in improving your ability and further your chances of success'
+                                }
+                                innerHtmlAssessments+='<tr>'
+                                innerHtmlAssessments+='<td>'+parseInt(i+1)+'</td>'
+                                innerHtmlAssessments+='<td>'+arrayAssessments[i].points+'</td>'
+                                innerHtmlAssessments+='<td colspan="2" class = "text-center">'+managementSkill+'</td>'
+                                innerHtmlAssessments+='<td>'+arrayAssessments[i].date_created+'/'+arrayAssessments[i].time_created+'</td>'
+                                innerHtmlAssessments+='</tr>'
+                            }
+                            for(let i = 0; dataResult.task.length > i; i++){
+                                innerHtmlTask+='<tr>'
+                                innerHtmlTask+='<td colspan="2" class = "text-left">'+arrayTask[i].task_name+'</td>'
+                                innerHtmlTask+='<td>'+arrayTask[i].pomodoro+':00</td>'
+                                innerHtmlTask+='<td>'+arrayTask[i].subtask_no+'</td>'
+                                innerHtmlTask+='<td>'+arrayTask[i].start_date+'/'+arrayTask[i].start_time+'</td>'
+                                innerHtmlTask+='<td>'+arrayTask[i].end_date+'/'+arrayTask[i].end_time+'</td>'
+                                innerHtmlTask+='</tr>'
+                            }
+
+                            $('#task').html(innerHtmlTask)
+                            $('#assessments').html(innerHtmlAssessments)
+                        },error:function(err){
+                            console.log('error')		 
+                        }
+                    })
                 }
             </script>
 
