@@ -20,7 +20,7 @@ $where = array(
 $cursor = $db->groupTask->find($where);
 $docs = $cursor->toArray();
 
-if($_POST['key'] = 'end'){
+if($_POST['key'] == 'end'){
     $for_update_section['end_time'] = $_POST['time'];
     $for_update_section['end_date'] = $_POST['date'];
 
