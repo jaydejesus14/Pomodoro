@@ -934,6 +934,9 @@ textarea {
  
 }
 
+.privacyPolicyContainer {
+  width: 100px;
+}
 
 .mainRegistration{
   padding: 10px;
