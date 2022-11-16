@@ -10,12 +10,13 @@
     $result = $db->users->findOne(array("email" => $email,"password"=>$currentPassword));
     $json_return = array();
     if($result){
-        $json_return['data'] = $result;
-        $json_return['status'] = true;
+        
         $docs = $db->users->updateOne(
             [ 'email' => $_POST['email']],
             [ '$set' => [ 'password' => hash('ripemd160', $_POST['password']) ]]
             );
+            $json_return['data'] = $result;
+        $json_return['status'] = true;
     }
     else{
         $json_return['status'] = false;
