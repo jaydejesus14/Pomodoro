@@ -20,7 +20,9 @@ $json_return['status'] = false;
 
 $is_update = $db->session->updateOne(
     [ '_id' =>  new MongoDB\BSON\ObjectId ($id)],
-    [ '$set' => [ 'is_complete' => true, 'pomodoro' => $pomodoro, 'short_break' => $short_break, 'long_break' => $long_break, 'routine_name' => $routine_name,  ]]
+    // [ '$set' => [ 'is_complete' => true, 'pomodoro' => $pomodoro, 'short_break' => $short_break, 'long_break' => $long_break, 'routine_name' => $routine_name,  ]]
+    // );
+    [ '$set' => [  'pomodoro' => $pomodoro, 'short_break' => $short_break, 'long_break' => $long_break, 'routine_name' => $routine_name,  ]]
     );
 
 $is_delete = $db->sessionTask->deleteMany(['routineId' => $id]);

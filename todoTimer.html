@@ -582,6 +582,7 @@ var timer = {
                     
                     cache:false,
                     success: function(dataResult){
+                      
                     var currentSession = ''
                     var innerHtml = ''
                     var completedInnerHtml = ''
@@ -667,6 +668,7 @@ var timer = {
                             innerHtml+='<div class = "col-8 text-left">'
                             innerHtml+='<div class = "sessionListName">'
                             innerHtml+='<input class ="sessionListInput" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black">'
+                            console.log(dataResult.subtask[i].subtaskName)
                             innerHtml+='</div>'
                             innerHtml+='</div>'
                             innerHtml+='<div class ="col-2 text-right mt-1">'
