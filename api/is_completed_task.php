@@ -1,7 +1,7 @@
 <?php
 include 'database.php';
 $id    = $_POST['id'];
-// $input = $_POST['input'];
+$key = $_POST['key'];
 
 
 
@@ -13,11 +13,17 @@ $json_return = array();
 // 		"user_id" => $user_id,
 // 		"todo_name" => $todo_name
 // );
-
-$is_insert = $db->majorSubTask->updateOne(
-    [ '_id' =>  new MongoDB\BSON\ObjectId ($id)],
-    [ '$set' => [ 'is_complete' => true ]]
-    );
+if($key == 'todo'){
+    $is_insert = $db->majorSubTask->updateOne(
+        [ '_id' =>  new MongoDB\BSON\ObjectId ($id)],
+        [ '$set' => [ 'is_complete' => true ]]
+        );
+}else{
+    $is_insert = $db->sessionTask->updateOne(
+        [ '_id' =>  new MongoDB\BSON\ObjectId ($id)],
+        [ '$set' => [ 'is_complete' => true ]]
+        );
+}
 if($is_insert){
     $json_return['status'] = 'success';
 }else{

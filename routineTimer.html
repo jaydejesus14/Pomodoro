@@ -734,6 +734,7 @@ var timer = {
                     dataType: "json",
                     data:{
                         id: res,
+                        key: 'routine'
                     },
                     
                     cache:false,
@@ -743,6 +744,7 @@ var timer = {
                 console.log('error')		 
                 }
             })
+            orderSession();
         }
         function removeSubtask(res){
             // console.log(res)
