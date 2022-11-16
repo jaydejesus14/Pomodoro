@@ -796,7 +796,7 @@ var timer = {
                         url: "http://localhost/pomodoro/api/get_assessment_availability.php",
                         dataType: "json",
                         data:{
-                            id: localStorage.getItem('user_id'),
+                            user_id: localStorage.getItem('user_id'),
                             date: maxDate,
                             time: time
                         },
@@ -808,6 +808,7 @@ var timer = {
                             }else{
                                 availble_to_assess = false
                             }
+                            console.log('test')
                         },error:function(err){
                             console.log('error')		 
                         }
