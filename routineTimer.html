@@ -371,45 +371,42 @@ var timer = {
   var btns = document.getElementsByClassName("currentSession");
   const mainButton = document.getElementById('timerStart_btn');
   mainButton.addEventListener('click', () => {
-    if(!is_start){
-        is_start = true
-        var dtToday = new Date();
-        var month = dtToday.getMonth() + 1;
-        var day = dtToday.getDate();
-        var year = dtToday.getFullYear();
-        var hr = dtToday.getHours();
-        var min = dtToday.getMinutes();
-        if(month < 10)
-            month = '0' + month.toString();
-        if(day < 10)
-            day = '0' + day.toString();
+    // if(!is_start){
+    //     is_start = true
+    //     var dtToday = new Date();
+    //     var month = dtToday.getMonth() + 1;
+    //     var day = dtToday.getDate();
+    //     var year = dtToday.getFullYear();
+    //     var hr = dtToday.getHours();
+    //     var min = dtToday.getMinutes();
+    //     if(month < 10)
+    //         month = '0' + month.toString();
+    //     if(day < 10)
+    //         day = '0' + day.toString();
 
-        var maxDate = year + '-' + month + '-' + day;
-        var time = hr + ':' + min;
-        // startDate = new Date('Y-m-D')
-        // console.log()
-
-
-        $.ajax({
-                type:"POST",
-                url: "http://localhost/pomodoro/api/update_date_todo.php",
-                dataType: "json",
-                data:{
-                    id: localStorage.getItem('majorTaskId'),
-                    key: 'start',
-                    date: maxDate,
-                    time: time
-                },
+    //     var maxDate = year + '-' + month + '-' + day;
+    //     var time = hr + ':' + min;
+    //     // startDate = new Date('Y-m-D')
+    //     // console.log()
+    //     $.ajax({
+    //             type:"POST",
+    //             url: "http://localhost/pomodoro/api/update_date_todo.php",
+    //             dataType: "json",
+    //             data:{
+    //                 id: localStorage.getItem('majorTaskId'),
+    //                 key: 'start',
+    //                 date: maxDate,
+    //                 time: time
+    //             },
                 
-                cache:false,
-                success: function(dataResult){
-                    console.log(dataResult.status)
-                },error:function(err){
-                    console.log('error')		 
-                }
-            })
-
-    }
+    //             cache:false,
+    //             success: function(dataResult){
+    //                 console.log(dataResult.status)
+    //             },error:function(err){
+    //                 console.log('error')		 
+    //             }
+    //         })
+    // }
 
     const { action } = mainButton.dataset;
     if (action === 'START') {
@@ -540,7 +537,7 @@ var timer = {
         orderSession()
 
         function saveSessionTime(){
-            var id = localStorage.getItem('majorTaskId')
+            var id = localStorage.getItem('routineId')
             var pomodoro = document.getElementById('timeRoutine').value 
             var short_break = document.getElementById('timeRoutine1').value 
             var long_break = document.getElementById('timeRoutine2').value 
@@ -570,6 +567,7 @@ var timer = {
             })
         }
         var currentSessionId = null
+        var countSession = 0
         function orderSession(){
            
             var routineId = localStorage.getItem('routineId')
@@ -592,7 +590,7 @@ var timer = {
                     var completedInnerHtml = ''
                     var currentSessionIcons = ''
                     var currentSessionModals = ''
-                    var countSession = 0
+                    
                     var setCurrent = true
                     for(let i = 0; i < dataResult.subtask.length; i++){
                      
@@ -635,6 +633,9 @@ var timer = {
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
+                            if(completed == countSession)(
+                                console.log('test')
+                            )
                         }
                         else if( setCurrent ){
                             currentSession = dataResult.subtask[i].name
@@ -780,39 +781,56 @@ var timer = {
         }
         var i = 0;
         function move(res,valid) {
+            var dtToday = new Date();
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            var hr = dtToday.getHours();
+            var min = dtToday.getMinutes();
+            if(month < 10)
+                month = '0' + month.toString();
+            if(day < 10)
+                day = '0' + day.toString();
+            var maxDate = year + '-' + month + '-' + day;
+            var time = hr + ':' + min;
+            var count_session = localStorage.getItem('countSession')
+            var total = 100 * (res / count_session)
             var count_session = localStorage.getItem('countSession')
 
             var total = 100 * (res / count_session)
             if((localStorage.getItem('pomodoro') * res) == 2){ //palitan na lang yung 2
                 //sweet alert before assessments
-                window.location.href = 'user/assessment.html'
+                $.ajax({
+                        type:"POST",
+                        url: "http://localhost/pomodoro/api/get_assessment_availability.php",
+                        dataType: "json",
+                        data:{
+                            user_id: localStorage.getItem('user_id'),
+                            date: maxDate,
+                            time: time
+                        },
+                        
+                        cache:false,
+                        success: function(dataResult){
+                            if(!dataResult.is_exist){
+                                window.location.href = 'user/assessment.html'
+                            }else{
+                                availble_to_assess = false
+                            }
+                            console.log('test')
+                        },error:function(err){
+                            console.log('error')		 
+                        }
+                    })
             }
             if(total == 100){
                 //sweet alert before reports
-                var dtToday = new Date();
-        
-        var month = dtToday.getMonth() + 1;
-                var day = dtToday.getDate();
-                var year = dtToday.getFullYear();
-                var hr = dtToday.getHours();
-                var min = dtToday.getMinutes();
-                if(month < 10)
-                    month = '0' + month.toString();
-                if(day < 10)
-                    day = '0' + day.toString();
-                var maxDate = year + '-' + month + '-' + day;
-                var time = hr + ':' + min;
-                // startDate = new Date('Y-m-D')
-                console.log(time)
                 $.ajax({
                         type:"POST",
-                        url: "http://localhost/pomodoro/api/update_date_todo.php",
+                        url: "http://localhost/pomodoro/api/reset_task_session.php",
                         dataType: "json",
                         data:{
-                            id: localStorage.getItem('majorTaskId'),
-                            key: 'end',
-                            date: maxDate,
-                            time: time
+                            id: localStorage.getItem('routineId')
                         },
                         
                         cache:false,
@@ -854,7 +872,7 @@ var timer = {
             count
             var addingSession=''
             for(let i = 0; i <= count; i++) {
-                addingSession+='<div class="card sessionsList">'
+                            addingSession+='<div class="card sessionsList">'
                             addingSession+='<div class = "card-header sessionHeader">'
                             addingSession+='<div class = "row  justify-content-md-center text-center" id ="accordionSessions">'
                             addingSession+='<div class = "col-8 text-left">'
@@ -865,29 +883,29 @@ var timer = {
                             addingSession+='<div class ="col-2 text-right mt-1">'
                             addingSession+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapseee'+i+'" aria-expanded="true" aria-controls="collapseOne">'
                             addingSession+=' <i class="fa fa-angle-down" id="sessionIcons"></i>'
-                             addingSession+='</button>'
-                             addingSession+='</div>'
-                             addingSession+='</div>'
-                             addingSession+='</div>'
-                             addingSession+='<div id="sessionCollapseee'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSessions">'
-                             addingSession+='<div class = "card-body sessionsTimer">'
-                             addingSession+='<div class = "row text-center">'
-                             addingSession+='<div class = "notesTimer">'
-                             addingSession+='<textarea class ="notesTimerInput" type = "text" value="" placeholder="Add a note" style="color: black" cols="40" rows="6"></textarea>'
-                             addingSession+='</div>' 
-                             addingSession+='</div>'
-                             addingSession+='<hr>'
-                             addingSession+='<div class = "row">'
-                             addingSession+='<div class = "col-6 text-left">'
-                             addingSession+='<button type="button" class="btn lext-right" id = "sessSaveBtn">REMOVE</button>'
-                             addingSession+='</div>'
-                             addingSession+='<div class = "col-6 text-right">'
-                             addingSession+='<button type="button" class="btn " id = "sessSaveBtn">SAVE</button>'
-                             addingSession+='</div>'
-                             addingSession+='</div>'
-                             addingSession+='</div>'
-                             addingSession+='</div>'
-                             addingSession+='</div>'
+                            addingSession+='</button>'
+                            addingSession+='</div>'
+                            addingSession+='</div>'
+                            addingSession+='</div>'
+                            addingSession+='<div id="sessionCollapseee'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSessions">'
+                            addingSession+='<div class = "card-body sessionsTimer">'
+                            addingSession+='<div class = "row text-center">'
+                            addingSession+='<div class = "notesTimer">'
+                            addingSession+='<textarea class ="notesTimerInput" type = "text" value="" placeholder="Add a note" style="color: black" cols="40" rows="6"></textarea>'
+                            addingSession+='</div>' 
+                            addingSession+='</div>'
+                            addingSession+='<hr>'
+                            addingSession+='<div class = "row">'
+                            addingSession+='<div class = "col-6 text-left">'
+                            addingSession+='<button type="button" class="btn lext-right" id = "sessSaveBtn">REMOVE</button>'
+                            addingSession+='</div>'
+                            addingSession+='<div class = "col-6 text-right">'
+                            addingSession+='<button type="button" class="btn " id = "sessSaveBtn">SAVE</button>'
+                            addingSession+='</div>'
+                            addingSession+='</div>'
+                            addingSession+='</div>'
+                            addingSession+='</div>'
+                            addingSession+='</div>'
             }
             console.log(count +" = outside for add")
             $('#newSesss').html(addingSession)

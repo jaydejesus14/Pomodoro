@@ -46,20 +46,20 @@ $todo = $cursor->toArray();
 $todoArray = array();
 foreach($todo as $key => $value){
     if(isset($value['end_time'])){
-            $subtask_where_clause = array(
-                'majorTaskId' => $value['_id']->__toString()
-            );
-            
-            $subtask_select_fields = array(
-                'subtaskName' => 1
-            );
-            
-            $subtask_options = array(
-                'projection' => $subtask_select_fields
-            );
-            
-            $cursor = $db->majorSubTask->find($subtask_where_clause, $subtask_options);
-            $subtask_no = $cursor->toArray();
+        $subtask_where_clause = array(
+            'majorTaskId' => $value['_id']->__toString()
+        );
+        
+        $subtask_select_fields = array(
+            'subtaskName' => 1
+        );
+        
+        $subtask_options = array(
+            'projection' => $subtask_select_fields
+        );
+        
+        $cursor = $db->majorSubTask->find($subtask_where_clause, $subtask_options);
+        $subtask_no = $cursor->toArray();
         $value['subtask_no'] = count($subtask_no);   
 
         $todoArray[] = $value;
