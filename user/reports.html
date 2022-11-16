@@ -28,23 +28,23 @@
                 <div class = "col-lg-3">
                     <div class = "row">
                         <div class = "card userInfoReportsCard">
-                            <span class = "titleRoutine1">
+                            <span class = "titleRoutine1" id = "user_Name" >
                                 USERNAME
                             </span>
                             <hr class = "hrWhite">
-                            <span class = "inputNameReports text-center">
+                            <span class = "inputNameReports text-center" id ="firstName">
                                 firstName
                             </span>
                             <small class = "text-center">
                                 First Name
                             </small>
-                            <span class = "inputNameReports text-center mt-2">
+                            <span class = "inputNameReports text-center mt-2" id = "lastName">
                                 lastName
                             </span>
                             <small class = "text-center">
                                 Last Name
                             </small>
-                            <span class = "inputNameReports text-center mt-2">
+                            <span class = "inputNameReports text-center mt-2" id = "email">
                                 emailaddress@email.com
                             </span>
                             <small class = "text-center">
@@ -231,6 +231,24 @@
                   
                     
                 }
+            $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/user_info.php",
+                dataType: "json",
+                data:{
+                    user_id: localStorage.getItem('user_id'),
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                        $('#user_Name').html(dataResult.user_name)
+                        $('#firstName').html(dataResult.Fname)
+                        $('#lastName').html(dataResult.Lname)
+                        $('#email').html(dataResult.email)
+                        },error:function(err){
+                    console.log('error')		 
+                    }
+            })
             </script>
             <script>
                 showReports()
