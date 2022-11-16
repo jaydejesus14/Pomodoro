@@ -773,29 +773,49 @@ var timer = {
             }})
         }
         var i = 0;
+        var availble_to_assess = true
         function move(res,valid) {
+            var dtToday = new Date();
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            var hr = dtToday.getHours();
+            var min = dtToday.getMinutes();
+            if(month < 10)
+                month = '0' + month.toString();
+            if(day < 10)
+                day = '0' + day.toString();
+            var maxDate = year + '-' + month + '-' + day;
+            var time = hr + ':' + min;
             var count_session = localStorage.getItem('countSession')
-
             var total = 100 * (res / count_session)
-            if((localStorage.getItem('pomodoro') * res) >= 2){ //palitan na lang yung 2
+            if((localStorage.getItem('pomodoro') * res) >= 2 && availble_to_assess){ //palitan na lang yung 2
                 //sweet alert before assessments
+                $.ajax({
+                        type:"POST",
+                        url: "http://localhost/pomodoro/api/get_assessment_availability.php",
+                        dataType: "json",
+                        data:{
+                            id: localStorage.getItem('user_id'),
+                            date: maxDate,
+                            time: time
+                        },
+                        
+                        cache:false,
+                        success: function(dataResult){
+                            if(!dataResult.is_exist){
+                                window.location.href = 'user/assessment.html'
+                            }else{
+                                availble_to_assess = false
+                            }
+                        },error:function(err){
+                            console.log('error')		 
+                        }
+                    })
                 window.location.href = 'user/assessment.html'
             }
             if(total == 100){
                 //sweet alert before reports
-                var dtToday = new Date();
-        
-        var month = dtToday.getMonth() + 1;
-                var day = dtToday.getDate();
-                var year = dtToday.getFullYear();
-                var hr = dtToday.getHours();
-                var min = dtToday.getMinutes();
-                if(month < 10)
-                    month = '0' + month.toString();
-                if(day < 10)
-                    day = '0' + day.toString();
-                var maxDate = year + '-' + month + '-' + day;
-                var time = hr + ':' + min;
                 // startDate = new Date('Y-m-D')
                 console.log(time)
                 $.ajax({

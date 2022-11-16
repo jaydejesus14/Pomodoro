@@ -316,6 +316,11 @@
 
         }
       function addingScore(index,value){
+        if(value == 2){
+          value = 0
+        }else if(value == 0){
+          value = 2
+        }
         scoreArray[index] = value;
         console.log(scoreArray)
       }
@@ -331,7 +336,40 @@
           }
 
           if(is_filled_all){
+            var dtToday = new Date();
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            var hr = dtToday.getHours();
+            var min = dtToday.getMinutes();
+            if(month < 10)
+                month = '0' + month.toString();
+            if(day < 10)
+                day = '0' + day.toString();
+
+            var maxDate = year + '-' + month + '-' + day;
+            var time = hr + ':' + min;
+
+
             alert('Submit Completed')
+            $.ajax({
+            type:"POST",
+            url: "http://localhost/pomodoro/api/add_assessment.php",
+            dataType: "json",
+            data:{
+                user_id: localStorage.getItem('user_id'),
+                points: total,
+                time: time,
+                date: maxDate
+            },
+            
+            cache:false,
+            success: function(dataResult){
+                      alert(dataResult.status)
+                    },error:function(err){
+                console.log('error')		 
+                }
+            })
           }else{
             alert('Please fill all questions')
           }
