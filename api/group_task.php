@@ -25,7 +25,8 @@ $select_fields = array(
     'pomodoro' => 1,
     'task_name' => 1,
     'short_break' => 1,
-    'long_break' => 1
+    'long_break' => 1,
+    'end_date' => 1
 );
 $options = array(
     'projection' => $select_fields
@@ -37,6 +38,9 @@ $json_array = array();
 foreach ($docs as $key => $value){
     $subtask = array();
     //for subtask
+    if(!isset($value['end_date'])){
+
+    
     $where = array(
         'majorTaskId' => $value['_id']->__toString()
     );
@@ -64,6 +68,8 @@ foreach ($docs as $key => $value){
     $json_array['long_break'] = $value['long_break'];
     $json_array['subtask'] = $subtask;
     $json_return[] = $json_array;
+
+    }
     
 }
 echo json_encode($json_return);
