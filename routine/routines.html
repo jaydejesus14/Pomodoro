@@ -192,7 +192,7 @@
                         innerHtml+='<div class = "dropdown1" >'
                         innerHtml+='<button onclick="myFunction('+i+')" class="dropbtn1"><i class="fa fa-cog" id="routineDrop1'+i+'" style="color: white"></i></button>'
                         innerHtml+='<div id="myDropdown1'+i+'" class="dropdown-content1">'
-                        innerHtml+='<a class="dropdown-item" href="#">Convert to Session</a>'
+                        innerHtml+='<a class="dropdown-item" href="#" onclick="passIdToConvertSession('+"'"+dataResult[i].id['$oid']+"'"+')">Convert to Session</a>'
                         innerHtml+='<a class="dropdown-item" href="viewRoutine.html?'+dataResult[i].id['$oid']+'">View Routine</a>'
                         innerHtml+='<a class="dropdown-item" href="editRoutine.html?'+dataResult[i].id['$oid']+'">Edit Routine</a>'
                         innerHtml+='<a class="dropdown-item" href="#" onclick = "removeRoutine('+"'"+dataResult[i].id['$oid']+"'"+')">Delete Routine</a>'
@@ -243,9 +243,18 @@
             console.log('error')		 
             }
         })
+        
 
 
     }
+    function passIdToConvertSession(res){
+           
+            localStorage.setItem('routineId',res)
+            alert(localStorage.getItem('routineId'))
+            
+            window.location.href = "../routineTimer.html";
+            window.location.reload ="../routineTimer.html";
+        }
     function removeRoutine(res){
         Swal.fire({
         title: 'Are you sure?',

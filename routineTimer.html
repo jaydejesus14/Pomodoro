@@ -339,10 +339,11 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
 <script src="//code.jquery.com/jquery.min.js"></script>
     <!-- <script src="timer.js"></script> -->
     <script>
-        $.get("navigationBar2.html", function(data){
-            $("#nav-placeholder").replaceWith(data);
-            });
-        </script>
+    
+    $.get("navigationBar2.html", function(data){
+        $("#nav-placeholder").replaceWith(data);
+    });
+    </script>
     <script>
        window.onload = function() {
     if(!window.location.hash) {
@@ -357,7 +358,8 @@ var timer = {
     longBreakInterval: 4,
     sessions: 0,
   };
-  
+  var is_start = false
+  var startDate = null
   let interval;
   const circle = document.getElementById('circle2');
   const length = circle.getTotalLength();
@@ -369,6 +371,46 @@ var timer = {
   var btns = document.getElementsByClassName("currentSession");
   const mainButton = document.getElementById('timerStart_btn');
   mainButton.addEventListener('click', () => {
+    if(!is_start){
+        is_start = true
+        var dtToday = new Date();
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        var hr = dtToday.getHours();
+        var min = dtToday.getMinutes();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+
+        var maxDate = year + '-' + month + '-' + day;
+        var time = hr + ':' + min;
+        // startDate = new Date('Y-m-D')
+        // console.log()
+
+
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/update_date_todo.php",
+                dataType: "json",
+                data:{
+                    id: localStorage.getItem('majorTaskId'),
+                    key: 'start',
+                    date: maxDate,
+                    time: time
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                    console.log(dataResult.status)
+                },error:function(err){
+                    console.log('error')		 
+                }
+            })
+
+    }
+
     const { action } = mainButton.dataset;
     if (action === 'START') {
       startTimer();
@@ -529,17 +571,22 @@ var timer = {
         }
         var currentSessionId = null
         function orderSession(){
-            var majorTaskId = localStorage.getItem('majorTaskId')
+           
+            var routineId = localStorage.getItem('routineId')
             $.ajax({
                     type:"POST",
-                    url: "http://localhost/pomodoro/api/return_specific_group_task.php",
+                    url: "http://localhost/pomodoro/api/return_specific_routine.php",
                     dataType: "json",
                     data:{
-                        id: majorTaskId
+                        id: routineId
                     },
+                    
+                    
                     
                     cache:false,
                     success: function(dataResult){
+                        
+                   
                     var currentSession = ''
                     var innerHtml = ''
                     var completedInnerHtml = ''
@@ -548,8 +595,9 @@ var timer = {
                     var countSession = 0
                     var setCurrent = true
                     for(let i = 0; i < dataResult.subtask.length; i++){
+                     
                         countSession++
-                        // console.log(dataResult.subtask)
+                        
                         if(dataResult.subtask[i].is_complete){
                             completed++
                             completedInnerHtml+='<div class="card sessionsList">'
@@ -557,7 +605,8 @@ var timer = {
                             completedInnerHtml+='<div class = "row  justify-content-md-center text-center" id ="accordionSessionC">'
                             completedInnerHtml+='<div class = "col-8 text-left">'
                             completedInnerHtml+='<div class = "sessionListName">'
-                            completedInnerHtml+='<input class ="sessionListInput" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #">'
+                            completedInnerHtml+='<input class ="sessionListInput" type = "text" value="'+dataResult.subtask[i].name+'" placeholder="Session #">'
+                            
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='<div class ="col-2 text-right mt-1">'
@@ -567,12 +616,11 @@ var timer = {
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
-
                             completedInnerHtml+='<div id="sessionCollapse2" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSessionC">'
                             completedInnerHtml+='<div class = "card-body sessionsTimer">'
                             completedInnerHtml+='<div class = "row text-center">'
                             completedInnerHtml+='<div class = "notesTimer">'
-                            completedInnerHtml+='<textarea class ="notesTimerInput" type = "text" placeholder="Session #" style="color: black" cols="40" rows="6"></textarea>'
+                            completedInnerHtml+='<textarea class ="notesTimerInput" type = "text" placeholder="Session #"value="'+dataResult.subtask[i].notes+'" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].notes+'</textarea>'
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='<hr>'
@@ -589,7 +637,7 @@ var timer = {
                             completedInnerHtml+='</div>'
                         }
                         else if( setCurrent ){
-                            currentSession = dataResult.subtask[i].subtaskName
+                            currentSession = dataResult.subtask[i].name
                             currentSessionId = dataResult.subtask[i]._id['$oid']
                             currentSessionIcons+='<div class = "col-md-8 hovertext"  data-hover="Current Session Name"></div>'
                             currentSessionIcons+='<div class = "col-md-4 text-right mx-auto">'
@@ -604,15 +652,15 @@ var timer = {
                             currentSessionModals+='<div class = "modal-body">'
                             currentSessionModals+='<div class = "row  justify-content-md-center text-center">'
                             currentSessionModals+='<div class = "col-8 text-center">'
-                            currentSessionModals+='<span class = "text-left">Session Name: </span><input class ="sessionOnTimerInput" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black">'
+                            currentSessionModals+='<span class = "text-left">Session Name: </span><input class ="sessionOnTimerInput" type = "text" value="'+dataResult.subtask[i].name+'" placeholder="Session #" style="color: black">'
                             currentSessionModals+='<span class = "text-left mt-3">Notes: </span>'
-                            currentSessionModals+='<textarea class ="notesTimerInput2" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].note+'</textarea>'
+                            currentSessionModals+='<textarea class ="notesTimerInput2" type = "text" value="'+dataResult.subtask[i].name+'" placeholder="Session #" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].notes+'</textarea>'
                             currentSessionModals+='</div>'
                             currentSessionModals+='</div>'
                             currentSessionModals+='<div class = "modal-footer">'
              
                             currentSessionModals+='<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'
-                            currentSessionModals+='<button type="button" class="btn btn-primary" id = "modal-save">Save changes</button>'
+                            currentSessionModals+='<button type="button" class="btn btn-primary" onclick="SaveTask('+"'"+dataResult.subtask[i]._id['$oid']+"'"+')" id = "modal-save">Save changes</button>'
                             currentSessionModals+='</div>'
                    
                             
@@ -625,53 +673,55 @@ var timer = {
                             innerHtml+='<div class = "row  justify-content-md-center text-center" id ="accordionSessions">'
                             innerHtml+='<div class = "col-8 text-left">'
                             innerHtml+='<div class = "sessionListName">'
-                            innerHtml+='<input class ="sessionListInput" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black">'
+                            innerHtml+='<input class ="sessionListInput" type = "text" value="'+dataResult.subtask[i].name+'" >'
+                            console.log(dataResult.subtask[i].name)
                             innerHtml+='</div>'
                             innerHtml+='</div>'
                             innerHtml+='<div class ="col-2 text-right mt-1">'
                             innerHtml+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapsee'+i+'" aria-expanded="true" aria-controls="collapseOne">'
                             innerHtml+=' <i class="fa fa-angle-down" id="sessionIcons"></i>'
-                             innerHtml+='</button>'
-                             innerHtml+='</div>'
-                             innerHtml+='</div>'
-                             innerHtml+='</div>'
-                             innerHtml+='<div id="sessionCollapsee'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSessions">'
-                             innerHtml+='<div class = "card-body sessionsTimer">'
-                             innerHtml+='<div class = "row text-center">'
-                             innerHtml+='<div class = "notesTimer">'
-                             innerHtml+='<textarea class ="notesTimerInput" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].note+'</textarea>'
-                             innerHtml+='</div>' 
-                             innerHtml+='</div>'
-                             innerHtml+='<hr>'
-                             innerHtml+='<div class = "row">'
-                             innerHtml+='<div class = "col-6 text-left">'
-                             innerHtml+='<button type="button" class="btn lext-right" id = "sessSaveBtn">REMOVE</button>'
-                             innerHtml+='</div>'
-                             innerHtml+='<div class = "col-6 text-right">'
-                             innerHtml+='<button type="button" class="btn " id = "sessSaveBtn">SAVE</button>'
-                             innerHtml+='</div>'
-                             innerHtml+='</div>'
-                             innerHtml+='</div>'
-                             innerHtml+='</div>'
-                             innerHtml+='</div>'
+                            innerHtml+='</button>'
+                            innerHtml+='</div>'
+                            innerHtml+='</div>'
+                            innerHtml+='</div>'
+                            innerHtml+='<div id="sessionCollapsee'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSessions">'
+                            innerHtml+='<div class = "card-body sessionsTimer">'
+                            innerHtml+='<div class = "row text-center">'
+                            innerHtml+='<div class = "notesTimer">'
+                            innerHtml+='<textarea class ="notesTimerInput" type = "text" value="'+dataResult.subtask[i].name+'" placeholder="Session #" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].notes+'</textarea>'
+                            innerHtml+='</div>' 
+                            innerHtml+='</div>'
+                            innerHtml+='<hr>'
+                            innerHtml+='<div class = "row">'
+                            innerHtml+='<div class = "col-6 text-left">'
+                            innerHtml+='<button type="button" class="btn lext-right" onclick="removeSubtask('+"'"+dataResult.subtask[i]._id['$oid']+"'"+')" id = "sessSaveBtn">REMOVE</button>'
+                            innerHtml+='</div>'
+                            innerHtml+='<div class = "col-6 text-right">'
+                            innerHtml+='<button type="button" class="btn " onclick="SaveTask('+"'"+dataResult.subtask[i]._id['$oid']+"'"+')" id = "sessSaveBtn">SAVE</button>'
+                            innerHtml+='</div>'
+                            innerHtml+='</div>'
+                            innerHtml+='</div>'
+                            innerHtml+='</div>'
+                            innerHtml+='</div>'
                         }
                     }
                     move(completed,1)
                     localStorage.setItem('countSession',countSession)
                     // console.log(dataResult.major_task.pomodoro)
+                    $('#pomodoroList').html(innerHtml);
                    $('#completedPomodoro').html(completedInnerHtml)
                     $('#currentSession').html(currentSession)
                     $('#currentSessionIcons').html(currentSessionIcons)
                     $('#currentSessionModals').html(currentSessionModals)
-                    document.getElementById('timeRoutine').value = dataResult.major_task.pomodoro
-                    document.getElementById('timeRoutine1').value = dataResult.major_task.short_break
-                    document.getElementById('timeRoutine2').value = dataResult.major_task.long_break
-                    localStorage.setItem('pomodoro',dataResult.major_task.pomodoro)
-                    localStorage.setItem('short_break',dataResult.major_task.short_break)
-                    localStorage.setItem('long_break',dataResult.major_task.long_break)
-                    $('#js-minutes').html(dataResult.major_task.pomodoro)
+                    document.getElementById('timeRoutine').value = dataResult.routine_name.pomodoro
+                    document.getElementById('timeRoutine1').value = dataResult.routine_name.short_break
+                    document.getElementById('timeRoutine2').value = dataResult.routine_name.long_break
+                    localStorage.setItem('pomodoro',dataResult.routine_name.pomodoro)
+                    localStorage.setItem('short_break',dataResult.routine_name.short_break)
+                    localStorage.setItem('long_break',dataResult.routine_name.long_break)
+                    $('#js-minutes').html(dataResult.routine_name.pomodoro)
                     // console.log(dataResult)
-                    $('#pomodoroList').html(innerHtml);
+                   
                     },error:function(err){
                 console.log('error')		 
                 }
@@ -694,30 +744,105 @@ var timer = {
                 }
             })
         }
+        function removeSubtask(res){
+            // console.log(res)
+            Swal.fire({
+            title: 'REMOVE SUBTASK?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#783937',
+            cancelButtonText: 'CANCEL',
+            confirmButtonText: 'CONFIRM'
+            }).then((result) => {
+            if (result.isConfirmed) {
+
+
+            $.ajax({
+                    type:"POST",
+                    url: "http://localhost/pomodoro/api/remove_subtask.php",
+                    dataType: "json",
+                    data:{
+                        task_id: res
+                    },
+                    
+                    cache:false,
+                    success: function(dataResult){
+                        console.log(dataResult.status)
+                    },error:function(err){
+                console.log('error')		 
+                }
+                })
+                location.reload();
+            }})
+        }
         var i = 0;
         function move(res,valid) {
             var count_session = localStorage.getItem('countSession')
 
             var total = 100 * (res / count_session)
-          if (i == 0) {
-            i = 1;
-            var elem = document.getElementById("progressTracker");
-            var width = 0;
-            var id = setInterval(frame, 10);
-            function frame() {
-              if (width >= total) {
-                clearInterval(id);
-                i = 0;
-              } else {
-                width++;
-                elem.style.width = width + "%";
-                elem.innerHTML = width  + "%";
-              }
+            if((localStorage.getItem('pomodoro') * res) == 2){ //palitan na lang yung 2
+                //sweet alert before assessments
+                window.location.href = 'user/assessment.html'
             }
-          }
-          if(valid == 0){
-            orderSession()
-          }
+            if(total == 100){
+                //sweet alert before reports
+                var dtToday = new Date();
+        
+        var month = dtToday.getMonth() + 1;
+                var day = dtToday.getDate();
+                var year = dtToday.getFullYear();
+                var hr = dtToday.getHours();
+                var min = dtToday.getMinutes();
+                if(month < 10)
+                    month = '0' + month.toString();
+                if(day < 10)
+                    day = '0' + day.toString();
+                var maxDate = year + '-' + month + '-' + day;
+                var time = hr + ':' + min;
+                // startDate = new Date('Y-m-D')
+                console.log(time)
+                $.ajax({
+                        type:"POST",
+                        url: "http://localhost/pomodoro/api/update_date_todo.php",
+                        dataType: "json",
+                        data:{
+                            id: localStorage.getItem('majorTaskId'),
+                            key: 'end',
+                            date: maxDate,
+                            time: time
+                        },
+                        
+                        cache:false,
+                        success: function(dataResult){
+                            console.log(dataResult.status)
+                            window.location.href = 'user/reports.html';
+                        },error:function(err){
+                            console.log('error')		 
+                        }
+                    })
+                    // 
+            }
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("progressTracker");
+                var width = 0;
+                var id = setInterval(frame, 10);
+                function frame() {
+                if (width >= total) {
+                    clearInterval(id);
+                    i = 0;
+                    // window.location.href = 'user/reports.html';
+                } else {
+                    width++;
+                    elem.style.width = width + "%";
+                    elem.innerHTML = width  + "%";
+                }
+                }
+            }
+            if(valid == 0){
+                orderSession()
+            }
         //   
         }
         // TESTING ADD OF SESSION
@@ -766,6 +891,9 @@ var timer = {
             $('#newSesss').html(addingSession)
        }
         </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
