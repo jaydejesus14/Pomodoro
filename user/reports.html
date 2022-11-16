@@ -153,7 +153,7 @@
                                     <th scope="col-2">NO. OF TIMES</th>
                                   </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="routine">
                                     <!-- ONE ROUTINE REPORT -->
                                   <tr>
                                     <td colspan="2" class = "text-left">WEEKLY ACTIVITY</td>
@@ -266,10 +266,12 @@
                         success: function(dataResult){
                             var arrayAssessments = dataResult.assessments;
                             var arrayTask = dataResult.task;
+                            var arrayRoutine = dataResult.routine;
                             console.log(dataResult)
 
                             var innerHtmlAssessments = ''
                             var innerHtmlTask = ''
+                            var innerHtmlRoutine = ''
                             for(let i = 0; dataResult.assessments.length > i; i++){
                                 var managementSkill = ''
                                 if(arrayAssessments[i].points >= 45 && arrayAssessments[i].points <= 50 ){
@@ -296,9 +298,24 @@
                                 innerHtmlTask+='<td>'+arrayTask[i].end_date+'/'+arrayTask[i].end_time+'</td>'
                                 innerHtmlTask+='</tr>'
                             }
+                            for(let i = 0; dataResult.routine.length > i; i++){
+                                innerHtmlRoutine += '<tr>'
+                                innerHtmlRoutine += '<td colspan="2" class = "text-left">'+arrayRoutine[i].pomodoro+'</td>'
+                                innerHtmlRoutine += '<td>'+arrayRoutine[i].pomodoro+':00</td>'
+                                innerHtmlRoutine += '<td>'+arrayRoutine[i].subtask_no+'</td>'
+                                if(arrayRoutine[i].times_done){
+                                    innerHtmlRoutine += '<td>'+arrayRoutine[i].times_done+'</td>'
+                                }else{
+                                    innerHtmlRoutine += '<td>0</td>'
+                                }
+                                innerHtmlRoutine += '</tr>'
+                            }
 
+                                // console.log(arrayRoutine)
                             $('#task').html(innerHtmlTask)
                             $('#assessments').html(innerHtmlAssessments)
+                            $('#routine').html(innerHtmlRoutine)
+
                         },error:function(err){
                             console.log('error')		 
                         }
