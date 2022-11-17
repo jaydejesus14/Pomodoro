@@ -704,7 +704,7 @@ var timer = {
                             innerHtml+='<div class = "row  justify-content-md-center text-center" id ="accordionSessions">'
                             innerHtml+='<div class = "col-8 text-left">'
                             innerHtml+='<div class = "sessionListName">'
-                            innerHtml+='<input class ="sessionListInput" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black">'
+                            innerHtml+='<input class ="sessionListInput" id = "inputtext'+i+'" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black">'
                             console.log(dataResult.subtask[i].subtaskName)
                             innerHtml+='</div>'
                             innerHtml+='</div>'
@@ -719,7 +719,7 @@ var timer = {
                             innerHtml+='<div class = "card-body sessionsTimer">'
                             innerHtml+='<div class = "row text-center">'
                             innerHtml+='<div class = "notesTimer">'
-                            innerHtml+='<textarea class ="notesTimerInput" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].note+'</textarea>'
+                            innerHtml+='<textarea class ="notesTimerInput" id = "note'+i+'" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].note+'</textarea>'
                             innerHtml+='</div>' 
                             innerHtml+='</div>'
                             innerHtml+='<hr>'
@@ -728,7 +728,7 @@ var timer = {
                             innerHtml+='<button type="button" class="btn lext-right" onclick="removeSubtask('+"'"+dataResult.subtask[i]._id['$oid']+"'"+')" id = "sessSaveBtn">REMOVE</button>'
                             innerHtml+='</div>'
                             innerHtml+='<div class = "col-6 text-right">'
-                            innerHtml+='<button type="button" class="btn " onclick="SaveTask('+"'"+dataResult.subtask[i]._id['$oid']+"'"+')" id = "sessSaveBtn">SAVE</button>'
+                            innerHtml+='<button type="button" class="btn " onclick="SaveTask('+i+','+"'"+dataResult.subtask[i]._id['$oid']+"'"+')" id = "sessSaveBtn">SAVE</button>'
                             innerHtml+='</div>'
                             innerHtml+='</div>'
                             innerHtml+='</div>'
@@ -774,6 +774,37 @@ var timer = {
                 console.log('error')		 
                 }
             })
+        }
+        function SaveTask(i, res){
+            console.log(res)
+            var name = document.getElementById('inputtext'+i).value
+            var note = document.getElementById('note'+i).value
+            // console.log(id)
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/update_subtask.php",
+                dataType: "json",
+                 data:{
+                    id: res,
+                    name: name,
+                    note: note
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                    Swal.fire({
+                    title: 'UPDATE SUCCESS',
+			        confirmButtonColor: "#783937",
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(function() {
+                        location.reload();
+                    });
+                },error:function(err){
+              console.log('error')		 
+            }
+            })
+            
         }
         function removeSubtask(res){
             // console.log(res)
