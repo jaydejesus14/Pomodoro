@@ -1,22 +1,37 @@
 <?php
 include 'database.php';
 
-$json_return = array();
+// $where = array (
+//     'email' => 1
+// );
 
-$user_select_fields = array(
-    'Fname' => 1,
-    'Lname' => 1,
-    'user_name' => 1,
-    'email' => 1
-);
+// $select_fields = array(
+//     'Fname' => 1,
+//     'Lname' => 1,
+//     'user_name' => 1,
+//     'email' => 1
+// );
 
-$user_options = array(
-    'projection' => $user_select_fields
-);
-$cursor = $db->users->find($user_options);
-$viewusers = $cursor->toArray();
+// $options = array(
+//     'projection' => $select_fields
+// );
 
-$json_return['viewusers'] = $viewusers;
 
+
+// $cursor = $db->users->find($options);
+// $docs = $cursor->toArray();
+$ne = "pivotacc.pomodoro@gmail.com";
+$cursor = $db->users->find();
+
+// echo '<pre>';
+
+// foreach ( $cursor as $current )
+//     print_r($current);
+
+// echo '</pre>';
+
+$docs = $cursor->toArray();
+
+echo json_encode($docs);
 
  ?>
