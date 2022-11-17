@@ -869,6 +869,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
     
       var btns = document.getElementsByClassName("currentSession");
       const mainButton = document.getElementById('timerStart_btn');
+      
       mainButton.addEventListener('click', () => {
         const { action } = mainButton.dataset;
         if (action === 'START') {
@@ -927,6 +928,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         mainButton.dataset.action = 'STOP';
         mainButton.textContent = 'STOP';
         mainButton.classList.add('active');
+      
         
       
         interval = setInterval(function() {
@@ -942,13 +944,17 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
               case 'pomodoro':
                 if (timer.sessions % timer.longBreakInterval === 0) {
                   switchMode('longBreak');
+                  is_completed(reference_index)
+                  mainButton.disabled=true;
                 } else {
                   switchMode('shortBreak');
+                  is_completed(reference_index)
+                  mainButton.disabled=true;
                 }
                 break;
               default:
                 switchMode('pomodoro');
-                is_completed(reference_index)
+                
                 // move(completed,0)
             }
       

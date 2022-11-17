@@ -502,16 +502,19 @@ var timer = {
               is_completed(currentSessionId)
                 orderSession()
                 move(completed,0)
+                mainButton.disabled=true;
             } else {
               switchMode('shortBreak');
               completed++
                 is_completed(currentSessionId)
                 orderSession()
                 move(completed,0)
+                mainButton.disabled=true;
             }
             break;
           default:
             switchMode('pomodoro');
+            mainButton.disabled=false;
            
         }
   
