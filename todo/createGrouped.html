@@ -117,7 +117,7 @@
                
             }
             var task_name = document.getElementById('task_name').value
-            if(task_name != ''){
+            if(task_name != '' && subtask != ''){
                 pomodoro = document.getElementById('pomodoro').value
                 short_break = document.getElementById('short_break').value
                 long_break = document.getElementById('long_break').value
@@ -191,6 +191,12 @@
                             cache:false,
                             success: function(dataResult){
                                 if(dataResult.status){
+                                    Swal.fire({
+                                    title: 'Grouped Task Created', 
+                                    confirmButtonColor: "#783937",
+                                    icon: 'success',
+                                    confirmButtonText: 'OK'
+                                   })
                                     window.location.href = "./todoList.html";
                                 }else{
                                     alert(dataResult.message)
@@ -206,7 +212,7 @@
             Swal.fire({
                     title: 'Invalid Input',
                     confirmButtonColor: "#783937",
-                    text: 'Task Name is Required to Proceed',
+                    text: 'Task Name and Subtasks are required in order to Proceed',
                     icon: 'info',
                     confirmButtonText: 'OK'
                 })
