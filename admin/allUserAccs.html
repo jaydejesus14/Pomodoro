@@ -93,23 +93,21 @@
              
                 cache:false,
                 success: function(dataResult){
-                    var arrayUser = dataResult.viewusers;
-                    data = ''
 
+                    var innerHtml = ''
                     console.log(dataResult)
-                    for (let i = 0 ; dataResult.viewusers.length > i ; i++){
-                        data+='<tr>'
-                        data+='<td>'+ arrayUser[i].Fname +'</td>'
-                        data+='<td>'+ arrayUser[i].Lname +'</td>'
-                        data+='<td>'+ arrayUser[i].username +'</td>'
-                        data+='<td>'+ arrayUser[i].email +'</td>'
-                        data+='</tr>'
 
-
+                    for (let i = 0 ; dataResult.length > i ; i++){
+                        if(dataResult[i].email!='pivotacc.pomodoro@gmail.com'){
+                        innerHtml+='<tr>'
+                        innerHtml+='<td>'+ dataResult[i].Fname +'</td>'
+                        innerHtml+='<td>'+ dataResult[i].Lname +'</td>'
+                        innerHtml+='<td>'+ dataResult[i].user_name +'</td>'
+                        innerHtml+='<td>'+ dataResult[i].email +'</td>'
+                        innerHtml+='</tr>'}
 
                     }
-                    console.log(dataResult)
-                    $('#tbl_user').html(data)
+                    $('#tbl_user').html(innerHtml)
                 },error:function(err){
                     console.log(err)
                 }
