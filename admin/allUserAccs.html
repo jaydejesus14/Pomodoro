@@ -41,31 +41,11 @@
                     </table>
                 <div class = "row text-center mt-3">
                     <div class = "assessmentContent1">
-                    <table class="table table-hover" style="width: 950px;">
-                        <tbody>
+                    <table id ="user_Table"class="table table-hover" style="width: 950px;">
+                        <tbody id ="tbl_user" >
+                                                
                             <!-- User Account -->
-                          <tr>
-                            <td colspan="0" style ="font-size: 20px;  width: 300px; padding: 20px;" class = "text-left">First Name Last Name</td>
-                            <td style ="font-size: 20px; max-width: 200px; padding: 20px;">username1</td>
-                            <td style ="font-size: 20px; max-width: 200px; padding: 20px;" >username@gmail.com  </td>
-                            <td class = "text-right" style="width: 100px; padding: 20px;"><button class="btn" onclick="window.location.href='viewUserAdmin.html'"><i class="fa fa-file"></i></button></td>
-                          </tr>
-
-                         <!-- User Account -->
-                         <tr>
-                            <td colspan="0" style ="font-size: 20px;  width: 300px; padding: 20px;" class = "text-left">First Name Last Name</td>
-                            <td style ="font-size: 20px; max-width: 200px; padding: 20px;">username1</td>
-                            <td style ="font-size: 20px; max-width: 200px; padding: 20px;" >username@gmail.com  </td>
-                            <td class = "text-right" style="width: 100px; padding: 20px;"><button class="btn" onclick="window.location.href='viewUserAdmin.html'"><i class="fa fa-file"></i></button></td>
-                          </tr>
-                          <!-- User Account -->
-                         <!-- User Account -->
-                         <tr>
-                            <td colspan="0" style ="font-size: 20px;  width: 300px; padding: 20px;" class = "text-left">First Name Last Name</td>
-                            <td style ="font-size: 20px; max-width: 200px; padding: 20px;">username1</td>
-                            <td style ="font-size: 20px; max-width: 200px; padding: 20px;" >username@gmail.com  </td>
-                            <td class = "text-right" style="width: 100px; padding: 20px;"><button class="btn" onclick="window.location.href='viewUserAdmin.html'"><i class="fa fa-file"></i></button></td>
-                          </tr>                          
+                                             
                         </tbody>
                       </table>
                     </div>
@@ -78,6 +58,7 @@
 
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script>
+        
     $.get("../navigationBar.html", function(data){
         $("#nav-placeholder").replaceWith(data);
         });
@@ -101,10 +82,40 @@
  
              window.location = "http://localhost/pomodoro/timer.html";
          };
-  
+  </script>
+  <script>
+         showUsers()
+        function showUsers(){
+            $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/admin_viewuser.php",
+                dataType: "json",
              
+                cache:false,
+                success: function(dataResult){
+                    var arrayUser = dataResult.viewusers;
+                    innerHtml = ''
+                    console.log(dataResult)
+
+                    for (let i = 0 ; dataResult.viewusers.length > i ; i++){
+                        innerHtml+='<tr>'
+                        innerHtml+='<td>'+ arrayUser[i].Fname +'</td>'
+                        innerHtml+='<td>'+ arrayUser[i].Lname +'</td>'
+                        innerHtml+='<td>'+ arrayUser[i].username +'</td>'
+                        innerHtml+='<td>'+ arrayUser[i].email +'</td>'
+                        innerHtml+='</tr>'
+
+
+
+                    }
+                    $('#tbl_user').html(data)
+                },error:function(err){
+                    console.log(err)
+                }
+            })
+        }     
         
- 
+    //not working
      </script>
    
 
