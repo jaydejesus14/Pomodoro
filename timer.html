@@ -154,7 +154,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                     <div class="col">
                  
 
-                        <button class="btn-block skip_btn active" id = "skip_btn">
+                        <button class="btn-block skip_btn" id = "skip_btn" disabled>
                     <i class="fa fa-fast-forward" id = "timerIcons" style="font-size:30px"></i>
                         </button>
                      
@@ -869,6 +869,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
     
       var btns = document.getElementsByClassName("currentSession");
       const mainButton = document.getElementById('timerStart_btn');
+      const skipBtn = document.getElementById("skip_btn")
       
       mainButton.addEventListener('click', () => {
         const { action } = mainButton.dataset;
@@ -946,14 +947,18 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                   switchMode('longBreak');
                   is_completed(reference_index)
                   mainButton.disabled=true;
+                  skipBtn.disabled=false;
                 } else {
                   switchMode('shortBreak');
                   is_completed(reference_index)
                   mainButton.disabled=true;
+                  skipBtn.disabled=false;
                 }
                 break;
               default:
                 switchMode('pomodoro');
+                mainButton.disabled=false;
+                skipBtn.disabled=true;
                 
                 // move(completed,0)
             }

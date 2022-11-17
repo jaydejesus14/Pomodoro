@@ -158,7 +158,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                     <div class="col">
                  
 
-                        <button class="btn-block skip_btn active" id = "skip_btn">
+                        <button class="btn-block skip_btn " id = "skip_btn" disabled>
                     <i class="fa fa-fast-forward" id = "timerIcons" style="font-size:30px"></i>
                         </button>
                      
@@ -404,6 +404,7 @@ var timer = {
   var btns = document.getElementsByClassName("currentSession");
   const mainButton = document.getElementById('timerStart_btn');
   const settings = document.getElementById("settingIcon")
+  const skipBtn = document.getElementById("skip_btn")
   mainButton.addEventListener('click', () => {
     if(!is_start){
         is_start = true
@@ -503,6 +504,7 @@ var timer = {
                 orderSession()
                 move(completed,0)
                 mainButton.disabled=true;
+                skipBtn.disabled=false;
             } else {
               switchMode('shortBreak');
               completed++
@@ -510,11 +512,13 @@ var timer = {
                 orderSession()
                 move(completed,0)
                 mainButton.disabled=true;
+                skipBtn.disabled=false;
             }
             break;
           default:
             switchMode('pomodoro');
             mainButton.disabled=false;
+            skipBtn.disabled=true;
            
         }
   

@@ -433,9 +433,9 @@ circle{
   border: none;
   margin-top: 30px;
   font-size: 30px;
-  display: none;
+
 }
-.skip_btn.active {
+.skip_btn:disabled {
   border-radius: 50px;
   color: black;
   background-color: transparent;
@@ -444,6 +444,7 @@ circle{
   border: none;
   margin-top: 30px;
   font-size: 30px;
+  display: none;
 
 }
 #sessions_btns {
