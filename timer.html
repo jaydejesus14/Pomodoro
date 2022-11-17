@@ -102,7 +102,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                             <div class = "row text-center">
                                 
                                 <div class = "col-4 mt-2 mb-4">
-                                    <input type = "number" class = "timeRoutine text-center" id = "timeRoutine" value ="" data-id='inputnumber' step="5" min="10" max ="60"></input>
+                                    <input type = "number" class = "timeRoutine text-center" id = "timeRoutine" value ="" data-id='inputnumber' step="5" min="10" max ="60" style="cursor:none ;"></input>
                                 </div>
                       
                         
@@ -386,15 +386,15 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                     <div class = "row text-center">
                         
                         <div class = "col-4 mt-2 mb-4">
-                            <input type = "number" class = "timeRoutine text-center" id = "timeRoutinea" value ="25" data-id='inputnumber' step="5" min="20" max ="60"></input>
+                            <input type = "number" class = "timeRoutine text-center" id = "timeRoutinea" value ="25" data-id='inputnumber' step="5" min="20" max ="60" readonly></input>
                         </div>
               
                 
                     <div class = " col-4 mt-2 mb-4">
-                        <input type = "number" class = "timeRoutine text-center" id = "timeRoutine1a" value ="05" step="5" max ="15" min="5"></input>
+                        <input type = "number" class = "timeRoutine text-center" id = "timeRoutine1a" value ="05" step="5" max ="15" min="5" readonly></input>
                     </div>
                     <div class = " col-4 mt-2 mb-4">
-                        <input type = "number" class = "timeRoutine text-center" id = "timeRoutine2a" value ="05" step="5" max ="15" min="5"></input>
+                        <input type = "number" class = "timeRoutine text-center" id = "timeRoutine2a" value ="05" step="5" max ="15" min="5" readonly></input>
                     </div>
                    
                 </div>
@@ -687,7 +687,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         for (let i = 0; i < sessionArray.length; i++) {
             innerHtml +=' <div class = "row">'
             innerHtml +='<div class = "col-12 text-left">'
-            innerHtml +='<input type="text" class = "taskName2" value="'+sessionArray[i].name+'" id="todoName" placeholder="Session 1">'
+            innerHtml +='<input type="text" class = "taskName2" value="'+sessionArray[i].name+'" id="todoName" placeholder="Session 1" readonly>'
             innerHtml +='</div>'
             innerHtml +='</div>'
         }
