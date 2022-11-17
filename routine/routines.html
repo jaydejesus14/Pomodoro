@@ -185,7 +185,7 @@
                         innerHtml+='<div class = "row  justify-content-md-center text-center" id ="accordionSession'+i+'">'
                         innerHtml+='<div class = "col-8 text-left">'
                         innerHtml+='<div class = "sessionListName">'
-                        innerHtml+='<input class ="routineNameInput" value="'+dataResult[i].routine_name+'" type = "text" placeholder="Session #" style="color: white">'
+                        innerHtml+='<span class ="routineName1" value="">'+dataResult[i].routine_name+'</span>'
                         innerHtml+='</div>'
                         innerHtml+='</div>'
                         innerHtml+='<div class ="col-1 text-right ">'
@@ -250,7 +250,6 @@
     function passIdToConvertSession(res){
            
             localStorage.setItem('routineId',res)
-            alert(localStorage.getItem('routineId'))
             
             window.location.href = "../routineTimer.html";
             window.location.reload ="../routineTimer.html";

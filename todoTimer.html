@@ -219,7 +219,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                     </div>
                       </div>
                     <div class ="col-2 text-right mt-1 mr-3">
-                <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i>
+                <!-- <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i> -->
                 </div>
                 </div>
 
@@ -270,14 +270,14 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         
           
         <!-- ADDING A SESSION !-->
-        <div class = "row justify-content-md-center text-center mx-auto">
+        <!-- <div class = "row justify-content-md-center text-center mx-auto">
             <div class = "col">
                 <button class="btn-block text-center" id = "addSession_btn"  onClick = addASession()>
                          <i class="fa fa-plus-circle" style="font-size:24px; margin-right:10px;" id="indivIcon"></i> ADD A SESSION
                 </button>
             </div>
         </div>
-        <hr class="solid" style="margin-bottom: 10px" id="hrWhite2">
+        --> <hr class="solid" style="margin-bottom: 10px" id="hrWhite2">
 
          <!-- COMPLETED SESSIONS LIST !-->
          <div class = "row justify-content-md-center text-center mx-auto">
@@ -287,7 +287,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                         </div>
                         </div>
                         <div class ="col-2 text-right mt-1 mr-3">
-                    <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i>
+                    <!-- <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i> -->
             </div>
         </div>
         <div class = "row justify-content-md-center text-center mx-auto" id="completedPomodoro">
@@ -354,6 +354,8 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         
             return "Data will be lost if you leave the page. Make sure to save the sessions to routines in order to prevent this.";
         };
+
+        // disabling customize timer
         $.ajax({
                 type:"POST",
                 url: "http://localhost/pomodoro/api/customize_settings.php",

@@ -1170,7 +1170,6 @@ textarea {
   font-size: 16px;
   padding: 10px;
   border-radius: 10px;
-  cursor:default;
 }
 
 
@@ -1594,6 +1593,11 @@ textarea {
 
 #routineName {
   font-size: 22px;
+}
+.routineName1 {
+  font-size: 22px;
+  color: white;
+  cursor: default;
 }
 #routineTime {
   font-size: 22px;
