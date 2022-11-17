@@ -94,20 +94,21 @@
                 cache:false,
                 success: function(dataResult){
                     var arrayUser = dataResult.viewusers;
-                    innerHtml = ''
-                    console.log(dataResult)
+                    data = ''
 
+                    console.log(dataResult)
                     for (let i = 0 ; dataResult.viewusers.length > i ; i++){
-                        innerHtml+='<tr>'
-                        innerHtml+='<td>'+ arrayUser[i].Fname +'</td>'
-                        innerHtml+='<td>'+ arrayUser[i].Lname +'</td>'
-                        innerHtml+='<td>'+ arrayUser[i].username +'</td>'
-                        innerHtml+='<td>'+ arrayUser[i].email +'</td>'
-                        innerHtml+='</tr>'
+                        data+='<tr>'
+                        data+='<td>'+ arrayUser[i].Fname +'</td>'
+                        data+='<td>'+ arrayUser[i].Lname +'</td>'
+                        data+='<td>'+ arrayUser[i].username +'</td>'
+                        data+='<td>'+ arrayUser[i].email +'</td>'
+                        data+='</tr>'
 
 
 
                     }
+                    console.log(dataResult)
                     $('#tbl_user').html(data)
                 },error:function(err){
                     console.log(err)
