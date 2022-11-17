@@ -75,7 +75,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
            box-shadow: none">
                 <div class = "row justify-content-md-center text-center ml-auto mr-3 mb-1">
                         <div class = "col ">
-                            <div class = "settingsIcon">
+                            <div class = "settingsIcon" id = "settingIcon">
                             <i class="fa fa-cog" data-toggle = "modal" data-target = "#settings" id="timerIcons" style="font-size:24px; z-index:9"></i>
                         </div>
                         </div>
@@ -350,6 +350,37 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         window.location = window.location + '#loaded';
         window.location.reload();
     }}
+    window.onbeforeunload = function() {
+        
+            return "Data will be lost if you leave the page. Make sure to save the sessions to routines in order to prevent this.";
+        };
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/customize_settings.php",
+                dataType: "json",
+                data:{
+                    id: localStorage.getItem('majorTaskId'),
+                    key: 'check',
+
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                 
+                    for (let i = 0 ; dataResult.started.length > i ; i++){
+                        console.log(dataResult.started[i].start_date)
+                        if(dataResult.started[i].start_date === undefined){
+                            settings.style.pointerEvents = 'auto';
+                        } else {
+                            settings.style.pointerEvents = 'none';
+                        }
+                    }
+                },error:function(err){
+                    console.log('error')		 
+                }
+            })
+
+     
 
 var timer = {
     pomodoro: localStorage.getItem('pomodoro'),
@@ -370,6 +401,7 @@ var timer = {
 
   var btns = document.getElementsByClassName("currentSession");
   const mainButton = document.getElementById('timerStart_btn');
+  const settings = document.getElementById("settingIcon")
   mainButton.addEventListener('click', () => {
     if(!is_start){
         is_start = true
@@ -386,6 +418,7 @@ var timer = {
 
         var maxDate = year + '-' + month + '-' + day;
         var time = hr + ':' + min;
+        settings.style.pointerEvents = 'none';
         // startDate = new Date('Y-m-D')
         // console.log()
 
