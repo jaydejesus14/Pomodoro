@@ -785,7 +785,7 @@ function createElement(tagName, className, innerText) {
              var data = [];
              for (i = 0; i < response.length; i++) {
                if(response[i].status != 'Cancelled'){
-             data.push({ eventName: response[i].task_name+" "+response[i].user_last_name+" "+response[i].time, calendar: 'Appointment', color: 'green', date:response[i].start_date })
+             data.push({ eventName: response[i].task_name, calendar: 'Appointment', color: 'green', date:response[i].start_date })
                }
              }
              var calendar = new Calendar('#myCalendar', data);
