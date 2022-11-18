@@ -94,7 +94,7 @@
                                     <span class = "titleReports text-center">
                                         NO. OF TASKS COMPLETED:
                                     </span>
-                                    <div class = "summaryNo text-center">
+                                    <div class = "summaryNo text-center" id = "todoSummary1">
                                         10
                                     </div>
                                 </div> 
@@ -104,7 +104,7 @@
                                     <span class = "titleReports text-center">
                                         NO. OF ROUTINES COMPLETED:
                                     </span>
-                                    <div class = "summaryNo text-center">
+                                    <div class = "summaryNo text-center" id = "routineSummary">
                                         10
                                     </div>
                                 </div> 
@@ -272,6 +272,10 @@
                             var innerHtmlAssessments = ''
                             var innerHtmlTask = ''
                             var innerHtmlRoutine = ''
+                            var innerHtmlTodoSummary = ''
+                            var innerHtmlRoutineSummary = ''
+                           
+                            
                             for(let i = 0; dataResult.assessments.length > i; i++){
                                 var managementSkill = ''
                                 if(arrayAssessments[i].points >= 45 && arrayAssessments[i].points <= 50 ){
@@ -290,6 +294,7 @@
                                 innerHtmlAssessments+='</tr>'
                             }
                             for(let i = 0; dataResult.task.length > i; i++){
+                                todoSum = i;
                                 innerHtmlTask+='<tr>'
                                 innerHtmlTask+='<td colspan="2" class = "text-left">'+arrayTask[i].task_name+'</td>'
                                 innerHtmlTask+='<td>'+arrayTask[i].pomodoro+':00</td>'
@@ -297,8 +302,10 @@
                                 innerHtmlTask+='<td>'+arrayTask[i].start_date+'/'+arrayTask[i].start_time+'</td>'
                                 innerHtmlTask+='<td>'+arrayTask[i].end_date+'/'+arrayTask[i].end_time+'</td>'
                                 innerHtmlTask+='</tr>'
+                                
                             }
                             for(let i = 0; dataResult.routine.length > i; i++){
+                                
                                 innerHtmlRoutine += '<tr>'
                                 innerHtmlRoutine += '<td colspan="2" class = "text-left">'+arrayRoutine[i].routine_name+'</td>'
                                 innerHtmlRoutine += '<td>'+arrayRoutine[i].pomodoro+':00</td>'
@@ -309,12 +316,20 @@
                                     innerHtmlRoutine += '<td>0</td>'
                                 }
                                 innerHtmlRoutine += '</tr>'
+                                
                             }
 
                                 // console.log(arrayRoutine)
+                            
+                                innerHtmlTodoSummary+=dataResult.task.length
+                                innerHtmlRoutineSummary += dataResult.routine.length
+                               
                             $('#task').html(innerHtmlTask)
                             $('#assessments').html(innerHtmlAssessments)
                             $('#routine').html(innerHtmlRoutine)
+                            $('#todoSummary1').html(innerHtmlTodoSummary)
+                        
+                            $('#routineSummary').html(innerHtmlRoutineSummary)
 
                         },error:function(err){
                             console.log('error')		 
