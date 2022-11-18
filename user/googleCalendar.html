@@ -15,7 +15,7 @@
 }
 
 body {
- overflow: hidden;
+ overflow: scroll;
  font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
  font-weight: 100;
  color: rgba(255, 255, 255, 1);
@@ -40,12 +40,13 @@ body {
 }
 
 .header {
-  height: 50px;
-  width: 420px;
+  height: 150px;
+  width: 890px;
+  margin-bottom: -100px;
   background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%);
   text-align: center;
   position:relative;
-  z-index: 100;
+  z-index: 100px;
 }
 
 .header h1 {
@@ -55,6 +56,7 @@ body {
   line-height: 50px;
   font-weight: 100;
   letter-spacing: 1px;
+  top: 30px;
 }
 
 .left, .right {
@@ -71,12 +73,14 @@ body {
   border-width: 7.5px 10px 7.5px 0;
   border-color: transparent rgba(160, 159, 160, 1) transparent transparent;
   left: 20px;
+  top: 60px;
 }
 
 .right {
   border-width: 7.5px 0 7.5px 10px;
   border-color: transparent transparent transparent rgba(160, 159, 160, 1);
   right: 20px;
+  top: 60px;
 }
 
 .month {
@@ -124,7 +128,7 @@ body {
 
 .day {
   display: inline-block;
-  width: 60px;
+  width: 127px;
   padding: 10px;
   text-align: center;
   vertical-align: top;
@@ -146,7 +150,7 @@ body {
   font-size: 9px;
   text-transform: uppercase;
   margin-bottom: 5px;
-  color: rgba(255, 255, 255, .5);
+  color: black;
   letter-spacing: .7px;
 }
 
@@ -183,7 +187,7 @@ body {
 
 .details {
   position: relative;
-  width: 420px;
+  width: 890px;
   height: 75px;
   background: rgba(164, 164, 164, 1);
   margin-top: 5px;
@@ -206,7 +210,7 @@ body {
   position: absolute;
   top: -5px;
   left: 50%;
-  margin-left: -2px;
+  margin-left: 35px;
   width: 0px;
   height: 0px;
   border-style: solid;
@@ -217,6 +221,7 @@ body {
 
 .events {
   height: 75px;
+  width: 890px;
   padding: 7px 0;
   overflow-y: auto;
   overflow-x: hidden;
@@ -274,13 +279,12 @@ body {
 }
 
 .legend {
-  position: absolute;
+  position: relative;
   bottom: 0;
-  width: 100%;
+  width: 890px;
   height: 30px;
   background: rgba(60, 60, 60, 1);
   line-height: 30px;
-
 }
 
 .entry {
@@ -300,6 +304,13 @@ body {
   top: 12px;
   left: 14px;
 }
+
+.center-cal {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
 
 .entry.blue:after { background: rgba(156, 202, 235, 1); }
 .entry.orange:after { background: rgba(247, 167, 0, 1); }
@@ -407,7 +418,7 @@ body {
             <h1 class="fontsz">Calendar</h1>
             <hr class="solid2">
         </div>
-    <div id = "myCalendar">
+    <div id = "myCalendar" class="center-cal">
         
     </div>
     <!--
