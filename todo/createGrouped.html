@@ -25,6 +25,8 @@
                             <label>TASK NAME: </label>
                             <input type = "text" class="groupedInput form-control" id = "task_name">
                         </div>
+                        <label>DUE DATE:</label>
+                         <input type = "date" class="groupedInput form-control mb-2" id = "due_date">
                        
                             <label>TIMER SETTINGS (minutes): </label>
                             <div class = "row text-center">
@@ -186,6 +188,7 @@
                                 pomodoro: document.getElementById('pomodoro').value,
                                 short_break: document.getElementById('short_break').value,
                                 long_break: document.getElementById('long_break').value,
+                                due_date: document.getElementById('due_date').value,
                                 sub_task_name: subtask,
                             },
                             cache:false,

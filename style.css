@@ -1963,7 +1963,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   overflow-x: hidden;
 
 }
-
+/* 
 input[type="date"] { 
   background: white;
   color: black;
@@ -1972,7 +1972,7 @@ input[type="date"] {
 
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(100%);
-}
+} */
 
 .titleReports {
   font-size: 18px;

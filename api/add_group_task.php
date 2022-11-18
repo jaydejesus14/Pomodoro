@@ -5,6 +5,7 @@
   $pomodoro = $_POST['pomodoro'];
   $short_break = $_POST['short_break'];
   $long_break = $_POST['long_break'];
+  $due_date = $_POST['due_date'];
   $subtaskName = $_POST['sub_task_name'];
 
 
@@ -15,7 +16,8 @@ $to_insert = array(
 		"task_name" => $task_name,
 		"pomodoro" => $pomodoro,
 		"short_break" => $short_break,
-		"long_break" => $long_break
+		"long_break" => $long_break,
+    "due_date" => $due_date
 );
 
 // $result = $db->users->findOne(array("email" => $email,"password"=>$password));
