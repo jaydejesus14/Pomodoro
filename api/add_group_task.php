@@ -15,7 +15,7 @@ $to_insert = array(
 		"task_name" => $task_name,
 		"pomodoro" => $pomodoro,
 		"short_break" => $short_break,
-		"long_break" => $long_break 
+		"long_break" => $long_break
 );
 
 // $result = $db->users->findOne(array("email" => $email,"password"=>$password));
