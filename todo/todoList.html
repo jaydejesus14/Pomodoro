@@ -301,9 +301,35 @@
                         innerHtml+='<button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color: transprent; border-color: transparent;"><i class="fa fa-caret-square-down" id="todoDrop" ></i></button>'
                         innerHtml+='<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">'
                         innerHtml+='<a class="dropdown-item" href="#" onclick="passIdToConvertSession('+"'"+dataResult[i].id['$oid']+"'"+')">Convert to Session</a>'
-                        innerHtml+='<a class="dropdown-item" href="#" >Edit Task Name</a>'
+                        innerHtml+='<a class="dropdown-item" href="#" data-toggle = "modal" data-target = "#editing'+i+'" >Edit Task</a>'
                         innerHtml+='<a class="dropdown-item" href="#" onclick="removeMajorTask('+"'"+dataResult[i].id['$oid']+"'"+')">Delete Task</a>'
-                        innerHtml+='</div></div></div>'
+                        innerHtml+='</div>'
+                        innerHtml+='<div class = "modal fade " id="editing'+i+'" role="dialog">'
+                            innerHtml+='<div class = "modal-dialog modal-dialog-centered">'
+                            innerHtml+='<div class = "modal-content">'
+                            innerHtml+='<div class = "modal-header text-center d-block  "><h4 class="modal-title  d-inline-block">EDIT TASK</h4></div>'
+                            innerHtml+='<div class = "modal-body">'
+                            innerHtml+='<div class = "row  justify-content-md-center text-center">'
+                            innerHtml+='<div class = "col-8 text-center">'
+                            innerHtml+='<span class = "text-left">Session Name: </span><input class ="sessionOnTimerInput" id = "inputtext'+i+'" type = "text" value="'+dataResult[i].task_name+'"  style="color: black">'
+                            innerHtml+='<span class = "text-left mt-3">Due Date: </span>'
+                            innerHtml+=' <input type = "date" class="groupedInput form-control mb-2" value"'+dataResult[i].due_date+'"placeholder="'+dataResult[i].due_date+'" id = "due_date'+i+'">'
+                            innerHtml+='</div>'
+                            innerHtml+='</div>'
+                            innerHtml+='<div class = "modal-footer">'
+             
+                            innerHtml+='<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'
+                            innerHtml+='<button type="button" class="btn btn-primary" onclick="SaveTask('+i+','+"'"+dataResult[i].id['$oid']+"'"+')"  id = "modal-save">Save changes</button>'
+                            innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        innerHtml+='</div>'
+                        
+                        
+                        
                         innerHtml+='<span id = "content" class = "todoTitle2 text-center">'+dataResult[i].task_name+'</span>'
                         innerHtml+='<hr class="solid" id="hrBlack">'
                         innerHtml+='<div class = "row">'
@@ -647,6 +673,34 @@
                     })
                     // location.reload();
                 }})
+       }
+       function SaveTask(input, id){
+        var todoName = document.getElementById('inputtext'+input).value
+        var dueDate = document.getElementById('due_date'+input).value
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/update_todo_nameDate.php",
+                dataType: "json",
+                 data:{
+                    todo_id: id,
+                    input: todoName,
+                    inputDate: dueDate
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                    Swal.fire({
+                    title: 'To-Do has been updated',
+			        confirmButtonColor: "#783937",
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(function() {
+                    location.reload();
+                });
+                },error:function(err){
+              console.log('error')		 
+            }
+            })
        }
        function UpdateTodo(id,input){
         var todoName = document.getElementById('todoName'+input).value
