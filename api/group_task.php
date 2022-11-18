@@ -26,6 +26,7 @@ $select_fields = array(
     'task_name' => 1,
     'short_break' => 1,
     'long_break' => 1,
+    'due_date' => 1,
     'end_date' => 1
 );
 $options = array(
@@ -66,6 +67,7 @@ foreach ($docs as $key => $value){
     $json_array['task_name'] = $value['task_name'];
     $json_array['short_break'] = $value['short_break'];
     $json_array['long_break'] = $value['long_break'];
+    $json_array['due_date'] = $value['due_date'];
     $json_array['subtask'] = $subtask;
     $json_return[] = $json_array;
 
