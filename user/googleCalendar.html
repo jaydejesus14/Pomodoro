@@ -800,7 +800,7 @@ function createElement(tagName, className, innerText) {
              var data = [];
              for (i = 0; i < response.length; i++) {
              
-             data.push({ eventName: response[i].task_name, calendar: 'Tasks', color: 'green', date:response[i].due_date })
+             data.push({ eventName: response[i].task_name, calendar: 'Tasks', color: 'blue', date:response[i].due_date })
              }
              var calendar = new Calendar('#myCalendar', data);
            }
