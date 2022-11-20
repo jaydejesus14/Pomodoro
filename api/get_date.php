@@ -1,12 +1,23 @@
 <?php
 
 include 'database.php';
+$where = array(
+    'user_id' => $_POST['user_id']
+);
 
-$cursor = $db -> groupTask -> find();
-$route = $db -> session -> find();
-$date = $cursor -> toArray();
-$routine = $route -> toArray();
 
-echo json_encode(array_merge($date,$routine));
+$select_fields = array(
+    'task_name' => 1,
+    'due_date' => 1,
+);
 
+$options = array(
+    'projection' => $select_fields
+);
+$cursor = $db -> groupTask -> find($where, $options);
+
+$docs = $cursor->toArray();
+
+echo json_encode($docs);
+  
 ?>

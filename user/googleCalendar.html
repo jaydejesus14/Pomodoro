@@ -793,13 +793,14 @@ function createElement(tagName, className, innerText) {
            url:"http://localhost/pomodoro/api/get_date.php",
            type:"POST",
            dataType: 'json',
+           data: {
+           user_id: localStorage.getItem('user_id'),
+           },
            success:function(response){
-             var routine =[];
              var data = [];
              for (i = 0; i < response.length; i++) {
              
-             data.push({ eventName: response[i].task_name, calendar: 'Tasks', color: 'green', date:response[i].start_date })
-             routine.push({ eventName: response[i].routine_name, calendar: 'Routines', color: 'red', date:response[i].start_date })  
+             data.push({ eventName: response[i].task_name, calendar: 'Tasks', color: 'green', date:response[i].due_date })
              }
              var calendar = new Calendar('#myCalendar', data);
            }
