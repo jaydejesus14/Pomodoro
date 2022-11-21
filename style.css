@@ -1963,6 +1963,17 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   overflow-x: hidden;
 
 }
+.reportsTableCard1 {
+  background-color: white;
+  border-radius: 20px;
+  padding: 0px;
+  min-height: 750px;
+  max-height: 750px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
+
+}
 /* 
 input[type="date"] { 
   background: white;
