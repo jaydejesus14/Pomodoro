@@ -123,61 +123,61 @@
                 pomodoro = document.getElementById('pomodoro').value
                 short_break = document.getElementById('short_break').value
                 long_break = document.getElementById('long_break').value
-                        if (pomodoro < 20){
-                        Swal.fire({
-                                title: 'Warning!',
-                                text: '"The pomodoro timer cannot be less than 20 minutes!" ',
-                                confirmButtonColor: "#783937",
-                                icon: 'warning',
-                                confirmButtonText: 'OK'
-                            })
-                    }
-                    else if (pomodoro > 60){
-                        Swal.fire({
-                                title: 'Warning!',
-                                text: '"The pomodoro timer cannot exceed 60 minutes!" ',
-                                confirmButtonColor: "#783937",
-                                icon: 'warning',
-                                confirmButtonText: 'OK'
-                            })
-                    }
-                    else if(short_break < 2){
-                        Swal.fire({
-                                title: 'Warning!',
-                                text: '"The short break timer cannot be less than 2 minutes!" ',
-                                confirmButtonColor: "#783937",
-                                icon: 'warning',
-                                confirmButtonText: 'OK'
-                            })
-                    }
-                    else if(short_break > 5){
-                        Swal.fire({
-                                title: 'Warning!',
-                                text: '"The short break timer cannot be more than 5 minutes!" ',
-                                confirmButtonColor: "#783937",
-                                icon: 'warning',
-                                confirmButtonText: 'OK'
-                            })
-                    }
-                    else if(long_break < 10){
-                        Swal.fire({
-                                title: 'Warning!',
-                                text: '"The long break timer cannot be less than 10 minutes!" ',
-                                confirmButtonColor: "#783937",
-                                icon: 'warning',
-                                confirmButtonText: 'OK'
-                            })
-                    }
-                    else if(long_break > 20){
-                        Swal.fire({
-                                title: 'Warning!',
-                                text: '"The long break timer cannot be more than 20 minutes!" ',
-                                confirmButtonColor: "#783937",
-                                icon: 'warning',
-                                confirmButtonText: 'OK'
-                            })
-                    }
-                    else{
+                    // if (pomodoro < 20){
+                    //     Swal.fire({
+                    //             title: 'Warning!',
+                    //             text: '"The pomodoro timer cannot be less than 20 minutes!" ',
+                    //             confirmButtonColor: "#783937",
+                    //             icon: 'warning',
+                    //             confirmButtonText: 'OK'
+                    //         })
+                    // }
+                    // else if (pomodoro > 60){
+                    //     Swal.fire({
+                    //             title: 'Warning!',
+                    //             text: '"The pomodoro timer cannot exceed 60 minutes!" ',
+                    //             confirmButtonColor: "#783937",
+                    //             icon: 'warning',
+                    //             confirmButtonText: 'OK'
+                    //         })
+                    // }
+                    // else if(short_break < 2){
+                    //     Swal.fire({
+                    //             title: 'Warning!',
+                    //             text: '"The short break timer cannot be less than 2 minutes!" ',
+                    //             confirmButtonColor: "#783937",
+                    //             icon: 'warning',
+                    //             confirmButtonText: 'OK'
+                    //         })
+                    // }
+                    // else if(short_break > 5){
+                    //     Swal.fire({
+                    //             title: 'Warning!',
+                    //             text: '"The short break timer cannot be more than 5 minutes!" ',
+                    //             confirmButtonColor: "#783937",
+                    //             icon: 'warning',
+                    //             confirmButtonText: 'OK'
+                    //         })
+                    // }
+                    // else if(long_break < 10){
+                    //     Swal.fire({
+                    //             title: 'Warning!',
+                    //             text: '"The long break timer cannot be less than 10 minutes!" ',
+                    //             confirmButtonColor: "#783937",
+                    //             icon: 'warning',
+                    //             confirmButtonText: 'OK'
+                    //         })
+                    // }
+                    // else if(long_break > 20){
+                    //     Swal.fire({
+                    //             title: 'Warning!',
+                    //             text: '"The long break timer cannot be more than 20 minutes!" ',
+                    //             confirmButtonColor: "#783937",
+                    //             icon: 'warning',
+                    //             confirmButtonText: 'OK'
+                    //         })
+                    // }
+                    // else{
                         $.ajax({
                             type:"POST",
                             url: "http://localhost/pomodoro/api/add_group_task.php",
@@ -210,7 +210,7 @@
                         console.log('error')		 
                         }
                         })
-                    }
+                    // }
         }else{
             Swal.fire({
                     title: 'Invalid Input',

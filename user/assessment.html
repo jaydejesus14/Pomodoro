@@ -396,6 +396,7 @@
                         
                         cache:false,
                         success: function(dataResult){
+                          localStorage.removeItem('is_assessment')
                                   window.location.href = 'reports.html';
                                 },error:function(err){
                             console.log('error')		 

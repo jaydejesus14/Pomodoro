@@ -346,10 +346,14 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
     </script>
     <script>
        window.onload = function() {
-    if(!window.location.hash) {
-        window.location = window.location + '#loaded';
-        window.location.reload();
-    }}
+            if(!window.location.hash) {
+                window.location = window.location + '#loaded';
+                window.location.reload();
+            }
+            if(localStorage.getItem('is_assessment')){
+                window.location.href = 'user/assessment.html'   
+            }
+        }
 
 var timer = {
     pomodoro: localStorage.getItem('pomodoro'),
@@ -603,7 +607,7 @@ var timer = {
                     var completedInnerHtml = ''
                     var currentSessionIcons = ''
                     var currentSessionModals = ''
-                    
+                    countSession = 0
                     var setCurrent = true
                     for(let i = 0; i < dataResult.subtask.length; i++){
                      
@@ -826,6 +830,7 @@ var timer = {
                         cache:false,
                         success: function(dataResult){
                             if(!dataResult.is_exist){
+                                localStorage.setItem('is_assessment',true)
                                 window.location.href = 'user/assessment.html'
                             }else{
                                 availble_to_assess = false
@@ -848,12 +853,34 @@ var timer = {
                         
                         cache:false,
                         success: function(dataResult){
-                            console.log(dataResult.status)
-                            window.location.href = 'user/reports.html';
+                            $.ajax({
+                                    type:"POST",
+                                    url: "http://localhost/pomodoro/api/save_to_routine_reports.php",
+                                    dataType: "json",
+                                    data:{
+                                        user_id: localStorage.getItem('user_id'),
+                                        routineId: localStorage.getItem('routineId'),
+                                        pomodoro: localStorage.getItem('pomodoro'),
+                                        end_date: maxDate,
+                                        end_time: time,
+                                        totalTask: countSession
+
+                                    },
+                                    
+                                    cache:false,
+                                    success: function(dataResult){
+                                        console.log(dataResult.status)
+                                        window.location.href = 'user/reports.html';
+                                    },error:function(err){
+                                        console.log('error')		 
+                                    }
+                                })
                         },error:function(err){
                             console.log('error')		 
                         }
                     })
+
+                    
                     // 
             }
             if (i == 0) {

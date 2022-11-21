@@ -346,10 +346,15 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
     </script>
     <script>
        window.onload = function() {
-    if(!window.location.hash) {
-        window.location = window.location + '#loaded';
-        window.location.reload();
-    }}
+        if(!window.location.hash) {
+            window.location = window.location + '#loaded';
+            window.location.reload();
+        }
+        if(localStorage.getItem('is_assessment')){
+            // localStorage.setItem('is_assessment', true)
+            window.location.href = 'user/assessment.html'   
+        }
+    }
    
 
         // disabling customize timer
@@ -880,7 +885,7 @@ var timer = {
                                     confirmButtonText: 'OK',
                                     footer: '<a href="privacyPolicy.html" target="_blank">Privacy Policy</a>'
                             }).then((result) => {
-                        
+                                localStorage.setItem('is_assessment', true)
                                 window.location.href = 'user/assessment.html'
                             })
 
