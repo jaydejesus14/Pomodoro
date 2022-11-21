@@ -75,7 +75,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
            box-shadow: none">
                 <div class = "row justify-content-md-center text-center ml-auto mr-3 mb-1">
                         <div class = "col ">
-                            <div class = "settingsIcon">
+                            <div class = "settingsIcon" id = "settingIcon">
                             <i class="fa fa-cog" data-toggle = "modal" data-target = "#settings" id="timerIcons" style="font-size:24px; z-index:9"></i>
                         </div>
                         </div>
@@ -158,7 +158,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                     <div class="col">
                  
 
-                        <button class="btn-block skip_btn active" id = "skip_btn">
+                        <button class="btn-block skip_btn active" id = "skip_btn"disabled>
                     <i class="fa fa-fast-forward" id = "timerIcons" style="font-size:30px"></i>
                         </button>
                      
@@ -363,6 +363,8 @@ var timer = {
   let interval;
   const circle = document.getElementById('circle2');
   const length = circle.getTotalLength();
+  const settings = document.getElementById("settingIcon")
+  const skipBtn = document.getElementById("skip_btn")
    
     circle.style.strokeDasharray = length;
     circle.style.strokeDashoffset = length;
@@ -461,15 +463,26 @@ var timer = {
           case 'pomodoro':
             if (timer.sessions % timer.longBreakInterval === 0) {
               switchMode('longBreak');
+              is_completed(currentSessionId)
+              completed++
+                orderSession()
+                move(completed,0)
+                mainButton.disabled=true;
+                skipBtn.disabled=false;
             } else {
               switchMode('shortBreak');
+              completed++
+                is_completed(currentSessionId)
+                orderSession()
+                move(completed,0)
+                mainButton.disabled=true;
+                skipBtn.disabled=false;
             }
             break;
           default:
             switchMode('pomodoro');
-            completed++
-            is_completed(currentSessionId)
-            move(completed,0)
+            mainButton.disabled=false;
+            skipBtn.disabled=true;
         }
   
         startTimer();
