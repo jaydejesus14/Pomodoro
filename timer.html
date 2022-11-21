@@ -597,8 +597,14 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
             }
             // console.log('test array')
         }
+        
         $('#sessionList').html(innerHtml)
         $('#completed_session').html(completedInnerHtml)
+        if(val == 0){
+           stopTimer();
+           mainButton.disabled=true;
+            $('#currentSession').html('None')
+        }
     }
 
     function saveSessionTime(){
@@ -608,61 +614,61 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         short_break = document.getElementById('timeRoutine1').value
         long_break = document.getElementById('timeRoutine2').value
 
-        if (pomodoro < 20){
-            Swal.fire({
-                    title: 'Warning!',
-                    text: '"The pomodoro timer cannot be less than 20 minutes!" ',
-			        confirmButtonColor: "#783937",
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
-                })
-        }
-        else if (pomodoro > 60){
-            Swal.fire({
-                    title: 'Warning!',
-                    text: '"The pomodoro timer cannot exceed 60 minutes!" ',
-			        confirmButtonColor: "#783937",
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
-                })
-        }
-        else if(short_break < 2){
-            Swal.fire({
-                    title: 'Warning!',
-                    text: '"The short break timer cannot be less than 2 minutes!" ',
-			        confirmButtonColor: "#783937",
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
-                })
-        }
-        else if(short_break > 5){
-            Swal.fire({
-                    title: 'Warning!',
-                    text: '"The short break timer cannot be more than 5 minutes!" ',
-			        confirmButtonColor: "#783937",
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
-                })
-        }
-        else if(long_break < 10){
-            Swal.fire({
-                    title: 'Warning!',
-                    text: '"The long break timer cannot be less than 10 minutes!" ',
-			        confirmButtonColor: "#783937",
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
-                })
-        }
-        else if(long_break > 20){
-            Swal.fire({
-                    title: 'Warning!',
-                    text: '"The long break timer cannot be more than 20 minutes!" ',
-			        confirmButtonColor: "#783937",
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
-                })
-        }
-        else{
+        // if (pomodoro < 20){
+        //     Swal.fire({
+        //             title: 'Warning!',
+        //             text: '"The pomodoro timer cannot be less than 20 minutes!" ',
+		// 	        confirmButtonColor: "#783937",
+        //             icon: 'warning',
+        //             confirmButtonText: 'OK'
+        //         })
+        // }
+        // else if (pomodoro > 60){
+        //     Swal.fire({
+        //             title: 'Warning!',
+        //             text: '"The pomodoro timer cannot exceed 60 minutes!" ',
+		// 	        confirmButtonColor: "#783937",
+        //             icon: 'warning',
+        //             confirmButtonText: 'OK'
+        //         })
+        // }
+        // else if(short_break < 2){
+        //     Swal.fire({
+        //             title: 'Warning!',
+        //             text: '"The short break timer cannot be less than 2 minutes!" ',
+		// 	        confirmButtonColor: "#783937",
+        //             icon: 'warning',
+        //             confirmButtonText: 'OK'
+        //         })
+        // }
+        // else if(short_break > 5){
+        //     Swal.fire({
+        //             title: 'Warning!',
+        //             text: '"The short break timer cannot be more than 5 minutes!" ',
+		// 	        confirmButtonColor: "#783937",
+        //             icon: 'warning',
+        //             confirmButtonText: 'OK'
+        //         })
+        // }
+        // else if(long_break < 10){
+        //     Swal.fire({
+        //             title: 'Warning!',
+        //             text: '"The long break timer cannot be less than 10 minutes!" ',
+		// 	        confirmButtonColor: "#783937",
+        //             icon: 'warning',
+        //             confirmButtonText: 'OK'
+        //         })
+        // }
+        // else if(long_break > 20){
+        //     Swal.fire({
+        //             title: 'Warning!',
+        //             text: '"The long break timer cannot be more than 20 minutes!" ',
+		// 	        confirmButtonColor: "#783937",
+        //             icon: 'warning',
+        //             confirmButtonText: 'OK'
+        //         })
+        // }
+        // else{
             timer = {
             pomodoro: pomodoro,
             shortBreak:  short_break,
@@ -676,7 +682,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         }
         
         // updateClock()
-    }
+    // }
 
     function removeArray(index){
         sessionArray.splice(index, 1)
@@ -697,113 +703,114 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         pomodoro = document.getElementById('timeRoutinea').value
         short_break = document.getElementById('timeRoutine1a').value
         long_break = document.getElementById('timeRoutine2a').value
-        if(!localStorage.getItem('user_id')){
-        Swal.fire({
-                title: 'LOGIN FIRST!', 
-                confirmButtonColor: "#783937",
-                text: "Before proceeding, log-in or create an account. ",
-                icon: 'error',
-                confirmButtonText: 'OK'
-            }).then(function() {
-                window.location = "http://localhost/pomodoro/user/login.html";
-             });
+        // if(!localStorage.getItem('user_id')){
+        // Swal.fire({
+        //         title: 'LOGIN FIRST!', 
+        //         confirmButtonColor: "#783937",
+        //         text: "Before proceeding, log-in or create an account. ",
+        //         icon: 'error',
+        //         confirmButtonText: 'OK'
+        //     }).then(function() {
+        //         window.location = "http://localhost/pomodoro/user/login.html";
+        //      });
             
-            }
-        else if (pomodoro < 20){
-            Swal.fire({
-                    title: 'Warning!',
-                    text: '"The pomodoro timer cannot be less than 20 minutes!" ',
-			        confirmButtonColor: "#783937",
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
-                })
-        }
-        else if (pomodoro > 60){
-            Swal.fire({
-                    title: 'Warning!',
-                    text: '"The pomodoro timer cannot exceed 60 minutes!" ',
-			        confirmButtonColor: "#783937",
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
-                })
-        }
-        else if(short_break < 2){
-            Swal.fire({
-                    title: 'Warning!',
-                    text: '"The short break timer cannot be less than 2 minutes!" ',
-			        confirmButtonColor: "#783937",
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
-                })
-        }
-        else if(short_break > 5){
-            Swal.fire({
-                    title: 'Warning!',
-                    text: '"The short break timer cannot be more than 5 minutes!" ',
-			        confirmButtonColor: "#783937",
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
-                })
-        }
-        else if(long_break < 10){
-            Swal.fire({
-                    title: 'Warning!',
-                    text: '"The long break timer cannot be less than 10 minutes!" ',
-			        confirmButtonColor: "#783937",
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
-                })
-        }
-        else if(long_break > 20){
-            Swal.fire({
-                    title: 'Warning!',
-                    text: '"The long break timer cannot be more than 20 minutes!" ',
-			        confirmButtonColor: "#783937",
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
-                })
-        }    
-        else{
-            $.ajax({
-            type:"POST",
-            url: "http://localhost/pomodoro/api/add_routine.php",
-            dataType: "json",
-            data:{
-                user_id: localStorage.getItem('user_id'),
-                routine_name: document.getElementById('routine_name').value,
-                pomodoro: pomodoro,
-                short_break: short_break,
-                long_break: long_break,
-                sessionArray: sessionArray
-            },
-            
-            cache:false,
-            success: function(dataResult){
+        //     }
+        // else if (pomodoro < 20){
+        //     Swal.fire({
+        //             title: 'Warning!',
+        //             text: '"The pomodoro timer cannot be less than 20 minutes!" ',
+		// 	        confirmButtonColor: "#783937",
+        //             icon: 'warning',
+        //             confirmButtonText: 'OK'
+        //         })
+        // }
+        // else if (pomodoro > 60){
+        //     Swal.fire({
+        //             title: 'Warning!',
+        //             text: '"The pomodoro timer cannot exceed 60 minutes!" ',
+		// 	        confirmButtonColor: "#783937",
+        //             icon: 'warning',
+        //             confirmButtonText: 'OK'
+        //         })
+        // }
+        // else if(short_break < 2){
+        //     Swal.fire({
+        //             title: 'Warning!',
+        //             text: '"The short break timer cannot be less than 2 minutes!" ',
+		// 	        confirmButtonColor: "#783937",
+        //             icon: 'warning',
+        //             confirmButtonText: 'OK'
+        //         })
+        // }
+        // else if(short_break > 5){
+        //     Swal.fire({
+        //             title: 'Warning!',
+        //             text: '"The short break timer cannot be more than 5 minutes!" ',
+		// 	        confirmButtonColor: "#783937",
+        //             icon: 'warning',
+        //             confirmButtonText: 'OK'
+        //         })
+        // }
+        // else if(long_break < 10){
+        //     Swal.fire({
+        //             title: 'Warning!',
+        //             text: '"The long break timer cannot be less than 10 minutes!" ',
+		// 	        confirmButtonColor: "#783937",
+        //             icon: 'warning',
+        //             confirmButtonText: 'OK'
+        //         })
+        // }
+        // else if(long_break > 20){
+        //     Swal.fire({
+        //             title: 'Warning!',
+        //             text: '"The long break timer cannot be more than 20 minutes!" ',
+		// 	        confirmButtonColor: "#783937",
+        //             icon: 'warning',
+        //             confirmButtonText: 'OK'
+        //         })
+        // }    
+        // else{
+                $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/add_routine.php",
+                dataType: "json",
+                data:{
+                    user_id: localStorage.getItem('user_id'),
+                    routine_name: document.getElementById('routine_name').value,
+                    pomodoro: pomodoro,
+                    short_break: short_break,
+                    long_break: long_break,
+                    sessionArray: sessionArray
+                },
                 
-                if(dataResult.status){
-                    Swal.fire({
-                    title: 'ROUTINE ADDED!', 
-			        confirmButtonColor: "#783937",
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                }).then(function() {
-                    window.location.href = 'routine/routines.html'
-                });
-                                    
-                }else{
-                    alert(dataResult.message)
-                }
-                    },error:function(err){
-                console.log('error')		 
-                }
-            })
+                cache:false,
+                success: function(dataResult){
+                    
+                    if(dataResult.status){
+                        Swal.fire({
+                        title: 'ROUTINE ADDED!', 
+                        confirmButtonColor: "#783937",
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then(function() {
+                        window.location.href = 'routine/routines.html'
+                    });
+                                        
+                    }else{
+                        alert(dataResult.message)
+                    }
+                        },error:function(err){
+                    console.log('error')		 
+                    }
+                })
             // console.log('hi')
-
-    }}
+            // }
+    }
     function editSessionArray(value,index){
         sessionArray[index].name = value
     }
     function addSession(){
+        mainButton.disabled=false;
         sessionArray.push({name:'pomodoro #'+parseInt(sessionArray.length+1),notes:'pomodoro #'+parseInt(sessionArray.length+1)})
         // noteArray.push('pomodoro #'+parseInt(sessionArray.length+1))
         loadList();
@@ -811,9 +818,6 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
     function removeSession(){
         sessionArray
         var routin_name = document.getElementById('routine_name').value
-
-        
-
     }
     function is_completed(i){
         sessionArray[i].is_completed = true
@@ -874,8 +878,10 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
       mainButton.addEventListener('click', () => {
         const { action } = mainButton.dataset;
         if (action === 'START') {
+            
           validateUser();
         } else {
+           
           stopTimer();
         }
       });
@@ -940,7 +946,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
           
           if (total <= 0) {
             clearInterval(interval);
-      
+            startTimer();
             switch (timer.mode) {
               case 'pomodoro':
                 if (timer.sessions % timer.longBreakInterval === 0) {
@@ -963,7 +969,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                 // move(completed,0)
             }
       
-            startTimer();
+            
           }
         }, 1000);
       }
