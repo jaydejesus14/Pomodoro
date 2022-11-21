@@ -608,6 +608,7 @@ var timer = {
                     var currentSessionIcons = ''
                     var currentSessionModals = ''
                     countSession = 0
+                    var completed = 0
                     var setCurrent = true
                     for(let i = 0; i < dataResult.subtask.length; i++){
                      
@@ -798,6 +799,7 @@ var timer = {
         }
         var i = 0;
         function move(res,valid) {
+            console.log(valid)
             var dtToday = new Date();
             var month = dtToday.getMonth() + 1;
             var day = dtToday.getDate();
@@ -841,6 +843,7 @@ var timer = {
                         }
                     })
             }
+            console.log(total)
             if(total == 100){
                 //sweet alert before reports
                 $.ajax({
