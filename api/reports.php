@@ -103,6 +103,23 @@ foreach($routine as $key => $value){
         $subtask_no = $cursor->toArray();
         $value['subtask_no'] = count($subtask_no);   
 
+
+        $reportSession_select_fields = array(
+            'routine_name' => 1,
+            'pomodoro' => 1,
+            'no_of_task' => 1,
+            'end_date' => 1,
+            'end_time' => 1
+        );
+        
+        $report_options = array(
+            'projection' => $reportSession_select_fields
+        );
+
+        $sessionReport = $db->sessionReports->find($subtask_where_clause, $report_options);
+        $specificRoutineRecord = $sessionReport->toArray();
+        $value['history'] = $specificRoutineRecord;  
+
         $routineArray[] = $value;
     }
 // }
