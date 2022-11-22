@@ -17,6 +17,7 @@
         <div class="container px-2 py-5 mx-auto">
             <div class="container d-flex justify-content-around ">
                 <div class = "card groupedTask">
+                    <form>
                     <div class = "row">
                         <span class = "text-center mb-3 mt-3" id = "routineName">
                             CREATE GROUPED TASK </span>
@@ -26,7 +27,7 @@
                             <input type = "text" class="groupedInput form-control" id = "task_name">
                         </div>
                         <label>DUE DATE:</label>
-                         <input type = "date" class="groupedInput form-control mb-2" id = "due_date">
+                         <input type = "date" class="groupedInput form-control mb-2" id = "due_date" required>
                        
                             <label>TIMER SETTINGS (minutes): </label>
                             <div class = "row text-center">
@@ -81,7 +82,7 @@
                                     
                              
                         </div>
-   
+                    </form> 
                 </div>
             </div>
         </div>
@@ -96,6 +97,21 @@
     <script src="sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
     <script>
+        
+        if(!localStorage.getItem('user_id')){
+            Swal.fire({
+                        title: 'LOGIN FIRST!', 
+                        confirmButtonColor: "#783937",
+                        text: "Before proceeding, log-in or create an account. ",
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    }).then(function() {
+                        window.location = "http://localhost/pomodoro/user/login.html";
+                    });
+            
+          
+                }
+                    
         const inputs = document.querySelectorAll('input[data-name="inputNumber"]');
         inputs.forEach(input => {
         input.addEventListener('change', () => {
@@ -111,7 +127,9 @@
             }
         });
         });
+        
         var count = 0;
+        addASubtask()
         function add_task(){
             var subtask = [];
             for(let i = 0; i < count; i++) {
@@ -119,7 +137,8 @@
                
             }
             var task_name = document.getElementById('task_name').value
-            if(task_name != '' && subtask != ''){
+            var due_date = document.getElementById('due_date').value
+            if(task_name != '' && subtask != ''&& due_date != ''){
                 pomodoro = document.getElementById('pomodoro').value
                 short_break = document.getElementById('short_break').value
                 long_break = document.getElementById('long_break').value
@@ -238,7 +257,7 @@
                 // console.log(count +" = inside for add")
                 innerHtml+='<div class = "row" id="newSubTask'+i+'" >'
                 innerHtml+=' <div class = "col-10 text-left" >'
-                innerHtml+=' <span><input type="text" class = "taskName" id="sub_task_name'+i+'" placeholder="Sub-Task Name"></span>'
+                innerHtml+=' <span><input type="text" class = "taskName" id="sub_task_name'+i+'" placeholder="Sub-Task Name" required></span>'
                 innerHtml+='</div>'
                 innerHtml+='<div class = "col-2 text-center mb-4">'
                 innerHtml+='  <i class="fa fa-trash" id = "trashIcon" onClick = "removeInput()"></i>'
