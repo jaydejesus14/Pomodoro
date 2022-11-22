@@ -138,7 +138,7 @@
             }
             var task_name = document.getElementById('task_name').value
             var due_date = document.getElementById('due_date').value
-            if(task_name != '' && subtask != ''&& due_date != ''){
+            if(task_name != '' && subtask != '' && due_date != ''){
                 pomodoro = document.getElementById('pomodoro').value
                 short_break = document.getElementById('short_break').value
                 long_break = document.getElementById('long_break').value
@@ -218,11 +218,10 @@
                                     confirmButtonColor: "#783937",
                                     icon: 'success',
                                     confirmButtonText: 'OK'
-                                   })
-                                    window.location.href = "./todoList.html";
-                                }else{
-                                    alert(dataResult.message)
-                                }
+                                }).then(function() {
+                                   history.back()
+                                }); }
+                               
                                 
 
                             },error:function(err){
