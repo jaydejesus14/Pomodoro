@@ -715,13 +715,13 @@ textarea {
 }
 #sessSaveBtn {
   padding: 10px 20px;
-  background-color: rgb( 120, 57, 55, 0.3);
+  background-color: rgb( 120, 57, 55, 0.5);
 
 }
 #sessSaveBtn:hover {
   padding: 10px 20px;
   background-color: rgb( 120, 57, 55);
-  color: #783937;
+  color: white;
 
 }
 #sessSaveBtn2 {

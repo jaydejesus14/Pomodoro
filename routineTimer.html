@@ -568,6 +568,7 @@ var timer = {
                     url: "http://localhost/pomodoro/api/session_time_update.php",
                     dataType: "json",
                     data:{
+                        key: 'routine',
                         id: id,
                         pomodoro: pomodoro,
                         short_break: short_break,
@@ -621,7 +622,7 @@ var timer = {
                             completedInnerHtml+='<div class = "row  justify-content-md-center text-center" id ="accordionSessionC">'
                             completedInnerHtml+='<div class = "col-8 text-left">'
                             completedInnerHtml+='<div class = "sessionListName">'
-                            completedInnerHtml+='<input class ="sessionListInput" type = "text" value="'+dataResult.subtask[i].name+'" placeholder="Session #">'
+                            completedInnerHtml+='<input class ="sessionListInput"  id = "inputtext'+i+'" type = "text" value="'+dataResult.subtask[i].name+'" >'
                             
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
@@ -636,16 +637,16 @@ var timer = {
                             completedInnerHtml+='<div class = "card-body sessionsTimer">'
                             completedInnerHtml+='<div class = "row text-center">'
                             completedInnerHtml+='<div class = "notesTimer">'
-                            completedInnerHtml+='<textarea class ="notesTimerInput" type = "text" placeholder="Session #"value="'+dataResult.subtask[i].notes+'" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].notes+'</textarea>'
+                            completedInnerHtml+='<textarea class ="notesTimerInput" id = "note'+i+'" type = "text" placeholder="Session #"value="'+dataResult.subtask[i].notes+'" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].notes+'</textarea>'
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='<hr>'
                             completedInnerHtml+='<div class = "row">'
                             completedInnerHtml+='<div class = "col-6 text-left">'
-                            completedInnerHtml+='<button type="button" class="btn btn-primary lext-right" id = "sessSaveBtn">CANCEL</button>'
+                            
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='<div class = "col-6 text-right">'
-                            completedInnerHtml+='<button type="button" class="btn btn-primary" id = "sessSaveBtn">SAVE</button>'
+                            completedInnerHtml+='<button type="button" class="btn btn-primary" id = "sessSaveBtn" onclick="SaveTask('+i+','+"'"+dataResult.subtask[i]._id['$oid']+"'"+')" >SAVE</button>'
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
