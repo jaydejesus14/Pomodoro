@@ -1,10 +1,10 @@
 <?php
 	include 'database.php';
-    $id = $_POST['user_id'];
+    // $id = $_POST['user_id'];
 
     // $result = $db->groupTask->findOne(array( '_id' => new MongoDB\BSON\ObjectId ($id )));
-    $user_info = $db->users->findOne(array( '_id' => new MongoDB\BSON\ObjectId ($id )));
-    
-    echo json_encode($user_info);
+    $user_info = $db->sessionReports->find(array('end_date' => ['$gt' => '2022-10-10', '$lt' => '2023-10-10']));
+    $routine = $user_info->toArray();
+    echo json_encode($routine);
 ?>
 

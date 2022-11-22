@@ -2,12 +2,16 @@
 	include 'database.php';
 
 $user_id = $_POST['user_id'];
-
+$end_date = $_POST['end_date'];
+$start_date = $_POST['start_date'];
 
 $json_return = array();
 $assessment_where_clause = array(
     'user_id' => $user_id
 );
+if($end_date != ''){
+    $assessment_where_clause['date_created'] = array('$gt' => $start_date, '$lt' => $end_date);
+}
 
 $assessment_select_fields = array(
     'points' => 1,
@@ -27,6 +31,10 @@ $json_return['assessments'] = $assessments;
 $todo_where_clause = array(
     'user_id' => $user_id
 );
+
+if($end_date != ''){
+    $todo_where_clause['end_date'] = array('$gt' => $start_date, '$lt' => $end_date);
+}
 
 $todo_select_fields = array(
     'task_name' => 1,
@@ -116,8 +124,13 @@ foreach($routine as $key => $value){
             'projection' => $reportSession_select_fields
         );
 
+        if($end_date != ''){
+            $subtask_where_clause['end_date'] = array('$gt' => $start_date, '$lt' => $end_date);
+        }
+
         $sessionReport = $db->sessionReports->find($subtask_where_clause, $report_options);
         $specificRoutineRecord = $sessionReport->toArray();
+        $value['times_done'] = count($specificRoutineRecord);
         $value['history'] = $specificRoutineRecord;  
 
         $routineArray[] = $value;

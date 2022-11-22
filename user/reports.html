@@ -66,7 +66,7 @@
                                         DATE STARTED:
                                     </span>
                                     <div class = "col text-right mb-3">
-                                        <input type="date" id="Test_DatetimeLocal" class = "dateReportS">
+                                        <input type="date" id="start_date" class = "dateReportS">
                                     </div>
                                 </div>   
                             </div>
@@ -76,13 +76,13 @@
                                         DATE ENDED:
                                     </span>
                                     <div class = "col text-left">
-                                        <input type="date" id="Test_DatetimeLocal" class = "dateReportS">
+                                        <input type="date" id="end_date" class = "dateReportS">
                                     </div>
                                 </div>   
                             </div>
                             <div class = "row text-center">
                                 <div class = "col mb-4">
-                                    <button type = "button" class = "btn" id = "reportsSort">SORT
+                                    <button type = "button" class = "btn" id = "reportsSort" onclick="showReports()">SORT
                                     </button>
                                 </div>
 
@@ -254,13 +254,25 @@
             </script>
             <script>
                 showReports()
-
+                function submitFilter(){
+                    var start_date = document.getElementById('start_date').value
+                    if(start_date != ''){
+                        console.log(start_date)
+                    }else{
+                        console.log('error')
+                    }
+                    
+                }
                 function showReports(){
+                    var params = null
+                    
                  $.ajax({
                         type:"POST",
                         url: "http://localhost/pomodoro/api/reports.php",
                         dataType: "json",
                         data:{
+                            end_date: document.getElementById('end_date').value,
+                            start_date: document.getElementById('start_date').value,
                             user_id: localStorage.getItem('user_id'),
                         },
                         
