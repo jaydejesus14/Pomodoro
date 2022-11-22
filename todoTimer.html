@@ -327,6 +327,21 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                 </div>
             </div>
         </div>
+        <div class = "row justify-content-md-center text-center mx-auto mt-4 mb-4" id = "spacing"style = "color: white" >
+            <div class="card noneComplete">
+                    <div class = "row text-center">
+                        <div class = "col text-center mt-4 mb-2" id="">
+                             NO COMPLETED SESSIONS YET</a>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent">  
+                </div>
+            </div>
+           
+        </div>
+
 
 
        
@@ -407,6 +422,7 @@ var timer = {
   const mainButton = document.getElementById('timerStart_btn');
   const settings = document.getElementById("settingIcon")
   const skipBtn = document.getElementById("skip_btn")
+  var spacingHide = document.getElementById("spacing")
   mainButton.addEventListener('click', () => {
     if(!is_start){
         is_start = true
@@ -674,6 +690,7 @@ var timer = {
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
+                            spacingHide.style.display = "none"
                         }
                         else if( setCurrent ){
                             currentSession = dataResult.subtask[i].subtaskName
