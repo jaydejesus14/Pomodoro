@@ -811,6 +811,7 @@ var timer = {
             confirmButtonText: 'CONFIRM'
             }).then((result) => {
             if (result.isConfirmed) {
+                alert(res)
 
 
             $.ajax({
@@ -818,6 +819,7 @@ var timer = {
                     url: "http://localhost/pomodoro/api/remove_subtask.php",
                     dataType: "json",
                     data:{
+                        key: 'routine',
                         task_id: res
                     },
                     
