@@ -67,22 +67,30 @@
                 </div>
             </div>
             <div class="card card2">
-                <div class="my-auto mx-md-5 px-md-5 right">
-                    <h6 class="text-white">PICTURE</h6>
+                <div class="row text-center">
+                    <div class="col">
+                        <img src="../images/loginpic2.png" alt="Pivot Log-In Pic" height='700px' width = '100%' style = "border-radius: 10px;">
+                    </div>
+                    </div>
+                <!-- <div class="my-auto mx-md-5 px-md-5 right">
+                    <img src="../images/loginpic.png" alt="Pivot Log-In Pic" style = "width: 500px;">
+                    <h6 class="text-white"></h6>
                 
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 </div>
 </section>
     <!-- SCRIPTS -->
+    
         <script src="//code.jquery.com/jquery.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="sweetalert2.all.min.js"></script>
         <link rel="stylesheet" href="sweetalert2.min.css">
 
         <script>
+            
         $.get("../navigationBar.html", function(data){
         $("#nav-placeholder").replaceWith(data);
         });

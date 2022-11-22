@@ -894,20 +894,23 @@ textarea {
   width: 60%;
   padding: 40px 30px 10px 30px;
   background-color: #F0DFD1;
-  border-radius: 15px;
+  border-radius: 15px 0px 0px 15px;
   
 }
 
 .card0 {
-  border-radius: 15px;
+  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  width: 80%;
+  width: 90%;
   margin: auto;
+  background-color: transparent;
 }
 
 .card2 {
-  width: 40%;
-  background-color: #F0DFD1;
+  width: 50%;
+  border-radius: 0px 15px 15px 0px;
+  
+  
 }
 .regCard {
   background: rgb(253,251,249);
