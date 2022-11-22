@@ -1019,9 +1019,16 @@ var timer = {
     function openSpotify() {
       document.getElementById("spotifyContainer").style.display = "block";
       
-        if(clicks == 0){
-            alert("Please make sure to lower the volume before playing!");
+      if(clicks == 0){
+            Swal.fire({
+                    title: 'Warning!',
+                    text: '"Please make sure to lower the volume before playing!" ',
+			        confirmButtonColor: "#783937",
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                })
             clicks += 1;
+
         }
      
     }
