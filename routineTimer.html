@@ -890,8 +890,18 @@ var timer = {
                         cache:false,
                         success: function(dataResult){
                             if(!dataResult.is_exist){
+                                stopTimer()
+                                Swal.fire({
+                                    title: 'ASSESSMENT', 
+                                    confirmButtonColor: "#783937",
+                                    text: "You have been productive for more than one hundred minutes today! Take a moment to answer the Time Management Assessment Questionnaire. ",
+                                    icon: 'success',
+                                    confirmButtonText: 'OK',
+                                    footer: '<a href="privacyPolicy.html" target="_blank">Privacy Policy</a>'
+                            }).then((result) => {
                                 localStorage.setItem('is_assessment',true)
                                 window.location.href = 'user/assessment.html'
+                            })
                             }else{
                                 availble_to_assess = false
                             }

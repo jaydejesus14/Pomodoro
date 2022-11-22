@@ -897,6 +897,7 @@ var timer = {
                         cache:false,
                         success: function(dataResult){
                             if(!dataResult.is_exist){
+                                stopTimer()
                                 Swal.fire({
                                     title: 'ASSESSMENT', 
                                     confirmButtonColor: "#783937",
