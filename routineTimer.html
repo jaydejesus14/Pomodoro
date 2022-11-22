@@ -327,6 +327,9 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                 </div>
             </div>
         </div>
+        <!-- <div class = "row justify-content-md-center text-center mx-auto mt-4 mb-4" id = "spacing" >
+            <span class = "mt-3" style = "color: white">NO COMPLETED SESSIONS YET</span>
+        </div> -->
 
 
        
@@ -369,6 +372,7 @@ var timer = {
   const length = circle.getTotalLength();
   const settings = document.getElementById("settingIcon")
   const skipBtn = document.getElementById("skip_btn")
+  var spacingHide = document.getElementById("spacing")
    
     circle.style.strokeDasharray = length;
     circle.style.strokeDashoffset = length;
@@ -458,7 +462,8 @@ var timer = {
       timer.remainingTime = getRemainingTime(endTime);
       updateClock();
       total = timer.remainingTime.total;
-      circle.style.strokeDashoffset = length - (total / 60) * length;
+      console.log(circle.getTotalLength())
+      circle.style.strokeDashoffset = length + (total / 60) * length;
       
       if (total <= 0) {
         clearInterval(interval);
@@ -471,6 +476,7 @@ var timer = {
               completed++
                 orderSession()
                 move(completed,0)
+                // spacingHide.style.display = "none"
                 mainButton.disabled=true;
                 skipBtn.disabled=false;
             } else {
@@ -480,6 +486,7 @@ var timer = {
                 orderSession()
                 move(completed,0)
                 mainButton.disabled=true;
+                // spacingHide.style.display = "none"
                 skipBtn.disabled=false;
             }
             break;
@@ -723,9 +730,17 @@ var timer = {
                             innerHtml+='</div>'
                             innerHtml+='</div>'
                             innerHtml+='</div>'
-                        }
+                            
+                        } 
+                        // if(dataResult.subtask[i].is_complete==undefined) {
+                        //     spacingHide.style.display = "block";
+                        // } else {
+                        //     spacingHide.style.display = "none"
+                        // }
                     }
+                    
                     move(completed,1)
+                    
                     localStorage.setItem('countSession',countSession)
                     // console.log(dataResult.major_task.pomodoro)
                     $('#pomodoroList').html(innerHtml);

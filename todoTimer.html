@@ -493,7 +493,7 @@ var timer = {
       timer.remainingTime = getRemainingTime(endTime);
       updateClock();
       total = timer.remainingTime.total;
-      circle.style.strokeDashoffset = length - (total / 60) * length;
+      circle.style.strokeDashoffset = length + (total / 60) * length;
       
       if (total <= 0) {
         clearInterval(interval);
