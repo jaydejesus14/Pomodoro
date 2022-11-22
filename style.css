@@ -661,7 +661,8 @@ circle{
 
 
 .modal-content {
-  background-color: #F0DFD1;
+  background: rgb(253,251,249);
+  background: linear-gradient(0deg, rgba(253,251,249,1) 0%, rgba(240,223,209,1) 100%);
   border: 2px solid transparent
 }
 .modal-header {
@@ -1998,6 +1999,17 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   overflow-x: hidden;
 
 }
+.reportsTableCard2 {
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 0px 10px;
+  min-height: 300px;
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+
+}
 .reportsTableCard1 {
   background-color: white;
   border-radius: 20px;
@@ -2055,6 +2067,25 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 /* The popup chat - hidden by default */
+.calendar-popup {
+  display: block;
+  position: fixed;
+  top: 270px;
+  left: 15px;
+  border: 3px solid transparent;
+  z-index: 9;
+  border-radius: 10px;
+  width: 450px;
+  min-height:300px;
+  max-height:800px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: rgb(253,251,249);
+  background: linear-gradient(0deg, rgba(253,251,249,1) 0%, rgba(240,223,209,1) 100%);
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px
+}
+
 .spotify-popup {
   display: none;
   position: fixed;
@@ -2064,6 +2095,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   z-index: 9;
   border-radius: 10px;
 }
+
 
 /* Add styles to the form container */
 .spotify-container {

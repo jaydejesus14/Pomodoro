@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pivot</title>
+    <title>Calendar - Pivot</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel='stylesheet' href="../style.css">
@@ -415,12 +415,53 @@ body {
 <body>
     <div id="nav-placeholder">
     </div>
+    <div class = "calendar-popup">
+      <div class = "row text-center">
+        <div class = "col">
+          <span style = "font-size: 20px"> TODO LIST </span>
+          <hr>
+        </div>
+      </div>
+ 
+      <div class = "row text-center">
+        <div class = "col">
+          <a href="../todo/createGrouped.html" class="btn" role="button" class = "ml-2" id = "toDoDec" style = > <i class="fa fa-plus-circle" style="font-size:16px; margin-right: 3px;"></i> Add A Grouped Task </a>
+                       
+        </div>
+      </div>
+      <div class = "reportsTableCard2 mt-2">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th colspan="2">TASK NAME</th>
+                <th scope="col-2">DUE DATE</th>
+                <th scope="col-2">ACTION</th>
+              </tr>
+            </thead>
+            <tbody id="todo">
+                <!-- ONE TODO TASK  -->
+              <tr>
+                <td colspan="2" class = "text-left">WEEKLY ACTIVITY</td>
+                <td>30:00</td>
+                <td>6</td>
+                <td>3</td>
+              </tr>
+              <!-- END -->
+            </tbody>
+        </table>
+    </div>
+   
+
+    </div>
+    <div id="viewMoreModal2" role="dialog">
+      
+    </div>
         <div class="title2">
             <h1 class="fontsz">Calendar</h1>
             <hr class="solid2">
         </div>
     <div id = "myCalendar" class="center-cal">
-        
+      
     </div>
     <!--
     <footer>
@@ -467,6 +508,100 @@ body {
                 });
                 
         }
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/group_task.php",
+                dataType: "json",
+                data:{
+                    user_id: localStorage.getItem('user_id'),
+                   
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                    
+                    console.log(dataResult)
+                    var calendarHtml = ''
+                    var calendarHtmlModal = ''
+                    var x = 0;
+                    const sortedAsc = dataResult.sort(
+                      (objA, objB) => Number(objA.due_date) - Number(objB.due_date),
+                    );
+                    for (let i = 0; i < dataResult.length; i++) {
+                      calendarHtml += '<tr>'
+                      calendarHtml += '<td colspan="2">'+dataResult[i].task_name+'</td>'
+                      calendarHtml += '<td scope="col-2">'+dataResult[i].due_date+'</td>'
+                      calendarHtml += '<td scope="col-2" class = "text-center"><a class="dropdown-item" href="#" data-toggle = "modal" data-target = "#viewMoreModal'+i+'"  ><i class="fa fa-pencil-alt" ></i></a></td>'
+                      calendarHtml += '</tr>'
+                      calendarHtmlModal+='<div class = "modal fade " id="viewMoreModal'+i+'" role="dialog">'
+                            calendarHtmlModal+='<div class = "modal-dialog modal-dialog-centered">'
+                            calendarHtmlModal+='<div class = "modal-content">'
+                            calendarHtmlModal+='<div class = "modal-header text-center d-block  "><h4 class="modal-title  d-inline-block">EDIT TASK</h4></div>'
+                            calendarHtmlModal+='<div class = "modal-body">'
+                            calendarHtmlModal+='<div class = "row  justify-content-md-center text-center">'
+                            calendarHtmlModal+='<div class = "col-8 text-center"><form>'
+                            calendarHtmlModal+='<span class = "text-left">Session Name: </span><input class ="sessionOnTimerInput" id = "inputtext'+i+'" type = "text" value="'+dataResult[i].task_name+'"  style="color: black">'
+                            calendarHtmlModal+='<span class = "text-left mt-3">Due Date: </span>'
+                            calendarHtmlModal+=' <input type = "date" class="groupedInput form-control mb-2" value"'+dataResult[i].due_date+'" id = "due_date'+i+'"   required>'
+                            calendarHtmlModal+='</form></div>'
+                            calendarHtmlModal+='</div>'
+                            calendarHtmlModal+='</div>'
+                            calendarHtmlModal+='<div class = "modal-footer">'
+             
+                            calendarHtmlModal+='<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'
+                            calendarHtmlModal+='<button type="button" class="btn btn-primary" onclick="SaveTask('+i+','+"'"+dataResult[i].id['$oid']+"'"+')"  id = "modal-save">Save changes</button>'
+                            calendarHtmlModal+='</div>'
+                            calendarHtmlModal+='</div>'
+                            calendarHtmlModal+='</div>'
+                            calendarHtmlModal+='</div>'
+                            calendarHtmlModal+='</div>'
+                            calendarHtmlModal+='</div>'
+
+                            
+                       
+
+                    
+                     } 
+                     $('#todo').html(calendarHtml)
+                     $('#viewMoreModal2').html(calendarHtmlModal)
+                }
+              })
+              function SaveTask(input, id){
+        var todoName = document.getElementById('inputtext'+input).value
+        var dueDate = document.getElementById('due_date'+input).value
+        if(dueDate != '' && todoName != '') {
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/update_todo_nameDate.php",
+                dataType: "json",
+                 data:{
+                    todo_id: id,
+                    input: todoName,
+                    inputDate: dueDate
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                    Swal.fire({
+                    title: 'Task has been updated',
+			        confirmButtonColor: "#783937",
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(function() {
+                    location.reload();
+                });
+                },error:function(err){
+              console.log('error')		 
+            }
+            })
+       }else{
+            Swal.fire({
+                    title: 'Invalid Input',
+                    confirmButtonColor: "#783937",
+                    text: 'Task Name and Due Date are required in order to Proceed',
+                    icon: 'info',
+                    confirmButtonText: 'OK'
+                })}}
         !function() {
 
 var today = moment();

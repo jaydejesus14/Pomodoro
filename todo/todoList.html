@@ -336,6 +336,8 @@
                             innerHtml+=' <input type = "date" class="groupedInput form-control mb-2" value"'+dataResult[i].due_date+'"placeholder="'+dataResult[i].due_date+'" id = "due_date'+i+'">'
                             innerHtml+='</div>'
                             innerHtml+='</div>'
+                            innerHtml+='</div>'
+                            
                             innerHtml+='<div class = "modal-footer">'
              
                             innerHtml+='<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'
@@ -346,7 +348,7 @@
                         innerHtml+='</div>'
                         innerHtml+='</div>'
                         innerHtml+='</div>'
-                        innerHtml+='</div>'
+                        
                         
                         
                         
@@ -697,6 +699,7 @@
        function SaveTask(input, id){
         var todoName = document.getElementById('inputtext'+input).value
         var dueDate = document.getElementById('due_date'+input).value
+        if(dueDate != '' && todoName != '') {
         $.ajax({
                 type:"POST",
                 url: "http://localhost/pomodoro/api/update_todo_nameDate.php",
@@ -710,7 +713,7 @@
                 cache:false,
                 success: function(dataResult){
                     Swal.fire({
-                    title: 'To-Do has been updated',
+                    title: 'Task has been updated',
 			        confirmButtonColor: "#783937",
                     icon: 'success',
                     confirmButtonText: 'OK'
@@ -721,7 +724,14 @@
               console.log('error')		 
             }
             })
-       }
+       }else{
+            Swal.fire({
+                    title: 'Invalid Input',
+                    confirmButtonColor: "#783937",
+                    text: 'Task Name and Due Date are required in order to Proceed',
+                    icon: 'info',
+                    confirmButtonText: 'OK'
+                })}}
        function UpdateTodo(id,input){
         var todoName = document.getElementById('todoName'+input).value
         $.ajax({
