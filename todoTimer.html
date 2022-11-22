@@ -920,12 +920,8 @@ var timer = {
                     cache:false,
                     success: function(dataResult){
                         console.log(dataResult.status)
-                    },error:function(err){
-                        console.log('error')		 
-                    }
-                })
-                
-                    Swal.fire({
+                        stopTimer()
+                        Swal.fire({
                         title: 'TODO COMPLETED!', 
                         confirmButtonColor: "#783937",
                         text: "You have finished all of the sessions! You will now be redirected to the reports page.",
@@ -934,6 +930,12 @@ var timer = {
                     }).then(function() {
                         window.location.href = 'user/reports.html';
                     });
+                    },error:function(err){
+                        console.log('error')		 
+                    }
+                })
+                
+                   
                 
                 console.log(time)
                     // 

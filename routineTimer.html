@@ -701,7 +701,6 @@ var timer = {
                             innerHtml+='<div class = "col-8 text-left">'
                             innerHtml+='<div class = "sessionListName">'
                             innerHtml+='<input class ="sessionListInput"  id = "inputtext'+i+'" type = "text" value="'+dataResult.subtask[i].name+'" >'
-                            console.log(dataResult.subtask[i].name)
                             innerHtml+='</div>'
                             innerHtml+='</div>'
                             innerHtml+='<div class ="col-2 text-right mt-1">'
@@ -782,7 +781,6 @@ var timer = {
             orderSession();
         }
         function SaveTask(i, res){
-            console.log(res)
             var name = document.getElementById('inputtext'+i).value
             var note = document.getElementById('note'+i).value
             // console.log(id)
@@ -826,7 +824,7 @@ var timer = {
             confirmButtonText: 'CONFIRM'
             }).then((result) => {
             if (result.isConfirmed) {
-                alert(res)
+     
 
 
             $.ajax({
@@ -923,12 +921,14 @@ var timer = {
                                     
                                     cache:false,
                                     success: function(dataResult){
+                                        stopTimer()
                                             Swal.fire({
-                                                title: 'TODO COMPLETED!', 
+                                                title: 'ROUTINE COMPLETED!', 
                                                 confirmButtonColor: "#783937",
                                                 text: "You have finished all of the sessions! You will now be redirected to the reports page.",
                                                 icon: 'success',
                                                 confirmButtonText: 'OK'
+                                                
                                             }).then(function() {
                                                 window.location.href = 'user/reports.html';
                                             });
