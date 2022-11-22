@@ -191,8 +191,8 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
     <div class = "row justify-content-md-center text-center">
         <hr class="solid" id="hrWhite">
     </div>
-        <div class = "row justify-content-md-center text-center mx-auto mt-4 mb-4">
-            <div class = "col">
+        <div class = "row justify-content-md-center text-center mx-auto mt-4 mb-4" hidden>
+            <div class = "col" hidden>
         <div id="progressBar">
             <div id="progressTracker">0%</div>
             
@@ -219,7 +219,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                     </div>
                       </div>
                     <div class ="col-2 text-right mt-1 mr-3">
-                <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i>
+                <!-- <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i> -->
                 </div>
                 </div>
 
@@ -287,7 +287,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                         </div>
                         </div>
                         <div class ="col-2 text-right mt-1 mr-3">
-                    <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i>
+                    <!-- <i class="fa fa-chevron-circle-down" style="font-size:25px" id="expandIcon2"></i> -->
             </div>
         </div>
         <div class = "row justify-content-md-center text-center mx-auto" id="completedPomodoro">
@@ -658,7 +658,7 @@ var timer = {
                         else if( setCurrent ){
                             currentSession = dataResult.subtask[i].name
                             currentSessionId = dataResult.subtask[i]._id['$oid']
-                            currentSessionIcons+='<div class = "col-md-8 hovertext"  data-hover="Current Session Name"></div>'
+                            currentSessionIcons+='<div class = "col-md-8 hovertext"  data-hover="Current Session"></div>'
                             currentSessionIcons+='<div class = "col-md-4 text-right mx-auto">'
                             currentSessionIcons+='<button class="btn-block" id = "sessions_btns">'
                             currentSessionIcons+='<i class="fa fa-pencil-alt" style="font-size:28px" id="indivIcon" data-toggle = "modal" data-target = "#settings1'+i+'"></i>'
@@ -671,15 +671,15 @@ var timer = {
                             currentSessionModals+='<div class = "modal-body">'
                             currentSessionModals+='<div class = "row  justify-content-md-center text-center">'
                             currentSessionModals+='<div class = "col-8 text-center">'
-                            currentSessionModals+='<span class = "text-left">Session Name: </span><input class ="sessionOnTimerInput" type = "text" value="'+dataResult.subtask[i].name+'" placeholder="Session #" style="color: black">'
+                            currentSessionModals+='<span class = "text-left">Session Name: </span><input class ="sessionOnTimerInput"  id = "inputtext'+i+'" type = "text" value="'+dataResult.subtask[i].name+'" placeholder="Session #" style="color: black">'
                             currentSessionModals+='<span class = "text-left mt-3">Notes: </span>'
-                            currentSessionModals+='<textarea class ="notesTimerInput2" type = "text" value="'+dataResult.subtask[i].name+'" placeholder="Session #" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].notes+'</textarea>'
+                            currentSessionModals+='<textarea class ="notesTimerInput2"   id = "note'+i+'" type = "text" value="'+dataResult.subtask[i].name+'" placeholder="Session #" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].notes+'</textarea>'
                             currentSessionModals+='</div>'
                             currentSessionModals+='</div>'
                             currentSessionModals+='<div class = "modal-footer">'
              
                             currentSessionModals+='<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'
-                            currentSessionModals+='<button type="button" class="btn btn-primary" onclick="SaveTask('+"'"+dataResult.subtask[i]._id['$oid']+"'"+')" id = "modal-save">Save changes</button>'
+                            currentSessionModals+='<button type="button" class="btn btn-primary" onclick="SaveTask('+i+','+"'"+dataResult.subtask[i]._id['$oid']+"'"+')" id = "modal-save">Save changes</button>'
                             currentSessionModals+='</div>'
                    
                             
@@ -692,7 +692,7 @@ var timer = {
                             innerHtml+='<div class = "row  justify-content-md-center text-center" id ="accordionSessions">'
                             innerHtml+='<div class = "col-8 text-left">'
                             innerHtml+='<div class = "sessionListName">'
-                            innerHtml+='<input class ="sessionListInput" type = "text" value="'+dataResult.subtask[i].name+'" >'
+                            innerHtml+='<input class ="sessionListInput"  id = "inputtext'+i+'" type = "text" value="'+dataResult.subtask[i].name+'" >'
                             console.log(dataResult.subtask[i].name)
                             innerHtml+='</div>'
                             innerHtml+='</div>'
@@ -707,7 +707,7 @@ var timer = {
                             innerHtml+='<div class = "card-body sessionsTimer">'
                             innerHtml+='<div class = "row text-center">'
                             innerHtml+='<div class = "notesTimer">'
-                            innerHtml+='<textarea class ="notesTimerInput" type = "text" value="'+dataResult.subtask[i].name+'" placeholder="Session #" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].notes+'</textarea>'
+                            innerHtml+='<textarea class ="notesTimerInput" id = "note'+i+'" type = "text" value="'+dataResult.subtask[i].name+'" placeholder="Session #" style="color: black" cols="40" rows="6">'+dataResult.subtask[i].notes+'</textarea>'
                             innerHtml+='</div>' 
                             innerHtml+='</div>'
                             innerHtml+='<hr>'
@@ -716,7 +716,7 @@ var timer = {
                             innerHtml+='<button type="button" class="btn lext-right" onclick="removeSubtask('+"'"+dataResult.subtask[i]._id['$oid']+"'"+')" id = "sessSaveBtn">REMOVE</button>'
                             innerHtml+='</div>'
                             innerHtml+='<div class = "col-6 text-right">'
-                            innerHtml+='<button type="button" class="btn " onclick="SaveTask('+"'"+dataResult.subtask[i]._id['$oid']+"'"+')" id = "sessSaveBtn">SAVE</button>'
+                            innerHtml+='<button type="button" class="btn "  onclick="SaveTask('+i+','+"'"+dataResult.subtask[i]._id['$oid']+"'"+')"   id = "sessSaveBtn">SAVE</button>'
                             innerHtml+='</div>'
                             innerHtml+='</div>'
                             innerHtml+='</div>'
@@ -765,6 +765,39 @@ var timer = {
             })
             orderSession();
         }
+        function SaveTask(i, res){
+            console.log(res)
+            var name = document.getElementById('inputtext'+i).value
+            var note = document.getElementById('note'+i).value
+            // console.log(id)
+        $.ajax({
+                type:"POST",
+                url: "http://localhost/pomodoro/api/update_subtask.php",
+                dataType: "json",
+                 data:{
+                    key: 'routine',
+                    id: res,
+                    name: name,
+                    note: note
+                },
+                
+                cache:false,
+                success: function(dataResult){
+                    Swal.fire({
+                    title: 'UPDATE SUCCESS',
+			        confirmButtonColor: "#783937",
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(function() {
+                        location.reload();
+                    });
+                },error:function(err){
+              console.log('error')		 
+            }
+            })
+            
+        }
+
         function removeSubtask(res){
             // console.log(res)
             Swal.fire({
