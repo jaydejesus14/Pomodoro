@@ -241,7 +241,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                     </div>
                 </div>
       
-                <div id="sessionCollapse" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSession">
+                <div id="sessionCollapse" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionSession">
                     <div class = "card-body sessionsTimer">
                       <div class = "row text-center">
                         <div class = "notesTimer">
@@ -963,7 +963,7 @@ var timer = {
                             addingSession+='<div class = "row  justify-content-md-center text-center" id ="accordionSessions">'
                             addingSession+='<div class = "col-8 text-left">'
                             addingSession+='<div class = "sessionListName">'
-                            addingSession+='<input class ="sessionListInput" type = "text" value="" placeholder="Session Name" style="color: white">'
+                            addingSession+='<input class ="sessionListInput" id = "subTaskInputNew'+i+'" type = "text" value="" placeholder="Session Name" style="color: black">'
                             addingSession+='</div>'
                             addingSession+='</div>'
                             addingSession+='<div class ="col-2 text-right mt-1">'
@@ -973,29 +973,52 @@ var timer = {
                             addingSession+='</div>'
                             addingSession+='</div>'
                             addingSession+='</div>'
-                            addingSession+='<div id="sessionCollapseee'+i+'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSessions">'
+                            addingSession+='<div id="sessionCollapseee'+i+'" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionSessions">'
                             addingSession+='<div class = "card-body sessionsTimer">'
                             addingSession+='<div class = "row text-center">'
                             addingSession+='<div class = "notesTimer">'
-                            addingSession+='<textarea class ="notesTimerInput" type = "text" value="" placeholder="Add a note" style="color: black" cols="40" rows="6"></textarea>'
+                            addingSession+='<textarea class ="notesTimerInput" id = "noteNew'+i+'" type = "text" value="" placeholder="Add a note" style="color: black" cols="40" rows="6"></textarea>'
                             addingSession+='</div>' 
                             addingSession+='</div>'
                             addingSession+='<hr>'
                             addingSession+='<div class = "row">'
-                            addingSession+='<div class = "col-6 text-left">'
-                            addingSession+='<button type="button" class="btn lext-right" id = "sessSaveBtn">REMOVE</button>'
+                            addingSession+='<div class = "col-6 text-left">'  
                             addingSession+='</div>'
                             addingSession+='<div class = "col-6 text-right">'
-                            addingSession+='<button type="button" class="btn " id = "sessSaveBtn">SAVE</button>'
+                            addingSession+='<button type="button" class="btn" onclick="addSubTask('+i+')" id = "sessSaveBtn"">SAVE</button>'
                             addingSession+='</div>'
                             addingSession+='</div>'
                             addingSession+='</div>'
                             addingSession+='</div>'
                             addingSession+='</div>'
             }
+            
             console.log(count +" = outside for add")
             $('#newSesss').html(addingSession)
        }
+       function addSubTask(i){
+            var name = document.getElementById('subTaskInputNew'+i).value
+            var note = document.getElementById('noteNew'+i).value
+            console.log(localStorage.getItem('routineId'))
+            $.ajax({
+                    type:"POST",
+                    url: "http://localhost/pomodoro/api/add_subtask_routine.php",
+                    dataType: "json",
+                    data:{
+                        name: name,
+                        id: localStorage.getItem('routineId'),
+                        note: note
+                    },
+                    
+                    cache:false,
+                    success: function(dataResult){
+                        console.log(dataResult.status)
+                    },error:function(err){
+                console.log('error')		 
+                }
+            })
+            location.reload();
+        }
         </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.all.min.js"></script>
