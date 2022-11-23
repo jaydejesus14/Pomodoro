@@ -158,7 +158,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                     <div class="col">
                  
 
-                        <button class="btn-block skip_btn active" id = "skip_btn"disabled>
+                        <button class="btn-block skip_btn active" onclick = "skipToPom()" id = "skip_btn"disabled>
                     <i class="fa fa-fast-forward" id = "timerIcons" style="font-size:30px"></i>
                         </button>
                      
@@ -519,6 +519,14 @@ var timer = {
     mainButton.textContent = 'START';
     mainButton.classList.remove('active');
   }
+
+//   function skipToPom(){
+//     switchMode('pomodoro');
+  
+//     clearInterval(interval);
+//     updateClock()
+//     startTimer();
+//   }
   
   function updateClock() {
     const { remainingTime } = timer;
@@ -629,6 +637,7 @@ var timer = {
                     countSession = 0
                     var completed = 0
                     var setCurrent = true
+                    var now = dateToday()
                     for(let i = 0; i < dataResult.subtask.length; i++){
                      
                         countSession++
@@ -671,10 +680,12 @@ var timer = {
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
                             if(completed == countSession)(
-                                console.log('test')
+                                console.log('test1')
                             )
                             settings.style.pointerEvents = 'none';
                             spacingHide.style.display = "none"
+                            
+                        
                         }
                         else if( setCurrent ){
                             currentSession = dataResult.subtask[i].name
@@ -748,9 +759,12 @@ var timer = {
                     }
                     
                     move(completed,1)
+                    // checkingDate(currentSessionId)
+                    
+                    console.log("hm " + completed)
                     
                     localStorage.setItem('countSession',countSession)
-                    // console.log(dataResult.major_task.pomodoro)
+                    console.log(localStorage.getItem('countSession')+"uhm")
                     $('#pomodoroList').html(innerHtml);
                    $('#completedPomodoro').html(completedInnerHtml)
                     $('#currentSession').html(currentSession)
@@ -770,7 +784,34 @@ var timer = {
                 }
             })
         }
+        // function checkingDate(res){
+        //     var maxDate = dateToday()
+        //     $.ajax({
+        //             type:"POST",
+        //             url: "http://localhost/pomodoro/api/check_date_complete.php",
+        //             dataType: "json",
+        //             data:{
+        //                 id: res,
+        //                 key: 'routine',
+        //             },
+                    
+        //             cache:false,
+        //             success: function(dataResult){
+        //                 for(let i = 0; i < dataResult.length; i++){
+        //                 if(dataResult[i].date_completed!=maxDate && dataResult[i].date_completed!=undefined){
+        //                     localStorage.setItem('countSession',countSession)
+        //                 }
+        //                 console.log(dataResult[i].date_completed + 'here')}
+                        
+        //             },error:function(err){
+        //         console.log('error')		 
+        //         }
+        //     })
+
+        // }
         function is_completed(res){
+            // var maxDate = dateToday()
+            // console.log(maxDate)
             $.ajax({
                     type:"POST",
                     url: "http://localhost/pomodoro/api/is_completed_task.php",
@@ -778,6 +819,7 @@ var timer = {
                     data:{
                         id: res,
                         key: 'routine'
+                        // date_completed: maxDate
                     },
                     
                     cache:false,
@@ -820,6 +862,20 @@ var timer = {
             })
             
         }
+        function dateToday(){
+            var dtToday = new Date();
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            var hr = dtToday.getHours();
+            var min = dtToday.getMinutes();
+            if(month < 10)
+                month = '0' + month.toString();
+            if(day < 10)
+                day = '0' + day.toString();
+            var todayDate = year + '-' + month + '-' + day;
+            return todayDate
+        }
 
         function removeSubtask(res){
             // console.log(res)
@@ -857,7 +913,7 @@ var timer = {
         }
         var i = 0;
         function move(res,valid) {
-            console.log(valid)
+            console.log("valid"+valid)
             var dtToday = new Date();
             var month = dtToday.getMonth() + 1;
             var day = dtToday.getDate();
