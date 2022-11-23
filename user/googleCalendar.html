@@ -535,30 +535,19 @@ body {
                     for ( let j = 0; j < dataResult.length; j++){
                       var date = new Date(dataResult[j].due_date);
                       console.log(date)
-                      dataResult[j].due_date = date
+                      dataResult[j].sorting = date
                     }
       
                     dataResult.sort((a, b) => {
-                        if (a.due_date < b.due_date) return -1;
-                        else if (a.due_date > b.due_date) return 1;
+                        if (a.sorting < b.sorting) return -1;
+                        else if (a.sorting > b.sprting) return 1;
                         else return 0;
                       });
                                         
                     for (let i = 0; i < dataResult.length; i++) {
-                      var dtToday = dataResult[i].due_date;
-                      var month = dtToday.getMonth() + 1;
-                      var day = dtToday.getDate();
-                      var year = dtToday.getFullYear();
-                      var hr = dtToday.getHours();
-                      var min = dtToday.getMinutes();
-                      if(month < 10)
-                          month = '0' + month.toString();
-                      if(day < 10)
-                          day = '0' + day.toString();
-                      var maxDate = year + '-' + month + '-' + day;
                       calendarHtml += '<tr>'
                       calendarHtml += '<td colspan="2">'+dataResult[i].task_name+'</td>'
-                      calendarHtml += '<td scope="col-2">'+maxDate+'</td>'
+                      calendarHtml += '<td scope="col-2">'+dataResult[i].due_date+'</td>'
                       calendarHtml += '<td scope="col-2" class = "text-center"><a class="dropdown-item" href="#" data-toggle = "modal" data-target = "#viewMoreModal'+i+'"  ><i class="fa fa-pencil-alt" ></i></a></td>'
                       calendarHtml += '</tr>'
                       calendarHtmlModal+='<div class = "modal fade " id="viewMoreModal'+i+'" role="dialog">'
