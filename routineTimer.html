@@ -487,18 +487,23 @@ var timer = {
               completed++
                 orderSession()
                 move(completed,0)
+                assessCount(completed)
                 // spacingHide.style.display = "none"
                 mainButton.disabled=true;
                 skipBtn.disabled=false;
+                
             } else {
               switchMode('shortBreak');
               completed++
                 is_completed(currentSessionId)
                 orderSession()
                 move(completed,0)
+                assessCount(completed)
+                console.log("completed"+ completed)
                 mainButton.disabled=true;
                 // spacingHide.style.display = "none"
                 skipBtn.disabled=false;
+                
             }
             break;
           default:
@@ -877,6 +882,29 @@ var timer = {
             return todayDate
         }
 
+        function assessCount(i){
+            var assess_Count = 0
+            var assess_Count1 = assess_Count+i;
+            var getTime = parseInt(localStorage.getItem('pomodoro'))  // 25
+            // localStorage.removeItem("assessTime");
+        
+          ; // 25
+             // 25
+            if(!localStorage.getItem('assessTime')){
+                localStorage.setItem('assessTime', getTime)
+            } else {
+                var currentTimeAssess = parseInt(localStorage.getItem('assessTime'))
+                var updatedTime = currentTimeAssess += getTime;
+                localStorage.setItem('assessTime', updatedTime)
+            }
+           
+            console.log(localStorage.getItem('assessTime') + "testing assess")
+
+
+
+        }
+
+
         function removeSubtask(res){
             // console.log(res)
             Swal.fire({
@@ -913,7 +941,8 @@ var timer = {
         }
         var i = 0;
         function move(res,valid) {
-            console.log("valid"+valid)
+            console.log("valid "+valid)
+            console.log("res "+res)
             var dtToday = new Date();
             var month = dtToday.getMonth() + 1;
             var day = dtToday.getDate();
@@ -931,7 +960,6 @@ var timer = {
             var count_session = localStorage.getItem('countSession')
 
             var total = 100 * (res / count_session)
-            if((localStorage.getItem('pomodoro') * res) == 2){ //palitan na lang yung 2
                 //sweet alert before assessments
                 $.ajax({
                         type:"POST",
@@ -946,27 +974,29 @@ var timer = {
                         cache:false,
                         success: function(dataResult){
                             if(!dataResult.is_exist){
-                                stopTimer()
-                                Swal.fire({
-                                    title: 'ASSESSMENT', 
-                                    confirmButtonColor: "#783937",
-                                    text: "You have been productive for more than one hundred minutes today! Take a moment to answer the Time Management Assessment Questionnaire. ",
-                                    icon: 'success',
-                                    confirmButtonText: 'OK',
-                                    footer: '<a href="privacyPolicy.html" target="_blank">Privacy Policy</a>'
-                            }).then((result) => {
-                                localStorage.setItem('is_assessment',true)
-                                window.location.href = 'user/assessment.html'
-                            })
+                                if((localStorage.getItem('assessTime')) >= 3){ //palitan na lang yung 2
+                                    stopTimer()
+                                    Swal.fire({
+                                        title: 'ASSESSMENT', 
+                                        confirmButtonColor: "#783937",
+                                        text: "You have been productive for more than one hundred minutes today! Take a moment to answer the Time Management Assessment Questionnaire. ",
+                                        icon: 'success',
+                                        confirmButtonText: 'OK',
+                                        footer: '<a href="privacyPolicy.html" target="_blank">Privacy Policy</a>'
+                                }).then((result) => {
+                                    localStorage.setItem('is_assessment',true)
+                                    window.location.href = 'user/assessment.html'
+                                })}
                             }else{
                                 availble_to_assess = false
+                                localStorage.removeItem("assessTime");
                             }
                             console.log('test')
                         },error:function(err){
                             console.log('error')		 
                         }
                     })
-            }
+            
             console.log(total)
             if(total == 100){
                 //sweet alert before reports
