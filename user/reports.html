@@ -320,16 +320,13 @@
                                 
                             }
                             for(let i = 0; dataResult.routine.length > i; i++){
-                                
+                                if(arrayRoutine[i].times_done){
                                 innerHtmlRoutine += '<tr>'
                                 innerHtmlRoutine += '<td colspan="2" class = "text-left">'+arrayRoutine[i].routine_name+'</td>'
                                 innerHtmlRoutine += '<td>'+arrayRoutine[i].pomodoro+':00</td>'
                                 innerHtmlRoutine += '<td>'+arrayRoutine[i].subtask_no+'</td>'
-                                if(arrayRoutine[i].times_done){
                                     innerHtmlRoutine += '<td>'+arrayRoutine[i].times_done+'</td>'
-                                }else{
-                                    innerHtmlRoutine += '<td>0</td>'
-                                }
+                                
                                 innerHtmlRoutine += '<td><a class="dropdown-item" href="#" data-toggle = "modal" data-target = "#viewMoreModal'+i+'"  ><i class="fa fa-eye" ></i></a></td>'
                                 innerHtmlRoutine += '</tr>'
                                 innerHtmlRoutineModal+='<div class = "modal fade " id="viewMoreModal'+i+'" role="dialog">'
@@ -372,7 +369,7 @@
                         innerHtmlRoutineModal+='</div>'
                         innerHtmlRoutineModal+='</div>'
                         innerHtmlRoutineModal+='</div>'
-                                
+                                }
                             }
 
                                 // console.log(arrayRoutine)
