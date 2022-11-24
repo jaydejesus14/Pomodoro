@@ -333,6 +333,7 @@
                             innerHtml+='<div class = "col-8 text-center">'
                             innerHtml+='<span class = "text-left">Session Name: </span><input class ="sessionOnTimerInput" id = "inputtext'+i+'" type = "text" value="'+dataResult[i].task_name+'"  style="color: black">'
                             innerHtml+='<span class = "text-left mt-3">Due Date: </span>'
+                            innerHtml+='<span class = "text-left mt-3" id ="due_dateCurrent'+i+'">'+dataResult[i].due_date+' </span>'
                             innerHtml+=' <input type = "date" class="groupedInput form-control mb-2" value"'+dataResult[i].due_date+'"placeholder="'+dataResult[i].due_date+'" id = "due_date'+i+'">'
                             innerHtml+='</div>'
                             innerHtml+='</div>'
