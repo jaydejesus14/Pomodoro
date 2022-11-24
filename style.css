@@ -2212,8 +2212,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
  
     .card0 {
       width:80% !important;; /*Takes 90% width from WebContainer*/
-    height: auto !important;;
-    margin: auto !important;;
+      height: auto !important;;
+      margin: auto !important;;
+    }
+    .card2 {
+      width:60% 
     }
   
 
@@ -2232,9 +2235,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .todoContainer {
 
-   
     margin-top: -10px   !important;
-
     overflow-x: scroll !important;
     overflow-y: hidden !important;
    
@@ -2247,6 +2248,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   } 
 
+  #display_routines {
+    width: 60% !important; /*Takes 90% width from WebContainer*/
+    height: auto !important;
+    margin: auto !important;
+  }
+  
+.subRoutinesInfo, .indivSubRoutines{
+  width: 610px !important; 
+
+}
+
+
+
+  .titleRoutine {
+    font-size: 30px !important;
+  }
+
   #todoCard1 {
     width: 260px  !important;
     margin-left: -20px !important;
@@ -2254,6 +2272,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   }
   
+  .routineName1 {
+    font-size: 18px !important;
+  }
   #nav-placeholder {
     -moz-transform: scale(0.82, 0.82) !important;
     zoom: 0.82 !important;
@@ -2280,28 +2301,68 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     zoom: 90% !important;
 
   } */
-  .timer {
+  /* .timer { */
     /* -moz-transform: scale(0.95, 0.95) !important;
     zoom: 0.9 !important;
-    zoom: 90% !important; */
-    width:90% !important;; /*Takes 90% width from WebContainer*/
-    height: auto !important;;
+    zoom: 90% !important; 
+    width:70% !important;
+    /* height: auto !important;;
     margin: auto !important;;
   }
+  .timers {
+    width: 50% !important;
+  }
+  .time {
+    margin-left: 15% !important;
+
+  }
+
+  .svg{
+    margin-right: -15% !important;
+  } */
  #smolPageContainer {
   width:80% !important;; /*Takes 90% width from WebContainer*/
   height: auto !important;;
   margin: auto !important;;
   }
-  
-  .editProfile {
-    margin: 10px 5px !important;
+  .subRoutinesInfoText{
+    font-size: 16px;
+    margin: 4px
+    
   }
-  #signUpContainer {
-    width: 70% !important; /*Takes 90% width from WebContainer*/
+  .editProfile, .forgotPass {
+    margin: 10px 5px !important;
+    width: 40% !important; 
+  }
+  .routineSummaryCard{
+    width: 100%;
+  }
+   #signUpContainer {
+    width: 70% !important; 
     height: auto !important;
     margin: auto !important;
   } 
+  .reportsCard {
+    width: 800px;
+
+  }
+  .titleRoutine1 {
+    font-size: 20px;
+  }
+  .inputNameReports  {
+    font-size: 18px;
+  }
+  .userInfoReportsCard{
+    text-align: center;
+    width: 325px;
+  }
+  .titleReports{
+    font-size: 16px;
+  }
+  th {
+    font-size: 14px;
+  }
+ 
 }
   
 
