@@ -1867,7 +1867,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 /* EDIT PROFILE */
 .editProfile {
   width: 450px;
-  margin: 50px 5px;
+  margin: 30px 5px;
   padding: 25px 30px 40px 30px;
   border-radius: 15px;
   box-sizing: content-box;
@@ -2209,6 +2209,79 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 10px;
 }
 
+@media screen and (max-width: 1500px) {
+  .card1 {
+      width: 100%;
+      padding: 40px 30px 10px 30px;
+      
+  }
+
+  .card2 {
+      width: 100%;
+  }
+
+  .right {
+      margin-top: 100px !important;
+      margin-bottom: 100px !important;
+  }
+  
+  .sidenav {padding-top: 15px; -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+    height: 125vh !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    }
+  .sidenav a {font-size: 18px;}
+  .todoCard {
+    padding: 40px 30px;
+  }
+  .todoContainer {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+    margin-left: -20px   !important;
+    margin-top: -10px   !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    height: 125vh !important
+
+    
+  }
+  .todoCard {
+    width: 300px !important;
+
+  }
+  #nav-placeholder {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;}
+  .nav {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+  }
+  .timer {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+  }
+  #smolPageContainer {
+    -moz-transform: scale(0.9, 0.9) !important;
+    zoom: 0.85 !important;
+    zoom: 85% !important;
+  }
+  
+  .editProfile {
+    margin: 10px 5px !important;
+  }
+  #signUpContainer {
+    -moz-transform: scale(0.9, 0.9) !important;
+    zoom: 0.85 !important;
+    zoom: 85% !important;
+  }
+}
+
 
 @media screen and (max-width: 992px) {
   .card1 {
@@ -2235,10 +2308,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .todoContainer {
     margin-left: 10% !important;
+    width: 80%;
+  }
+  .todoCard {
+    width: 250px !important;
+
+  }
+  .body{
+    width: 100%!important;
+    height: 100% !important;
   }
 }
 
 @media screen and (max-width: 768px) {
+  .body{
+    width: 100%!important;
+    height: 100% !important;
+  }
   .container {
       padding: 10px !important;
   }
@@ -2258,6 +2344,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .sidenav a {font-size: 18px;}
   .todoContainer {
     margin-left: 10% !important;
+  }
+  .todoCard {
+    width: 300px !important;
+
   }
 }
 
