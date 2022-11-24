@@ -525,13 +525,28 @@ var timer = {
     mainButton.classList.remove('active');
   }
 
-//   function skipToPom(){
-//     switchMode('pomodoro');
-  
-//     clearInterval(interval);
-//     updateClock()
-//     startTimer();
-//   }
+  function skipToPom(){
+    
+    Swal.fire({
+                        title: 'SKIP TO POMODORO SESSION?', 
+                        confirmButtonColor: "#783937",
+                        text: "Are you sure you want to skip the break and proceed to the next session? Don't forget that rest is a must! ",
+                        icon: 'warning',
+                        confirmButtonText: 'OK'
+                    }).then(function() {
+                        switchMode('pomodoro');
+                        mainButton.disabled=false;
+                        skipBtn.disabled=true;
+                        stopTimer()
+                    
+                        clearInterval(interval);
+                        updateClock()
+                        startTimer()
+                    });
+
+    
+    
+  }
   
   function updateClock() {
     const { remainingTime } = timer;
