@@ -106,7 +106,7 @@
                         icon: 'error',
                         confirmButtonText: 'OK'
                     }).then(function() {
-                        window.location = "http://localhost/pomodoro/user/login.html";
+                        window.location = "../user/login.html";
                     });
             
           
@@ -203,7 +203,7 @@
                     
                         $.ajax({
                             type:"POST",
-                            url: "http://localhost/pomodoro/api/add_group_task.php",
+                            url: "../api/add_group_task.php",
                             dataType: "json",
                             data:{
                             user_id: localStorage.getItem('user_id'),

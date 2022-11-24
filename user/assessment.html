@@ -315,7 +315,7 @@
                 icon: 'error',
                 confirmButtonText: 'OK'
             }).then(function() {
-                window.location = "http://localhost/pomodoro/user/login.html";
+                window.location = "../user/login.html";
              });
             
         }
@@ -385,7 +385,7 @@
                     }).then(function() {
                         $.ajax({
                         type:"POST",
-                        url: "http://localhost/pomodoro/api/add_assessment.php",
+                        url: "../api/add_assessment.php",
                         dataType: "json",
                         data:{
                             user_id: localStorage.getItem('user_id'),

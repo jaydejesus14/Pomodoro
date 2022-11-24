@@ -80,7 +80,7 @@
      if(!localStorage.getItem('user_id')||localStorage.getItem('emailAdd')!="pivotacc.pomodoro@gmail.com"){
        
  
-             window.location = "http://localhost/pomodoro/timer.html";
+             window.location = "../timer.html";
          };
   </script>
   <script>
@@ -88,7 +88,7 @@
         function showUsers(){
             $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/admin_viewuser.php",
+                url: "../api/admin_viewuser.php",
                 dataType: "json",
              
                 cache:false,

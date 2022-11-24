@@ -186,7 +186,7 @@
                 localStorage.setItem('email',email)
                 $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/mail_sender.php",
+                url: "../api/mail_sender.php",
                 dataType: "json",
                  data:{
                     email: email,

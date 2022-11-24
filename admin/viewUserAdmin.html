@@ -226,11 +226,11 @@
      if(!localStorage.getItem('user_id')||localStorage.getItem('emailAdd')!="pivotacc.pomodoro@gmail.com"){
        
  
-             window.location = "http://localhost/pomodoro/timer.html";
+             window.location = "../timer.html";
          };
          $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/user_info.php",
+                url: "../api/user_info.php",
                 dataType: "json",
                 data:{
                     user_id: localStorage.getItem('user_id'),

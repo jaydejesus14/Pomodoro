@@ -505,13 +505,13 @@ body {
                     icon: 'error',
                     confirmButtonText: 'OK'
                 }).then(function() {
-                    window.location = "http://localhost/pomodoro/user/login.html";
+                    window.location = "../user/login.html";
                 });
                 
         }
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/group_task.php",
+                url: "../api/group_task.php",
                 dataType: "json",
                 data:{
                     user_id: localStorage.getItem('user_id'),
@@ -941,7 +941,7 @@ function createElement(tagName, className, innerText) {
 !function() {
  
  $.ajax({
-           url:"http://localhost/pomodoro/api/get_date.php",
+           url:"../api/get_date.php",
            type:"POST",
            dataType: 'json',
            data: {

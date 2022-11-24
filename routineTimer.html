@@ -611,7 +611,7 @@ var timer = {
             
             $.ajax({
                     type:"POST",
-                    url: "http://localhost/pomodoro/api/session_time_update.php",
+                    url: "../api/session_time_update.php",
                     dataType: "json",
                     data:{
                         key: 'routine',
@@ -637,7 +637,7 @@ var timer = {
             var routineId = localStorage.getItem('routineId')
             $.ajax({
                     type:"POST",
-                    url: "http://localhost/pomodoro/api/return_specific_routine.php",
+                    url: "../api/return_specific_routine.php",
                     dataType: "json",
                     data:{
                         id: routineId
@@ -834,7 +834,7 @@ var timer = {
             // console.log(maxDate)
             $.ajax({
                     type:"POST",
-                    url: "http://localhost/pomodoro/api/is_completed_task.php",
+                    url: "../api/is_completed_task.php",
                     dataType: "json",
                     data:{
                         id: res,
@@ -857,7 +857,7 @@ var timer = {
             // console.log(id)
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/update_subtask.php",
+                url: "../api/update_subtask.php",
                 dataType: "json",
                  data:{
                     key: 'routine',
@@ -937,7 +937,7 @@ var timer = {
 
             $.ajax({
                     type:"POST",
-                    url: "http://localhost/pomodoro/api/remove_subtask.php",
+                    url: "../api/remove_subtask.php",
                     dataType: "json",
                     data:{
                         key: 'routine',
@@ -978,7 +978,7 @@ var timer = {
                 //sweet alert before assessments
                 $.ajax({
                         type:"POST",
-                        url: "http://localhost/pomodoro/api/get_assessment_availability.php",
+                        url: "../api/get_assessment_availability.php",
                         dataType: "json",
                         data:{
                             user_id: localStorage.getItem('user_id'),
@@ -1017,7 +1017,7 @@ var timer = {
                 //sweet alert before reports
                 $.ajax({
                         type:"POST",
-                        url: "http://localhost/pomodoro/api/reset_task_session.php",
+                        url: "../api/reset_task_session.php",
                         dataType: "json",
                         data:{
                             id: localStorage.getItem('routineId')
@@ -1027,7 +1027,7 @@ var timer = {
                         success: function(dataResult){
                             $.ajax({
                                     type:"POST",
-                                    url: "http://localhost/pomodoro/api/save_to_routine_reports.php",
+                                    url: "../api/save_to_routine_reports.php",
                                     dataType: "json",
                                     data:{
                                         user_id: localStorage.getItem('user_id'),
@@ -1139,7 +1139,7 @@ var timer = {
             console.log(localStorage.getItem('routineId'))
             $.ajax({
                     type:"POST",
-                    url: "http://localhost/pomodoro/api/add_subtask_routine.php",
+                    url: "../api/add_subtask_routine.php",
                     dataType: "json",
                     data:{
                         name: name,

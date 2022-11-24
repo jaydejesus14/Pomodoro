@@ -229,13 +229,13 @@
             
             if(!localStorage.getItem('user_id')){
                
-                        window.location = "http://localhost/pomodoro/user/login.html";
+                        window.location = "../user/login.html";
                   
                     
                 }
             $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/user_info.php",
+                url: "../api/user_info.php",
                 dataType: "json",
                 data:{
                     user_id: localStorage.getItem('user_id'),
@@ -314,7 +314,7 @@
                     
                  $.ajax({
                         type:"POST",
-                        url: "http://localhost/pomodoro/api/reports.php",
+                        url: "../api/reports.php",
                         dataType: "json",
                         data:{
                             end_date: document.getElementById('end_date').value,

@@ -475,7 +475,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                 icon: 'error',
                 confirmButtonText: 'OK'
             }).then(function() {
-                window.location = "http://localhost/pomodoro/user/login.html";
+                window.location = "../user/login.html";
              });
             
         }else {
@@ -789,7 +789,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         // else{
                 $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/add_routine.php",
+                url: "../api/add_routine.php",
                 dataType: "json",
                 data:{
                     user_id: localStorage.getItem('user_id'),
@@ -912,7 +912,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                 //sweet alert before assessments
             $.ajax({
                     type:"POST",
-                    url: "http://localhost/pomodoro/api/get_assessment_availability.php",
+                    url: "../api/get_assessment_availability.php",
                     dataType: "json",
                     data:{
                         user_id: localStorage.getItem('user_id'),
@@ -1012,7 +1012,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
             
             
             .then(function() {
-                window.location = "http://localhost/pomodoro/user/login.html";
+                window.location = "../user/login.html";
              });
             
         } else {

@@ -375,7 +375,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         // disabling customize timer
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/customize_settings.php",
+                url: "../api/customize_settings.php",
                 dataType: "json",
                 data:{
                     id: localStorage.getItem('majorTaskId'),
@@ -446,7 +446,7 @@ var timer = {
 
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/update_date_todo.php",
+                url: "../api/update_date_todo.php",
                 dataType: "json",
                 data:{
                     id: localStorage.getItem('majorTaskId'),
@@ -641,7 +641,7 @@ var timer = {
             
             $.ajax({
                     type:"POST",
-                    url: "http://localhost/pomodoro/api/session_time_update.php",
+                    url: "../api/session_time_update.php",
                     dataType: "json",
                     data:{
                         key: 'todo',
@@ -665,7 +665,7 @@ var timer = {
             var majorTaskId = localStorage.getItem('majorTaskId')
             $.ajax({
                     type:"POST",
-                    url: "http://localhost/pomodoro/api/return_specific_group_task.php",
+                    url: "../api/return_specific_group_task.php",
                     dataType: "json",
                     data:{
                         id: majorTaskId
@@ -809,7 +809,7 @@ var timer = {
         function is_completed(res){
             $.ajax({
                     type:"POST",
-                    url: "http://localhost/pomodoro/api/is_completed_task.php",
+                    url: "../api/is_completed_task.php",
                     dataType: "json",
                     data:{
                         id: res,
@@ -831,7 +831,7 @@ var timer = {
             // console.log(id)
         $.ajax({
                 type:"POST",
-                url: "http://localhost/pomodoro/api/update_subtask.php",
+                url: "../api/update_subtask.php",
                 dataType: "json",
                  data:{
                     key: 'todo',
@@ -872,7 +872,7 @@ var timer = {
 
             $.ajax({
                     type:"POST",
-                    url: "http://localhost/pomodoro/api/remove_subtask.php",
+                    url: "../api/remove_subtask.php",
                     dataType: "json",
                     data:{
                         key: todo,
@@ -931,7 +931,7 @@ var timer = {
            
                 $.ajax({
                         type:"POST",
-                        url: "http://localhost/pomodoro/api/get_assessment_availability.php",
+                        url: "../api/get_assessment_availability.php",
                         dataType: "json",
                         data:{
                             user_id: localStorage.getItem('user_id'),
@@ -973,7 +973,7 @@ var timer = {
                 // startDate = new Date('Y-m-D')
                 $.ajax({
                     type:"POST",
-                    url: "http://localhost/pomodoro/api/update_date_todo.php",
+                    url: "../api/update_date_todo.php",
                     dataType: "json",
                     data:{
                         id: localStorage.getItem('majorTaskId'),
