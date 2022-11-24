@@ -17,7 +17,7 @@
         <div class="container px-2 py-5 mx-auto">
             <div class="container d-flex justify-content-around ">
                 <div class = "card groupedTask">
-                    <form>
+                    <!-- <form> -->
                     <div class = "row">
                         <span class = "text-center mb-3 mt-3" id = "routineName">
                             CREATE GROUPED TASK </span>
@@ -82,7 +82,7 @@
                                     
                              
                         </div>
-                    </form> 
+                    <!-- </form>  -->
                 </div>
             </div>
         </div>
@@ -138,7 +138,10 @@
             }
             var task_name = document.getElementById('task_name').value
             var due_date = document.getElementById('due_date').value
-            if(task_name != '' && subtask != '' && due_date != ''){
+            var firstSubTask = document.getElementById('sub_task_name0').value
+            
+            
+            if(task_name != '' && subtask != '' && due_date != '' && firstSubTask != ''){
                 pomodoro = document.getElementById('pomodoro').value
                 short_break = document.getElementById('short_break').value
                 long_break = document.getElementById('long_break').value
@@ -197,6 +200,7 @@
                     //         })
                     // }
                     // else{
+                    
                         $.ajax({
                             type:"POST",
                             url: "http://localhost/pomodoro/api/add_group_task.php",
@@ -233,7 +237,7 @@
             Swal.fire({
                     title: 'Invalid Input',
                     confirmButtonColor: "#783937",
-                    text: 'Task Name and Subtasks are required in order to Proceed',
+                    text: 'Task Name, Subtask and Due Date are required in order to Proceed',
                     icon: 'info',
                     confirmButtonText: 'OK'
                 })
@@ -259,7 +263,7 @@
                 innerHtml+=' <span><input type="text" class = "taskName" id="sub_task_name'+i+'" placeholder="Sub-Task Name" required></span>'
                 innerHtml+='</div>'
                 innerHtml+='<div class = "col-2 text-center mb-4">'
-                innerHtml+='  <i class="fa fa-trash" id = "trashIcon" onClick = "removeInput()"></i>'
+                innerHtml+='  <i class="fa fa-trash" id = "trashIcon'+i+'" onClick = "removeInput()" style = "cursor:pointer"></i>'
                 innerHtml+='</div>'
                 innerHtml+='<hr class = "hrWhite2">'
                 innerHtml+='</div>'
