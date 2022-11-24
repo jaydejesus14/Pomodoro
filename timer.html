@@ -963,7 +963,6 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
           
           if (total <= 0) {
             clearInterval(interval);
-            startTimer();
             switch (timer.mode) {
               case 'pomodoro':
                 if (timer.sessions % timer.longBreakInterval === 0) {
@@ -986,7 +985,8 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                 // move(completed,0)
             }
       
-            
+            startTimer();
+ 
           }
         }, 1000);
       }
