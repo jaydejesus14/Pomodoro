@@ -666,3 +666,38 @@ a.dropdown-toggle {
     zoom: 85% !important;
   }
 }
+
+@media screen and (max-width: 1600px) and (min-width: 1501px) {
+  #smolPageContainer {
+    -moz-transform: scale(0.9, 0.9) !important;
+    zoom: 0.85 !important;
+    zoom: 85% !important;
+  }
+  .responsive {
+    position: fixed;
+    display: block;
+    width: 350px;
+
+    background:#F0DFD1;
+    box-shadow: 30px 35px #783937;
+    bottom: 210px;
+    right: 300px;
+    height: auto;
+  }
+
+  .wrapper{
+    position: fixed;
+    bottom: 75px;
+    right: 250px;
+    transform: translate(-50%, -50%);
+  }
+  #nav-placeholder {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;}
+  .nav {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+  }
+}

@@ -2206,8 +2206,86 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: rgb(255, 255, 255);
   width: 100%;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 10px;}
+
+  @media screen and (max-width: 1600px) and (min-width: 1501px) {
+ 
+    .card0 {
+      width:80% !important;; /*Takes 90% width from WebContainer*/
+    height: auto !important;;
+    margin: auto !important;;
+    }
+  
+
+
+  /* .sidenav {padding-top: 15px; -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+    height: 125vh !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    }
+  .sidenav a {font-size: 18px;}
+  .todoCard {
+    padding: 40px 30px;
+  }
+  .todoContainer {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+    margin-left: -20px   !important;
+    margin-top: -10px   !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    height: 125vh !important
+
+    
+  }
+  .todoCard {
+    width: 300px !important;
+
+  } */
+  #nav-placeholder {
+    -moz-transform: scale(0.82, 0.82) !important;
+    zoom: 0.82 !important;
+    zoom: 82% !important;
+  }
+  .nav {
+    -moz-transform: scale(0.9, 0.9) !important;
+    zoom: 0.9 !important;
+    zoom: 90% !important;
+  }
+  /* .modal {
+    -moz-transform: scale(0.9, 0.9) !important;
+    zoom: 0.9 !important;
+    zoom: 90% !important;
+
+  } */
+  .timer {
+    /* -moz-transform: scale(0.95, 0.95) !important;
+    zoom: 0.9 !important;
+    zoom: 90% !important; */
+    width:90% !important;; /*Takes 90% width from WebContainer*/
+    height: auto !important;;
+    margin: auto !important;;
+  }
+ #smolPageContainer {
+  width:80% !important;; /*Takes 90% width from WebContainer*/
+  height: auto !important;;
+  margin: auto !important;;
+  }
+  
+  .editProfile {
+    margin: 10px 5px !important;
+  }
+  #signUpContainer {
+    width: 70% !important; /*Takes 90% width from WebContainer*/
+    height: auto !important;
+    margin: auto !important;
+  } 
 }
+  
+
 
 @media screen and (max-width: 1500px) {
   .card1 {
@@ -2220,6 +2298,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
       width: 100%;
   }
 
+ 
   .right {
       margin-top: 100px !important;
       margin-bottom: 100px !important;
