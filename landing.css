@@ -657,3 +657,12 @@ a.dropdown-toggle {
 #dropdownMenuButton{
   background: transparent;
 }
+
+
+@media screen and (max-width: 1500px) {
+  #smolPageContainer {
+    -moz-transform: scale(0.9, 0.9) !important;
+    zoom: 0.85 !important;
+    zoom: 85% !important;
+  }
+}
