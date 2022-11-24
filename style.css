@@ -2218,9 +2218,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   
 
 
-  /* .sidenav {padding-top: 15px; -moz-transform: scale(0.8, 0.8) !important;
-    zoom: 0.8 !important;
-    zoom: 80% !important;
+ .sidenav {padding-top: 15px; 
+  width: 15%; /*Takes 90% width from WebContainer*/
+  height: auto !important;;
+  margin: auto !important;;
     height: 125vh !important;
     overflow-x: scroll !important;
     overflow-y: hidden !important;
@@ -2230,21 +2231,29 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 40px 30px;
   }
   .todoContainer {
-    -moz-transform: scale(0.8, 0.8) !important;
-    zoom: 0.8 !important;
-    zoom: 80% !important;
-    margin-left: -20px   !important;
+
+   
     margin-top: -10px   !important;
+
     overflow-x: scroll !important;
     overflow-y: hidden !important;
-    height: 125vh !important
+   
 
     
   }
   .todoCard {
-    width: 300px !important;
+    width: 310px !important;
+    
 
-  } */
+  } 
+
+  #todoCard1 {
+    width: 260px  !important;
+    margin-left: -20px !important;
+    margin-right: 10px!important;
+
+  }
+  
   #nav-placeholder {
     -moz-transform: scale(0.82, 0.82) !important;
     zoom: 0.82 !important;
@@ -2254,6 +2263,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     -moz-transform: scale(0.9, 0.9) !important;
     zoom: 0.9 !important;
     zoom: 90% !important;
+  }
+  .todoAddCard1 {
+    width: 200px;
+    margin: 30px 10px;
+    padding: 25px 10px 40px 10px;
+    border-radius: 20px;
+    box-sizing: content-box;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    background-color:rgba(240,223,209, 0.5);
+    
   }
   /* .modal {
     -moz-transform: scale(0.9, 0.9) !important;
@@ -2287,7 +2306,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   
 
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1500px)  and (min-width: 1300px) {
   .card1 {
       width: 100%;
       padding: 40px 30px 10px 30px;
