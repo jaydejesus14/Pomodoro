@@ -1980,9 +1980,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .reportsCheck {
-  z-index: 9;
-  position: absolute;
-  margin-top: 20px;
+
 }
 #nameCard{
   min-height: 200px;
