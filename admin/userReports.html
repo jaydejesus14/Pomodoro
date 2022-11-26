@@ -257,7 +257,134 @@
  
              window.location = "../timer.html";
          };
-  
+
+        function showReports(){
+                var params = []
+                
+                $.ajax({
+                    type:"POST",
+                    url: "http://localhost/pomodoro/api/admin_reports.php",
+                    dataType: "json",
+                    data:{
+                        end_date: document.getElementById('end_date').value,
+                        start_date: document.getElementById('start_date').value,
+                        user_id: params,
+                    },
+                    
+                    cache:false,
+                    success: function(dataResult){
+                        var arrayAssessments = dataResult.assessments;
+                        var arrayTask = dataResult.task;
+                        var arrayRoutine = dataResult.routine;
+                        console.log(dataResult)
+
+                        var innerHtmlAssessments = ''
+                        var innerHtmlTask = ''
+                        var innerHtmlRoutine = ''
+                        var innerHtmlTodoSummary = ''
+                        var innerHtmlRoutineModal = ''
+                        var innerHtmlRoutineSummary = ''
+                        
+                        
+                        for(let i = 0; dataResult.assessments.length > i; i++){
+                            var managementSkill = ''
+                            if(arrayAssessments[i].points >= 45 && arrayAssessments[i].points <= 50 ){
+                                managementSkill = 'You have excellent time mangament skills and should use this guide as a reference	 '
+                            }else if(arrayAssessments[i].points >= 30 && arrayAssessments[i].points <= 44){
+                                managementSkill = 'You manage your time fairly well but should use this guide to increase skill'
+
+                            }else{
+                                managementSkill = 'Your time management skill should be improved for college but not panic, following the subsquent guidelines will assist you in improving your ability and further your chances of success'
+                            }
+                            innerHtmlAssessments+='<tr>'
+                            innerHtmlAssessments+='<td>'+parseInt(i+1)+'</td>'
+                            innerHtmlAssessments+='<td>'+arrayAssessments[i].points+'</td>'
+                            innerHtmlAssessments+='<td colspan="2" class = "text-center">'+managementSkill+'</td>'
+                            innerHtmlAssessments+='<td>'+arrayAssessments[i].date_created+'/'+arrayAssessments[i].time_created+'</td>'
+                            innerHtmlAssessments+='</tr>'
+                        }
+                        for(let i = 0; dataResult.task.length > i; i++){
+                            todoSum = i;
+                            innerHtmlTask+='<tr>'
+                            innerHtmlTask+='<td colspan="2" class = "text-left">'+arrayTask[i].task_name+'</td>'
+                            innerHtmlTask+='<td>'+arrayTask[i].pomodoro+':00</td>'
+                            innerHtmlTask+='<td>'+arrayTask[i].subtask_no+'</td>'
+                            innerHtmlTask+='<td>'+arrayTask[i].start_date+'/'+arrayTask[i].start_time+'</td>'
+                            innerHtmlTask+='<td>'+arrayTask[i].end_date+'/'+arrayTask[i].end_time+'</td>'
+                            innerHtmlTask+='</tr>'
+                            
+                        }
+                        for(let i = 0; dataResult.routine.length > i; i++){
+                            if(arrayRoutine[i].times_done){
+                            innerHtmlRoutine += '<tr>'
+                            innerHtmlRoutine += '<td colspan="2" class = "text-left">'+arrayRoutine[i].routine_name+'</td>'
+                            innerHtmlRoutine += '<td>'+arrayRoutine[i].pomodoro+':00</td>'
+                            innerHtmlRoutine += '<td>'+arrayRoutine[i].subtask_no+'</td>'
+                                innerHtmlRoutine += '<td>'+arrayRoutine[i].times_done+'</td>'
+                            
+                            innerHtmlRoutine += '<td><a class="dropdown-item" href="#" data-toggle = "modal" data-target = "#viewMoreModal'+i+'"  ><i class="fa fa-eye" ></i></a></td>'
+                            innerHtmlRoutine += '</tr>'
+                            innerHtmlRoutineModal+='<div class = "modal fade " id="viewMoreModal'+i+'" role="dialog">'
+                            innerHtmlRoutineModal+='<div class = "modal-dialog  modal-xl modal-dialog-scrollable">'
+                            innerHtmlRoutineModal+='<div class = "modal-content">'
+                            innerHtmlRoutineModal+='<div class = "modal-header text-center d-block  "><h4 class="modal-title  d-inline-block">'+arrayRoutine[i].routine_name+'</h4></div>'
+                            innerHtmlRoutineModal+='<div class = "modal-body">'
+                            innerHtmlRoutineModal+='<div class = "row  justify-content-md-center text-center">'
+                            innerHtmlRoutineModal+='<div class = "col-8 text-center">'
+                            innerHtmlRoutineModal+='<div class = "reportsTableCard1">'
+                            innerHtmlRoutineModal+='<table class="table table-striped">'
+                            innerHtmlRoutineModal+='<thead>'
+                            innerHtmlRoutineModal+='<tr>'
+                            innerHtmlRoutineModal+='<th colspan="2">ROUTINE NAME</th>'
+                            innerHtmlRoutineModal+='<th scope="col-2">TIME PER SESSION</th>'
+                            innerHtmlRoutineModal+=' <th scope="col-2">NO. OF SUBTASKS</th>'
+                            // innerHtmlRoutineModal+='<th scope="col-2">NO. OF TIMES</th></th>'
+                            innerHtmlRoutineModal+=' <th scope="col-2">TIME/DATE COMPLETED'
+                            innerHtmlRoutineModal+='</tr>'
+                            innerHtmlRoutineModal+='<tbody>'
+                                for(let x = 0; dataResult.routine[i].history.length > x; x++){
+                                    innerHtmlRoutineModal += '<tr>'
+                                    innerHtmlRoutineModal += '<td colspan="2" class = "text-left">'+dataResult.routine[i].history[x].routine_name+'</td>'
+                                    innerHtmlRoutineModal += '<td>'+dataResult.routine[i].history[x].pomodoro+':00</td>'
+                                    innerHtmlRoutineModal += '<td>'+dataResult.routine[i].history[x].no_of_task+'</td>'
+                                    // innerHtmlRoutineModal += '<td>'+dataResult.routine[i].history[x]+'</td>'
+                                    innerHtmlRoutineModal += '<td>'+dataResult.routine[i].history[x].end_date+'</td>'
+                                    innerHtmlRoutineModal += '</tr>'
+                                }
+                            
+                            innerHtmlRoutineModal+='</tbody>'
+                            innerHtmlRoutineModal+=' </table>'
+                            innerHtmlRoutineModal+=' </div>'
+
+
+
+                        innerHtmlRoutineModal+='</div>'
+                    innerHtmlRoutineModal+='</div>'
+                    innerHtmlRoutineModal+='</div>'
+                    innerHtmlRoutineModal+='</div>'
+                    innerHtmlRoutineModal+='</div>'
+                    innerHtmlRoutineModal+='</div>'
+                            }
+                        }
+
+                            // console.log(arrayRoutine)
+                        
+                            innerHtmlTodoSummary+=dataResult.task.length
+                            innerHtmlRoutineSummary += dataResult.routine.length
+                            
+                        // $('#task').html(innerHtmlTask)
+                        // $('#assessments').html(innerHtmlAssessments)
+                        // $('#routine').html(innerHtmlRoutine)
+                        // $('#todoSummary1').html(innerHtmlTodoSummary)
+                    
+                        // $('#routineSummary').html(innerHtmlRoutineSummary)
+                        // $('#viewMoreModal2').html(innerHtmlRoutineModal)
+
+                    },error:function(err){
+                        console.log('error')		 
+                    }
+                })
+            }
              
         
  
