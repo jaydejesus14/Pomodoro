@@ -32,8 +32,12 @@
                                ALL USERS
                             </span>
                             <hr class = "hrWhite">
+                            <div class = "row">
+                                <div class = "col-2">
+                            <input type="checkbox"></div><div class = "col-10"><span>SELECT ALL USERS</span></div>
+                        </div>
                             <!-- ONE USER DETAIL -->
-                            <div class = "row  text-center mb-1" >
+                            <div class = "row  text-center mb-1 mt-2" id = "adminScrollReports">
                               
                                 <div class = "col-10 summaryNameCol">
                                     <div class = "row">
@@ -48,6 +52,57 @@
                                         <div class = "col-2">
                                             </div>
                                         <div class = "col-10">
+                                            <short>thisslongeail.babla@blabla.com</short>
+                                        </div>
+                                     </div>
+                                </div>
+                                <div class = "col-10 summaryNameCol">
+                                    <div class = "row">
+                                <div class = "col-2">
+                                    <input type="checkbox" class = "reportsCheck">
+                                    </div>
+                                 
+                                        <div class = "col-10">
+                                        
+                                            <span style= "font-size: 18px">lastName1</span>
+                                        </div>
+                                        <div class = "col-2">
+                                            </div>
+                                        <div class = "col-10">
+                                            <short>emailadd</short>
+                                        </div>
+                                     </div>
+                                </div>
+                                <div class = "col-10 summaryNameCol">
+                                    <div class = "row">
+                                <div class = "col-2">
+                                    <input type="checkbox" class = "reportsCheck">
+                                    </div>
+                                 
+                                        <div class = "col-10">
+                                        
+                                            <span style= "font-size: 18px">lastName1</span>
+                                        </div>
+                                        <div class = "col-2">
+                                            </div>
+                                        <div class = "col-10">
+                                            <short>emailadd</short>
+                                        </div>
+                                     </div>
+                                </div>
+                                <div class = "col-10 summaryNameCol">
+                                    <div class = "row">
+                                <div class = "col-2">
+                                    <input type="checkbox" class = "reportsCheck">
+                                    </div>
+                                 
+                                        <div class = "col-10">
+                                        
+                                            <span style= "font-size: 18px">lastName1</span>
+                                        </div>
+                                        <div class = "col-2">
+                                            </div>
+                                        <div class = "col-10">
                                             <short>emailadd</short>
                                         </div>
                                      </div>
@@ -70,7 +125,6 @@
                                      </div>
                                 </div>
                                 
-                                
                             </div>
                             <!-- END -->
         
@@ -79,12 +133,14 @@
                         </div>
                         
                     </div>
+                    <div class = "reportsButtons">
                     <div class = "row text-center">
                         <button onClick = "window.location.href='allUserAccs.html'" class="btn-block btn-color" id = "routine_btn">VIEW ALL USERS</button>
-                        <button class="btn-block btn-color" id = "routine_btn">SELECT USERS</button>
+                        <!-- <button class="btn-block btn-color" id = "routine_btn">SELECT USERS</button> -->
                         <button onClick = "window.location.href='dashboard.html'"  class="btn-block btn-color" id = "routine_btn">BACK</button></div>
                     
                    </div>
+                </div>
                    
                 <!-- SUB ROUTINES -->
                 <div class = "col-lg-9">
@@ -150,17 +206,15 @@
                                 <thead>
                                   <tr>
                                     <th>#</th>
-                                    <th scope="col-2">TIME PER SESSION</th>
-                                    <th scope="col-2">NO. OF SUBTASKS</th>
-                                    <th scope="col-2">TIME/DATE STARTED</th>
-                                    <th scope="col-2">TIME/DATE COMPLETED</th>
+                                    <th>EMAIL ADDRESS</th>
+                                    <th>TIME PER SESSION</th>
+                                    <th>NO. OF SUBTASKS</th>
+                                    <th>TIME/DATE COMPLETED</th>
                                   </tr>
                                 </thead>
                                 <tbody id="task">
-                                    <!-- ONE TASK REPORT -->
-                                  <tr>
                                     <td></td>
-                                    <td></td>
+                                    <td colspan="4"></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -178,15 +232,17 @@
                                 <thead>
                                   <tr>
                                     <th scope="col-2">#</th>
-                                    <th scope="col-2">TIME PER SESSION</th>
-                                    <th scope="col-2">NO. OF SUBTASKS</th>
-                                    <th scope="col-2">NO. OF TIMES</th>
+                                    <th colspan="2">EMAIL ADDRESS</th>
+                                    <th>TIME PER SESSION</th>
+                                    <th>NO. OF SUBTASKS</th>
+                                    <th>NO. OF TIMES</th>
                                   </tr>
                                 </thead>
                                 <tbody id="routine">
                                     <!-- ONE ROUTINE REPORT -->
                                   <tr>
                                     <td colspan="2" class = "text-left"></td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -203,10 +259,11 @@
                             <table class="table table-striped">
                                 <thead>
                                   <tr>
-                                    <th scope="col-2">#</th>
-                                    <th scope="col-2">POINTS</th>
-                                    <th scope="col-2">CURRENT TIME MANAGEMENT SKILL</th>
-                                    <th scope="col-2">TIME/DATE COMPLETED</th>
+                                    <th scope="col-1">#</th>
+                                    <th colspan="2">EMAIL ADDRESS</th>
+                                    <th scope="col-1">POINTS</th>
+                                   
+                                    <th scope="col-1">TIME/DATE COMPLETED</th>
                                     
                                   </tr>
                                 </thead>
@@ -215,9 +272,9 @@
                                   <tr>
                                     
                                     <td></td>
-                                    <td></td>
                                     <td colspan="2" class = "text-left"></td>
                                     <td></td>
+                                    <td colspan="2" class = "text-left"></td>
                                   </tr>
                                   <!-- END OF ONE ROUTINE REPORT -->
                                 </tbody>
