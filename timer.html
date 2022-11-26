@@ -442,6 +442,8 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                 </div>
              </div>
         </div>
+
+        <!-- <button onclick="audio.play();">sounds</button> -->
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -453,7 +455,10 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
             });
         </script>
 
-<script>
+<script type="text/javascript">
+
+const audio = new Audio('bell.wav');
+audio.play();
     
     //variables
     let sessionArray = [{
@@ -1046,6 +1051,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                   skipBtn.disabled=false;
                   assessCount()
                 } else {
+                    audio.play();
                   switchMode('shortBreak');
                   is_completed(reference_index)
                   mainButton.disabled=true;
@@ -1054,6 +1060,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                 }
                 break;
               default:
+             
                 switchMode('pomodoro');
                 mainButton.disabled=false;
                 skipBtn.disabled=true;
