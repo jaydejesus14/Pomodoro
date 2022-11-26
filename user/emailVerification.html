@@ -104,6 +104,11 @@
                                 // alert(dataResult.message)
                                 if (dataResult.status){
                                 //path nung pag lalandingan niya
+                                localStorage.removeItem("first_name");
+                                localStorage.removeItem("last_name");
+                                localStorage.removeItem("user_name");
+                                localStorage.removeItem("password");
+                                localStorage.removeItem("email");
                                 window.location.href = "../user/login.html";
                                 }
 
