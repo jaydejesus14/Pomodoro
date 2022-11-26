@@ -132,8 +132,7 @@
         window.location.href = "../user/login.html";
     }
     function redirect(res){
-        // window.location.href = res;
-        console.log(res)
+
         
 
         if(localStorage.getItem('user_id')){
@@ -156,12 +155,7 @@
     /*  */
         $(document).ready(function(){
         $(".dropdown-toggle").dropdown();
-        console.log(localStorage.getItem('user_id'))
-        console.log(localStorage.getItem('emailAdd'))
-        
-        
 
-      
         const guestBtns = document.getElementById('dropdownGuest');
         const userBtns = document.getElementById('dropdownLogged');
         const adminBtns = document.getElementById('nav_btnAdmin');
@@ -188,7 +182,7 @@
                
 
                 },error:function(err){
-            console.log('error')		 
+	 
             }
         })
             if(localStorage.getItem('emailAdd')!="pivotacc.pomodoro@gmail.com"){
@@ -202,8 +196,6 @@
                     adminBtns.style.display='block'; 
                     adminBtns2.style.display='block'; 
             }
-               
-                console.log(emailAdd)
             } else {
                 
                 guestBtns.style.display='block';
