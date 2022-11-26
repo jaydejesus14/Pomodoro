@@ -1,27 +1,14 @@
 <?php
 include 'database.php';
+$search = $_POST['search'];
 
-// $where = array (
-//     'email' => 1
-// );
-
-// $select_fields = array(
-//     'Fname' => 1,
-//     'Lname' => 1,
-//     'user_name' => 1,
-//     'email' => 1
-// );
-
-// $options = array(
-//     'projection' => $select_fields
-// );
-
-
-
-// $cursor = $db->users->find($options);
-// $docs = $cursor->toArray();
-$ne = "pivotacc.pomodoro@gmail.com";
-$cursor = $db->users->find();
+// $ne = "pivotacc.pomodoro@gmail.com";
+$cursor = $db->users->find(array('$or' => array(
+    array("Fname" => array('$regex' => $search)),
+    array("Lname" => array('$regex' => $search)),
+    array("user_name" => array('$regex' => $search)),
+    array("email" => array('$regex' => $search))
+  )));
 
 // echo '<pre>';
 

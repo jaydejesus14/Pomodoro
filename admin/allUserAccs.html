@@ -22,7 +22,7 @@
             <div class = "row">
                 <div class="form-group has-search">
                     <span class="fa fa-search form-control-feedback"></span>
-                    <input type="text" class="form-control">
+                    <input type="text" id="search" onkeyup = "showUsers()" class="form-control">
                   </div>
         </div>
         </div>
@@ -90,7 +90,9 @@
                 type:"POST",
                 url: "http://localhost/pomodoro/api/admin_viewuser.php",
                 dataType: "json",
-             
+                data:{
+                    search: document.getElementById('search').value
+                },
                 cache:false,
                 success: function(dataResult){
 
