@@ -34,96 +34,12 @@
                             <hr class = "hrWhite">
                             <div class = "row">
                                 <div class = "col-2">
-                            <input type="checkbox"></div><div class = "col-10"><span>SELECT ALL USERS</span></div>
+                            <input id="checked_all" type="checkbox" onclick="checked_all_func()" checked></div><div class = "col-10"><span>SELECT ALL USERS</span></div>
                         </div>
                             <!-- ONE USER DETAIL -->
                             <div class = "row  text-center mb-1 mt-2" id = "adminScrollReports">
                               
-                                <div class = "col-10 summaryNameCol">
-                                    <div class = "row">
-                                <div class = "col-2">
-                                    <input type="checkbox" class = "reportsCheck">
-                                    </div>
-                                 
-                                        <div class = "col-10">
-                                        
-                                            <span style= "font-size: 18px">lastName1</span>
-                                        </div>
-                                        <div class = "col-2">
-                                            </div>
-                                        <div class = "col-10">
-                                            <short>thisslongeail.babla@blabla.com</short>
-                                        </div>
-                                     </div>
-                                </div>
-                                <div class = "col-10 summaryNameCol">
-                                    <div class = "row">
-                                <div class = "col-2">
-                                    <input type="checkbox" class = "reportsCheck">
-                                    </div>
-                                 
-                                        <div class = "col-10">
-                                        
-                                            <span style= "font-size: 18px">lastName1</span>
-                                        </div>
-                                        <div class = "col-2">
-                                            </div>
-                                        <div class = "col-10">
-                                            <short>emailadd</short>
-                                        </div>
-                                     </div>
-                                </div>
-                                <div class = "col-10 summaryNameCol">
-                                    <div class = "row">
-                                <div class = "col-2">
-                                    <input type="checkbox" class = "reportsCheck">
-                                    </div>
-                                 
-                                        <div class = "col-10">
-                                        
-                                            <span style= "font-size: 18px">lastName1</span>
-                                        </div>
-                                        <div class = "col-2">
-                                            </div>
-                                        <div class = "col-10">
-                                            <short>emailadd</short>
-                                        </div>
-                                     </div>
-                                </div>
-                                <div class = "col-10 summaryNameCol">
-                                    <div class = "row">
-                                <div class = "col-2">
-                                    <input type="checkbox" class = "reportsCheck">
-                                    </div>
-                                 
-                                        <div class = "col-10">
-                                        
-                                            <span style= "font-size: 18px">lastName1</span>
-                                        </div>
-                                        <div class = "col-2">
-                                            </div>
-                                        <div class = "col-10">
-                                            <short>emailadd</short>
-                                        </div>
-                                     </div>
-                                </div>
-                                <div class = "col-10 summaryNameCol">
-                                    <div class = "row">
-                                <div class = "col-2">
-                                    <input type="checkbox" class = "reportsCheck">
-                                    </div>
-                                 
-                                        <div class = "col-10">
-                                        
-                                            <span style= "font-size: 18px">lastName1</span>
-                                        </div>
-                                        <div class = "col-2">
-                                            </div>
-                                        <div class = "col-10">
-                                            <short>emailadd</short>
-                                        </div>
-                                     </div>
-                                </div>
+                               
                                 
                             </div>
                             <!-- END -->
@@ -259,11 +175,10 @@
                             <table class="table table-striped">
                                 <thead>
                                   <tr>
-                                    <th scope="col-1">#</th>
-                                    <th colspan="2">EMAIL ADDRESS</th>
-                                    <th scope="col-1">POINTS</th>
-                                   
-                                    <th scope="col-1">TIME/DATE COMPLETED</th>
+                                    <th scope="">#</th>
+                                    <th colspan="">EMAIL ADDRESS</th>
+                                    <th scope="">POINTS</th>
+                                    <th scope="">TIME/DATE COMPLETED</th>
                                     
                                   </tr>
                                 </thead>
@@ -299,27 +214,117 @@
      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
      <script>
+     var is_all = true//para hindi lang mag reset yung check box
+     var search_id = true
+     var search_is = 1212
          window.onload = function() {
      if(!window.location.hash) {
          window.location = window.location + '#loaded';
          window.location.reload();
      }
-     showReports()
+     if(window.location.search){
+        const queryString = window.location.search
+        search_is = queryString.substring(1)
+        is_all = false
+        search_id = true
+        document.getElementById("checked_all").checked = false;
+     }else{
+        is_all = true
+        search_id = false
+     }
+     showUsers()
+     
      window.onpageshow = function (event) {
          if (event.persisted) {
              window.location.reload(); //reload page if it has been loaded from cache
          }
          };
      }
+
+     
      if(!localStorage.getItem('user_id')||localStorage.getItem('emailAdd')!="pivotacc.pomodoro@gmail.com"){
        
  
              window.location = "http://localhost/pomodoro/timer.html";
          };
+         var userIdArray = []
+         function showUsers(){
+            console.log(search_is)
+                $.ajax({
+                    type:"POST",
+                    url: "http://localhost/pomodoro/api/admin_viewuser.php",
+                    dataType: "json",
+                    data:{
+                        search: ''
+                    },
+                    cache:false,
+                    success: function(dataResult){
 
-        function showReports(){
-                var params = []
+                        var innerHtml = ''
+                        console.log(dataResult)
+
+                        for (let i = 0 ; dataResult.length > i ; i++){
+                            if(dataResult[i].email!='pivotacc.pomodoro@gmail.com'){
+                                innerHtml += '<div class = "col-10 summaryNameCol">'
+                                innerHtml += '<div class = "row">'
+                                innerHtml += '<div class = "col-2">'
+                                if(is_all || (dataResult[i]._id['$oid'] == search_is && search_id) ){
+                                    userIdArray.push(dataResult[i]._id['$oid'])
+                                    innerHtml += '<input type="checkbox" onchange="user_id_to_array('+"'"+dataResult[i]._id['$oid']+"'"+')" class = "reportsCheck" checked>'
+                                }else{
+                                    innerHtml += '<input type="checkbox" onchange="user_id_to_array('+"'"+dataResult[i]._id['$oid']+"'"+')" class = "reportsCheck">'
+                                }
+                                innerHtml += '</div>'
+                                innerHtml += '<div class = "col-10">'
+                                innerHtml += '<span style= "font-size: 18px">'+dataResult[i].Lname+'</span>'
+                                innerHtml += '</div>'
+                                innerHtml += '<div class = "col-2">'
+                                innerHtml += '</div>'
+                                innerHtml += '<div class = "col-10">'
+                                innerHtml += '<short>'+dataResult[i].email+'</short>'
+                                innerHtml += '</div>'
+                                innerHtml += '</div>'
+                                innerHtml += '</div>'
+                            }
+
+                        }
+                        is_all = false
+                        search_id = false
+                        showReports()
+                        $('#adminScrollReports').html(innerHtml)
+                    },error:function(err){
+                        console.log(err)
+                    }
+                })
                 
+            }  
+        function checked_all_func(){
+            if(document.getElementById('checked_all').checked){
+                is_all = true
+                showUsers()
+            }
+        }
+            
+        function user_id_to_array(id){
+            document.getElementById("checked_all").checked = false;
+            var is_push = true;
+            // for(let i = 0; userIdArray.length > i; i++){
+            //     if(userIdArray[i] == id){
+            //         is_push = false
+            //     }
+            // }
+            const index = userIdArray.indexOf(id);
+            if (index > -1) { // only splice array when item is found
+                userIdArray.splice(index, 1); // 2nd parameter means remove one item only
+            }else{
+                userIdArray.push(id)
+            }
+            showReports()
+
+        }
+        
+        function showReports(){
+                // var params = []
                 $.ajax({
                     type:"POST",
                     url: "http://localhost/pomodoro/api/admin_reports.php",
@@ -327,7 +332,7 @@
                     data:{
                         end_date: document.getElementById('end_date').value,
                         start_date: document.getElementById('start_date').value,
-                        user_id: params,
+                        user_id: userIdArray,
                     },
                     
                     cache:false,
@@ -346,19 +351,10 @@
                         
                         
                         for(let i = 0; dataResult.assessments.length > i; i++){
-                            var managementSkill = ''
-                            if(arrayAssessments[i].points >= 45 && arrayAssessments[i].points <= 50 ){
-                                managementSkill = 'You have excellent time mangament skills and should use this guide as a reference	 '
-                            }else if(arrayAssessments[i].points >= 30 && arrayAssessments[i].points <= 44){
-                                managementSkill = 'You manage your time fairly well but should use this guide to increase skill'
-
-                            }else{
-                                managementSkill = 'Your time management skill should be improved for college but not panic, following the subsquent guidelines will assist you in improving your ability and further your chances of success'
-                            }
                             innerHtmlAssessments+='<tr>'
                             innerHtmlAssessments+='<td>'+parseInt(i+1)+'</td>'
+                            innerHtmlAssessments+='<td>'+arrayAssessments[i].email+'</td>'
                             innerHtmlAssessments+='<td>'+arrayAssessments[i].points+'</td>'
-                            innerHtmlAssessments+='<td colspan="2" class = "text-center">'+managementSkill+'</td>'
                             innerHtmlAssessments+='<td>'+arrayAssessments[i].date_created+'/'+arrayAssessments[i].time_created+'</td>'
                             innerHtmlAssessments+='</tr>'
                         }
@@ -376,12 +372,12 @@
                         for(let i = 0; dataResult.routine.length > i; i++){
                             if(arrayRoutine[i].times_done){
                             innerHtmlRoutine += '<tr>'
-                            innerHtmlRoutine += '<td colspan="2" class = "text-left">'+arrayRoutine[i].routine_name+'</td>'
+                            innerHtmlRoutine += '<td colspan="2" class = "text-left">'+parseInt(i+1)+'</td>'
+                            innerHtmlRoutine += '<td>'+arrayRoutine[i].email+'</td>'
                             innerHtmlRoutine += '<td>'+arrayRoutine[i].pomodoro+':00</td>'
                             innerHtmlRoutine += '<td>'+arrayRoutine[i].subtask_no+'</td>'
-                                innerHtmlRoutine += '<td>'+arrayRoutine[i].times_done+'</td>'
-                            
-                            innerHtmlRoutine += '<td><a class="dropdown-item" href="#" data-toggle = "modal" data-target = "#viewMoreModal'+i+'"  ><i class="fa fa-eye" ></i></a></td>'
+                            innerHtmlRoutine += '<td>'+arrayRoutine[i].times_done+'</td>'
+
                             innerHtmlRoutine += '</tr>'
                             innerHtmlRoutineModal+='<div class = "modal fade " id="viewMoreModal'+i+'" role="dialog">'
                             innerHtmlRoutineModal+='<div class = "modal-dialog  modal-xl modal-dialog-scrollable">'
@@ -431,13 +427,13 @@
                             innerHtmlTodoSummary+=dataResult.task.length
                             innerHtmlRoutineSummary += dataResult.routine.length
                             
-                        // $('#task').html(innerHtmlTask)
-                        // $('#assessments').html(innerHtmlAssessments)
-                        // $('#routine').html(innerHtmlRoutine)
-                        // $('#todoSummary1').html(innerHtmlTodoSummary)
+                        $('#task').html(innerHtmlTask)
+                        $('#assessments').html(innerHtmlAssessments)
+                        $('#routine').html(innerHtmlRoutine)
+                        $('#todoSummary1').html(innerHtmlTodoSummary)
                     
-                        // $('#routineSummary').html(innerHtmlRoutineSummary)
-                        // $('#viewMoreModal2').html(innerHtmlRoutineModal)
+                        $('#routineSummary').html(innerHtmlRoutineSummary)
+                        $('#viewMoreModal2').html(innerHtmlRoutineModal)
 
                     },error:function(err){
                         console.log('error')		 
