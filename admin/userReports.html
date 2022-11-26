@@ -130,7 +130,7 @@
                                 </thead>
                                 <tbody id="task">
                                     <td></td>
-                                    <td colspan="4"></td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -361,10 +361,10 @@
                         for(let i = 0; dataResult.task.length > i; i++){
                             todoSum = i;
                             innerHtmlTask+='<tr>'
-                            innerHtmlTask+='<td colspan="2" class = "text-left">'+arrayTask[i].task_name+'</td>'
+                            innerHtmlTask+='<td class = "text-left">'+parseInt(i+1)+'</td>'
+                            innerHtmlTask+='<td>'+arrayTask[i].email+'</td>'
                             innerHtmlTask+='<td>'+arrayTask[i].pomodoro+':00</td>'
                             innerHtmlTask+='<td>'+arrayTask[i].subtask_no+'</td>'
-                            innerHtmlTask+='<td>'+arrayTask[i].start_date+'/'+arrayTask[i].start_time+'</td>'
                             innerHtmlTask+='<td>'+arrayTask[i].end_date+'/'+arrayTask[i].end_time+'</td>'
                             innerHtmlTask+='</tr>'
                             
