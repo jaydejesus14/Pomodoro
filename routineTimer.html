@@ -353,6 +353,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
 <script src="//code.jquery.com/jquery.min.js"></script>
     <!-- <script src="timer.js"></script> -->
     <script>
+    const audio = new Audio('bell.wav');
     
     $.get("navigationBar2.html", function(data){
         $("#nav-placeholder").replaceWith(data);
@@ -493,6 +494,7 @@ var timer = {
                 skipBtn.disabled=false;
                 
             } else {
+                audio.play();
               switchMode('shortBreak');
               completed++
                 is_completed(currentSessionId)
