@@ -123,13 +123,13 @@
                     success: function(dataResult){
                         // console.log(dataResult)
                         if(dataResult.status){
-                            /*Swal.fire({
+                            Swal.fire({
                                 title: 'WELCOME BACK!',
                                 text: 'You have logged in successfully.',
                                 confirmButtonColor: "#783937",
                                 icon: 'success',
                                 confirmButtonText: 'OK'
-                            })*/then(function() {
+                            }).then(function() {
 
                             //path ng landing page after mag success ng login
                             localStorage.setItem('user_id',dataResult.data['_id']['$oid'])
