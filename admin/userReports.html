@@ -43,6 +43,7 @@
                                 
                             </div>
                             <!-- END -->
+        
                             
                           
                         </div>
@@ -67,7 +68,7 @@
                                         DATE STARTED:
                                     </span>
                                     <div class = "col text-right mb-3">
-                                        <input type="date" id="Test_DatetimeLocal" class = "dateReportS">
+                                        <input type="date" id="start_date" class = "dateReportS">
                                     </div>
                                 </div>   
                             </div>
@@ -77,13 +78,13 @@
                                         DATE ENDED:
                                     </span>
                                     <div class = "col text-left">
-                                        <input type="date" id="Test_DatetimeLocal" class = "dateReportS">
+                                        <input type="date" id="end_date" class = "dateReportS">
                                     </div>
                                 </div>   
                             </div>
                             <div class = "row text-center">
                                 <div class = "col mb-4">
-                                    <button type = "button" class = "btn" id = "reportsSort">SORT
+                                    <button type = "button" class = "btn" onClick = "showReports()" id = "reportsSort">SORT
                                     </button>
                                 </div>
 
@@ -153,7 +154,7 @@
                                     <th>NO. OF TIMES</th>
                                   </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="routine">
                                     <!-- ONE ROUTINE REPORT -->
                                   <tr>
                                     <td colspan="2" class = "text-left"></td>
@@ -181,7 +182,7 @@
                                     
                                   </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="assessments">
                                     <!-- ONE ROUTINE REPORT -->
                                   <tr>
                                     
@@ -244,7 +245,7 @@
      if(!localStorage.getItem('user_id')||localStorage.getItem('emailAdd')!="pivotacc.pomodoro@gmail.com"){
        
  
-             window.location = "../timer.html";
+             window.location = "../api/timer.html";
          };
          var userIdArray = []
          function showUsers(){
@@ -326,7 +327,7 @@
                 // var params = []
                 $.ajax({
                     type:"POST",
-                    url: "../api/admin_reports.php",
+                    url: "../pomodoro/api/admin_reports.php",
                     dataType: "json",
                     data:{
                         end_date: document.getElementById('end_date').value,
