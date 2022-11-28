@@ -2239,7 +2239,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .reportsButtons{
   z-index: 9;
   position: fixed;
-  top: 700px;
+  top: 720px;
   left: 350px;
 }
 .summaryNameCol {
