@@ -104,6 +104,24 @@
     <script src="sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
     <script>
+         window.onload = function() {
+        if(!window.location.hash) {
+            window.location = window.location + '#loaded';
+            window.location.reload();
+        }
+        if(!localStorage.getItem('user_id')){
+        Swal.fire({
+                title: 'LOGIN FIRST!', 
+                confirmButtonColor: "#783937",
+                text: "Before proceeding, log-in or create an account. ",
+                icon: 'error',
+                confirmButtonText: 'OK'
+            }).then(function() {
+                window.location = "http://localhost/pomodoro/user/login.html";
+             });
+            
+        }
+    }
         const inputs = document.querySelectorAll('input[data-name="inputNumber"]');
         inputs.forEach(input => {
         input.addEventListener('change', () => {
@@ -121,6 +139,7 @@
             }
         });
         });
+       
     </script>
     <script>
         const queryString = window.location.search
