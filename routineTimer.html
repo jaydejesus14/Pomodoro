@@ -396,6 +396,7 @@ var timer = {
   const circle = document.getElementById('circle2');
   const length = circle.getTotalLength();
   const settings = document.getElementById("settingIcon")
+  const addBtn = document.getElementById("addSession_btn")
   const skipBtn = document.getElementById("skip_btn")
   var spacingHide = document.getElementById("spacing")
    
@@ -612,6 +613,7 @@ var timer = {
     </script>
     <script>
         var completed = 0
+        var numOfSess = 0
         orderSession()
 
         function saveSessionTime(){
@@ -797,6 +799,7 @@ var timer = {
                     // checkingDate(currentSessionId)
                     
                     console.log("hm " + completed)
+                    numberOfSess = dataResult.subtask.length;
                     
                     localStorage.setItem('countSession',countSession)
                     console.log(localStorage.getItem('countSession')+"uhm")
@@ -1106,47 +1109,66 @@ var timer = {
         // TESTING ADD OF SESSION
         var count = 0;
 
+        if(numberOfSess==="8"){
+            addBtn.style.pointerEvents = 'none';
+
+        }
+
         function addASession(){
             count
-            var addingSession=''
-            for(let i = 0; i <= count; i++) {
-                            addingSession+='<div class="card sessionsList">'
-                            addingSession+='<div class = "card-header sessionHeader">'
-                            addingSession+='<div class = "row  justify-content-md-center text-center" id ="accordionSessions">'
-                            addingSession+='<div class = "col-8 text-left">'
-                            addingSession+='<div class = "sessionListName">'
-                            addingSession+='<input class ="sessionListInput" id = "subTaskInputNew'+i+'" type = "text" value="" placeholder="Session Name" style="color: black">'
-                            addingSession+='</div>'
-                            addingSession+='</div>'
-                            addingSession+='<div class ="col-2 text-right mt-1">'
-                            addingSession+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapseee'+i+'" aria-expanded="true" aria-controls="collapseOne">'
-                            addingSession+=' <i class="fa fa-angle-down" id="sessionIcons"></i>'
-                            addingSession+='</button>'
-                            addingSession+='</div>'
-                            addingSession+='</div>'
-                            addingSession+='</div>'
-                            addingSession+='<div id="sessionCollapseee'+i+'" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionSessions">'
-                            addingSession+='<div class = "card-body sessionsTimer">'
-                            addingSession+='<div class = "row text-center">'
-                            addingSession+='<div class = "notesTimer">'
-                            addingSession+='<textarea class ="notesTimerInput" id = "noteNew'+i+'" type = "text" value="" placeholder="Add a note" style="color: black" cols="40" rows="6"></textarea>'
-                            addingSession+='</div>' 
-                            addingSession+='</div>'
-                            addingSession+='<hr>'
-                            addingSession+='<div class = "row">'
-                            addingSession+='<div class = "col-6 text-left">'  
-                            addingSession+='</div>'
-                            addingSession+='<div class = "col-6 text-right">'
-                            addingSession+='<button type="button" class="btn" onclick="addSubTask('+i+')" id = "sessSaveBtn"">SAVE</button>'
-                            addingSession+='</div>'
-                            addingSession+='</div>'
-                            addingSession+='</div>'
-                            addingSession+='</div>'
-                            addingSession+='</div>'
+            numberOfSess
+            alert(numberOfSess)
+            if(numOfSess<=7){
+                var addingSession=''
+                for(let i = 0; i <= count; i++) {
+                
+                                addingSession+='<div class="card sessionsList">'
+                                addingSession+='<div class = "card-header sessionHeader">'
+                                addingSession+='<div class = "row  justify-content-md-center text-center" id ="accordionSessions">'
+                                addingSession+='<div class = "col-8 text-left">'
+                                addingSession+='<div class = "sessionListName">'
+                                addingSession+='<input class ="sessionListInput" id = "subTaskInputNew'+i+'" type = "text" value="" placeholder="Session Name" style="color: black">'
+                                addingSession+='</div>'
+                                addingSession+='</div>'
+                                addingSession+='<div class ="col-2 text-right mt-1">'
+                                addingSession+='<button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapseee'+i+'" aria-expanded="true" aria-controls="collapseOne">'
+                                addingSession+=' <i class="fa fa-angle-down" id="sessionIcons"></i>'
+                                addingSession+='</button>'
+                                addingSession+='</div>'
+                                addingSession+='</div>'
+                                addingSession+='</div>'
+                                addingSession+='<div id="sessionCollapseee'+i+'" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionSessions">'
+                                addingSession+='<div class = "card-body sessionsTimer">'
+                                addingSession+='<div class = "row text-center">'
+                                addingSession+='<div class = "notesTimer">'
+                                addingSession+='<textarea class ="notesTimerInput" id = "noteNew'+i+'" type = "text" value="" placeholder="Add a note" style="color: black" cols="40" rows="6"></textarea>'
+                                addingSession+='</div>' 
+                                addingSession+='</div>'
+                                addingSession+='<hr>'
+                                addingSession+='<div class = "row">'
+                                addingSession+='<div class = "col-6 text-left">'  
+                                addingSession+='</div>'
+                                addingSession+='<div class = "col-6 text-right">'
+                                addingSession+='<button type="button" class="btn" onclick="addSubTask('+i+')" id = "sessSaveBtn"">SAVE</button>'
+                                addingSession+='</div>'
+                                addingSession+='</div>'
+                                addingSession+='</div>'
+                                addingSession+='</div>'
+                                addingSession+='</div>'
+                    } 
+                    console.log(count +" = outside for add")
+            $('#newSesss').html(addingSession)
+                }else {
+                    Swal.fire({
+                    title: 'LIMIT REACHED',
+                    text: 'You can only add eight sessions!',
+			        confirmButtonColor: "#783937",
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                })
             }
             
-            console.log(count +" = outside for add")
-            $('#newSesss').html(addingSession)
+           
        }
        function addSubTask(i){
             var name = document.getElementById('subTaskInputNew'+i).value

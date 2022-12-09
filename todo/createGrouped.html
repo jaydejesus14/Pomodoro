@@ -258,6 +258,9 @@
             var innerHtml=''
             for(let i = 0; i < count; i++) {
                 // console.log(count +" = inside for add")
+                if(count<=7){
+
+               
                 innerHtml+='<div class = "row" id="newSubTask'+i+'" >'
                 innerHtml+=' <div class = "col-10 text-left" >'
                 innerHtml+=' <span><input type="text" class = "taskName" id="sub_task_name'+i+'" placeholder="Sub-Task Name" required></span>'
@@ -267,6 +270,16 @@
                 innerHtml+='</div>'
                 innerHtml+='<hr class = "hrWhite2">'
                 innerHtml+='</div>'
+            } else {
+                Swal.fire({
+                    title: 'LIMIT REACHED',
+                    text: 'You can only add eight sessions!',
+			confirmButtonColor: "#783937",
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                })
+                count=count-1;
+            }
               
                 
             }

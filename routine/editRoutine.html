@@ -147,12 +147,22 @@
         var sessionArray
         loadSession()
         function add_subtask() {
+            if(sessionArray.length<=7){
             var pushableArray = {
                 name:'pomodoro #'+parseInt(sessionArray.length+1),
                 notes:'pomodoro #'+parseInt(sessionArray.length+1)
             }
             sessionArray.push(pushableArray)
-            loadtask()
+            loadtask()}
+            else{
+                Swal.fire({
+                    title: 'LIMIT REACHED',
+                    text: 'You can only add eight sessions!',
+			confirmButtonColor: "#783937",
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                })
+            }
         }
 
         function onkeyupedit(value,guide,reference_index) {
