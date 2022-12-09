@@ -834,7 +834,17 @@ const audio = new Audio('bell.wav');
     }
     function addSession(){
         mainButton.disabled=false;
-        sessionArray.push({name:'pomodoro #'+parseInt(sessionArray.length+1),notes:'pomodoro #'+parseInt(sessionArray.length+1)})
+        if(sessionArray.length<=7){
+        sessionArray.push({name:'pomodoro #'+parseInt(sessionArray.length+1),notes:'pomodoro #'+parseInt(sessionArray.length+1)})}
+        else{
+            Swal.fire({
+                    title: 'LIMIT REACHED',
+                    text: 'You can only add eight sessions!',
+			confirmButtonColor: "#783937",
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                })
+        }
         // noteArray.push('pomodoro #'+parseInt(sessionArray.length+1))
         loadList();
     }
