@@ -2722,6 +2722,110 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-right: 15% !important;
   } 
 }
+@media screen and (max-width: 1090px) and (min-width: 900px){
+  body {
+    width: 100%;
+  }
+  .card1 {
+      width: 50%;
+      padding: 40px 30px 10px 30px;
+      
+  }
+
+  .card2 {
+      width: 50%;
+  }
+
+ 
+  .right {
+      margin-top: 100px !important;
+      margin-bottom: 100px !important;
+  }
+  
+  /* .sidenav {padding-top: 15px; -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+    height: 125vh !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    }
+  .sidenav a {font-size: 18px;}*/
+  .todoCard {
+    padding: 40px 30px;
+  }
+  .todoContainer {
+   
+    margin-left: 2%   !important;
+    margin-top: 3%   !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    height: 125vh !important;
+    width: 1200vh !important;
+    position: absolute !important;
+    display: flex;
+    padding: 0px 0px 0px 30px
+
+
+    
+    
+  }
+  .todoCardMain {
+    width: 270px !important;
+    margin-left: -25%; 
+    margin-right: 10%;
+    position: relative;
+    margin-right: 10% !important;
+
+  }
+  .todoCard {
+    width: 300px !important;
+    margin-left: 1px; 
+    position: relative;
+   
+
+  }
+  #nav-placeholder {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;}
+  .nav {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+  }
+  .timer {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+  }
+  #smolPageContainer {
+    -moz-transform: scale(0.9, 0.9) !important;
+    zoom: 0.85 !important;
+    zoom: 85% !important;
+  }
+  
+  .editProfile {
+    margin: 10px 5px !important;
+  }
+  #signUpContainer {
+    -moz-transform: scale(0.9, 0.9) !important;
+    zoom: 0.85 !important;
+    zoom: 85% !important;
+  }
+
+  .timers {
+    width: 80% !important;
+  }
+  .time {
+    margin-left: 15% !important;
+
+  }
+
+  .svg{
+    margin-right: 15% !important;
+  } 
+}
+
 
 /* @media screen and (max-width: 992px) {
   .card1 {
