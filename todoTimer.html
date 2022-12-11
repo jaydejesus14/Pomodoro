@@ -401,7 +401,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                 success: function(dataResult){
                  
                     for (let i = 0 ; dataResult.started.length > i ; i++){
-                        console.log(dataResult.started[i].start_date)
+                        // console.log(dataResult.started[i].start_date)
                         if(dataResult.started[i].start_date === undefined){
                             settings.style.pointerEvents = 'auto';
                         } else {
@@ -409,7 +409,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
                         }
                     }
                 },error:function(err){
-                    console.log('error')		 
+                    // console.log('error')		 
                 }
             })
 
@@ -471,9 +471,9 @@ var timer = {
                 
                 cache:false,
                 success: function(dataResult){
-                    console.log(dataResult.status)
+                    // console.log(dataResult.status)
                 },error:function(err){
-                    console.log('error')		 
+                    // console.log('error')		 
                 }
             })
 
@@ -671,7 +671,7 @@ var timer = {
                         
                        location.reload()
                     },error:function(err){
-                console.log('error')		 
+                // console.log('error')		 
                 }
             })
         }
@@ -769,7 +769,6 @@ var timer = {
                             innerHtml+='<div class = "col-8 text-left">'
                             innerHtml+='<div class = "sessionListName">'
                             innerHtml+='<input class ="sessionListInput" id = "inputtext'+i+'" type = "text" value="'+dataResult.subtask[i].subtaskName+'" placeholder="Session #" style="color: black">'
-                            console.log(dataResult.subtask[i].subtaskName)
                             innerHtml+='</div>'
                             innerHtml+='</div>'
                             innerHtml+='<div class ="col-2 text-right mt-1">'
@@ -802,7 +801,6 @@ var timer = {
                     }
                     move(completed,1)
                     localStorage.setItem('countSession',countSession)
-                    // console.log(dataResult.major_task.pomodoro)
                    $('#completedPomodoro').html(completedInnerHtml)
                     $('#currentSession').html(currentSession)
                     $('#currentSessionIcons').html(currentSessionIcons)
@@ -814,10 +812,9 @@ var timer = {
                     localStorage.setItem('short_break',dataResult.major_task.short_break)
                     localStorage.setItem('long_break',dataResult.major_task.long_break)
                     $('#js-minutes').html(dataResult.major_task.pomodoro)
-                    // console.log(dataResult)
                     $('#pomodoroList').html(innerHtml);
                     },error:function(err){
-                console.log('error')		 
+                // console.log('error')		 
                 }
             })
         }
@@ -835,12 +832,12 @@ var timer = {
                     success: function(dataResult){
                         
                     },error:function(err){
-                console.log('error')		 
+                // console.log('error')		 
                 }
             })
         }
         function SaveTask(i, res){
-            console.log(res)
+            // console.log(res)
             var name = document.getElementById('inputtext'+i).value
             var note = document.getElementById('note'+i).value
             // console.log(id)
@@ -866,7 +863,7 @@ var timer = {
                         location.reload();
                     });
                 },error:function(err){
-              console.log('error')		 
+            //   console.log('error')		 
             }
             })
             
@@ -898,7 +895,7 @@ var timer = {
                     success: function(dataResult){
                         console.log(dataResult.status)
                     },error:function(err){
-                console.log('error')		 
+                // console.log('error')		 
                 }
                 })
                 location.reload();
@@ -920,7 +917,7 @@ var timer = {
                 localStorage.setItem('assessTime', updatedTime)
             }
            
-            console.log(localStorage.getItem('assessTime') + "testing assess")
+            // console.log(localStorage.getItem('assessTime') + "testing assess")
 
 
 
@@ -975,9 +972,9 @@ var timer = {
                                 availble_to_assess = false
                                 localStorage.removeItem("assessTime");
                             }
-                            console.log('test')
+                            // console.log('test')
                         },error:function(err){
-                            console.log('error')		 
+                            // console.log('error')		 
                         }
                     })
                
@@ -999,7 +996,7 @@ var timer = {
                     
                     cache:false,
                     success: function(dataResult){
-                        console.log(dataResult.status)
+                        // console.log(dataResult.status)
                         stopTimer()
                         Swal.fire({
                         title: 'TODO COMPLETED!', 
@@ -1011,13 +1008,13 @@ var timer = {
                         window.location.href = 'user/reports.html';
                     });
                     },error:function(err){
-                        console.log('error')		 
+                        // console.log('error')		 
                     }
                 })
                 
                    
                 
-                console.log(time)
+                // console.log(time)
                     // 
             }
             if (i == 0) {
@@ -1084,7 +1081,7 @@ var timer = {
                              addingSession+='</div>'
                              addingSession+='</div>'
             }
-            console.log(count +" = outside for add")
+            // console.log(count +" = outside for add")
             $('#newSesss').html(addingSession)
        }
         </script>

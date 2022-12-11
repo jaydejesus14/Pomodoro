@@ -515,7 +515,6 @@ var timer = {
                 orderSession()
                 move(completed,0)
                 assessCount(completed)
-                console.log("completed"+ completed)
                 mainButton.disabled=true;
                 // spacingHide.style.display = "none"
                 skipBtn.disabled=false;
@@ -642,8 +641,7 @@ var timer = {
                     success: function(dataResult){
                         
                        location.reload()
-                    },error:function(err){
-                console.log('error')		 
+                    },error:function(err){	 
                 }
             })
         }
@@ -716,9 +714,9 @@ var timer = {
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
                             completedInnerHtml+='</div>'
-                            if(completed == countSession)(
-                                console.log('test1')
-                            )
+                            // if(completed == countSession)(
+                            //     console.log('test1')
+                            // )
                             settings.style.pointerEvents = 'none';
                             spacingHide.style.display = "none"
                             
@@ -798,11 +796,11 @@ var timer = {
                     move(completed,1)
                     // checkingDate(currentSessionId)
                     
-                    console.log("hm " + completed)
+                    // console.log("hm " + completed)
                     numberOfSess = dataResult.subtask.length;
                     
                     localStorage.setItem('countSession',countSession)
-                    console.log(localStorage.getItem('countSession')+"uhm")
+                    // console.log(localStorage.getItem('countSession')+"uhm")
                     $('#pomodoroList').html(innerHtml);
                    $('#completedPomodoro').html(completedInnerHtml)
                     $('#currentSession').html(currentSession)
@@ -864,7 +862,7 @@ var timer = {
                     success: function(dataResult){
                         
                     },error:function(err){
-                console.log('error')		 
+                // console.log('error')		 
                 }
             })
             orderSession();
@@ -895,7 +893,7 @@ var timer = {
                         location.reload();
                     });
                 },error:function(err){
-              console.log('error')		 
+            //   console.log('error')		 
             }
             })
             
@@ -931,7 +929,7 @@ var timer = {
                 localStorage.setItem('assessTime', updatedTime)
             }
            
-            console.log(localStorage.getItem('assessTime') + "testing assess")
+    
 
 
 
@@ -964,9 +962,9 @@ var timer = {
                     
                     cache:false,
                     success: function(dataResult){
-                        console.log(dataResult.status)
+                        // console.log(dataResult.status)
                     },error:function(err){
-                console.log('error')		 
+                // console.log('error')		 
                 }
                 })
                 location.reload();
@@ -974,8 +972,7 @@ var timer = {
         }
         var i = 0;
         function move(res,valid) {
-            console.log("valid "+valid)
-            console.log("res "+res)
+        
             var dtToday = new Date();
             var month = dtToday.getMonth() + 1;
             var day = dtToday.getDate();
@@ -1030,7 +1027,7 @@ var timer = {
                         }
                     })
             
-            console.log(total)
+            // console.log(total)
             if(total == 100){
                 //sweet alert before reports
                 $.ajax({
@@ -1073,11 +1070,11 @@ var timer = {
                                         // console.log(dataResult.status)
                                         // window.location.href = 'user/reports.html';
                                     },error:function(err){
-                                        console.log('error')		 
+                                        // console.log('error')		 
                                     }
                                 })
                         },error:function(err){
-                            console.log('error')		 
+                            // console.log('error')		 
                         }
                     })
 
@@ -1156,7 +1153,7 @@ var timer = {
                                 addingSession+='</div>'
                                 addingSession+='</div>'
                     } 
-                    console.log(count +" = outside for add")
+                    // console.log(count +" = outside for add")
             $('#newSesss').html(addingSession)
                 }else {
                     Swal.fire({
@@ -1173,7 +1170,7 @@ var timer = {
        function addSubTask(i){
             var name = document.getElementById('subTaskInputNew'+i).value
             var note = document.getElementById('noteNew'+i).value
-            console.log(localStorage.getItem('routineId'))
+            // console.log(localStorage.getItem('routineId'))
             $.ajax({
                     type:"POST",
                     url: "http://localhost/pomodoro/api/add_subtask_routine.php",
@@ -1186,9 +1183,9 @@ var timer = {
                     
                     cache:false,
                     success: function(dataResult){
-                        console.log(dataResult.status)
+                        // console.log(dataResult.status)
                     },error:function(err){
-                console.log('error')		 
+                // console.log('error')		 
                 }
             })
             location.reload();

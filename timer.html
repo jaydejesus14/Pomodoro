@@ -820,10 +820,10 @@ const audio = new Audio('bell.wav');
                     });
                                         
                     }else{
-                        alert(dataResult.message)
+                        // alert(dataResult.message)
                     }
                         },error:function(err){
-                    console.log('error')		 
+                    // console.log('error')		 
                     }
                 })
             // console.log('hi')
@@ -876,7 +876,7 @@ const audio = new Audio('bell.wav');
                 localStorage.setItem('assessTime', updatedTime)
             }
            
-            console.log(localStorage.getItem('assessTime') + "testing assess")
+            // console.log(localStorage.getItem('assessTime') + "testing assess")
 
 
 
@@ -954,11 +954,11 @@ const audio = new Audio('bell.wav');
                         }else{
                             availble_to_assess = false
                             localStorage.removeItem("assessTime");
-                            console.log('removedAssessTime')
+                            // console.log('removedAssessTime')
                         }
                        
                     },error:function(err){
-                        console.log('assessment exist')		 
+                        // console.log('assessment exist')		 
                     }
                 })
             

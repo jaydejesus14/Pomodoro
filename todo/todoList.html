@@ -276,7 +276,7 @@
           
 
        }
-       console.log(window.innerWidth);
+    
        
        var $template = $(".template");
 
@@ -311,7 +311,7 @@
                     //     //path nung pag lalandingan niya
                     //    window .location.href = "../timer.html";
                     // }
-                    console.log(dataResult)
+                    // console.log(dataResult)
                     var innerHtml = ''
                     var listInnerHtml = ''
                     for (let i = 0; i < dataResult.length; i++) {
@@ -517,7 +517,7 @@
                     
                     cache:false,
                     success: function(dataResult){
-                        console.log(dataResult.status)
+                        // console.log(dataResult.status)
                     },error:function(err){
                 console.log('error')		 
                 }
@@ -615,9 +615,9 @@
                 
                 cache:false,
                 success: function(dataResult){
-                    console.log(dataResult.status)
+                    // console.log(dataResult.status)
                 },error:function(err){
-              console.log('error')		 
+            //   console.log('error')		 
             }
             })
 
@@ -654,7 +654,7 @@
                     }).then(function() {
                         location.reload();
                     });
-                        console.log(dataResult.status)
+                        // console.log(dataResult.status)
                     },error:function(err){
                 console.log('error')		 
                 }

@@ -133,7 +133,7 @@
     }
     function redirect(res){
         // window.location.href = res;
-        console.log(res)
+        // console.log(res)
         
 
         if(localStorage.getItem('user_id')){
@@ -156,8 +156,8 @@
     /*  */
         $(document).ready(function(){
         $(".dropdown-toggle").dropdown();
-        console.log(localStorage.getItem('user_id'))
-        console.log(localStorage.getItem('emailAdd'))
+        // console.log(localStorage.getItem('user_id'))
+        // console.log(localStorage.getItem('emailAdd'))
         
         
 
@@ -188,7 +188,7 @@
                
 
                 },error:function(err){
-            console.log('error')		 
+            // console.log('error')		 
             }
         })
             if(localStorage.getItem('emailAdd')!="pivotacc.pomodoro@gmail.com"){
@@ -203,7 +203,7 @@
                     adminBtns2.style.display='block'; 
             }
                
-                console.log(emailAdd)
+                
             } else {
                 
                 guestBtns.style.display='block';
