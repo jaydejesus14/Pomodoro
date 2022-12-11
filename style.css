@@ -2300,7 +2300,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
       width:60% 
     }
 
-    .adminInfoReports{ 
+    /* .adminInfoReports{ 
       width: 450px;
       margin: 30px 0px;
       background-color: #F0DFD1;
@@ -2328,7 +2328,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
       top: 620px;
       left: 250px;
     }
-  
+   */
 
 
  .sidenav {padding-top: 15px; 
