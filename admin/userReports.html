@@ -33,9 +33,10 @@
                                ALL USERS
                             </span>
                             <hr class = "hrWhite">
-                            <div class = "row">
+                            <div class = "row" hidden>
                                 <div class = "col-2">
-                            <input id="checked_all" type="checkbox" onclick="checked_all_func()" checked></div><div class = "col-10"><span>SELECT ALL USERS</span></div>
+                            <input id="checked_all" type="checkbox" onclick="checked_all_func()" checked ></div><div class = "col-10"><span>SELECT ALL USERS</span>
+                            </div>
                         </div>
                             <!-- ONE USER DETAIL -->
                             <div class = "row  text-center mb-1 mt-2" id = "adminScrollReports">
@@ -231,7 +232,7 @@
         search_id = true
         document.getElementById("checked_all").checked = false;
      }else{
-        is_all = true
+        is_all = false
         search_id = false
      }
      showUsers()
