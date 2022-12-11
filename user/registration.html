@@ -205,8 +205,12 @@
                     }).then(function() {
                         window.location.href = "emailVerification.html";
                     });
-                    }
-                    // var dataResult = JSON.parse(dataResult);
+                    } alert(dataResult.message)
+                    Swal.fire({
+                        title: 'EMAIL IS ALREADY USED BY ANOTHER USER!', 
+                        confirmButtonColor: "#783937",
+                        icon: 'success',
+                        confirmButtonText: 'OK' })
                     
                     
                     
