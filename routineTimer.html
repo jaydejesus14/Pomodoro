@@ -1109,7 +1109,7 @@ var timer = {
         // TESTING ADD OF SESSION
         var count = 0;
 
-        if(numberOfSess==="8"){
+        if(numberOfSess>7){
             addBtn.style.pointerEvents = 'none';
 
         }
@@ -1117,8 +1117,8 @@ var timer = {
         function addASession(){
             count
             numberOfSess
-            alert(numberOfSess)
-            if(numOfSess<=7){
+            sess = numberOfSess
+            if(sess<=7){
                 var addingSession=''
                 for(let i = 0; i <= count; i++) {
                 
