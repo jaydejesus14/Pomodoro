@@ -23,7 +23,7 @@
         </div>
         </div>
         <!-- SUMMARY OF ROUTINE -->
-        <button onClick = "window.location.href='allUserAccs.html'" class="btn-block btn-color" id = "print_btn">PRINT REPORTS</button>
+        <button class="btn-block btn-color" id = "print_btn">PRINT REPORTS</button>
         <div class="container d-flex justify-content-around ">
             <div class = "row text-center">
                 <div class = "col-lg-3">
@@ -95,7 +95,7 @@
                             <hr class = "hrWhite">
                             <div class = "col-6">
                                 <div class = "row">
-                                    <span class = "titleReports text-center">
+                                    <span class = "titleReports text-center" id ="no_of_task_complete">
                                         NO. OF TASKS COMPLETED:
                                     </span>
                                     <div class = "summaryNo text-center" id = "todoSummary1">
@@ -105,7 +105,7 @@
                              </div>
                              <div class = "col-6">
                                 <div class = "row">
-                                    <span class = "titleReports text-center">
+                                    <span class = "titleReports text-center" id="no_of_routine">
                                         NO. OF ROUTINES COMPLETED:
                                     </span>
                                     <div class = "summaryNo text-center" id = "routineSummary">
@@ -120,7 +120,7 @@
                             TASK COMPLETED
                         </span>
                         <div class = "reportsTableCard">
-                            <table class="table table-striped">
+                            <table class="table table-striped" id ="taskcomplete">
                                 <thead>
                                   <tr>
                                     <th>#</th>
@@ -146,7 +146,7 @@
                             ROUTINES COMPLETED
                         </span>
                         <div class = "reportsTableCard">
-                            <table class="table table-striped">
+                            <table class="table table-striped" id = "routinecomplete">
                                 <thead>
                                   <tr>
                                     <th scope="col-2">#</th>
@@ -174,7 +174,7 @@
                             ASSESSMENTS COMPLETED
                         </span>
                         <div class = "reportsTableCard">
-                            <table class="table table-striped">
+                            <table class="table table-striped" id="assessmentcomplete">
                                 <thead>
                                   <tr>
                                     <th scope="">#</th>
@@ -492,7 +492,17 @@
         
  
      </script>
-   
+     <script src="printThis.js" ></script>
+   <script>
+        $(document).ready(function(){
+            $('#print_btn').click(function(){
+                $('#no_of_task_complete, #no_of_routine, #todoSummary1, #routineSummary, #taskcomplete, #routinecomplete, #assessmentcomplete').printThis({
+                    importCSS: true, 
+                    header: "<h1>Admin Reports</h1>"
+                });
+            })
+        })
+   </script>
 
 
 </body>
