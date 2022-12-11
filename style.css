@@ -1170,7 +1170,7 @@ textarea {
   overflow-y: scroll;
   position: relative;
   float: left;
-  width: 100%
+  width: 100%;
   
 }
 
@@ -1251,6 +1251,16 @@ textarea {
   text-decoration: none;
   color: black;
   margin: 10px;
+}
+.todoCardMain {
+  width: 340px;
+  margin: 30px 5px;
+  padding: 25px 20px 40px 20px;
+  border-radius: 15px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background: rgb(253,251,249);
+  background: linear-gradient(0deg, rgba(253,251,249,1) 0%, rgba(240,223,209,1) 100%);
 }
 
 .todoCard {
@@ -2260,6 +2270,29 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   padding: 20px;
   border-radius: 10px;}
 
+  @media screen and (max-width: 1800px) and (min-width: 1601px) {
+    .todoContainer {
+
+      margin-top: -10px   !important;
+      overflow-x: scroll !important;
+      overflow-y: hidden !important;
+     
+  
+      
+    }
+  
+    .todoCardMain {
+      width: 305px !important;
+      margin-left: -10px;
+    }
+    .todoCard {
+      width: 310px !important;
+      
+  
+    } 
+
+  }
+
   @media screen and (max-width: 1600px) and (min-width: 1501px) {
  
     .card0 {
@@ -2293,6 +2326,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
    
 
     
+  }
+
+  .todoCardMain {
+    width: 320px !important;
+    /* margin-left: -10px; */
   }
   .todoCard {
     width: 310px !important;
@@ -2452,6 +2490,88 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     zoom: 0.8 !important;
     zoom: 80% !important;
     margin-left: -20px   !important;
+    margin-top: 3%   !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    height: 100vh !important
+
+    
+  }
+  .todoCardMain {
+    width: 300px !important;
+
+  }
+  .todoCard {
+    width: 300px !important;
+
+  }
+  #nav-placeholder {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;}
+  .nav {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+  }
+  .timer {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+  }
+  #smolPageContainer {
+    -moz-transform: scale(0.9, 0.9) !important;
+    zoom: 0.85 !important;
+    zoom: 85% !important;
+  }
+  
+  .editProfile {
+    margin: 10px 5px !important;
+  }
+  #signUpContainer {
+    -moz-transform: scale(0.9, 0.9) !important;
+    zoom: 0.85 !important;
+    zoom: 85% !important;
+  }
+}
+
+
+@media screen and (max-width: 992px) and (min-width: 700px){
+  body {
+    width: 100%;
+  }
+  .card1 {
+      width: 50%;
+      padding: 40px 30px 10px 30px;
+      
+  }
+
+  .card2 {
+      width: 50%;
+  }
+
+ 
+  .right {
+      margin-top: 100px !important;
+      margin-bottom: 100px !important;
+  }
+  
+  .sidenav {padding-top: 15px; -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+    height: 125vh !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    }
+  .sidenav a {font-size: 18px;}
+  .todoCard {
+    padding: 40px 30px;
+  }
+  .todoContainer {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+    margin-left: -20px   !important;
     margin-top: -10px   !important;
     overflow-x: scroll !important;
     overflow-y: hidden !important;
@@ -2491,10 +2611,123 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     zoom: 0.85 !important;
     zoom: 85% !important;
   }
+
+  .timers {
+    width: 80% !important;
+  }
+  .time {
+    margin-left: 15% !important;
+
+  }
+
+  .svg{
+    margin-right: 15% !important;
+  } 
+}
+@media screen and (max-width: 1200px) and (min-width: 1100px){
+  body {
+    width: 100%;
+  }
+  .card1 {
+      width: 50%;
+      padding: 40px 30px 10px 30px;
+      
+  }
+
+  .card2 {
+      width: 50%;
+  }
+
+ 
+  .right {
+      margin-top: 100px !important;
+      margin-bottom: 100px !important;
+  }
+  
+  /* .sidenav {padding-top: 15px; -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+    height: 125vh !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    }
+  .sidenav a {font-size: 18px;}*/
+  .todoCard {
+    padding: 40px 30px;
+  }
+  .todoContainer {
+   
+    margin-left: 5%   !important;
+    margin-top: 3%   !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    height: 125vh !important;
+    width: 1200vh !important;
+    position: absolute !important;
+    display: flex;
+    padding: 0px 0px 0px 20px
+
+
+    
+    
+  }
+  .todoCardMain {
+    width: 300px !important;
+    margin-left: -12%; 
+    position: relative;
+   
+
+  }
+  .todoCard {
+    width: 300px !important;
+    margin-left: 2px; 
+    position: relative;
+   
+
+  }
+  #nav-placeholder {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;}
+  .nav {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+  }
+  .timer {
+    -moz-transform: scale(0.8, 0.8) !important;
+    zoom: 0.8 !important;
+    zoom: 80% !important;
+  }
+  #smolPageContainer {
+    -moz-transform: scale(0.9, 0.9) !important;
+    zoom: 0.85 !important;
+    zoom: 85% !important;
+  }
+  
+  .editProfile {
+    margin: 10px 5px !important;
+  }
+  #signUpContainer {
+    -moz-transform: scale(0.9, 0.9) !important;
+    zoom: 0.85 !important;
+    zoom: 85% !important;
+  }
+
+  .timers {
+    width: 80% !important;
+  }
+  .time {
+    margin-left: 15% !important;
+
+  }
+
+  .svg{
+    margin-right: 15% !important;
+  } 
 }
 
-
-@media screen and (max-width: 992px) {
+/* @media screen and (max-width: 992px) {
   .card1 {
       width: 100%;
       padding: 40px 30px 10px 30px;
@@ -2567,7 +2800,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-left: 2% !important;
   }
 
-}
+} */
 /* @media(max-device-width:1280px){
   html{
     -moz-transform: scale(0.75, 0.75);
