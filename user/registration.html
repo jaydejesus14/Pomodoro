@@ -205,13 +205,13 @@
                     }).then(function() {
                         window.location.href = "emailVerification.html";
                     });
-                    } 
+                    } else {
                     Swal.fire({
                         title: 'EMAIL AREADY EXIST!', 
                         confirmButtonColor: "#783937",
                         text: "The email is already registered to an account.",
                         icon: 'warning',
-                        confirmButtonText: 'OK' })
+                        confirmButtonText: 'OK' })}
                     
                     
                     
