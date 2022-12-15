@@ -101,9 +101,7 @@
                                         icon: 'success',
                                         confirmButtonText: 'OK'
                                     })
-                                // alert(dataResult.message)
                                 if (dataResult.status){
-                                //path nung pag lalandingan niya
                                 localStorage.removeItem("first_name");
                                 localStorage.removeItem("last_name");
                                 localStorage.removeItem("user_name");
@@ -120,7 +118,6 @@
                     
                 }
                 }else{
-                    // alert('wrong code')
                     Swal.fire({
                                         title: 'INVALID CODE',
                                         text: 'Wrong code has been entered. Please try again.',

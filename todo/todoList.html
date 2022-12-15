@@ -145,70 +145,7 @@
               </div>
                 
               </div>
-                <!-- <div class="col-4"> -->
-                  <!-- <div class="card todoCard">
-                      <div class = "text-right"> 
-                          <div class = "dropdown">
-                          <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color: transprent; border-color: transparent;"><i class="fa fa-caret-square-down" id="todoDrop" ></i></button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="../todoTimer.html">Convert to Session</a>
-                              <a class="dropdown-item" href="#" >Edit Task Name</a>
-                              <a class="dropdown-item" href="#">Delete Task</a>
-                          </div>
-                            </div></div>
-                      <span id = "content" class = "todoTitle text-center">MAJOR TASK</span>
-                      <hr class="solid" id="hrBlack">
-                      <span class = "todoTitle text-center">25:00</span>
-                      <span class = "todoTime text-center">Time per session</span>
-                      <hr class="solid" id="hrBlack">
-                      <div class="card-body overflow-auto scroll" id="todoMajorBody">
-                         
-                              <div class ="card subTask text-center mb-3">
-                                      <div class = "row" id="accordionExample2">
-                                          <div class = "col-10 text-left" id="subTaskName">
-                                            <input type="text"  class = "taskName" placeholder="Task Name">
-                                          </div>
-                                          <div class = "col-2 mt-1" id="subTaskName">
-                                              <button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                                     <i class="fa fa-ellipsis-h" style="font-size:20px" id="indivIcon"></i>
-                                                  </button>
-                                          </div>
-                                          <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample2">
-                                              <hr class="solid" id="hrBlack">
-                                              <div class = "noteSubTask">
-  
-                                              </div>
-                                              <hr class="solid" id="hrBlack">
-                                              <div class ="row">
-                                                <div class = "col-6">
-                                                    <button class = "btn" id ="subBtn2">REMOVE</button>
-                                                </div>
-                                                <div class = "col-6">
-                                                    <button class = "btn" id = "subBtn" >SAVE</button>
-                                                </div>
-                                            </div>
-                                          </div>
-                                  </div>
-                                 
-                              </div>
-                         
-                          <div class ="card addSubTask text-center mb-3">
-                              <div class = "row">
-                                  <div class = "col text-center" id="subTaskName">
-                                      <i class="fa fa-plus-circle" style="font-size:16px"></i>
-                                      <span class = "ml-2">Add A Sub-Task</span>
-                                  </div>
-                          </div>
-                      </div>
-                      </div>
-                  
-                         
-                      <div class="card-footer bg-transparent">  
-                      </div>
-                  </div> -->
-                  <!-- </div> -->
-               
-                <!-- END -->
+             
             <!-- ADD A GROUPED TODO LIST -->
             <div class="col-2">
                 <div class="card todoAddCard1">
@@ -232,36 +169,14 @@
           
     </section>
 
-
-
-
-    <!-- SCRIPTS -->
-
-    <!-- HIDE AND SHOW
-    <script>
-         const targetDiv = document.getElementById("div-hide");
-         const btn = document.getElementById("toggle");
-        btn.onclick = function () {
-          if (targetDiv.style.display !== "none") {
-           targetDiv.style.display = "none";
-        } else {
-        targetDiv.style.display = "block";
-        }
-    }; -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
 
     <script>
-        // function validate_login(){
-        //     if(!localStorage.getItem('user_id')){
-        //         alert('login muna')
-        //         window.location.href = "http://localhost/pomodoro/user/login.html";
-        //     }
-        // }
 
-        
+
         if(!localStorage.getItem('user_id')){
             Swal.fire({
                         title: 'LOGIN FIRST!', 
@@ -272,9 +187,6 @@
                     }).then(function() {
                         window.location = "../user/login.html";
                     });
-            
-          
-
        }
        console.log(window.innerWidth);
        
@@ -290,27 +202,19 @@
             $("#accordion").append($newPanel.fadeIn());
         });
 
-//testing
-//group task
+
         $.ajax({
                 type:"POST",
                 url: "../api/group_task.php",
                 dataType: "json",
                 data:{
                     user_id: localStorage.getItem('user_id'),
-                    // last_name:  localStorage.getItem('last_name'),
-                    // user_name:  localStorage.getItem('user_name'),
-                    // password: localStorage.getItem('password'),
-                    // email: localStorage.getItem('email'),
+
                 },
                 
                 cache:false,
                 success: function(dataResult){
-                    // alert(dataResult.message)
-                    // if (dataResult.status){
-                    //     //path nung pag lalandingan niya
-                    //    window .location.href = "../timer.html";
-                    // }
+
                     console.log(dataResult)
                     var innerHtml = ''
                     var listInnerHtml = ''
@@ -372,7 +276,7 @@
                         innerHtml+='</div>'
                         innerHtml+='</div>'
                         innerHtml+='<hr class="solid" id="hrBlack">'
-                        innerHtml+='<div class="card-body overflow-auto scroll" id="todoMajorBody">'  //basta ito siya
+                        innerHtml+='<div class="card-body overflow-auto scroll" id="todoMajorBody">'  
 
 
                             for (let x = 0; x < dataResult[i].subtask.length; x++) {
@@ -456,14 +360,9 @@
                 
                 cache:false,
                 success: function(dataResult){
-                    // alert(dataResult.message)
-                    // if (dataResult.status){
-                    //     //path nung pag lalandingan niya
-                    //     window.location.href = "../timer.html";
-                    // }
+
                     var innerHtml = ''
                     for (let i = 0; i < dataResult.length; i++) {
-                        // var id = "'"+dataResult[0]._id['$oid']+"'"
                             innerHtml+="<div class ='card subTask text-center mb-3'>"
                             innerHtml+="<div class = 'row' id='accordionExample'>"
                             innerHtml+="<div class = 'col-10 text-left' id='subTaskName'>"
@@ -494,10 +393,6 @@
                     }
 
                     $('#todo_list').html(innerHtml)
-
-                    //     $('#tasks_view').html(innerHtml)
-                    
-
                 },error:function(err){
             console.log('error')		 
             }
@@ -527,7 +422,7 @@
         function updateSubtask(i,x,id){
             var name = document.getElementById('inputtext'+i+''+x).value
             var note = document.getElementById('note'+i+''+x).value
-            // console.log(id)
+
         $.ajax({
                 type:"POST",
                 url: "../api/update_subtask.php",
@@ -625,7 +520,6 @@
        }
        function remove(res){
 
-        // console.log(res)
         Swal.fire({
             title: 'DELETE SUBTASK?',
             text: "You won't be able to revert this!",
@@ -695,7 +589,6 @@
                     console.log('error')		 
                     }
                     })
-                    // location.reload();
                 }})
        }
        function SaveTask(input, id){
@@ -768,7 +661,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-    <!-- EDIT TASK NAME BUT NOT YET DYNAMIC AND STORED ON LOCAL STORAGE-->
+
     <script>
         window.onload = function() {
             
@@ -782,7 +675,7 @@
     }
     window.onpageshow = function (event) {
         if (event.persisted) {
-            window.location.reload(); //reload page if it has been loaded from cache
+            window.location.reload();
         }
         };
     }

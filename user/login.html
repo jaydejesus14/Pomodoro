@@ -99,10 +99,8 @@
             const togglePassword = document.querySelector('#togglePassword');
             const password = document.querySelector('#id_password');
             togglePassword.addEventListener('click', function (e) {
-            // toggle the type attribute
             const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
             password.setAttribute('type', type);
-            // toggle the eye slash icon
             this.classList.toggle('fa-eye-slash');
              });
         </script>
@@ -121,7 +119,6 @@
                     
                     cache:false,
                     success: function(dataResult){
-                        // console.log(dataResult)
                         if(dataResult.status){
                             Swal.fire({
                                 title: 'WELCOME BACK!',
@@ -131,7 +128,6 @@
                                 confirmButtonText: 'OK'
                             }).then(function() {
 
-                            //path ng landing page after mag success ng login
                             localStorage.setItem('user_id',dataResult.data['_id']['$oid'])
                             localStorage.setItem('emailAdd',dataResult.data['email'],email)
                             if(localStorage.getItem('emailAdd')=="pivotacc.pomodoro@gmail.com"){

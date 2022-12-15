@@ -166,15 +166,13 @@
         }
 
         function onkeyupedit(value,guide,reference_index) {
-            //1 name
-            //2 note
+
             if(guide == 1) {
                 sessionArray[reference_index].name = value
             }else{
                 sessionArray[reference_index].notes = value
             }
             
-            // $('#currentSession').html(sessionArray[reference_index].name)
         }
         function loadSession(){
             $.ajax({
@@ -194,9 +192,7 @@
                 $('#long_break').val(dataResult.long_break);
                 // console.log(dataResult)
                 loadtask();
-                // var innerHtml = ''
-                // $('#sessionTask').html(innerHtml);
-                
+
                     },error:function(err){
                 console.log('error')		 
                 }
@@ -298,10 +294,6 @@
                 }).then(function() {
                     window.location.href = "viewRoutine.html?"+id
                 });
-                // console.log(dataResult)
-                // var innerHtml = ''
-                // $('#sessionTask').html(innerHtml);
-                
                     },error:function(err){
                 console.log('error')		 
                 }

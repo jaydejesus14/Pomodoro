@@ -454,9 +454,6 @@ var timer = {
         var maxDate = year + '-' + month + '-' + day;
         var time = hr + ':' + min;
         settings.style.pointerEvents = 'none';
-        // startDate = new Date('Y-m-D')
-        // console.log()
-
 
         $.ajax({
                 type:"POST",
@@ -802,7 +799,6 @@ var timer = {
                     }
                     move(completed,1)
                     localStorage.setItem('countSession',countSession)
-                    // console.log(dataResult.major_task.pomodoro)
                    $('#completedPomodoro').html(completedInnerHtml)
                     $('#currentSession').html(currentSession)
                     $('#currentSessionIcons').html(currentSessionIcons)
@@ -814,7 +810,6 @@ var timer = {
                     localStorage.setItem('short_break',dataResult.major_task.short_break)
                     localStorage.setItem('long_break',dataResult.major_task.long_break)
                     $('#js-minutes').html(dataResult.major_task.pomodoro)
-                    // console.log(dataResult)
                     $('#pomodoroList').html(innerHtml);
                     },error:function(err){
                 console.log('error')		 
@@ -843,7 +838,6 @@ var timer = {
             console.log(res)
             var name = document.getElementById('inputtext'+i).value
             var note = document.getElementById('note'+i).value
-            // console.log(id)
         $.ajax({
                 type:"POST",
                 url: "../api/update_subtask.php",
@@ -872,7 +866,6 @@ var timer = {
             
         }
         function removeSubtask(res){
-            // console.log(res)
             Swal.fire({
             title: 'REMOVE SUBTASK?',
             text: "You won't be able to revert this!",
@@ -907,11 +900,10 @@ var timer = {
         function assessCount(i){
             var assess_Count = 0
             var assess_Count1 = assess_Count+i;
-            var getTime = parseInt(localStorage.getItem('pomodoro'))  // 25
-            // localStorage.removeItem("assessTime");
+            var getTime = parseInt(localStorage.getItem('pomodoro'))
+            
         
-          ; // 25
-             // 25
+          ; 
             if(!localStorage.getItem('assessTime')){
                 localStorage.setItem('assessTime', getTime)
             } else {
@@ -957,7 +949,7 @@ var timer = {
                         cache:false,
                         success: function(dataResult){
                             if(!dataResult.is_exist){
-                                if((localStorage.getItem('assessTime')) >= 100){ //palitan na lang yung 2
+                                if((localStorage.getItem('assessTime')) >= 100){ 
                                     stopTimer()
                                     Swal.fire({
                                         title: 'ASSESSMENT', 
@@ -981,11 +973,10 @@ var timer = {
                         }
                     })
                
-                // window.location.href = 'user/assessment.html'
+
             
             if(total == 100){
-                //sweet alert before reports
-                // startDate = new Date('Y-m-D')
+ 
                 $.ajax({
                     type:"POST",
                     url: "../api/update_date_todo.php",
@@ -1018,7 +1009,7 @@ var timer = {
                    
                 
                 console.log(time)
-                    // 
+                   
             }
             if (i == 0) {
                 i = 1;
@@ -1029,7 +1020,6 @@ var timer = {
                 if (width >= total) {
                     clearInterval(id);
                     i = 0;
-                    // window.location.href = 'user/reports.html';
                 } else {
                     width++;
                     elem.style.width = width + "%";
@@ -1040,9 +1030,9 @@ var timer = {
             if(valid == 0){
                 orderSession()
             }
-        //   
+        
         }
-        // TESTING ADD OF SESSION
+
         var count = 0;
 
         function addASession(){

@@ -242,45 +242,8 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
 
         <!-- POMODORO SESSIONS LIST !-->
         <div class = "row justify-content-md-center text-center mx-auto" id="sessionList">
-            <!-- <div class="card sessionsList">
-                <div class = "card-header sessionHeader">
-                        <div class = "row  justify-content-md-center text-center" id ="accordionSession">
-                        <div class = "col-8 text-left">
-                            <div class = "sessionListName">
-                                <input class ="sessionListInput" type = "text" placeholder="Session #1" style="color: black">
-                            </div>
-                        </div>
-                        <div class ="col-2 text-right mt-1">
-                            <button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapse" aria-expanded="true" aria-controls="collapseOne">
-                                <i class="fa fa-angle-down" id="sessionIcons"></i>
-                            </button>
-                            
-                        </div>
-                    </div>
-                </div>
-      
-                <div id="sessionCollapse" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSession">
-                    <div class = "card-body sessionsTimer">
-                      <div class = "row text-center">
-                        <div class = "notesTimer">
-                            <textarea class ="notesTimerInput" type = "text" placeholder="Session #" style="color: black" cols="40" rows="6"></textarea>
-                        </div> 
-                      </div>
-                      <hr>
-                      <div class = "row">
-                       
-                       <div class = "col text-center">
-                            <button type="button" class="btn " id = "sessSaveBtn2"><i class="fa fa-trash" id = "trashIcon2"></i> REMOVE</button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
-             
-        
-      
-        
+ 
           
         <!-- ADDING A SESSION !-->
         <div class = "row justify-content-md-center text-center mx-auto">
@@ -306,38 +269,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
         
         <div class = "row justify-content-md-center text-center mx-auto" id="completed_session">
             <h2>No Completed session yet</h2>
-            <!-- <div class="card sessionsList">
-                <div class = "card-header">
-                        <div class = "row  justify-content-md-center text-center" id ="accordionSessionC">
-                        <div class = "col-8 text-left">
-                            <div class = "sessionListName">
-                                <input class ="sessionListInput" type = "text" placeholder="Session #" style="color: white">
-                            </div>
-                        </div>
-                        <div class ="col-2 text-right mt-1">
-                            <button class = "moreBtn" id = "collapsible"  data-toggle="collapse" data-target="#sessionCollapse2" aria-expanded="true" aria-controls="collapseOne">
-                                <i class="fa fa-angle-down" id="sessionIcons"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-      
-                <div id="sessionCollapse2" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSessionC">
-                    <div class = "card-body sessionsTimer">
-                      <div class = "row text-center">
-                        <div class = "notesTimer">
-                        <textarea class ="notesTimerInput" type = "text" placeholder="Session #" style="color: black" cols="40" rows="6"></textarea>
-                    </div>
-                      </div>
-                      <hr>
-                      <div class = "row">
-                        <div class = "col text-center">
-                            <button type="button" class="btn " id = "sessSaveBtn2"><i class="fa fa-trash" id = "trashIcon2"></i> REMOVE</button>
-                      </div>
-                      </div>
-                    </div>
-                </div>
-            </div> -->
+        
             
         </div>
         <div class = "row justify-content-md-center text-center mx-auto mt-4 mb-4" id = "spacing"style = "color: white" hidden>
@@ -443,7 +375,6 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
              </div>
         </div>
 
-        <!-- <button onclick="audio.play();">sounds</button> -->
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -458,9 +389,7 @@ background: linear-gradient(0deg, rgba(120,57,55,1) 0%, rgba(240,223,209,1) 100%
 <script type="text/javascript">
 
 const audio = new Audio('bell.wav');
-// audio.play();
-    
-    //variables
+
     let sessionArray = [{
         name:'pomodoro #1',
         notes:'pomodoro #1',
@@ -470,7 +399,7 @@ const audio = new Audio('bell.wav');
         notes:'pomodoro #2'
     }
     ]
-    // let noteArray = ['pomodoro #1','pomodoro #2','pomodoro #3']
+
     window.onbeforeunload = function() {
         if(!localStorage.getItem('user_id')){
         Swal.fire({
@@ -532,7 +461,6 @@ const audio = new Audio('bell.wav');
     }
 
     var reference_index = 0
-    //default session
     function loadList(){
     innerHtml = '';
     completedInnerHtml = '';
@@ -616,7 +544,6 @@ const audio = new Audio('bell.wav');
                 innerHtml +='</div>'
                 innerHtml +='</div>'
             }
-            // console.log('test array')
         }
         
         $('#sessionList').html(innerHtml)
@@ -630,8 +557,7 @@ const audio = new Audio('bell.wav');
     }
 
     function saveSessionTime(){
-        // pomodoro = 20
-        
+
         pomodoro = document.getElementById('timeRoutine').value
         short_break = document.getElementById('timeRoutine1').value
         long_break = document.getElementById('timeRoutine2').value
@@ -845,7 +771,6 @@ const audio = new Audio('bell.wav');
                     confirmButtonText: 'OK'
                 })
         }
-        // noteArray.push('pomodoro #'+parseInt(sessionArray.length+1))
         loadList();
     }
     function removeSession(){
@@ -878,29 +803,6 @@ const audio = new Audio('bell.wav');
 
 
         }
-
-    // $.ajax({
-    //         type:"POST",
-    //         url: "http://localhost/pomodoro/api/user_info.php",
-    //         dataType: "json",
-    //         data:{
-    //             user_id: localStorage.getItem('user_id'),
-    //         },
-            
-    //         cache:false,
-    //         success: function(dataResult){
-    //             $('#userName').html(dataResult.user_name)
-    //             $('#Fname').html(dataResult.Fname)
-    //             $('#Lname').html(dataResult.Lname)
-    //             $('#Email').html(dataResult.email)
-
-    //             },error:function(err){
-    //         console.log('error')		 
-    //         }
-    //     })
-    
-
-
 
 
  </script>
@@ -1074,8 +976,7 @@ const audio = new Audio('bell.wav');
                 switchMode('pomodoro');
                 mainButton.disabled=false;
                 skipBtn.disabled=true;
-                
-                // move(completed,0)
+
             }
       
             startTimer();
@@ -1161,8 +1062,6 @@ const audio = new Audio('bell.wav');
       
     
         </script>
-    <!-- <script src="timer.js"></script> -->
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
     

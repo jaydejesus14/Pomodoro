@@ -389,7 +389,6 @@
                                 innerHtmlRoutineModal+='<th colspan="2">ROUTINE NAME</th>'
                                 innerHtmlRoutineModal+='<th scope="col-2">TIME PER SESSION</th>'
                                 innerHtmlRoutineModal+=' <th scope="col-2">NO. OF SUBTASKS</th>'
-                                // innerHtmlRoutineModal+='<th scope="col-2">NO. OF TIMES</th></th>'
                                 innerHtmlRoutineModal+=' <th scope="col-2">TIME/DATE COMPLETED'
                                 innerHtmlRoutineModal+='</tr>'
                                 innerHtmlRoutineModal+='<tbody>'
@@ -398,7 +397,6 @@
                                         innerHtmlRoutineModal += '<td colspan="2" class = "text-left">'+dataResult.routine[i].history[x].routine_name+'</td>'
                                         innerHtmlRoutineModal += '<td>'+dataResult.routine[i].history[x].pomodoro+':00</td>'
                                         innerHtmlRoutineModal += '<td>'+dataResult.routine[i].history[x].no_of_task+'</td>'
-                                        // innerHtmlRoutineModal += '<td>'+dataResult.routine[i].history[x]+'</td>'
                                         innerHtmlRoutineModal += '<td>'+dataResult.routine[i].history[x].end_date+'</td>'
                                         innerHtmlRoutineModal += '</tr>'
                                     }
@@ -418,7 +416,6 @@
                                 }
                             }
 
-                                // console.log(arrayRoutine)
                             
                                 innerHtmlTodoSummary+=dataResult.task.length
                                 innerHtmlRoutineSummary += dataResult.routine.length

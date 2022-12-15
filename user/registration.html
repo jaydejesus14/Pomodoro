@@ -221,19 +221,10 @@
               console.log('error')		 
             }
             })
-            // window.location.href = "emailVerification.html";
+        
         }
     }
-   
-    /*success: function(response){
-                    var dataResult = JSON.parse(dataResult);
-                    $(".form-message").css("display","block");
-                    if(dataResult.status){
-                        $(".form-message").html('<p>' + response.message + '</p>');
-                    }else{
-                        $(".form-message").html('<p>' + response.message + '</p>');
-                    }
-                }*/
+
     
       </script>
 
@@ -255,17 +246,11 @@
             </script>
         <script>
             $(document).on('click', 'input[type="checkbox"][data-group]', function(event) {
-                // The checkbox that was clicked
                 var actor = $(this);
-                // The status of that checkbox
                 var checked = actor.prop('checked');
-                // The group that checkbox is in
                 var group = actor.data('group');
-                // All checkboxes of that group
                 var checkboxes = $('input[type="checkbox"][data-group="' + group + '"]');
-                // All checkboxes excluding the one that was clicked
                 var otherCheckboxes = checkboxes.not(actor);
-                // Check those checkboxes
                 otherCheckboxes.prop('checked', checked);
                 });
         </script>
@@ -274,10 +259,8 @@
         const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#password');
         togglePassword.addEventListener('click', function (e) {
-        // toggle the type attribute
         const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
         password.setAttribute('type', type);
-        // toggle the eye slash icon
         this.classList.toggle('fa-eye-slash');
 });
     </script>
@@ -285,10 +268,8 @@
         const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
         const confirmPassword = document.querySelector('#confirm_password');
         toggleConfirmPassword.addEventListener('click', function (e) {
-        // toggle the type attribute
         const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
         confirmPassword.setAttribute('type', type);
-        // toggle the eye slash icon
         this.classList.toggle('fa-eye-slash');
 });
     </script>
